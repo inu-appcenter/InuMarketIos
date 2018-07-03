@@ -7,4 +7,14 @@ target 'InuMarket' do
 
   # Pods for InuMarket
 
+pod 'SnapKit', '~> 4.0.0'
+pod 'KYDrawerController'
+pod 'Alamofire', '~> 4.7'
+pod 'Kingfisher'
+pod 'ImageSlideshow', '~> 1.6'
+pod 'IQKeyboardManagerSwift'
+pod 'SwiftLint'
+pod 'Toast-Swift', '~> 3.0.1'
+
+
 end

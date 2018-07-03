@@ -7,21 +7,25 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3BC68D241A715E3DFC33B503 /* Pods_InuMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */; };
 		C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8821B6920E8AE2A009D8CD0 /* AppDelegate.swift */; };
-		C8821B6C20E8AE2A009D8CD0 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8821B6B20E8AE2A009D8CD0 /* ViewController.swift */; };
-		C8821B6F20E8AE2A009D8CD0 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8821B6D20E8AE2A009D8CD0 /* Main.storyboard */; };
+		C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */; };
+		C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8821B6D20E8AE2A009D8CD0 /* Login.storyboard */; };
 		C8821B7120E8AE2A009D8CD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8821B7020E8AE2A009D8CD0 /* Assets.xcassets */; };
 		C8821B7420E8AE2A009D8CD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8821B7220E8AE2A009D8CD0 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		560A9615F731506ADBCABA52 /* Pods-InuMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		C8821B6620E8AE2A009D8CD0 /* InuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8821B6920E8AE2A009D8CD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		C8821B6B20E8AE2A009D8CD0 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		C8821B6E20E8AE2A009D8CD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		C8821B6E20E8AE2A009D8CD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Login.storyboard; sourceTree = "<group>"; };
 		C8821B7020E8AE2A009D8CD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8821B7320E8AE2A009D8CD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8821B7520E8AE2A009D8CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8A3193499A2714AB79C2E25 /* Pods-InuMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.release.xcconfig"; sourceTree = "<group>"; };
+		FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InuMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +33,53 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3BC68D241A715E3DFC33B503 /* Pods_InuMarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F4F8D996192BF7410A1F1ED /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				560A9615F731506ADBCABA52 /* Pods-InuMarket.debug.xcconfig */,
+				E8A3193499A2714AB79C2E25 /* Pods-InuMarket.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		8B46AF9429556073BE21A1F9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		C8188C2320E9B71D007AC640 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				C8821B6D20E8AE2A009D8CD0 /* Login.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		C8188C2420E9B744007AC640 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
 		C8821B5D20E8AE2A009D8CD0 = {
 			isa = PBXGroup;
 			children = (
 				C8821B6820E8AE2A009D8CD0 /* InuMarket */,
 				C8821B6720E8AE2A009D8CD0 /* Products */,
+				5F4F8D996192BF7410A1F1ED /* Pods */,
+				8B46AF9429556073BE21A1F9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -54,9 +94,9 @@
 		C8821B6820E8AE2A009D8CD0 /* InuMarket */ = {
 			isa = PBXGroup;
 			children = (
+				C8188C2420E9B744007AC640 /* ViewControllers */,
+				C8188C2320E9B71D007AC640 /* Storyboards */,
 				C8821B6920E8AE2A009D8CD0 /* AppDelegate.swift */,
-				C8821B6B20E8AE2A009D8CD0 /* ViewController.swift */,
-				C8821B6D20E8AE2A009D8CD0 /* Main.storyboard */,
 				C8821B7020E8AE2A009D8CD0 /* Assets.xcassets */,
 				C8821B7220E8AE2A009D8CD0 /* LaunchScreen.storyboard */,
 				C8821B7520E8AE2A009D8CD0 /* Info.plist */,
@@ -71,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8821B7820E8AE2A009D8CD0 /* Build configuration list for PBXNativeTarget "InuMarket" */;
 			buildPhases = (
+				322280280C2A0EE168FE6A93 /* [CP] Check Pods Manifest.lock */,
 				C8821B6220E8AE2A009D8CD0 /* Sources */,
 				C8821B6320E8AE2A009D8CD0 /* Frameworks */,
 				C8821B6420E8AE2A009D8CD0 /* Resources */,
+				793258C8022C2FD2A0FB7736 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -124,18 +166,69 @@
 			files = (
 				C8821B7420E8AE2A009D8CD0 /* LaunchScreen.storyboard in Resources */,
 				C8821B7120E8AE2A009D8CD0 /* Assets.xcassets in Resources */,
-				C8821B6F20E8AE2A009D8CD0 /* Main.storyboard in Resources */,
+				C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		322280280C2A0EE168FE6A93 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InuMarket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		793258C8022C2FD2A0FB7736 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/KYDrawerController/KYDrawerController.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KYDrawerController.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		C8821B6220E8AE2A009D8CD0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C8821B6C20E8AE2A009D8CD0 /* ViewController.swift in Sources */,
+				C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */,
 				C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -143,12 +236,12 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		C8821B6D20E8AE2A009D8CD0 /* Main.storyboard */ = {
+		C8821B6D20E8AE2A009D8CD0 /* Login.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
 				C8821B6E20E8AE2A009D8CD0 /* Base */,
 			);
-			name = Main.storyboard;
+			name = Login.storyboard;
 			sourceTree = "<group>";
 		};
 		C8821B7220E8AE2A009D8CD0 /* LaunchScreen.storyboard */ = {
@@ -278,6 +371,7 @@
 		};
 		C8821B7920E8AE2A009D8CD0 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 560A9615F731506ADBCABA52 /* Pods-InuMarket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -295,6 +389,7 @@
 		};
 		C8821B7A20E8AE2A009D8CD0 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8A3193499A2714AB79C2E25 /* Pods-InuMarket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
