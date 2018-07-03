@@ -1,0 +1,46 @@
+PODS:
+  - Alamofire (4.7.2)
+  - ImageSlideshow (1.6.1):
+    - ImageSlideshow/Core (= 1.6.1)
+  - ImageSlideshow/Core (1.6.1)
+  - IQKeyboardManagerSwift (6.0.4)
+  - Kingfisher (4.8.0)
+  - KYDrawerController (2.0.4)
+  - SnapKit (4.0.0)
+  - SwiftLint (0.26.0)
+  - Toast-Swift (3.0.1)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - ImageSlideshow (~> 1.6)
+  - IQKeyboardManagerSwift
+  - Kingfisher
+  - KYDrawerController
+  - SnapKit (~> 4.0.0)
+  - SwiftLint
+  - Toast-Swift (~> 3.0.1)
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - Alamofire
+    - ImageSlideshow
+    - IQKeyboardManagerSwift
+    - Kingfisher
+    - KYDrawerController
+    - SnapKit
+    - SwiftLint
+    - Toast-Swift
+
+SPEC CHECKSUMS:
+  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  ImageSlideshow: f0f33e1a20668e83d77f5fb7729e4ae4437c0759
+  IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
+  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
+  KYDrawerController: cf5839877c442132123e9d482f458821026defdf
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+  Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
+
+PODFILE CHECKSUM: 64d79856786a750b30e8c61835a1635839aafc60
+
+COCOAPODS: 1.5.2
