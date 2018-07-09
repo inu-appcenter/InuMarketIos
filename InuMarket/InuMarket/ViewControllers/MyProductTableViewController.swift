@@ -31,11 +31,11 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     //섹션별 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 10
+        return 2
     }
     // 섹션 개수
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
+        return 2
     }
     
     // 셀별 상세정보
@@ -45,11 +45,21 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         
         cell.productNameLabel.text = "test"
         
+        
+        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+
         return cell
     }
     // 섹션별 셀 수정가능 여부
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        return true
+        switch indexPath.section {
+        case 0:
+            return false
+        case 1:
+            return true
+        default:
+            return true
+        }
     }
     
     // 셀 눌렀을때 눌린 상태 수정
@@ -66,6 +76,7 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
             let okAction = UIAlertAction(title: "판매완료", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
 //                self.dismiss(animated: true , completion: nil)
                 print("확인 누를때 수행될 내용")
+                
             }
             let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
             
