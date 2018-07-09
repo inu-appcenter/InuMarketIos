@@ -10,6 +10,10 @@
 		3BC68D241A715E3DFC33B503 /* Pods_InuMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */; };
 		C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */; };
 		C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */; };
+		C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3720F338FC0094E917 /* UploadCategoryViewController.swift */; };
+		C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3920F3398C0094E917 /* UploadCategoryTableViewCell.swift */; };
+		C8200E3C20F3412C0094E917 /* UploadInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */; };
+		C8200E3E20F348D90094E917 /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8200E3D20F348D90094E917 /* Upload.storyboard */; };
 		C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36B620F1ED4F008D4362 /* MainViewController.swift */; };
 		C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */; };
 		C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */; };
@@ -27,6 +31,10 @@
 		560A9615F731506ADBCABA52 /* Pods-InuMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductTableViewCell.swift; sourceTree = "<group>"; };
 		C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductTableViewController.swift; sourceTree = "<group>"; };
+		C8200E3720F338FC0094E917 /* UploadCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCategoryViewController.swift; sourceTree = "<group>"; };
+		C8200E3920F3398C0094E917 /* UploadCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCategoryTableViewCell.swift; sourceTree = "<group>"; };
+		C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadInfoViewController.swift; path = InuMarket/ViewControllers/UploadInfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		C8200E3D20F348D90094E917 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
 		C85A36B620F1ED4F008D4362 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -80,6 +88,7 @@
 				C899F8E920F1000200C61BC2 /* Main.storyboard */,
 				C899F8EB20F1002400C61BC2 /* Category.storyboard */,
 				C899F8ED20F1006300C61BC2 /* MyPage.storyboard */,
+				C8200E3D20F348D90094E917 /* Upload.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -92,6 +101,8 @@
 				C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */,
 				C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */,
 				C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */,
+				C8200E3720F338FC0094E917 /* UploadCategoryViewController.swift */,
+				C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -100,6 +111,7 @@
 			isa = PBXGroup;
 			children = (
 				C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */,
+				C8200E3920F3398C0094E917 /* UploadCategoryTableViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -200,6 +212,7 @@
 				C899F8EE20F1006300C61BC2 /* MyPage.storyboard in Resources */,
 				C8821B7420E8AE2A009D8CD0 /* LaunchScreen.storyboard in Resources */,
 				C8821B7120E8AE2A009D8CD0 /* Assets.xcassets in Resources */,
+				C8200E3E20F348D90094E917 /* Upload.storyboard in Resources */,
 				C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */,
 				C899F8EA20F1000200C61BC2 /* Main.storyboard in Resources */,
 			);
@@ -263,13 +276,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */,
 				C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */,
 				C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */,
 				C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */,
+				C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */,
 				C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */,
 				C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */,
 				C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */,
 				C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */,
+				C8200E3C20F3412C0094E917 /* UploadInfoViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
