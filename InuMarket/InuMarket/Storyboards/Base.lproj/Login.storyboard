@@ -83,6 +83,9 @@
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="R1F-vi-5yM">
                                 <rect key="frame" x="20" y="454" width="335" height="30"/>
                                 <state key="normal" title="로그인"/>
+                                <connections>
+                                    <action selector="loginButtonClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iqN-3i-dN8"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cNA-jc-0Qi">
                                 <rect key="frame" x="19" y="504" width="335" height="30"/>
@@ -117,12 +120,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-66" y="133"/>
+            <point key="canvasLocation" x="-602" y="133"/>
         </scene>
         <!--Detail View Controller-->
         <scene sceneID="qfd-Ng-GyG">
             <objects>
-                <viewController storyboardIdentifier="DetailView" hidesBottomBarWhenPushed="YES" id="WKT-Uh-9hd" customClass="DetailViewController" customModule="club_INU" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="DetailView" hidesBottomBarWhenPushed="YES" id="WKT-Uh-9hd" customClass="DetailViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vBg-if-1tx">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
