@@ -8,15 +8,28 @@
 
 /* Begin PBXBuildFile section */
 		3BC68D241A715E3DFC33B503 /* Pods_InuMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */; };
+		C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */; };
+		C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */; };
+		C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36B620F1ED4F008D4362 /* MainViewController.swift */; };
+		C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */; };
+		C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */; };
 		C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8821B6920E8AE2A009D8CD0 /* AppDelegate.swift */; };
 		C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */; };
 		C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8821B6D20E8AE2A009D8CD0 /* Login.storyboard */; };
 		C8821B7120E8AE2A009D8CD0 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C8821B7020E8AE2A009D8CD0 /* Assets.xcassets */; };
 		C8821B7420E8AE2A009D8CD0 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8821B7220E8AE2A009D8CD0 /* LaunchScreen.storyboard */; };
+		C899F8EA20F1000200C61BC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C899F8E920F1000200C61BC2 /* Main.storyboard */; };
+		C899F8EC20F1002400C61BC2 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C899F8EB20F1002400C61BC2 /* Category.storyboard */; };
+		C899F8EE20F1006300C61BC2 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C899F8ED20F1006300C61BC2 /* MyPage.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		560A9615F731506ADBCABA52 /* Pods-InuMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.debug.xcconfig"; sourceTree = "<group>"; };
+		C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductTableViewCell.swift; sourceTree = "<group>"; };
+		C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductTableViewController.swift; sourceTree = "<group>"; };
+		C85A36B620F1ED4F008D4362 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
+		C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
 		C8821B6620E8AE2A009D8CD0 /* InuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8821B6920E8AE2A009D8CD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -24,6 +37,9 @@
 		C8821B7020E8AE2A009D8CD0 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		C8821B7320E8AE2A009D8CD0 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		C8821B7520E8AE2A009D8CD0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C899F8E920F1000200C61BC2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		C899F8EB20F1002400C61BC2 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
+		C899F8ED20F1006300C61BC2 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		E8A3193499A2714AB79C2E25 /* Pods-InuMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.release.xcconfig"; sourceTree = "<group>"; };
 		FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InuMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -61,6 +77,9 @@
 			isa = PBXGroup;
 			children = (
 				C8821B6D20E8AE2A009D8CD0 /* Login.storyboard */,
+				C899F8E920F1000200C61BC2 /* Main.storyboard */,
+				C899F8EB20F1002400C61BC2 /* Category.storyboard */,
+				C899F8ED20F1006300C61BC2 /* MyPage.storyboard */,
 			);
 			path = Storyboards;
 			sourceTree = "<group>";
@@ -69,8 +88,20 @@
 			isa = PBXGroup;
 			children = (
 				C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */,
+				C85A36B620F1ED4F008D4362 /* MainViewController.swift */,
+				C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */,
+				C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */,
+				C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */,
 			);
 			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		C8200E2620F253260094E917 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 		C8821B5D20E8AE2A009D8CD0 = {
@@ -94,6 +125,7 @@
 		C8821B6820E8AE2A009D8CD0 /* InuMarket */ = {
 			isa = PBXGroup;
 			children = (
+				C8200E2620F253260094E917 /* Models */,
 				C8188C2420E9B744007AC640 /* ViewControllers */,
 				C8188C2320E9B71D007AC640 /* Storyboards */,
 				C8821B6920E8AE2A009D8CD0 /* AppDelegate.swift */,
@@ -164,9 +196,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C899F8EC20F1002400C61BC2 /* Category.storyboard in Resources */,
+				C899F8EE20F1006300C61BC2 /* MyPage.storyboard in Resources */,
 				C8821B7420E8AE2A009D8CD0 /* LaunchScreen.storyboard in Resources */,
 				C8821B7120E8AE2A009D8CD0 /* Assets.xcassets in Resources */,
 				C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */,
+				C899F8EA20F1000200C61BC2 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,8 +236,8 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
-				"${BUILT_PRODUCTS_DIR}/KYDrawerController/KYDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 			);
@@ -211,8 +246,8 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KYDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 			);
@@ -228,8 +263,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */,
+				C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */,
+				C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */,
 				C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */,
 				C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */,
+				C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */,
+				C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
