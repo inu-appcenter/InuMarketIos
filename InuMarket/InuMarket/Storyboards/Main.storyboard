@@ -21,6 +21,7 @@
                         <viewLayoutGuide key="safeArea" id="BbK-p0-XXS"/>
                     </view>
                     <navigationItem key="navigationItem" id="zKa-IL-CLb">
+                        <barButtonItem key="backBarButtonItem" title=" " id="Fq1-c8-1Ho"/>
                         <barButtonItem key="leftBarButtonItem" title="카테고리" id="tqE-4k-KD0">
                             <connections>
                                 <segue destination="Stq-Ph-gce" kind="presentation" id="bhB-dH-owZ"/>

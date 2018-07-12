@@ -14,6 +14,9 @@
 		C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3920F3398C0094E917 /* UploadCategoryTableViewCell.swift */; };
 		C8200E3C20F3412C0094E917 /* UploadInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */; };
 		C8200E3E20F348D90094E917 /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8200E3D20F348D90094E917 /* Upload.storyboard */; };
+		C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3F20F393840094E917 /* UploadExplainViewController.swift */; };
+		C850EEF820F652CC002068F1 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850EEF720F652CC002068F1 /* NetworkModel.swift */; };
+		C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850EEF920F65357002068F1 /* NetworkCallback.swift */; };
 		C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36B620F1ED4F008D4362 /* MainViewController.swift */; };
 		C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */; };
 		C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */; };
@@ -35,6 +38,9 @@
 		C8200E3920F3398C0094E917 /* UploadCategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadCategoryTableViewCell.swift; sourceTree = "<group>"; };
 		C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadInfoViewController.swift; path = InuMarket/ViewControllers/UploadInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		C8200E3D20F348D90094E917 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
+		C8200E3F20F393840094E917 /* UploadExplainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadExplainViewController.swift; sourceTree = "<group>"; };
+		C850EEF720F652CC002068F1 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
+		C850EEF920F65357002068F1 /* NetworkCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		C85A36B620F1ED4F008D4362 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -103,6 +109,7 @@
 				C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */,
 				C8200E3720F338FC0094E917 /* UploadCategoryViewController.swift */,
 				C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */,
+				C8200E3F20F393840094E917 /* UploadExplainViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -112,6 +119,8 @@
 			children = (
 				C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */,
 				C8200E3920F3398C0094E917 /* UploadCategoryTableViewCell.swift */,
+				C850EEF720F652CC002068F1 /* NetworkModel.swift */,
+				C850EEF920F65357002068F1 /* NetworkCallback.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -276,11 +285,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C850EEF820F652CC002068F1 /* NetworkModel.swift in Sources */,
 				C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */,
+				C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */,
 				C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */,
 				C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */,
 				C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */,
 				C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */,
+				C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */,
 				C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */,
 				C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */,
 				C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */,

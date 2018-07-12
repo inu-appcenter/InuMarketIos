@@ -215,10 +215,10 @@
             </objects>
             <point key="canvasLocation" x="2284" y="46"/>
         </scene>
-        <!--View Controller-->
+        <!--Upload Explain View Controller-->
         <scene sceneID="qvT-BO-vRS">
             <objects>
-                <viewController id="2MU-64-Sgl" sceneMemberID="viewController">
+                <viewController id="2MU-64-Sgl" customClass="UploadExplainViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fzQ-Ze-aKA">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

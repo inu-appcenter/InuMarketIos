@@ -41,10 +41,11 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     // 셀별 상세정보
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyProductTableViewCell") as! MyProductTableViewCell
-        
-        
         cell.productNameLabel.text = "test"
-        
+
+        if indexPath.section == 0 {
+            cell.backgroundColor = UIColor(red: 251/255.0, green: 58/255.0, blue: 47/255.0, alpha: 0.5)
+        }
         
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
 
