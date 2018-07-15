@@ -75,8 +75,9 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
             
             let alertController = UIAlertController(title: "판매완료 하시겠습니까?", message: "상품이 판매 완료 되면 고객이 상세정보를 열람할 수 없게 됩니다.", preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "판매완료", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-//                self.dismiss(animated: true , completion: nil)
                 print("확인 누를때 수행될 내용")
+                self.myProductTable.reloadSections(IndexSet(0...0), with: .automatic)
+                self.myProductTable.reloadData()
                 
             }
             let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)

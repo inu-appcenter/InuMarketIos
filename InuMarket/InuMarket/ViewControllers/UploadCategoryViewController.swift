@@ -57,7 +57,7 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
 
-//        cell?.backgroundColor = UIColor(red: 69/255.0, green: 222/255.0, blue: 157/255.0, alpha: 1.0)
+        
         cell?.selectedBackgroundView?.backgroundColor = UIColor(red: 69/255.0, green: 222/255.0, blue: 157/255.0, alpha: 1.0)
         
         cell?.isSelected = true

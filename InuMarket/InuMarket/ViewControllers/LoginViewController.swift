@@ -7,18 +7,20 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
-    
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
     
     var loginResult : Bool?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializing()
         idTextField.delegate = self
         passTextField.delegate = self
         
@@ -43,11 +45,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonClicked(_ sender: Any) {
         var loginInfo : String
         
-        loginInfo = "id=\(idTextField.text!)&passwd=\(passTextField.text!)"
-        print(loginInfo)
-        let model = NetworkModel(self)
-        model.login(param: loginInfo)
-        
+//        loginInfo = "id=\(idTextField.text!)&passwd=\(passTextField.text!)"
+//        print(loginInfo)
+//        let model = NetworkModel(self)
+//        model.login(param: loginInfo)
+        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController {
+            self.present(vc, animated: true, completion: nil)
+        }
         
     }
 
@@ -56,6 +61,19 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func lossPassButtonClicked(_ sender: Any) {
     }
+    func initializing() {
+        loginButton.layer.cornerRadius = 10.0
+        loginButton.layer.borderWidth = 1.0
+        loginButton.layer.borderColor = UIColor.white.cgColor
+        loginButton.layer.backgroundColor = UIColor.white.cgColor
+        loginButton.layer.masksToBounds = true
+        loginButton.layer.shadowColor = UIColor.lightGray.cgColor
+        loginButton.layer.shadowOffset = CGSize.zero
+        loginButton.layer.shadowRadius = 2.5
+        loginButton.layer.shadowOpacity = 0.8
+        loginButton.layer.masksToBounds = false
+    }
+
 }
 
 extension LoginViewController : NetworkCallback{
@@ -73,6 +91,8 @@ extension LoginViewController : NetworkCallback{
             } else{
                 idTextField.text = ""
                 passTextField.text = ""
+                errorLabel.isHidden = false
+                self.view.makeToast("아이디와 비밀번호가 틀렸습니다.")
             }
     
             

@@ -159,6 +159,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="OkP-KM-T0a"/>
                     </view>
+                    <navigationItem key="navigationItem" id="KSx-kp-k5L"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="fKn-gz-L3V" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

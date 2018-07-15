@@ -34,7 +34,10 @@ class UploadInfoViewController: UIViewController {
     
     @IBAction func nextButtonClicked(_ sender: Any) {
         if itemNameTextLabel.text != "" && itemProductTextLabel.text != "" && itemPriceTextLabel.text != "" {
-            self.view.makeToast("씨빨")
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadExplain") as? UploadExplainViewController{
+                self.navigationController?.show(vc, sender: nil)
+            }
+            
         }
         else { self.view.makeToast("입력해주세요", duration: 2, position: .bottom) }
     }
