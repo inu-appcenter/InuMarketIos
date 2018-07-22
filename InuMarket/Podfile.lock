@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.7.2)
+  - BetterSegmentedControl (0.9)
   - ImageSlideshow (1.6.1):
     - ImageSlideshow/Core (= 1.6.1)
   - ImageSlideshow/Core (1.6.1)
@@ -12,6 +13,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - BetterSegmentedControl (~> 0.9)
   - ImageSlideshow (~> 1.6)
   - IQKeyboardManagerSwift
   - Kingfisher
@@ -23,6 +25,7 @@ DEPENDENCIES:
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
     - Alamofire
+    - BetterSegmentedControl
     - ImageSlideshow
     - IQKeyboardManagerSwift
     - Kingfisher
@@ -33,6 +36,7 @@ SPEC REPOS:
 
 SPEC CHECKSUMS:
   Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  BetterSegmentedControl: 40b2b6a08bbc59663149624d1b5235efa8d43a3c
   ImageSlideshow: f0f33e1a20668e83d77f5fb7729e4ae4437c0759
   IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
   Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
@@ -41,6 +45,6 @@ SPEC CHECKSUMS:
   SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 9641ee52667be38c2082851736e3896df580c04b
+PODFILE CHECKSUM: 49558dc6f88b582128dc471ba0c8de6906da5e26
 
 COCOAPODS: 1.5.2
