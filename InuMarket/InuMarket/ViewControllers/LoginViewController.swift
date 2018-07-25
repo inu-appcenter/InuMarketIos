@@ -60,8 +60,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
     
     @IBAction func lossPassButtonClicked(_ sender: Any) {
+
+        
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "forgotPassword") as? ForgotPasswordViewController{
+            self.navigationController?.show(vc, sender: nil)
+        }
     }
     func initializing() {
+        // button initializing
         loginButton.layer.cornerRadius = 10.0
         loginButton.layer.borderWidth = 1.0
         loginButton.layer.borderColor = UIColor.white.cgColor
@@ -72,6 +78,18 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.layer.shadowRadius = 2.5
         loginButton.layer.shadowOpacity = 0.8
         loginButton.layer.masksToBounds = false
+
+        
+        // navigation initializing
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let mainlogo = UIImage(named: "mainLogo.png")
+        let imageview = UIImageView(image: mainlogo)
+        self.navigationItem.titleView = imageview
+        
     }
 
 }

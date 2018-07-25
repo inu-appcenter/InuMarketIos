@@ -19,6 +19,7 @@ class MainViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupSideMenu()
+        initializing()
         // Do any additional setup after loading the view.
     }
 
@@ -37,6 +38,18 @@ class MainViewController: UIViewController {
         SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
     }
 
+    func initializing() {
+        // navigation initializing
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.navigationController?.navigationBar.isTranslucent = true
+        self.navigationController?.view.backgroundColor = UIColor.clear
+        
+        let mainlogo = UIImage(named: "mainLogo.png")
+        let imageview = UIImageView(image: mainlogo)
+        self.navigationItem.titleView = imageview
+        
+    }
     /*
     // MARK: - Navigation
 
