@@ -26,7 +26,7 @@ class NetworkModel{
         Alamofire.request("\(serverURL)login?\(param)", method: .post, parameters: nil, headers: nil).responseJSON { res in
             switch res.result{
             case .success(let item):
-                self.view.networkSuc(resultdata: item, code: "loginSuccess", tag: 10)
+                self.view.networkSuc(resultdata: item, code: "loginSuccess")
                 break
             case .failure(let error):
                 print(error)
@@ -35,5 +35,18 @@ class NetworkModel{
             }
         }
         
+    }
+}
+
+class ViewModel{
+    var view: ViewCallback
+    
+    init(_ view: ViewCallback){
+        self.view = view
+        
+    }
+    
+    func letter() {
+        self.view.viewSuc(code: "letter")
     }
 }

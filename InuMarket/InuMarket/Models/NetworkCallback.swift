@@ -9,6 +9,11 @@
 import Foundation
 
 protocol NetworkCallback {
-    func networkSuc(resultdata : Any, code: String, tag: Int)
+    func networkSuc(resultdata : Any, code: String)
     func networkFail(code: String)
+}
+
+protocol ViewCallback{
+    func viewSuc(code : String)
+    func viewFail(code : String)
 }

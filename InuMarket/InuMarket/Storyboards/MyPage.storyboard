@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sVe-D1-Rhf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="J2t-5X-uZ1">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,30 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Side Menu Navigation Controller-->
-        <scene sceneID="5ks-Tk-ENg">
-            <objects>
-                <navigationController storyboardIdentifier="RightMenuNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="sVe-D1-Rhf" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7o7-LE-9rG">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <userDefinedRuntimeAttributes>
-                        <userDefinedRuntimeAttribute type="number" keyPath="menuWidth">
-                            <real key="value" value="323"/>
-                        </userDefinedRuntimeAttribute>
-                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="NO"/>
-                    </userDefinedRuntimeAttributes>
-                    <connections>
-                        <segue destination="mxX-mo-Zd0" kind="relationship" relationship="rootViewController" id="0eJ-dd-w7U"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="VZ6-V0-iSh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="332" y="-133.5832083958021"/>
-        </scene>
         <!--My Page View Controller-->
         <scene sceneID="fKC-jX-fzV">
             <objects>
@@ -134,7 +110,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cct-w1-nIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1204" y="-134"/>
+            <point key="canvasLocation" x="3052" y="-129.08545727136433"/>
         </scene>
         <!--My Product Table View Controller-->
         <scene sceneID="qpS-Qs-hJ8">
@@ -145,7 +121,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ly1-5c-6UC">
-                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <rect key="frame" x="0.0" y="75" width="375" height="592"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyProductTableViewCell" id="Pwg-Gb-CQi" customClass="MyProductTableViewCell" customModule="InuMarket" customModuleProvider="target">
@@ -166,32 +142,96 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="판매 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcx-4e-Ih5">
+                                                    <rect key="frame" x="149" y="10" width="74" height="24"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="Qcx-4e-Ih5" firstAttribute="centerX" secondItem="v5b-Jh-pK1" secondAttribute="centerX" constant="15" id="Dqr-4H-A9L"/>
+                                                <constraint firstItem="Qcx-4e-Ih5" firstAttribute="centerY" secondItem="v5b-Jh-pK1" secondAttribute="centerY" id="O6B-ja-9Tf"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="productImageView" destination="5MU-om-v8f" id="KMe-ZF-ohq"/>
                                             <outlet property="productNameLabel" destination="eMo-gA-mHg" id="ZTp-2e-Xh4"/>
+                                            <outlet property="successLabel" destination="Qcx-4e-Ih5" id="BKX-0Q-Tqb"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BWR-WK-u8g" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="0.0" y="20" width="375" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="2Lo-wr-Iyd"/>
+                                    <constraint firstAttribute="width" constant="375" id="9k8-Gs-eeN"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bouncesOnChange" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="alwaysAnnouncesValue" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="announcesValueImmediately" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleNumberOfLines">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.792156862745098" green="0.82352941176470584" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="SegmentControlValueChanged:" destination="EHL-Fd-Nga" eventType="valueChanged" id="gih-ta-qzt"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="ly1-5c-6UC" firstAttribute="top" secondItem="rUG-At-Bpv" secondAttribute="top" id="bLK-Dq-Fkf"/>
+                            <constraint firstItem="BWR-WK-u8g" firstAttribute="leading" secondItem="rUG-At-Bpv" secondAttribute="leading" id="AUD-rW-qgR"/>
+                            <constraint firstItem="BWR-WK-u8g" firstAttribute="top" secondItem="rUG-At-Bpv" secondAttribute="top" id="Gzv-AS-evR"/>
                             <constraint firstItem="ly1-5c-6UC" firstAttribute="leading" secondItem="rUG-At-Bpv" secondAttribute="leading" id="fCC-T4-Ut6"/>
                             <constraint firstItem="ly1-5c-6UC" firstAttribute="bottom" secondItem="rUG-At-Bpv" secondAttribute="bottom" id="iFd-E3-uDX"/>
+                            <constraint firstItem="BWR-WK-u8g" firstAttribute="trailing" secondItem="rUG-At-Bpv" secondAttribute="trailing" id="tRE-Qt-F8s"/>
+                            <constraint firstItem="ly1-5c-6UC" firstAttribute="top" secondItem="BWR-WK-u8g" secondAttribute="bottom" constant="3" id="vAA-g9-0SV"/>
                             <constraint firstItem="ly1-5c-6UC" firstAttribute="trailing" secondItem="rUG-At-Bpv" secondAttribute="trailing" id="zIR-Z8-CNk"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="rUG-At-Bpv"/>
                     </view>
                     <connections>
                         <outlet property="myProductTable" destination="ly1-5c-6UC" id="eOG-0l-gYQ"/>
+                        <outlet property="segmentControl" destination="BWR-WK-u8g" id="LO6-pf-3Hx"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eP1-Uj-d0w" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2141.5999999999999" y="-625.63718140929541"/>
+            <point key="canvasLocation" x="3919.1999999999998" y="-597.75112443778119"/>
+        </scene>
+        <!--Side Menu Navigation Controller-->
+        <scene sceneID="cPi-kb-qZI">
+            <objects>
+                <navigationController storyboardIdentifier="RightMenuNavigationController" automaticallyAdjustsScrollViewInsets="NO" id="J2t-5X-uZ1" customClass="UISideMenuNavigationController" customModule="SideMenu" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="vuo-Sn-pLv">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="menuWidth">
+                            <real key="value" value="312"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="boolean" keyPath="leftSide" value="NO"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <segue destination="mxX-mo-Zd0" kind="relationship" relationship="rootViewController" id="Nxw-sV-mnw"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ias-hL-tmp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2112.8000000000002" y="-129.08545727136433"/>
         </scene>
     </scenes>
 </document>

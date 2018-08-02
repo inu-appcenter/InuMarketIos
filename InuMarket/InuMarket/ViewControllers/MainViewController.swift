@@ -7,18 +7,22 @@
 //
 
 import UIKit
-import SideMenu
+
 
 class MainViewController: UIViewController {
 
     
-    let categoryStoryBoard: UIStoryboard = UIStoryboard(name: "Category", bundle: nil)
-    let myPageStoryBoard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
-
     
+    @IBAction func button(_ sender: Any) {
+        let storyBoard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "MyProductTable") as? MyProductTableViewController {
+            
+            self.navigationController?.show(vc, sender: nil)
+        }
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
-        setupSideMenu()
+        
         initializing()
         // Do any additional setup after loading the view.
     }
@@ -29,14 +33,17 @@ class MainViewController: UIViewController {
     }
     
     
-    func setupSideMenu(){
+    @IBAction func leftButtonDidPressed(_ sender: Any) {
 
-        SideMenuManager.default.menuLeftNavigationController = categoryStoryBoard.instantiateViewController(withIdentifier: "LeftMenuNavigationController") as? UISideMenuNavigationController
-        SideMenuManager.default.menuRightNavigationController = myPageStoryBoard.instantiateViewController(withIdentifier: "RightMenuNavigationController") as? UISideMenuNavigationController
+        
 
-        SideMenuManager.default.menuAddPanGestureToPresent(toView: self.navigationController!.navigationBar)
-        SideMenuManager.default.menuAddScreenEdgePanGesturesToPresent(toView: self.navigationController!.view)
     }
+    
+    @IBAction func rightButtonDidPressed(_ sender: Any) {
+
+        
+    }
+    
 
     func initializing() {
         // navigation initializing
@@ -50,14 +57,26 @@ class MainViewController: UIViewController {
         self.navigationItem.titleView = imageview
         
     }
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+extension MainViewController: ViewCallback{
+    
+    func viewSuc(code: String) {
+        if code == "letter"{
+            
+            let storyBoard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "MyProductTable") as? MyProductTableViewController {
+                print("123")
+                self.navigationController?.show(vc, sender: nil)
+                print("1")
+                
+            }
+        }
     }
-    */
-
+    
+    func viewFail(code: String) {
+        print("오류가 생겼어욤")
+    }
+    
+    
 }

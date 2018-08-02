@@ -8,6 +8,7 @@
 
 import UIKit
 import Toast_Swift
+import KWDrawerController
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -50,7 +51,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 //        let model = NetworkModel(self)
 //        model.login(param: loginInfo)
         let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        if let vc = storyBoard.instantiateViewController(withIdentifier: "MainNavigationController") as? UINavigationController {
+        if let vc = storyBoard.instantiateViewController(withIdentifier: "MainNavi") as? UINavigationController {
             self.present(vc, animated: true, completion: nil)
         }
         
@@ -96,7 +97,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
 
 extension LoginViewController : NetworkCallback{
 
-    func networkSuc(resultdata: Any, code: String, tag: Int) {
+    func networkSuc(resultdata: Any, code: String) {
         if code == "loginSuccess" {
             print(resultdata)
             

@@ -16,5 +16,7 @@ pod 'SwiftLint'
 pod 'Toast-Swift', '~> 3.0.1'
 pod 'SideMenu'
 pod 'BetterSegmentedControl', '~> 0.9'
+pod 'KWDrawerController', '~> 4.1.6'
+
 
 end

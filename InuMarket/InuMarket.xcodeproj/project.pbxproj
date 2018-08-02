@@ -15,11 +15,16 @@
 		C8200E3C20F3412C0094E917 /* UploadInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */; };
 		C8200E3E20F348D90094E917 /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8200E3D20F348D90094E917 /* Upload.storyboard */; };
 		C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3F20F393840094E917 /* UploadExplainViewController.swift */; };
+		C82D5B22210F728100F1ED42 /* SetPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D5B21210F728100F1ED42 /* SetPhoneViewController.swift */; };
+		C82D5B24210F72A300F1ED42 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D5B23210F72A300F1ED42 /* ReviewViewController.swift */; };
 		C850EEF820F652CC002068F1 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850EEF720F652CC002068F1 /* NetworkModel.swift */; };
 		C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850EEF920F65357002068F1 /* NetworkCallback.swift */; };
 		C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36B620F1ED4F008D4362 /* MainViewController.swift */; };
 		C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */; };
 		C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */; };
+		C86EB094210B61DD005AE454 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86EB093210B61DC005AE454 /* AgreementViewController.swift */; };
+		C86EB096210B62C7005AE454 /* StudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86EB095210B62C7005AE454 /* StudentInfoViewController.swift */; };
+		C86EB098210B66C6005AE454 /* SetPasswdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86EB097210B66C6005AE454 /* SetPasswdViewController.swift */; };
 		C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8821B6920E8AE2A009D8CD0 /* AppDelegate.swift */; };
 		C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */; };
 		C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8821B6D20E8AE2A009D8CD0 /* Login.storyboard */; };
@@ -40,11 +45,16 @@
 		C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadInfoViewController.swift; path = InuMarket/ViewControllers/UploadInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		C8200E3D20F348D90094E917 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
 		C8200E3F20F393840094E917 /* UploadExplainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadExplainViewController.swift; sourceTree = "<group>"; };
+		C82D5B21210F728100F1ED42 /* SetPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPhoneViewController.swift; sourceTree = "<group>"; };
+		C82D5B23210F72A300F1ED42 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		C850EEF720F652CC002068F1 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		C850EEF920F65357002068F1 /* NetworkCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		C85A36B620F1ED4F008D4362 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		C86EB093210B61DC005AE454 /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
+		C86EB095210B62C7005AE454 /* StudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoViewController.swift; sourceTree = "<group>"; };
+		C86EB097210B66C6005AE454 /* SetPasswdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswdViewController.swift; sourceTree = "<group>"; };
 		C8821B6620E8AE2A009D8CD0 /* InuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8821B6920E8AE2A009D8CD0 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
@@ -104,6 +114,7 @@
 		C8188C2420E9B744007AC640 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				C86EB092210B617B005AE454 /* SignUp */,
 				C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */,
 				C88AEA732108B50F00182BD9 /* ForgotPasswordViewController.swift */,
 				C85A36B620F1ED4F008D4362 /* MainViewController.swift */,
@@ -126,6 +137,18 @@
 				C850EEF920F65357002068F1 /* NetworkCallback.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		C86EB092210B617B005AE454 /* SignUp */ = {
+			isa = PBXGroup;
+			children = (
+				C86EB093210B61DC005AE454 /* AgreementViewController.swift */,
+				C86EB095210B62C7005AE454 /* StudentInfoViewController.swift */,
+				C86EB097210B66C6005AE454 /* SetPasswdViewController.swift */,
+				C82D5B21210F728100F1ED42 /* SetPhoneViewController.swift */,
+				C82D5B23210F72A300F1ED42 /* ReviewViewController.swift */,
+			);
+			path = SignUp;
 			sourceTree = "<group>";
 		};
 		C8821B5D20E8AE2A009D8CD0 = {
@@ -262,6 +285,7 @@
 				"${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/KWDrawerController/KWDrawerController.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
@@ -273,6 +297,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KWDrawerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
@@ -292,9 +317,12 @@
 			files = (
 				C850EEF820F652CC002068F1 /* NetworkModel.swift in Sources */,
 				C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */,
+				C82D5B24210F72A300F1ED42 /* ReviewViewController.swift in Sources */,
+				C86EB098210B66C6005AE454 /* SetPasswdViewController.swift in Sources */,
 				C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */,
 				C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */,
 				C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */,
+				C82D5B22210F728100F1ED42 /* SetPhoneViewController.swift in Sources */,
 				C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */,
 				C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */,
 				C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */,
@@ -302,6 +330,8 @@
 				C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */,
 				C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */,
 				C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */,
+				C86EB096210B62C7005AE454 /* StudentInfoViewController.swift in Sources */,
+				C86EB094210B61DD005AE454 /* AgreementViewController.swift in Sources */,
 				C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */,
 				C8200E3C20F3412C0094E917 /* UploadInfoViewController.swift in Sources */,
 			);

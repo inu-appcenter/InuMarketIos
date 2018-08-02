@@ -8,25 +8,33 @@
 
 import UIKit
 
-class MyPageViewController: UIViewController {
 
-    let storyBoard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
+class MyPageViewController: UIViewController {
+    
     
     @IBOutlet weak var myProductCountLabel: UILabel!
     @IBOutlet weak var letterCountLabel: UILabel!
     
     @IBAction func myProductButtonClicked(_ sender: Any) {
         
+        let storyBoard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
         if let vc = storyBoard.instantiateViewController(withIdentifier: "MyProductTable") as? MyProductTableViewController {
+        
             self.navigationController?.show(vc, sender: nil)
+            
         }
+        
+//        self.drawerController?.closeSide(completion: {
+//            let mainView = MainViewController()
+//            let momo = ViewModel(mainView)
+//            momo.letter()
+//            } )
     }
-    
     @IBAction func productMakeButtonClicked(_ sender: Any) {
         let uploadStroyBoard :UIStoryboard = UIStoryboard(name: "Upload", bundle: nil)
         
         if let vc = uploadStroyBoard.instantiateViewController(withIdentifier: "UploadCategory") as? UploadCategoryViewController{
-        self.navigationController?.show(vc, sender: nil)
+            self.navigationController?.show(vc, sender: nil)
         }
     }
     
@@ -37,15 +45,14 @@ class MyPageViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        
         // Do any additional setup after loading the view.
     }
-
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
-
-   
 }
