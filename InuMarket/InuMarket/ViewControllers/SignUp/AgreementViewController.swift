@@ -12,7 +12,7 @@ class AgreementViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initializing()
         // Do any additional setup after loading the view.
     }
     override func didReceiveMemoryWarning() {
@@ -38,12 +38,14 @@ class AgreementViewController: UIViewController {
     
     
     func initializing() {
-        // navigation initializing
-        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        self.navigationController?.navigationBar.shadowImage = UIImage()
-        self.navigationController?.navigationBar.isTranslucent = true
-        self.navigationController?.view.backgroundColor = UIColor.clear
         
+        
+        // 다음 버튼에 빨간줄 추가
+        let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
+        customSubview.backgroundColor = .red
+        customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+        //        segmentControl.addSubviewToIndicator(customSubview)
+        nextButton.addSubview(customSubview)
     }
 }
 

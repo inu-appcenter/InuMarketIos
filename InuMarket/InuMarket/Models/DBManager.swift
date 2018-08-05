@@ -11,18 +11,16 @@ import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
 
+class SignResult: Mappable{
 
-//class BusStop: Mappable {
-//    var name: String = ""
-//    var data: [BusData] = []
-//
-//    required convenience init?(map: Map) {
-//        self.init()
-//    }
-//
-//    func mapping(map: Map) {
-//        self.name <- map["name"]
-//        self.data <- map["data"]
-//    }
-//}
-
+    var ans : String = ""
+    
+    required convenience init?(map: Map) {
+        self.init()
+    }
+    
+    func mapping(map: Map) {
+        self.ans <- map["ans"]
+    }
+    
+}

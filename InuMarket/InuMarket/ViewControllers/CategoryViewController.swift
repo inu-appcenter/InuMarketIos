@@ -32,6 +32,7 @@ class CategoryViewController: UIViewController {
     
     @IBAction func ticketButtonClikced(_ sender: Any) {
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

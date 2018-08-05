@@ -32,6 +32,7 @@ class ReviewViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
+        initializing()
         
         model = NetworkModel(self)
 
@@ -42,6 +43,16 @@ class ReviewViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
     
+    func initializing() {
+        
+        
+        // 다음 버튼에 빨간줄 추가
+        let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
+        customSubview.backgroundColor = .red
+        customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+        //        segmentControl.addSubviewToIndicator(customSubview)
+        nextbutton.addSubview(customSubview)
+    }
 }
 
 extension ReviewViewController: NetworkCallback{
@@ -52,7 +63,7 @@ extension ReviewViewController: NetworkCallback{
             if resultdata as? Bool == true{
                 let alertController = UIAlertController(title: "회원가입이 완료되었습니다.", message: "이메일 인증완료후 로그인해주세요.", preferredStyle: UIAlertControllerStyle.alert)
                 let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                    self.dismiss(animated: true, completion: nil)
+                    self.navigationController?.popToRootViewController(animated: true)
                 }
                 
                 alertController.addAction(okAction)

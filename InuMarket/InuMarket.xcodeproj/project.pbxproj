@@ -23,6 +23,8 @@
 		C850EEF820F652CC002068F1 /* NetworkModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850EEF720F652CC002068F1 /* NetworkModel.swift */; };
 		C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850EEF920F65357002068F1 /* NetworkCallback.swift */; };
 		C855122C21172F20001779AD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855122B21172F20001779AD /* DBManager.swift */; };
+		C855122E2117461D001779AD /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855122D2117461D001779AD /* SettingViewController.swift */; };
+		C855123021174701001779AD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855122F21174701001779AD /* SettingTableViewCell.swift */; };
 		C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36B620F1ED4F008D4362 /* MainViewController.swift */; };
 		C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */; };
 		C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */; };
@@ -57,6 +59,8 @@
 		C850EEF720F652CC002068F1 /* NetworkModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModel.swift; sourceTree = "<group>"; };
 		C850EEF920F65357002068F1 /* NetworkCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		C855122B21172F20001779AD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		C855122D2117461D001779AD /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		C855122F21174701001779AD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
 		C85A36B620F1ED4F008D4362 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +135,7 @@
 				C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */,
 				C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */,
 				C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */,
+				C855122D2117461D001779AD /* SettingViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -141,6 +146,7 @@
 				C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */,
 				C8200E3920F3398C0094E917 /* UploadCategoryTableViewCell.swift */,
 				C84EE2202112F45200941485 /* UploadPhotoCollectionViewCell.swift */,
+				C855122F21174701001779AD /* SettingTableViewCell.swift */,
 				C850EEF720F652CC002068F1 /* NetworkModel.swift */,
 				C850EEF920F65357002068F1 /* NetworkCallback.swift */,
 				C855122B21172F20001779AD /* DBManager.swift */,
@@ -346,6 +352,7 @@
 				C86EB098210B66C6005AE454 /* SetPasswdViewController.swift in Sources */,
 				C82D5B272112E85D00F1ED42 /* UploadPhotoViewController.swift in Sources */,
 				C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */,
+				C855123021174701001779AD /* SettingTableViewCell.swift in Sources */,
 				C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */,
 				C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */,
 				C82D5B22210F728100F1ED42 /* SetPhoneViewController.swift in Sources */,
@@ -358,6 +365,7 @@
 				C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */,
 				C84EE2212112F45200941485 /* UploadPhotoCollectionViewCell.swift in Sources */,
 				C86EB096210B62C7005AE454 /* StudentInfoViewController.swift in Sources */,
+				C855122E2117461D001779AD /* SettingViewController.swift in Sources */,
 				C86EB094210B61DD005AE454 /* AgreementViewController.swift in Sources */,
 				C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */,
 				C8200E3C20F3412C0094E917 /* UploadInfoViewController.swift in Sources */,

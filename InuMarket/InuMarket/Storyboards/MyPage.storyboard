@@ -191,7 +191,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="BWR-WK-u8g" firstAttribute="leading" secondItem="rUG-At-Bpv" secondAttribute="leading" id="AUD-rW-qgR"/>
-                            <constraint firstItem="BWR-WK-u8g" firstAttribute="top" secondItem="rUG-At-Bpv" secondAttribute="top" id="Gzv-AS-evR"/>
+                            <constraint firstItem="BWR-WK-u8g" firstAttribute="top" secondItem="rUG-At-Bpv" secondAttribute="top" constant="1" id="Gzv-AS-evR"/>
                             <constraint firstItem="ly1-5c-6UC" firstAttribute="leading" secondItem="rUG-At-Bpv" secondAttribute="leading" id="fCC-T4-Ut6"/>
                             <constraint firstItem="ly1-5c-6UC" firstAttribute="bottom" secondItem="rUG-At-Bpv" secondAttribute="bottom" id="iFd-E3-uDX"/>
                             <constraint firstItem="BWR-WK-u8g" firstAttribute="trailing" secondItem="rUG-At-Bpv" secondAttribute="trailing" id="tRE-Qt-F8s"/>

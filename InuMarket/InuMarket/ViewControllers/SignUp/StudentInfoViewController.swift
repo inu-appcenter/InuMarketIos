@@ -47,6 +47,7 @@ class StudentInfoViewController: UIViewController {
         nameErrorLabel.isHidden = true
         infoErrorLabel.isHidden = true
         
+        // 다음 버튼에 빨간줄 추가
         let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
         customSubview.backgroundColor = .red
         customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]

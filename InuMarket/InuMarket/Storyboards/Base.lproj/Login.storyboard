@@ -149,7 +149,7 @@
             </objects>
             <point key="canvasLocation" x="-194" y="153"/>
         </scene>
-        <!--Agreement View Controller-->
+        <!--회원 가입하기-->
         <scene sceneID="quI-Ev-ef2">
             <objects>
                 <viewController storyboardIdentifier="Agreement" id="uyh-Lb-iUG" customClass="AgreementViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -158,13 +158,13 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="개인정보 수집 약관 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jXz-Lo-wk5">
-                                <rect key="frame" x="99" y="167" width="160.5" height="20.5"/>
+                                <rect key="frame" x="99" y="123" width="160.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="동의해" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="U8i-TF-p9S">
-                                <rect key="frame" x="33" y="205.5" width="310" height="235"/>
+                                <rect key="frame" x="33" y="161.5" width="310" height="235"/>
                                 <color key="backgroundColor" red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="310" id="DIM-4a-klW"/>
@@ -175,7 +175,6 @@
                             </textView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fXO-LX-8hY">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="HRY-gg-5mC"/>
                                 </constraints>
@@ -187,7 +186,7 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="rcN-Jd-saY">
-                                <rect key="frame" x="38" y="446.5" width="151.5" height="30"/>
+                                <rect key="frame" x="38" y="402.5" width="151.5" height="30"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-Vk-NcC">
                                         <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
@@ -211,10 +210,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro1" translatesAutoresizingMaskIntoConstraints="NO" id="zbc-SH-ebe">
-                                <rect key="frame" x="44" y="119" width="287" height="23"/>
+                                <rect key="frame" x="44" y="75" width="287" height="23"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="tOl-QD-AOe">
-                                <rect key="frame" x="35" y="96" width="306.5" height="12"/>
+                                <rect key="frame" x="35" y="52" width="306.5" height="12"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="약관 동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="40Q-AJ-aH7">
                                         <rect key="frame" x="0.0" y="0.0" width="38" height="12"/>
@@ -273,7 +272,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JgF-4r-vbq"/>
                     </view>
-                    <navigationItem key="navigationItem" id="lA0-cq-nrT">
+                    <navigationItem key="navigationItem" title="회원 가입하기" id="lA0-cq-nrT">
                         <barButtonItem key="backBarButtonItem" title=" " id="0xp-A1-8Zd"/>
                     </navigationItem>
                     <connections>
@@ -395,7 +394,7 @@
             </objects>
             <point key="canvasLocation" x="1389.5999999999999" y="484.40779610194909"/>
         </scene>
-        <!--Student Info View Controller-->
+        <!--학생정보 입력하기-->
         <scene sceneID="ZTk-31-I5V">
             <objects>
                 <viewController storyboardIdentifier="StudentInfo" id="2EV-e4-ylF" customClass="StudentInfoViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -481,7 +480,6 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dnL-zm-6yy">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Ml3-Nt-ybT"/>
                                 </constraints>
@@ -540,6 +538,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4xS-1l-CIB"/>
                     </view>
+                    <navigationItem key="navigationItem" title="학생정보 입력하기" id="gsZ-uS-H7n">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ws4-uc-HKq"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="idTextField" destination="woZ-Vf-Uvp" id="TW9-Zv-Txl"/>
                         <outlet property="infoErrorLabel" destination="WW5-rS-egd" id="2Ta-qE-V3b"/>
@@ -552,7 +553,7 @@
             </objects>
             <point key="canvasLocation" x="3088.8000000000002" y="-281.10944527736132"/>
         </scene>
-        <!--Set Passwd View Controller-->
+        <!--비밀번호 설정하기-->
         <scene sceneID="gcd-Cg-Wap">
             <objects>
                 <viewController storyboardIdentifier="SetPasswd" id="Kn9-7k-jfI" customClass="SetPasswdViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -638,7 +639,6 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Sra-hl-vaj">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="26p-NF-ZmZ"/>
                                 </constraints>
@@ -705,6 +705,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6pK-TP-6ru"/>
                     </view>
+                    <navigationItem key="navigationItem" title="비밀번호 설정하기" id="2hN-tM-LMH">
+                        <barButtonItem key="backBarButtonItem" title=" " id="M8i-II-v2u"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="checkPasswdTextField" destination="cu5-If-mne" id="iFz-N6-vsF"/>
                         <outlet property="nextButton" destination="Sra-hl-vaj" id="lMu-oD-AII"/>
@@ -715,7 +718,7 @@
             </objects>
             <point key="canvasLocation" x="3960.8000000000002" y="-281.10944527736132"/>
         </scene>
-        <!--Set Phone View Controller-->
+        <!--휴대폰 번호 입력-->
         <scene sceneID="kFK-dW-O4O">
             <objects>
                 <viewController storyboardIdentifier="SetPhone" id="lFx-AV-9Oe" customClass="SetPhoneViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -763,7 +766,6 @@
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hB0-p8-LSl">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="XMl-O9-kGQ"/>
                                 </constraints>
@@ -826,6 +828,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="W2q-06-30h"/>
                     </view>
+                    <navigationItem key="navigationItem" title="휴대폰 번호 입력" id="Ndh-x1-hUO">
+                        <barButtonItem key="backBarButtonItem" title=" " id="mct-hN-NXB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="nextButton" destination="hB0-p8-LSl" id="2K1-Lv-b2O"/>
                         <outlet property="phoneTextField" destination="nRv-qX-qIf" id="RuZ-9y-8tY"/>
@@ -835,7 +840,7 @@
             </objects>
             <point key="canvasLocation" x="4928.8000000000002" y="-281.10944527736132"/>
         </scene>
-        <!--Review View Controller-->
+        <!--회원가입 완료하기-->
         <scene sceneID="ncw-nb-BKS">
             <objects>
                 <viewController storyboardIdentifier="Review" id="LcJ-ak-6Tc" customClass="ReviewViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -902,7 +907,6 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reu-WP-pgB">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="6Ub-oZ-aMF"/>
                                 </constraints>
@@ -1000,6 +1004,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="04R-W2-ReL"/>
                     </view>
+                    <navigationItem key="navigationItem" title="회원가입 완료하기" id="bp9-xS-OWq">
+                        <barButtonItem key="backBarButtonItem" title=" " id="IRq-m0-g1u"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="idLabel" destination="NFG-rt-g4D" id="w3x-1l-ocE"/>
                         <outlet property="nameLabel" destination="wIu-0G-BBG" id="6RS-WE-u8f"/>
@@ -1028,24 +1035,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3I-9T-YUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-1134" y="153"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="7q8-Qq-LgR">
-            <objects>
-                <navigationController storyboardIdentifier="AgreementNavi" automaticallyAdjustsScrollViewInsets="NO" id="bqN-eV-vmq" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dd1-DX-n6T">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="uyh-Lb-iUG" kind="relationship" relationship="rootViewController" id="Hq3-MQ-Iev"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ucy-2H-fHs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1391.2" y="-281.10944527736132"/>
         </scene>
     </scenes>
     <resources>

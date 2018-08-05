@@ -58,8 +58,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func signupButtonClicked(_ sender: Any) {
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "AgreementNavi") as? UINavigationController{
-            self.present(vc, animated: true, completion: nil)
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "Agreement") as? AgreementViewController{
+            self.navigationController?.show(vc, sender: nil)
         }
 
     }

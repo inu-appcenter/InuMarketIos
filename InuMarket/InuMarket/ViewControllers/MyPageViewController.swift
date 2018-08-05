@@ -31,9 +31,9 @@ class MyPageViewController: UIViewController {
 //            } )
     }
     @IBAction func productMakeButtonClicked(_ sender: Any) {
-        let uploadStroyBoard :UIStoryboard = UIStoryboard(name: "Upload", bundle: nil)
+        let uploadStoryBoard :UIStoryboard = UIStoryboard(name: "Upload", bundle: nil)
         
-        if let vc = uploadStroyBoard.instantiateViewController(withIdentifier: "UploadCategory") as? UploadCategoryViewController{
+        if let vc = uploadStoryBoard.instantiateViewController(withIdentifier: "UploadCategory") as? UploadCategoryViewController{
             self.navigationController?.show(vc, sender: nil)
         }
     }
@@ -42,7 +42,14 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func settingButtonClicked(_ sender: Any) {
+        let settingStotyBoard :UIStoryboard = UIStoryboard(name: "Setting", bundle: nil)
+        
+        if let vc = settingStotyBoard.instantiateViewController(withIdentifier: "SettingView") as? SettingViewController{
+            self.navigationController?.show(vc, sender: nil)
+        }
     }
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
