@@ -8,7 +8,7 @@
 
 import UIKit
 import Toast_Swift
-import KWDrawerController
+
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
 
@@ -58,6 +58,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     }
 
     @IBAction func signupButtonClicked(_ sender: Any) {
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "AgreementNavi") as? UINavigationController{
+            self.present(vc, animated: true, completion: nil)
+        }
+
     }
     
     @IBAction func lossPassButtonClicked(_ sender: Any) {

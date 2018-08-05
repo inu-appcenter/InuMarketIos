@@ -59,24 +59,4 @@ class MainViewController: UIViewController {
     }
 }
 
-extension MainViewController: ViewCallback{
-    
-    func viewSuc(code: String) {
-        if code == "letter"{
-            
-            let storyBoard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
-            if let vc = storyBoard.instantiateViewController(withIdentifier: "MyProductTable") as? MyProductTableViewController {
-                print("123")
-                self.navigationController?.show(vc, sender: nil)
-                print("1")
-                
-            }
-        }
-    }
-    
-    func viewFail(code: String) {
-        print("오류가 생겼어욤")
-    }
-    
-    
-}
+

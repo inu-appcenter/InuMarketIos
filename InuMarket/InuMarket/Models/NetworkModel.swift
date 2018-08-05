@@ -18,9 +18,9 @@ class NetworkModel{
     
     init(_ view: NetworkCallback) {
         self.view = view
-}
-
-
+    }
+    
+    
     //로그인 테스트
     func login(param: String) {
         Alamofire.request("\(serverURL)login?\(param)", method: .post, parameters: nil, headers: nil).responseJSON { res in
@@ -34,19 +34,26 @@ class NetworkModel{
                 break;
             }
         }
-        
     }
+    
+    func signUp(id : String, passwd: String, name: String, tel: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded"]
+        let params = [ "id" : id,
+                       "passwd" : passwd,
+                       "name" : name,
+                       "tel" : tel]
+        Alamofire.request("\(serverURL)account", method: .post, parameters: params, headers: header).responseJSON { res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "signSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "signError")
+                break;
+            }
+        }
+    }
+    
 }
 
-class ViewModel{
-    var view: ViewCallback
-    
-    init(_ view: ViewCallback){
-        self.view = view
-        
-    }
-    
-    func letter() {
-        self.view.viewSuc(code: "letter")
-    }
-}

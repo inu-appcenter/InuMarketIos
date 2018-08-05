@@ -30,8 +30,6 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     func segmentCon() {
-    
-        
         segmentControl.titles = ["판매중", "판매 완료"]
         
         let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))

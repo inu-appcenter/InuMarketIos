@@ -10,6 +10,9 @@ import UIKit
 
 class StudentInfoViewController: UIViewController {
 
+    @IBOutlet weak var nameErrorLabel: UILabel!
+    @IBOutlet weak var infoErrorLabel: UILabel!
+    
     @IBOutlet weak var nameTextField: UITextField!
     
     @IBOutlet weak var idTextField: UITextField!
@@ -17,28 +20,38 @@ class StudentInfoViewController: UIViewController {
     @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func nextButtonClicked(_ sender: Any) {
+        
+        if nameTextField.text != "" && (idTextField.text?.count)! >= 9 {
+            nameErrorLabel.isHidden = true
+            infoErrorLabel.isHidden = true
+            if let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetPasswd") as? SetPasswdViewController{
+                vc.id = idTextField.text!
+                vc.name = nameTextField.text!
+                self.navigationController?.show(vc, sender: nil)
+            }
+        }else{
+            nameErrorLabel.isHidden = false
+            infoErrorLabel.isHidden = false
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        initializing()
+        
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func initializing() {
+        nameErrorLabel.isHidden = true
+        infoErrorLabel.isHidden = true
+        
+        let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
+        customSubview.backgroundColor = .red
+        customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+//        segmentControl.addSubviewToIndicator(customSubview)
+        nextButton.addSubview(customSubview)
     }
-    */
 
 }
