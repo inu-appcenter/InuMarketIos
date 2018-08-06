@@ -40,6 +40,8 @@
 		C899F8EA20F1000200C61BC2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C899F8E920F1000200C61BC2 /* Main.storyboard */; };
 		C899F8EC20F1002400C61BC2 /* Category.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C899F8EB20F1002400C61BC2 /* Category.storyboard */; };
 		C899F8EE20F1006300C61BC2 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C899F8ED20F1006300C61BC2 /* MyPage.storyboard */; };
+		CB2EA20E2118833300BFC9B3 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA20D2118833300BFC9B3 /* MainCollectionViewCell.swift */; };
+		CB2EA2102118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA20F2118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -78,6 +80,8 @@
 		C899F8E920F1000200C61BC2 /* Main.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		C899F8EB20F1002400C61BC2 /* Category.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Category.storyboard; sourceTree = "<group>"; };
 		C899F8ED20F1006300C61BC2 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
+		CB2EA20D2118833300BFC9B3 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB2EA20F2118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		E8A3193499A2714AB79C2E25 /* Pods-InuMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.release.xcconfig"; sourceTree = "<group>"; };
 		FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InuMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -127,11 +131,11 @@
 		C8188C2420E9B744007AC640 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				CB2EA20C211882EA00BFC9B3 /* Main */,
 				C82D5B252112E82E00F1ED42 /* Upload */,
 				C86EB092210B617B005AE454 /* SignUp */,
 				C8821B6B20E8AE2A009D8CD0 /* LoginViewController.swift */,
 				C88AEA732108B50F00182BD9 /* ForgotPasswordViewController.swift */,
-				C85A36B620F1ED4F008D4362 /* MainViewController.swift */,
 				C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */,
 				C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */,
 				C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */,
@@ -207,6 +211,16 @@
 				C8821B7520E8AE2A009D8CD0 /* Info.plist */,
 			);
 			path = InuMarket;
+			sourceTree = "<group>";
+		};
+		CB2EA20C211882EA00BFC9B3 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				C85A36B620F1ED4F008D4362 /* MainViewController.swift */,
+				CB2EA20D2118833300BFC9B3 /* MainCollectionViewCell.swift */,
+				CB2EA20F2118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -362,12 +376,14 @@
 				C88AEA742108B50F00182BD9 /* ForgotPasswordViewController.swift in Sources */,
 				C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */,
 				C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */,
+				CB2EA2102118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift in Sources */,
 				C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */,
 				C84EE2212112F45200941485 /* UploadPhotoCollectionViewCell.swift in Sources */,
 				C86EB096210B62C7005AE454 /* StudentInfoViewController.swift in Sources */,
 				C855122E2117461D001779AD /* SettingViewController.swift in Sources */,
 				C86EB094210B61DD005AE454 /* AgreementViewController.swift in Sources */,
 				C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */,
+				CB2EA20E2118833300BFC9B3 /* MainCollectionViewCell.swift in Sources */,
 				C8200E3C20F3412C0094E917 /* UploadInfoViewController.swift in Sources */,
 				C855122C21172F20001779AD /* DBManager.swift in Sources */,
 			);
