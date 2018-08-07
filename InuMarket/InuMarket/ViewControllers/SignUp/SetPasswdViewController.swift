@@ -21,7 +21,7 @@ class SetPasswdViewController: UIViewController {
     
     @IBAction func nextButtonClicked(_ sender: Any) {
         
-        if (passwdTextField.text?.count)! >= 3 || passwdTextField.text == checkPasswdTextField.text{
+        if (passwdTextField.text?.count)! >= 8 && passwdTextField.text == checkPasswdTextField.text{
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetPhone") as? SetPhoneViewController{
                 vc.passwd = passwdTextField.text!
                 vc.id = id

@@ -402,7 +402,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro1" translatesAutoresizingMaskIntoConstraints="NO" id="qux-Se-30U">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro2" translatesAutoresizingMaskIntoConstraints="NO" id="qux-Se-30U">
                                 <rect key="frame" x="44" y="79" width="287" height="23"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="giF-Tc-B62">
@@ -561,7 +561,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro1" translatesAutoresizingMaskIntoConstraints="NO" id="wg0-Fs-rEz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro3" translatesAutoresizingMaskIntoConstraints="NO" id="wg0-Fs-rEz">
                                 <rect key="frame" x="44" y="79" width="287" height="23"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="ilG-47-hei">
@@ -726,7 +726,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro1" translatesAutoresizingMaskIntoConstraints="NO" id="raV-z4-Erz">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro4" translatesAutoresizingMaskIntoConstraints="NO" id="raV-z4-Erz">
                                 <rect key="frame" x="43" y="78" width="287" height="23"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="rRk-ko-2fF">
@@ -923,7 +923,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro1" translatesAutoresizingMaskIntoConstraints="NO" id="kMx-ip-yq0">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="signupPro5" translatesAutoresizingMaskIntoConstraints="NO" id="kMx-ip-yq0">
                                 <rect key="frame" x="44" y="78" width="287" height="23"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" alignment="top" spacing="27" translatesAutoresizingMaskIntoConstraints="NO" id="6nW-eA-lvd">
@@ -1039,5 +1039,9 @@
     </scenes>
     <resources>
         <image name="signupPro1" width="287" height="23"/>
+        <image name="signupPro2" width="287" height="23"/>
+        <image name="signupPro3" width="287" height="23"/>
+        <image name="signupPro4" width="287" height="23"/>
+        <image name="signupPro5" width="287" height="23"/>
     </resources>
 </document>

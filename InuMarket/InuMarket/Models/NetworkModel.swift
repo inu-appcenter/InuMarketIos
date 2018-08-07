@@ -22,11 +22,15 @@ class NetworkModel{
     
     
     //로그인 테스트
-    func login(param: String) {
-        Alamofire.request("\(serverURL)login?\(param)", method: .post, parameters: nil, headers: nil).responseJSON { res in
+    func login(id: String, passwd: String) {
+        let header = ["Content-Type" : "application/x-www-form-urlencoded"]
+        let params = [ "id" : id,
+                       "passwd" : passwd]
+        Alamofire.request("\(serverURL)login?", method: .post, parameters: params, headers: header).responseJSON { res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "loginSuccess")
+                
                 break
             case .failure(let error):
                 print(error)

@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Upload Category View Controller-->
+        <!--상품 등록하기-->
         <scene sceneID="TtA-kb-ZEE">
             <objects>
                 <viewController storyboardIdentifier="UploadCategory" id="I6X-wi-3D8" customClass="UploadCategoryViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -73,7 +73,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="49v-mj-Y5S"/>
                     </view>
-                    <navigationItem key="navigationItem" id="8EV-TM-Zkt"/>
+                    <navigationItem key="navigationItem" title="상품 등록하기" id="8EV-TM-Zkt">
+                        <barButtonItem key="backBarButtonItem" title=" " id="gnu-JP-aZJ"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="UploadCategoryTable" destination="uRx-a5-jh2" id="i7F-sm-oyy"/>
                     </connections>
@@ -82,7 +84,7 @@
             </objects>
             <point key="canvasLocation" x="2351.1999999999998" y="46.326836581709152"/>
         </scene>
-        <!--Upload Info View Controller-->
+        <!--상품 등록하기-->
         <scene sceneID="XCL-DU-Cgj">
             <objects>
                 <viewController storyboardIdentifier="UploadInfo" id="wtr-kM-osO" customClass="UploadInfoViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -206,6 +208,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="hzd-Gv-4Ec"/>
                     </view>
+                    <navigationItem key="navigationItem" title="상품 등록하기" id="NBI-Lk-N10">
+                        <barButtonItem key="backBarButtonItem" title=" " id="eMP-GD-CSH"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="itemNameTextLabel" destination="xoL-nh-gwV" id="4wJ-fE-Eb4"/>
                         <outlet property="itemPriceTextLabel" destination="o6L-t2-xd4" id="OfZ-Sm-DRg"/>
@@ -217,7 +222,7 @@
             </objects>
             <point key="canvasLocation" x="3223.1999999999998" y="45.42728635682159"/>
         </scene>
-        <!--Upload Explain View Controller-->
+        <!--상품 등록하기-->
         <scene sceneID="qvT-BO-vRS">
             <objects>
                 <viewController storyboardIdentifier="UploadExplain" id="2MU-64-Sgl" customClass="UploadExplainViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -349,6 +354,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5A1-kL-AJn"/>
                     </view>
+                    <navigationItem key="navigationItem" title="상품 등록하기" id="v7q-PA-jgh">
+                        <barButtonItem key="backBarButtonItem" title=" " id="OQD-kl-RHB"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="deliveryDealButton" destination="GlW-FE-k8B" id="23k-r5-bTr"/>
                         <outlet property="directDealButton" destination="KlF-nK-rRQ" id="IGD-Fq-AfB"/>
@@ -363,7 +371,7 @@
             </objects>
             <point key="canvasLocation" x="4092" y="45.42728635682159"/>
         </scene>
-        <!--Upload Photo View Controller-->
+        <!--상품 등록하기-->
         <scene sceneID="fst-ap-QDH">
             <objects>
                 <viewController storyboardIdentifier="UploadPhoto" id="pw2-Nq-dq0" customClass="UploadPhotoViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -476,6 +484,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="LlE-cX-RWb"/>
                     </view>
+                    <navigationItem key="navigationItem" title="상품 등록하기" id="u4H-uU-iW5">
+                        <barButtonItem key="backBarButtonItem" title=" " id="IUW-10-y3M"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="photoCollection" destination="5s2-hF-rV2" id="lWa-PW-177"/>
                     </connections>

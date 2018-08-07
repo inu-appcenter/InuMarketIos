@@ -11,16 +11,29 @@ import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
 
-class SignResult: Mappable{
+class SignResult{
 
-    var ans : String = ""
+    var ans : Bool?
     
-    required convenience init?(map: Map) {
-        self.init()
+    init(ans : Bool){
+        self.ans = ans
     }
     
-    func mapping(map: Map) {
-        self.ans <- map["ans"]
-    }
+}
+
+
+class UserInfo{
+    var token: String?
+    var id: String?
+    var name: String?
+    var tel: String?
+    var message: String?
     
+    init(token: String, id: String, name: String, tel: String, message: String) {
+        self.token = token
+        self.id = id
+        self.name = name
+        self.tel = tel
+        self.message = message
+    }
 }
