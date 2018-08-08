@@ -159,11 +159,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="n3L-c4-xlm"/>
                                 </constraints>
-                                <state key="normal" title="보내기">
+                                <state key="normal" title="비밀번호 변경하기">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendButtonClicked:" destination="AH9-nb-wc8" eventType="touchUpInside" id="6DW-46-Pmq"/>
+                                    <action selector="sendButtonClicked:" destination="lMF-bE-cqg" eventType="touchUpInside" id="SWt-gi-oZD"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -213,6 +213,7 @@
                         <outlet property="correctErrorLabel" destination="aHL-2R-f2R" id="V78-JJ-o66"/>
                         <outlet property="countErrorLabel" destination="1AU-nm-k7j" id="plB-n6-T2w"/>
                         <outlet property="errorLabel" destination="aaT-ub-wAB" id="IvK-67-vGv"/>
+                        <outlet property="sendButton" destination="TcD-ki-aDq" id="YnI-ZT-UUE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wln-uM-YDn" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -280,7 +281,6 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="sendButtonClicked:" destination="AH9-nb-wc8" eventType="touchUpInside" id="T80-hs-ZyH"/>
                                     <action selector="withdrawalButtonClicked:" destination="elI-F9-Lfl" eventType="touchUpInside" id="FxD-Nh-CTM"/>
                                 </connections>
                             </button>

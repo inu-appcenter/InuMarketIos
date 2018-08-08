@@ -15,6 +15,7 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var correctErrorLabel: UILabel!
     
     @IBOutlet weak var errorLabel: UILabel!
+    @IBOutlet weak var sendButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,14 +29,18 @@ class ChangePasswordViewController: UIViewController {
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    @IBAction func sendButtonClicked(_ sender: Any) {
+        
     }
-    */
+    
+    func initializing() {
+        
+        // 다음 버튼에 빨간줄 추가
+        let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
+        customSubview.backgroundColor = .red
+        customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+        //        segmentControl.addSubviewToIndicator(customSubview)
+        sendButton.addSubview(customSubview)
+    }
 
 }

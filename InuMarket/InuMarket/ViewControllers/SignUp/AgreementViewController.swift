@@ -9,7 +9,7 @@
 import UIKit
 
 class AgreementViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializing()
@@ -19,19 +19,26 @@ class AgreementViewController: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var checkboxButton: UIButton!
     @IBOutlet weak var nextButton: UIButton!
     
     @IBAction func checkboxButtonClicked(_ sender: Any) {
-        
-        
+        if checkboxButton.isSelected == true{
+            checkboxButton.isSelected = false
+        }else{
+            checkboxButton.isSelected = true
+        }
     }
     
     @IBAction func nextButtonClicked(_ sender: Any) {
-        
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "StudentInfo") as? StudentInfoViewController{
-            self.navigationController?.show(vc, sender: nil)
+        if checkboxButton.isSelected == true{
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "StudentInfo") as? StudentInfoViewController{
+                self.navigationController?.show(vc, sender: nil)
+            }
+        }else{
+            errorLabel.isHidden = false
         }
     }
     

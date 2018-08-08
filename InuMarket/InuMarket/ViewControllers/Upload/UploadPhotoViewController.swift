@@ -11,9 +11,11 @@ import UIKit
 class UploadPhotoViewController: UIViewController , UICollectionViewDataSource,UICollectionViewDelegate {
 
     
+    @IBOutlet weak var nextButton: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initializing()
         // Do any additional setup after loading the view.
     }
 
@@ -22,6 +24,8 @@ class UploadPhotoViewController: UIViewController , UICollectionViewDataSource,U
         // Dispose of any resources that can be recreated.
     }
     
+    @IBAction func nextButtonClicked(_ sender: Any) {
+    }
     
     @IBOutlet weak var photoCollection: UICollectionView!
     
@@ -40,7 +44,7 @@ class UploadPhotoViewController: UIViewController , UICollectionViewDataSource,U
     }
     
     
-//    func initializing() {
+    func initializing() {
 //        // button initializing
 //        loginButton.layer.cornerRadius = 10.0
 //        loginButton.layer.borderWidth = 1.0
@@ -52,6 +56,12 @@ class UploadPhotoViewController: UIViewController , UICollectionViewDataSource,U
 //        loginButton.layer.shadowRadius = 2.5
 //        loginButton.layer.shadowOpacity = 0.8
 //        loginButton.layer.masksToBounds = false
-//    }
+    // 다음 버튼에 빨간줄 추가
+    let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
+    customSubview.backgroundColor = .red
+    customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+    //        segmentControl.addSubviewToIndicator(customSubview)
+    nextButton.addSubview(customSubview)
+    }
     
 }

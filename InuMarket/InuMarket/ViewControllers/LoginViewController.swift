@@ -20,11 +20,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var model : NetworkModel?
     
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        model = NetworkModel(self)
+        
         initializing()
         idTextField.delegate = self
         passTextField.delegate = self
@@ -49,8 +52,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         
-        let model = NetworkModel(self)
-        model.login(id: "\(idTextField.text!)", passwd: "\(passTextField.text!)")
+        
+        model?.login(id: "\(idTextField.text!)", passwd: "\(passTextField.text!)")
         
         //2초 딜레이 설정
         self.view.makeToast("로그인중")
@@ -64,17 +67,15 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
             }else if self.appDelegate.userInfo?.message == "certification"{
                 self.view.makeToast("이메일 인증을 해야 사용가능합니다.")
                 
-            }else {
+            }else if self.appDelegate.userInfo?.message == "logged in success"{
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 if let vc = storyBoard.instantiateViewController(withIdentifier: "MainNavi") as? UINavigationController {
                     self.present(vc, animated: true, completion: nil)
                 }
+            }else{
+                self.view.makeToast("서버통신시간초과")
             }
         }
-        
-        
-        
-        
     }
     
     @IBAction func signupButtonClicked(_ sender: Any) {

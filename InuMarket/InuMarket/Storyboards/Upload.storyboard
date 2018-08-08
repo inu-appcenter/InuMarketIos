@@ -74,7 +74,7 @@
                         <viewLayoutGuide key="safeArea" id="49v-mj-Y5S"/>
                     </view>
                     <navigationItem key="navigationItem" title="상품 등록하기" id="8EV-TM-Zkt">
-                        <barButtonItem key="backBarButtonItem" title=" " id="gnu-JP-aZJ"/>
+                        <barButtonItem key="backBarButtonItem" title=" " id="vsQ-ON-BGv"/>
                     </navigationItem>
                     <connections>
                         <outlet property="UploadCategoryTable" destination="uRx-a5-jh2" id="i7F-sm-oyy"/>
@@ -154,7 +154,6 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zlL-bN-LSv">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="5qU-2H-c3q"/>
                                 </constraints>
@@ -163,7 +162,6 @@
                                 </state>
                                 <connections>
                                     <action selector="nextButtonClicked:" destination="wtr-kM-osO" eventType="touchUpInside" id="wOi-73-x9x"/>
-                                    <segue destination="2MU-64-Sgl" kind="show" id="2lA-4O-mhD"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="원" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1e-uT-7eC">
@@ -261,34 +259,6 @@
                                     <outlet property="delegate" destination="2MU-64-Sgl" id="j1J-6Q-lqC"/>
                                 </connections>
                             </textView>
-                            <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="Imq-5m-5j7">
-                                <rect key="frame" x="20" y="283.5" width="335" height="48"/>
-                                <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KlF-nK-rRQ">
-                                        <rect key="frame" x="0.0" y="0.0" width="167.5" height="48"/>
-                                        <color key="backgroundColor" red="0.93333333330000001" green="0.94117647059999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="직거래">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="directDealButtonClicked:" destination="2MU-64-Sgl" eventType="touchUpInside" id="NVW-ES-b5P"/>
-                                        </connections>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GlW-FE-k8B">
-                                        <rect key="frame" x="167.5" y="0.0" width="167.5" height="48"/>
-                                        <color key="backgroundColor" red="0.93333333330000001" green="0.94117647059999998" blue="0.94901960780000005" alpha="1" colorSpace="calibratedRGB"/>
-                                        <state key="normal" title="배송">
-                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="deliveryDealButtonClicked:" destination="2MU-64-Sgl" eventType="touchUpInside" id="gEc-nf-xEa"/>
-                                        </connections>
-                                    </button>
-                                </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="48" id="ZiS-V1-c3d"/>
-                                </constraints>
-                            </stackView>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ARt-ra-zjQ">
                                 <rect key="frame" x="34" y="382" width="321" height="20"/>
                                 <nil key="textColor"/>
@@ -297,7 +267,6 @@
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F6r-ad-tDl">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="Uon-SH-jzN"/>
                                 </constraints>
@@ -305,9 +274,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonClicked:" destination="2MU-64-Sgl" eventType="touchUpInside" id="is7-Vi-P7I"/>
-                                    <action selector="nextButtonClicked:" destination="wtr-kM-osO" eventType="touchUpInside" id="pH1-oy-Mde"/>
-                                    <segue destination="pw2-Nq-dq0" kind="show" id="8Pa-kM-CPF"/>
+                                    <action selector="nextButtonClicked:" destination="2MU-64-Sgl" eventType="touchUpInside" id="tLs-x1-hQK"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hqX-Tt-8jH">
@@ -324,32 +291,56 @@
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="mQd-9L-qXv" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="20" y="283.5" width="335" height="48"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="BM6-QJ-pA6"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" red="0.792156862745098" green="0.82352941176470584" blue="0.88627450980392153" alpha="1" colorSpace="calibratedRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="5"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="indicatorViewBackgroundColor">
+                                        <color key="value" red="0.93333333333333335" green="0.34509803921568627" blue="0.17254901960784313" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="SegmentControlValueChanged:" destination="2MU-64-Sgl" eventType="valueChanged" id="UHu-N2-aVt"/>
+                                </connections>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GTN-KU-iDn" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" constant="28" id="2rZ-fQ-n7C"/>
                             <constraint firstItem="F6r-ad-tDl" firstAttribute="bottom" secondItem="5A1-kL-AJn" secondAttribute="bottom" id="3Ep-CA-Tfv"/>
                             <constraint firstItem="GTN-KU-iDn" firstAttribute="top" secondItem="5A1-kL-AJn" secondAttribute="top" constant="65" id="72Q-Ay-yG2"/>
-                            <constraint firstItem="Imq-5m-5j7" firstAttribute="top" secondItem="hRc-2B-Gkp" secondAttribute="bottom" constant="7" id="Esl-eS-lQ3"/>
+                            <constraint firstItem="5A1-kL-AJn" firstAttribute="trailing" secondItem="mQd-9L-qXv" secondAttribute="trailing" constant="20" id="9po-dm-8DF"/>
+                            <constraint firstItem="mQd-9L-qXv" firstAttribute="top" secondItem="hRc-2B-Gkp" secondAttribute="bottom" constant="7" id="BTk-Qb-wNJ"/>
+                            <constraint firstItem="mQd-9L-qXv" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" constant="20" id="EMk-z4-B6j"/>
                             <constraint firstItem="hqX-Tt-8jH" firstAttribute="leading" secondItem="fzQ-Ze-aKA" secondAttribute="leadingMargin" constant="4" id="GeX-U7-jid"/>
                             <constraint firstItem="5A1-kL-AJn" firstAttribute="trailing" secondItem="ARt-ra-zjQ" secondAttribute="trailing" constant="20" id="IiS-5H-Z1g"/>
                             <constraint firstItem="TPD-VX-YVS" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" constant="86" id="Jw7-aQ-FW1"/>
                             <constraint firstItem="hRc-2B-Gkp" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" constant="28" id="LMZ-AL-m0h"/>
                             <constraint firstItem="5A1-kL-AJn" firstAttribute="trailing" secondItem="TPD-VX-YVS" secondAttribute="trailing" constant="93" id="Mq3-gj-JmU"/>
-                            <constraint firstItem="5A1-kL-AJn" firstAttribute="trailing" secondItem="Imq-5m-5j7" secondAttribute="trailing" constant="20" id="PGr-iz-9oG"/>
                             <constraint firstItem="hRc-2B-Gkp" firstAttribute="top" secondItem="JVn-sa-CLx" secondAttribute="bottom" constant="16" id="QYH-TD-IdS"/>
                             <constraint firstItem="ARt-ra-zjQ" firstAttribute="top" secondItem="DFu-1f-57G" secondAttribute="bottom" constant="20" id="Qlr-L6-YdT"/>
                             <constraint firstItem="F6r-ad-tDl" firstAttribute="top" secondItem="TPD-VX-YVS" secondAttribute="bottom" constant="19.5" id="Roy-0R-xGd"/>
+                            <constraint firstItem="DFu-1f-57G" firstAttribute="top" secondItem="mQd-9L-qXv" secondAttribute="bottom" constant="16" id="Usr-Ll-W5h"/>
                             <constraint firstItem="F6r-ad-tDl" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" id="cnB-3f-1UE"/>
                             <constraint firstItem="F6r-ad-tDl" firstAttribute="trailing" secondItem="5A1-kL-AJn" secondAttribute="trailing" id="dKt-4X-rXM"/>
                             <constraint firstItem="5A1-kL-AJn" firstAttribute="trailing" secondItem="JVn-sa-CLx" secondAttribute="trailing" constant="20" id="gAy-qF-UgV"/>
-                            <constraint firstItem="DFu-1f-57G" firstAttribute="top" secondItem="Imq-5m-5j7" secondAttribute="bottom" constant="16" id="gJ3-Vo-1Q0"/>
                             <constraint firstItem="JVn-sa-CLx" firstAttribute="top" secondItem="GTN-KU-iDn" secondAttribute="bottom" constant="7.5" id="igM-Sd-wEx"/>
                             <constraint firstItem="hqX-Tt-8jH" firstAttribute="top" secondItem="ARt-ra-zjQ" secondAttribute="bottom" constant="14" id="jIA-hB-UaQ"/>
                             <constraint firstItem="JVn-sa-CLx" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" constant="20" id="jWq-9f-1ce"/>
                             <constraint firstItem="ARt-ra-zjQ" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" constant="34" id="jfd-uc-X6q"/>
                             <constraint firstItem="DFu-1f-57G" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" constant="28" id="nPj-fx-f9C"/>
-                            <constraint firstItem="Imq-5m-5j7" firstAttribute="leading" secondItem="5A1-kL-AJn" secondAttribute="leading" constant="20" id="piZ-iA-7gd"/>
                             <constraint firstAttribute="trailingMargin" secondItem="hqX-Tt-8jH" secondAttribute="trailing" constant="4" id="xFj-O8-l3y"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="5A1-kL-AJn"/>
@@ -358,13 +349,13 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="OQD-kl-RHB"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="deliveryDealButton" destination="GlW-FE-k8B" id="23k-r5-bTr"/>
-                        <outlet property="directDealButton" destination="KlF-nK-rRQ" id="IGD-Fq-AfB"/>
                         <outlet property="directDealLocationLabel" destination="DFu-1f-57G" id="989-n0-pYh"/>
                         <outlet property="directDealLocationTextField" destination="ARt-ra-zjQ" id="rs7-Kw-43C"/>
                         <outlet property="directDealLocationView" destination="hqX-Tt-8jH" id="ovI-1w-HYr"/>
                         <outlet property="errorLabel" destination="TPD-VX-YVS" id="HG6-dD-lyN"/>
                         <outlet property="explainTextView" destination="JVn-sa-CLx" id="pMT-4A-9t8"/>
+                        <outlet property="nextButton" destination="F6r-ad-tDl" id="A9m-pW-EYd"/>
+                        <outlet property="segmentControll" destination="mQd-9L-qXv" id="RJF-a0-YVV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iSv-Sn-e0J" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -448,7 +439,6 @@
                             </collectionView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pan-fo-8g2">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
-                                <color key="backgroundColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="56" id="1Gx-DQ-8Bv"/>
                                 </constraints>
@@ -456,8 +446,7 @@
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <action selector="nextButtonClicked:" destination="wtr-kM-osO" eventType="touchUpInside" id="FA5-Yh-0ve"/>
-                                    <action selector="nextButtonClicked:" destination="2MU-64-Sgl" eventType="touchUpInside" id="klq-on-Mt2"/>
+                                    <action selector="nextButtonClicked:" destination="pw2-Nq-dq0" eventType="touchUpInside" id="VAe-z0-vh9"/>
                                 </connections>
                             </button>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 상품 사진이 등록되어야 합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1rA-sU-c03">
@@ -488,6 +477,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="IUW-10-y3M"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="nextButton" destination="pan-fo-8g2" id="YR3-73-4AB"/>
                         <outlet property="photoCollection" destination="5s2-hF-rV2" id="lWa-PW-177"/>
                     </connections>
                 </viewController>

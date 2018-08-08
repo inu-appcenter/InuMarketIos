@@ -220,6 +220,7 @@
                         <viewLayoutGuide key="safeArea" id="wPs-E0-d1B"/>
                     </view>
                     <navigationItem key="navigationItem" id="b8l-aE-ane">
+                        <barButtonItem key="backBarButtonItem" title=" " id="udu-P9-9Uo"/>
                         <barButtonItem key="leftBarButtonItem" image="categoryImg" landscapeImage="categoryImg" largeContentSizeImage="categoryImg" id="6mS-yM-jIt">
                             <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>

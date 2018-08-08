@@ -10,9 +10,6 @@ import UIKit
 
 class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITableViewDataSource{
     
-    
-
-    
     @IBOutlet weak var UploadCategoryTable: UITableView!
     
     let category = ["책","의류","가전 / 가구", "생활 / 사무", "잡화","원룸","식권"]

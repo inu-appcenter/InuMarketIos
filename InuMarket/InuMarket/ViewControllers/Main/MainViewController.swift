@@ -17,6 +17,7 @@ class MainViewController: UIViewController {
     @IBOutlet weak var letterView: UIView!
     @IBOutlet weak var productCollectionView: UICollectionView!
     
+    
 //    @IBAction func button(_ sender: Any) {
 //        let storyBoard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
 //        if let vc = storyBoard.instantiateViewController(withIdentifier: "MyProductTable") as? MyProductTableViewController {
@@ -29,6 +30,9 @@ class MainViewController: UIViewController {
         super.viewDidLoad()
         
         initializing()
+        
+       
+
         // Do any additional setup after loading the view.
     }
     
