@@ -186,17 +186,18 @@
                                 </connections>
                             </button>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="21" translatesAutoresizingMaskIntoConstraints="NO" id="rcN-Jd-saY">
-                                <rect key="frame" x="38" y="402.5" width="151.5" height="30"/>
+                                <rect key="frame" x="38" y="402.5" width="123.5" height="24"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-Vk-NcC">
-                                        <rect key="frame" x="0.0" y="0.0" width="52" height="30"/>
-                                        <state key="normal" title="체크박스"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hdn-Vk-NcC">
+                                        <rect key="frame" x="0.0" y="0.0" width="24" height="24"/>
+                                        <state key="normal" image="uncheck"/>
+                                        <state key="selected" image="check"/>
                                         <connections>
                                             <action selector="checkboxButtonClicked:" destination="uyh-Lb-iUG" eventType="touchUpInside" id="AiK-qf-uMD"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="동의합니다." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uZp-kU-d44">
-                                        <rect key="frame" x="73" y="0.0" width="78.5" height="30"/>
+                                        <rect key="frame" x="45" y="0.0" width="78.5" height="24"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -277,6 +278,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="checkboxButton" destination="Hdn-Vk-NcC" id="gFw-YH-6Xu"/>
+                        <outlet property="errorLabel" destination="5Vs-8A-GXV" id="uwr-C8-3nO"/>
                         <outlet property="nextButton" destination="fXO-LX-8hY" id="X0G-j3-J4y"/>
                     </connections>
                 </viewController>
@@ -1038,10 +1040,12 @@
         </scene>
     </scenes>
     <resources>
+        <image name="check" width="24" height="24"/>
         <image name="signupPro1" width="287" height="23"/>
         <image name="signupPro2" width="287" height="23"/>
         <image name="signupPro3" width="287" height="23"/>
         <image name="signupPro4" width="287" height="23"/>
         <image name="signupPro5" width="287" height="23"/>
+        <image name="uncheck" width="24" height="24"/>
     </resources>
 </document>

@@ -21,7 +21,7 @@ class NetworkModel{
     }
     
     
-    //로그인 테스트
+    //로그인
     func login(id: String, passwd: String) {
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "id" : id,
@@ -35,11 +35,12 @@ class NetworkModel{
             case .failure(let error):
                 print(error)
                 self.view.networkFail(code: "loginError")
-                break;
+                break
             }
         }
     }
     
+    //회원가입
     func signUp(id : String, passwd: String, name: String, tel: String){
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "id" : id,
@@ -54,7 +55,41 @@ class NetworkModel{
             case .failure(let error):
                 print(error)
                 self.view.networkFail(code: "signError")
-                break;
+                break
+            }
+        }
+    }
+    
+    func myProductSelled(sellerId:String) {
+        let header = ["Content-Type" : "application/x-www-form-urlencoded"]
+        let params = [ "sellerId": sellerId ]
+        
+        Alamofire.request("\(serverURL)PSelect/selled", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "myProductSell")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "SellError")
+                break
+            }
+        }
+    }
+    
+    func myProductNonSell(sellerId:String) {
+        let header = ["Content-Type" : "application/x-www-form-urlencoded"]
+        let params = [ "sellerId": sellerId ]
+        
+        Alamofire.request("\(serverURL)PSelect/nonsell", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "myProductNonSell")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "NonSellError")
+                break
             }
         }
     }

@@ -20,7 +20,7 @@ class UploadInfoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        initializing()
         self.navigationItem.title = "상품 등록하기"
         self.navigationItem.leftBarButtonItem?.title = " "
         // Do any additional setup after loading the view.
@@ -42,4 +42,15 @@ class UploadInfoViewController: UIViewController {
         else { self.view.makeToast("입력해주세요", duration: 2, position: .bottom) }
     }
 
+    
+    func initializing() {
+
+        
+        // 다음 버튼에 빨간줄 추가
+        let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
+        customSubview.backgroundColor = .red
+        customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+        //        segmentControl.addSubviewToIndicator(customSubview)
+        nextButton.addSubview(customSubview)
+    }
 }

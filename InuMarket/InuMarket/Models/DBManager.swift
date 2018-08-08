@@ -37,3 +37,45 @@ class UserInfo{
         self.message = message
     }
 }
+
+class MyProductselled{
+    var productImg: String?
+    var productId: String?
+    var productName: String?
+    var productPrise: String?
+    var productSelled: Bool?
+    var sellerId: String?
+    var updateDate: String?
+    
+    init(productImg: String ,productId: String, productName: String, productPrise: String,productSelled: Bool, sellerId: String, updateDate: String){
+        self.productImg = productImg
+        self.productId = productId
+        self.productName = productName
+        self.productPrise = productPrise
+        self.productSelled = productSelled
+        self.sellerId = sellerId
+        self.updateDate = updateDate
+    }
+}
+
+class MyProductNonsell{
+    var productImg: String?
+    var productId: String?
+    var productName: String?
+    var productPrise: String?
+    var productSelled: Bool?
+    var sellerId: String?
+    var updateDate: String?
+    
+    init(productImg: String ,productId: String, productName: String, productPrise: String,productSelled: Bool, sellerId: String, updateDate: String){
+        self.productImg = productImg
+        self.productId = productId
+        self.productName = productName
+        self.productPrise = productPrise
+        self.productSelled = productSelled
+        self.sellerId = sellerId
+        self.updateDate = updateDate
+    }
+}
+
+

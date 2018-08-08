@@ -14,14 +14,41 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     
     @IBOutlet weak var myProductTable: UITableView!
     @IBOutlet weak var segmentControl: BetterSegmentedControl!
+
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var model : NetworkModel?
     
+    var selledItem:[MyProductselled] = [] {
+        didSet {
+            if self.myProductTable != nil {
+                self.myProductTable.reloadData()
+            }
+        }
+    }
+    var nonSelledItem:[MyProductNonsell] = [] {
+        didSet {
+            if self.myProductTable != nil {
+                self.myProductTable.reloadData()
+            }
+        }
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.myProductTable.delegate = self
         self.myProductTable.dataSource = self
-
+      
         segmentCon()
+        
+        model = NetworkModel(self)
+        print((self.appDelegate.userInfo?.id)!)
+        model?.myProductSelled(sellerId: (self.appDelegate.userInfo?.id)!)
+        model?.myProductNonSell(sellerId: (self.appDelegate.userInfo?.id)!)
+        
+        
+        
+        myProductTable.reloadData()
         
         // 테이블 아래 셀이 없으면 더이상 나오지 않게 하기
         myProductTable.tableFooterView = UIView()
@@ -38,59 +65,56 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         segmentControl.addSubviewToIndicator(customSubview)
     }
     
-//    세그먼트 값 시경시
+//    세그먼트 값 변경시
     @IBAction func SegmentControlValueChanged(_ sender: BetterSegmentedControl) {
 //        index 는 0부터 시작
         if sender.index == 0{
-            
+
             self.myProductTable.reloadData()
             
         }else {
             self.myProductTable.reloadData()
             
         }
-        
-        
     }
     
     
    
     //섹션별 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 2
+        switch segmentControl.index {
+        case 0:
+              return selledItem.count
+        case 1:
+              return nonSelledItem.count
+        default:
+              return selledItem.count
+        }
+        
+        
     }
     // 섹션 개수
     func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
+        return 1
     }
     
     // 셀별 상세정보
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyProductTableViewCell") as! MyProductTableViewCell
-        cell.productNameLabel.text = "test"
+        
+//        cell.productNameLabel.text = "test"
 
         if segmentControl.index == 0{
             cell.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
             cell.successLabel.isHidden = true
+            cell.productNameLabel.text = selledItem[indexPath.row].productName
             
-            if indexPath.section == 0{
-                cell.isHidden = false
-            }else{
-                cell.isHidden = true
-            }
             
         }else{  // segmentControl  index == 1  "판매 완료"
             cell.backgroundColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.5)
             cell.successLabel.isHidden = false
             cell.successLabel.textColor = UIColor.white
-            
-            if indexPath.section == 0{
-                cell.isHidden = true
-            }else{
-                cell.isHidden = false
-            }
-            
-
+            cell.productNameLabel.text = nonSelledItem[indexPath.row].productName
         }
         
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -99,7 +123,7 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     // 섹션별 셀 수정가능 여부
     func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        switch indexPath.section {
+        switch segmentControl.index {
         case 0:
             return true
         case 1:
@@ -139,3 +163,55 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     }
 }
 
+extension MyProductTableViewController:NetworkCallback{
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "myProductSell" {
+            print(resultdata)
+            
+            var temp: [MyProductselled] = []
+            if let items = resultdata as? [NSDictionary] {
+                for item in items {
+                    let productImg = item["productImg"] as? String ?? ""
+                    let productId = item["productId"] as? String ?? ""
+                    let productName = item["productName"] as? String ?? ""
+                    let productPrise = item["productPrise"] as? String ?? ""
+                    let productSelled = item["productSelled"] as? Bool ?? false
+                    let sellerId = item["sellerId"] as? String ?? ""
+                    let updateDate = item["updateDate"] as? String ?? ""
+                    let obj = MyProductselled.init(productImg: productImg, productId: productId, productName: productName, productPrise: productPrise, productSelled: productSelled, sellerId: sellerId, updateDate: updateDate)
+                    temp.append(obj)
+                }
+            }
+//            self.appDelegate.labCal = temp
+            selledItem = temp
+        }else if code == "myProductNonSell"{
+            print(resultdata)
+            
+            var temp: [MyProductNonsell] = []
+            if let items = resultdata as? [NSDictionary] {
+                for item in items {
+                    let productImg = item["productImg"] as? String ?? ""
+                    let productId = item["productId"] as? String ?? ""
+                    let productName = item["productName"] as? String ?? ""
+                    let productPrise = item["productPrise"] as? String ?? ""
+                    let productSelled = item["productSelled"] as? Bool ?? false
+                    let sellerId = item["sellerId"] as? String ?? ""
+                    let updateDate = item["updateDate"] as? String ?? ""
+                    let obj = MyProductNonsell.init(productImg: productImg, productId: productId, productName: productName, productPrise: productPrise, productSelled: productSelled, sellerId: sellerId, updateDate: updateDate)
+                    temp.append(obj)
+                }
+            }
+            //            self.appDelegate.labCal = temp
+            nonSelledItem = temp
+        }
+    }
+    
+    func networkFail(code: String) {
+        if(code == "cellError") {
+            print("실패하였습니다.")
+        }
+    
+    }
+    
+    
+}

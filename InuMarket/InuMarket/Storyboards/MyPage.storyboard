@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -124,20 +125,15 @@
                                 <rect key="frame" x="0.0" y="76" width="375" height="591"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyProductTableViewCell" id="Pwg-Gb-CQi" customClass="MyProductTableViewCell" customModule="InuMarket" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="MyProductTableViewCell" rowHeight="52" id="Pwg-Gb-CQi" customClass="MyProductTableViewCell" customModule="InuMarket" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="52"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pwg-Gb-CQi" id="v5b-Jh-pK1">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="43.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="342" height="51.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5MU-om-v8f">
-                                                    <rect key="frame" x="5" y="5" width="40" height="40"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="상품명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMo-gA-mHg">
-                                                    <rect key="frame" x="94" y="15" width="45" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMo-gA-mHg">
+                                                    <rect key="frame" x="72" y="15" width="45" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -148,10 +144,24 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5MU-om-v8f">
+                                                    <rect key="frame" x="7" y="2" width="40" height="40"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="40" id="QGP-iz-u5h"/>
+                                                        <constraint firstAttribute="height" constant="40" id="oL3-Xk-JEy"/>
+                                                    </constraints>
+                                                </imageView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="5MU-om-v8f" firstAttribute="top" secondItem="v5b-Jh-pK1" secondAttribute="top" constant="2" id="12g-vd-t0H"/>
+                                                <constraint firstItem="eMo-gA-mHg" firstAttribute="leading" secondItem="5MU-om-v8f" secondAttribute="trailing" constant="25" id="55A-eu-pcL"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="eMo-gA-mHg" secondAttribute="trailing" constant="25" id="5tf-k7-CPM"/>
+                                                <constraint firstAttribute="bottom" secondItem="eMo-gA-mHg" secondAttribute="bottom" constant="7.5" id="9Hq-2s-fm4"/>
                                                 <constraint firstItem="Qcx-4e-Ih5" firstAttribute="centerX" secondItem="v5b-Jh-pK1" secondAttribute="centerX" constant="15" id="Dqr-4H-A9L"/>
+                                                <constraint firstAttribute="bottom" secondItem="5MU-om-v8f" secondAttribute="bottom" constant="1.5" id="JMQ-bd-D85"/>
                                                 <constraint firstItem="Qcx-4e-Ih5" firstAttribute="centerY" secondItem="v5b-Jh-pK1" secondAttribute="centerY" id="O6B-ja-9Tf"/>
+                                                <constraint firstItem="eMo-gA-mHg" firstAttribute="top" secondItem="v5b-Jh-pK1" secondAttribute="top" constant="15" id="Uof-k4-CCm"/>
+                                                <constraint firstItem="5MU-om-v8f" firstAttribute="leading" secondItem="v5b-Jh-pK1" secondAttribute="leading" constant="7" id="WuE-FS-XwQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
