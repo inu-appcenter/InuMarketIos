@@ -46,6 +46,11 @@
 		C899F8EE20F1006300C61BC2 /* MyPage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C899F8ED20F1006300C61BC2 /* MyPage.storyboard */; };
 		CB2EA20E2118833300BFC9B3 /* MainCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA20D2118833300BFC9B3 /* MainCollectionViewCell.swift */; };
 		CB2EA2102118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB2EA20F2118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift */; };
+		CBA00417211AA91400B62390 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */; };
+		CBA00419211AA91D00B62390 /* LetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */; };
+		CBA0041E211AC6AA00B62390 /* LetterBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */; };
+		CBA00420211AC6B800B62390 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0041F211AC6B800B62390 /* DetailViewController.swift */; };
+		CBA00422211B22C200B62390 /* VKExpenableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00421211B22C200B62390 /* VKExpenableButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -90,6 +95,11 @@
 		C899F8ED20F1006300C61BC2 /* MyPage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = MyPage.storyboard; sourceTree = "<group>"; };
 		CB2EA20D2118833300BFC9B3 /* MainCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB2EA20F2118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionViewCell.swift; sourceTree = "<group>"; };
+		CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterBoxViewController.swift; sourceTree = "<group>"; };
+		CBA0041F211AC6B800B62390 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		CBA00421211B22C200B62390 /* VKExpenableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKExpenableButton.swift; sourceTree = "<group>"; };
 		E8A3193499A2714AB79C2E25 /* Pods-InuMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.release.xcconfig"; sourceTree = "<group>"; };
 		FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InuMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -236,11 +246,24 @@
 		CB2EA20C211882EA00BFC9B3 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				CBA00421211B22C200B62390 /* VKExpenableButton.swift */,
+				CBA0041A211AC66400B62390 /* collectionCell */,
 				C85A36B620F1ED4F008D4362 /* MainViewController.swift */,
-				CB2EA20D2118833300BFC9B3 /* MainCollectionViewCell.swift */,
-				CB2EA20F2118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift */,
+				CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */,
+				CBA0041F211AC6B800B62390 /* DetailViewController.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		CBA0041A211AC66400B62390 /* collectionCell */ = {
+			isa = PBXGroup;
+			children = (
+				CB2EA20F2118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift */,
+				CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */,
+				CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */,
+				CB2EA20D2118833300BFC9B3 /* MainCollectionViewCell.swift */,
+			);
+			path = collectionCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -384,6 +407,7 @@
 				C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */,
 				C82D5B24210F72A300F1ED42 /* ReviewViewController.swift in Sources */,
 				C8725F2121189468004FD049 /* SettingViewController.swift in Sources */,
+				CBA0041E211AC6AA00B62390 /* LetterBoxViewController.swift in Sources */,
 				C86EB098210B66C6005AE454 /* SetPasswdViewController.swift in Sources */,
 				C82D5B272112E85D00F1ED42 /* UploadPhotoViewController.swift in Sources */,
 				C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */,
@@ -396,13 +420,17 @@
 				C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */,
 				C8725F2321189468004FD049 /* ChangePasswordViewController.swift in Sources */,
 				C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */,
+				CBA00422211B22C200B62390 /* VKExpenableButton.swift in Sources */,
+				CBA00419211AA91D00B62390 /* LetterCollectionViewCell.swift in Sources */,
 				C88AEA742108B50F00182BD9 /* ForgotPasswordViewController.swift in Sources */,
 				C8821B6C20E8AE2A009D8CD0 /* LoginViewController.swift in Sources */,
+				CBA00417211AA91400B62390 /* BannerCollectionViewCell.swift in Sources */,
 				C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */,
 				CB2EA2102118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift in Sources */,
 				C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */,
 				C84EE2212112F45200941485 /* UploadPhotoCollectionViewCell.swift in Sources */,
 				C8725F2421189468004FD049 /* QustViewController.swift in Sources */,
+				CBA00420211AC6B800B62390 /* DetailViewController.swift in Sources */,
 				C86EB096210B62C7005AE454 /* StudentInfoViewController.swift in Sources */,
 				C86EB094210B61DD005AE454 /* AgreementViewController.swift in Sources */,
 				C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */,
@@ -555,6 +583,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2F465AG84W;
 				INFOPLIST_FILE = InuMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -573,6 +602,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 2F465AG84W;
 				INFOPLIST_FILE = InuMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
