@@ -11,28 +11,6 @@ import UIKit
 class CategoryViewController: UIViewController {
 
     
-    @IBAction func bookButtonClicked(_ sender: Any) {
-        
-    }
-    
-    @IBAction func clothesButtonClicked(_ sender: Any) {
-    }
-    
-    @IBAction func furnitureButtonClicked(_ sender: Any) {
-    }
-    
-    @IBAction func livingButtonClicked(_ sender: Any) {
-    }
-    
-    @IBAction func sundriesButtonClicked(_ sender: Any) {
-    }
-    
-    @IBAction func roomButtonClicked(_ sender: Any) {
-    }
-    
-    @IBAction func ticketButtonClikced(_ sender: Any) {
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 

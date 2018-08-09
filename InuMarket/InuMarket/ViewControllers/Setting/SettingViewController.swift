@@ -9,7 +9,8 @@
 import UIKit
 
 class SettingViewController: UIViewController {
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     let settingItems = ["전화번호 변경","푸시 알림 설정","문의하기","비밀번호 변경","로그아웃","회원 탈퇴"]
     
     @IBOutlet weak var settingTable: UITableView!
@@ -71,6 +72,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
         case 4:  // 로그아웃
             let alertController = UIAlertController(title: "로그아웃!", message: "확인을 누르면 로그아웃 됩니다.", preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                
                 self.dismiss(animated: true, completion: nil)
             }
             

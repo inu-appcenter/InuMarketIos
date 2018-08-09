@@ -41,7 +41,7 @@
                                 <rect key="frame" x="34" y="254.5" width="312" height="20"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="입력" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="fcQ-pP-Ms3">
                                 <rect key="frame" x="34" y="323" width="312" height="17"/>
@@ -147,7 +147,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-194" y="153"/>
+            <point key="canvasLocation" x="1191" y="171"/>
         </scene>
         <!--회원 가입하기-->
         <scene sceneID="quI-Ev-ef2">
@@ -312,7 +312,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 이름과 학번을 입력해 주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecB-cL-4lP">
+                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="* 이름과 학번을 입력해 주세요." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ecB-cL-4lP">
                                 <rect key="frame" x="48" y="509" width="280" height="15"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -340,7 +340,7 @@
                                 <rect key="frame" x="34" y="254" width="321" height="17"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="S69-Yt-CxY">
                                 <rect key="frame" x="20" y="202" width="335" height="2"/>
@@ -388,13 +388,14 @@
                     </view>
                     <connections>
                         <outlet property="emailButton" destination="KNU-jm-RRL" id="fZw-rb-XQg"/>
+                        <outlet property="errorLabel" destination="ecB-cL-4lP" id="jsV-2a-Uwv"/>
                         <outlet property="idTextField" destination="Cq0-fi-0iM" id="GSM-lt-dpj"/>
                         <outlet property="nameTextFiled" destination="XsH-K9-a6m" id="hRA-mQ-1gc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbJ-st-JGq" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1389.5999999999999" y="484.40779610194909"/>
+            <point key="canvasLocation" x="2330" y="569"/>
         </scene>
         <!--학생정보 입력하기-->
         <scene sceneID="ZTk-31-I5V">
@@ -1036,7 +1037,7 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3I-9T-YUs" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1134" y="153"/>
+            <point key="canvasLocation" x="250" y="171"/>
         </scene>
     </scenes>
     <resources>

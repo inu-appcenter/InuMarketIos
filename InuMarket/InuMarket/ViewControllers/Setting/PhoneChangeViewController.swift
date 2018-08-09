@@ -10,12 +10,12 @@ import UIKit
 
 class PhoneChangeViewController: UIViewController {
 
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    
     @IBOutlet weak var errorLabel: UILabel!
-    
     @IBOutlet weak var oldPhoneLabel: UILabel!
-    
     @IBOutlet weak var newPhoneTextField: UITextField!
-    
     @IBOutlet weak var verifiedButton: UIButton!
     
     @IBAction func verifiedButtonClicked(_ sender: Any) {
@@ -44,7 +44,7 @@ class PhoneChangeViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.oldPhoneLabel.text = self.appDelegate.userInfo?.tel 
         initializing()
         
     }

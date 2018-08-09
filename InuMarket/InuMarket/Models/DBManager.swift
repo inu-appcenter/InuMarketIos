@@ -11,6 +11,7 @@ import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
 
+// 회원가입, 비밀번호 찾기, 비밀번호 변경
 class SignResult{
 
     var ans : Bool?
@@ -21,7 +22,7 @@ class SignResult{
     
 }
 
-
+// 로그인 사용자 정보
 class UserInfo{
     var token: String?
     var id: String?
@@ -38,6 +39,7 @@ class UserInfo{
     }
 }
 
+// 판매완료된 물품 리스트
 class MyProductselled{
     var productImg: String?
     var productId: String?
@@ -58,6 +60,7 @@ class MyProductselled{
     }
 }
 
+// 판매중인 물품 리스트
 class MyProductNonsell{
     var productImg: String?
     var productId: String?

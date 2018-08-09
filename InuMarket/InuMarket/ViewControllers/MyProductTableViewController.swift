@@ -137,6 +137,10 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         let cell = tableView.cellForRow(at: indexPath)
         cell?.isSelected = false
+        
+        // 상세 페이지 이동 코딩
+        
+        
     }
     // 수정할때 나올 문구 및 내용
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {

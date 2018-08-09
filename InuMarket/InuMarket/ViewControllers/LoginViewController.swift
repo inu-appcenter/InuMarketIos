@@ -32,6 +32,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         idTextField.delegate = self
         passTextField.delegate = self
         
+        
         // Do any additional setup after loading the view, typically from a nib.
     }
     
@@ -105,6 +106,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.layer.shadowOpacity = 0.8
         loginButton.layer.masksToBounds = false
         
+        idTextField.text = nil
+        passTextField.text = nil
         
         // navigation initializing
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
@@ -124,6 +127,7 @@ extension LoginViewController : NetworkCallback{
     
     func networkSuc(resultdata: Any, code: String) {
         if code == "loginSuccess" {
+            self.appDelegate.userInfo = nil
             print(resultdata)
             
             var temp: [UserInfo] = []
@@ -140,8 +144,6 @@ extension LoginViewController : NetworkCallback{
                 self.appDelegate.userInfo = obj
                 
             }
-            
-            
         }
         
     }

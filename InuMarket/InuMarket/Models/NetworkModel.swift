@@ -19,7 +19,8 @@ class NetworkModel{
     init(_ view: NetworkCallback) {
         self.view = view
     }
-    
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
     
     //로그인
     func login(id: String, passwd: String) {
@@ -40,6 +41,24 @@ class NetworkModel{
         }
     }
     
+    //비밀번호 찾기
+    func forgotPass(id: String, name: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded"]
+        let params = [ "id" : id,
+                       "name" : name]
+        Alamofire.request("\(serverURL)stateChange/newPassword", method: .post, parameters: params, headers: header).responseJSON { res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "newPasswordSuccess")
+                
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "newPasswordError")
+                break
+            }
+        }
+    }
     //회원가입
     func signUp(id : String, passwd: String, name: String, tel: String){
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
@@ -59,7 +78,7 @@ class NetworkModel{
             }
         }
     }
-    
+    // 판매된 물건 리스트
     func myProductSelled(sellerId:String) {
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "sellerId": sellerId ]
@@ -76,7 +95,7 @@ class NetworkModel{
             }
         }
     }
-    
+    // 판매중인 물건 리스트
     func myProductNonSell(sellerId:String) {
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "sellerId": sellerId ]
@@ -94,5 +113,24 @@ class NetworkModel{
         }
     }
     
+    func changePasswd(id: String, pastPasswd: String, newPasswd: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["id" : id,
+                      "pastPasswd" : pastPasswd,
+                      "newPasswd": newPasswd
+        ]
+        Alamofire.request("\(serverURL)stateChange/changePasswd", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "changePasswdSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "changePasswdError")
+                break
+            }
+        }
+    }
 }
 
