@@ -18,6 +18,8 @@ class MainViewController: UIViewController {
     let headerCellIdentifier: String = "MainHeaderCollectionViewCell"
     let mainCellIdentifier: String = "MainCollectionViewCell"
     
+    let detailIdentifier: String = "detailView"
+    
     let screenWidth = UIScreen.main.bounds.width
     
     var textFieldActive: Bool = false
@@ -36,14 +38,6 @@ class MainViewController: UIViewController {
 
     @IBOutlet weak var searchImg: UIImageView!
     @IBOutlet weak var searchTextField: UITextField!
-    
-//    @IBAction func button(_ sender: Any) {
-//        let storyBoard: UIStoryboard = UIStoryboard(name: "MyPage", bundle: nil)
-//        if let vc = storyBoard.instantiateViewController(withIdentifier: "MyProductTable") as? MyProductTableViewController {
-//
-//            self.navigationController?.show(vc, sender: nil)
-//        }
-//    }
     
     //MARK: IBActiion
     @IBAction func leftButtonDidPressed(_ sender: Any) {
@@ -93,6 +87,12 @@ class MainViewController: UIViewController {
             productCollectionView.reloadData()
         }
         
+    }
+    
+    func showDetailVC() {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: detailIdentifier) as? DetailViewController else { return }
+        self.navigationController?.show(detailVC, sender: nil)
     }
     
     func initializing() {
@@ -173,6 +173,21 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         return cell
         
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if textFieldActive {
+            showDetailVC()
+        } else {
+            switch indexPath.section {
+            case 1:
+                let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+                guard let letterBoxVC = storyboard.instantiateViewController(withIdentifier: "letterBox") as? LetterBoxViewController else { return }
+                self.navigationController?.show(letterBoxVC, sender: nil)
+            case 2: showDetailVC()
+            default: return
+            }
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {

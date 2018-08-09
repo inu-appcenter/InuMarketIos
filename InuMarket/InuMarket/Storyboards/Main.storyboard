@@ -19,10 +19,10 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-l6-qlv">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-l6-qlv">
                                 <rect key="frame" x="12" y="75" width="351" height="48"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="찾고있는 상품을 입력하세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u55-hw-rqr">
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="찾고있는 상품을 입력하세요" textAlignment="natural" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u55-hw-rqr">
                                 <rect key="frame" x="54" y="90" width="256" height="19"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -106,7 +106,6 @@
                                             <outlet property="letterImg" destination="DID-ct-k4Y" id="bqY-dJ-pQQ"/>
                                             <outlet property="letterNum" destination="d3O-PM-NOW" id="Yro-xe-01A"/>
                                             <outlet property="rightImg" destination="QGS-V8-cg2" id="dCD-AN-JBm"/>
-                                            <segue destination="JCJ-9J-mLd" kind="show" id="sZm-ML-SMq"/>
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionViewCell" id="JmY-8D-HZc" customClass="MainCollectionViewCell" customModule="InuMarket" customModuleProvider="target">
@@ -151,7 +150,6 @@
                                             <outlet property="productImg" destination="hLy-Dw-vrE" id="t2X-60-99Z"/>
                                             <outlet property="productName" destination="jdG-AD-cTT" id="CU3-xK-4jf"/>
                                             <outlet property="productPrice" destination="Gex-EQ-Ikv" id="FXJ-aS-3sb"/>
-                                            <segue destination="Qcc-hv-bNZ" kind="show" id="iQd-FX-Ga6"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -239,36 +237,6 @@
             </objects>
             <point key="canvasLocation" x="1336.8" y="1356.0719640179911"/>
         </scene>
-        <!--Letter Box View Controller-->
-        <scene sceneID="eeM-il-9Sx">
-            <objects>
-                <viewController id="JCJ-9J-mLd" customClass="LetterBoxViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="429-8b-LKe">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="UT9-fb-Dr8"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="YlZ-Gq-Iv2" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1337" y="2194"/>
-        </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="2bD-cE-Wab">
-            <objects>
-                <viewController id="Qcc-hv-bNZ" customClass="DetailViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="fP3-FV-a6v">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <viewLayoutGuide key="safeArea" id="LUj-kp-qSb"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="tl8-um-5sG" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2141" y="2198"/>
-        </scene>
         <!--Category-->
         <scene sceneID="shf-fE-FXA">
             <objects>
@@ -276,6 +244,54 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dB7-ZY-5DR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="374" y="1373"/>
+        </scene>
+        <!--Letter Box View Controller-->
+        <scene sceneID="Om0-wT-x1E">
+            <objects>
+                <viewController storyboardIdentifier="letterBox" id="DAE-pm-Mig" customClass="LetterBoxViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NS6-5L-Pnq">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hCm-SQ-niU" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="0.0" y="20" width="375" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="375" id="FUQ-hN-FBd"/>
+                                    <constraint firstAttribute="height" constant="52" id="znn-Py-UHd"/>
+                                </constraints>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="GMj-MI-KIs">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="gsf-AJ-8ts">
+                                        <rect key="frame" x="0.0" y="28" width="375" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gsf-AJ-8ts" id="5WU-5O-axm">
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.5"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="GMj-MI-KIs" firstAttribute="bottom" secondItem="bgT-HQ-QZO" secondAttribute="bottom" id="7CD-Jl-jLo"/>
+                            <constraint firstItem="GMj-MI-KIs" firstAttribute="top" secondItem="hCm-SQ-niU" secondAttribute="bottom" constant="8" id="Wm7-tw-gOl"/>
+                            <constraint firstItem="GMj-MI-KIs" firstAttribute="trailing" secondItem="bgT-HQ-QZO" secondAttribute="trailing" id="ZPj-AE-Tu5"/>
+                            <constraint firstItem="GMj-MI-KIs" firstAttribute="leading" secondItem="bgT-HQ-QZO" secondAttribute="leading" id="d2P-GU-89W"/>
+                            <constraint firstItem="hCm-SQ-niU" firstAttribute="trailing" secondItem="bgT-HQ-QZO" secondAttribute="trailing" id="pSf-E5-H5o"/>
+                            <constraint firstItem="hCm-SQ-niU" firstAttribute="top" secondItem="bgT-HQ-QZO" secondAttribute="top" id="xqF-UV-gze"/>
+                            <constraint firstItem="hCm-SQ-niU" firstAttribute="leading" secondItem="bgT-HQ-QZO" secondAttribute="leading" id="yqe-hU-dYe"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="bgT-HQ-QZO"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sCc-D7-Aky" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2109.5999999999999" y="897.30134932533736"/>
         </scene>
         <!--MyPage-->
         <scene sceneID="vKc-wi-Qf0">
