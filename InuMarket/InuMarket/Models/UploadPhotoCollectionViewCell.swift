@@ -10,5 +10,8 @@ import UIKit
 
 class UploadPhotoCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet weak var uploadButton: UIButton!
+   
+//    @IBOutlet weak var photoButton: UIButton!
+    
+    @IBOutlet weak var photoImage: UIImageView!
 }

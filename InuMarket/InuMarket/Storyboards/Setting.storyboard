@@ -213,6 +213,9 @@
                         <outlet property="correctErrorLabel" destination="aHL-2R-f2R" id="V78-JJ-o66"/>
                         <outlet property="countErrorLabel" destination="1AU-nm-k7j" id="plB-n6-T2w"/>
                         <outlet property="errorLabel" destination="aaT-ub-wAB" id="IvK-67-vGv"/>
+                        <outlet property="newPasswordCheckTextField" destination="vnL-20-uCJ" id="kaf-op-wRB"/>
+                        <outlet property="newPasswordTextField" destination="XnK-YD-qmF" id="t9w-BX-vAB"/>
+                        <outlet property="oldPasswordTextField" destination="nMB-nr-Bxe" id="YW4-wd-kE0"/>
                         <outlet property="sendButton" destination="TcD-ki-aDq" id="YnI-ZT-UUE"/>
                     </connections>
                 </viewController>

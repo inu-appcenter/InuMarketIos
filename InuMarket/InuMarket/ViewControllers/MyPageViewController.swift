@@ -11,7 +11,9 @@ import UIKit
 
 class MyPageViewController: UIViewController {
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
+    @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var myProductCountLabel: UILabel!
     @IBOutlet weak var letterCountLabel: UILabel!
     
@@ -24,11 +26,7 @@ class MyPageViewController: UIViewController {
             
         }
         
-//        self.drawerController?.closeSide(completion: {
-//            let mainView = MainViewController()
-//            let momo = ViewModel(mainView)
-//            momo.letter()
-//            } )
+
     }
     @IBAction func productMakeButtonClicked(_ sender: Any) {
         let uploadStoryBoard :UIStoryboard = UIStoryboard(name: "Upload", bundle: nil)
@@ -52,7 +50,7 @@ class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        userNameLabel.text = self.appDelegate.userInfo?.name
         
         // Do any additional setup after loading the view.
     }

@@ -393,14 +393,20 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="lXQ-jh-awU"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="촬영, 삭제"/>
+                                <connections>
+                                    <action selector="toPhotoAndDeleteButtonClicked:" destination="pw2-Nq-dq0" eventType="touchUpInside" id="VyC-0J-v4z"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MOk-la-KKY">
                                 <rect key="frame" x="48" y="483" width="280" height="48"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="eFy-Dl-Yyx"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <state key="normal" title="앨범, 취소"/>
+                                <connections>
+                                    <action selector="albumAndCancelButtonClicked:" destination="pw2-Nq-dq0" eventType="touchUpInside" id="1XX-Qg-sT8"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="5s2-hF-rV2">
                                 <rect key="frame" x="20" y="128" width="339" height="180"/>
@@ -420,15 +426,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="76" height="76"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9XX-I3-z2f">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="photo" translatesAutoresizingMaskIntoConstraints="NO" id="QAP-07-Zgk">
                                                     <rect key="frame" x="0.0" y="0.0" width="76" height="76"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="yys jwk"/>
-                                                </button>
+                                                </imageView>
                                             </subviews>
                                         </view>
+                                        <constraints>
+                                            <constraint firstItem="QAP-07-Zgk" firstAttribute="leading" secondItem="qM0-ta-HXm" secondAttribute="leading" id="1CS-zW-qPl"/>
+                                            <constraint firstItem="QAP-07-Zgk" firstAttribute="top" secondItem="qM0-ta-HXm" secondAttribute="top" id="Yu9-TQ-j8Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="QAP-07-Zgk" secondAttribute="trailing" id="s3v-uv-4wo"/>
+                                            <constraint firstAttribute="bottom" secondItem="QAP-07-Zgk" secondAttribute="bottom" id="yhh-Em-VhA"/>
+                                        </constraints>
                                         <connections>
-                                            <outlet property="uploadButton" destination="9XX-I3-z2f" id="GIg-lM-bPT"/>
+                                            <outlet property="photoImage" destination="QAP-07-Zgk" id="m3G-yo-ttr"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -477,8 +487,10 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="IUW-10-y3M"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="albumAndCancel" destination="MOk-la-KKY" id="bMS-bs-0VQ"/>
                         <outlet property="nextButton" destination="pan-fo-8g2" id="YR3-73-4AB"/>
                         <outlet property="photoCollection" destination="5s2-hF-rV2" id="lWa-PW-177"/>
+                        <outlet property="toPhotoAndDelete" destination="HVe-Tv-ENg" id="fus-Xf-kfA"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TMw-EV-p7x" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -504,4 +516,7 @@
             <point key="canvasLocation" x="1412" y="46.326836581709152"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="photo" width="76" height="76"/>
+    </resources>
 </document>

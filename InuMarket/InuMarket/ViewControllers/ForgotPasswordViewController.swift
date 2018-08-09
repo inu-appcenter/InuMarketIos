@@ -7,18 +7,25 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class ForgotPasswordViewController: UIViewController {
 
     
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nameTextFiled: UITextField!
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var emailButton: UIButton!
     
+    var model : NetworkModel?
+    var forgotPasswordResult : SignResult?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializing()
-        // Do any additional setup after loading the view.
+        model = NetworkModel(self)
+
+
     }
 
     override func didReceiveMemoryWarning() {
@@ -27,6 +34,39 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     @IBAction func emailButtonClicked(_ sender: Any) {
+        
+//        model?.login(id: "\(idTextField.text!)", passwd: "\(passTextField.text!)")
+
+        if (idTextField.text?.count)! == 9 && nameTextFiled.text != ""{
+            errorLabel.isHidden = true
+            model?.forgotPass(id: "\(idTextField.text!)", name: "\(nameTextFiled.text!)")
+            
+            self.view.makeToast("비밀번호 처리중")
+            let time = DispatchTime.now() + .seconds(2)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                //2초 지나고 나타날 행동
+                if self.forgotPasswordResult?.ans == true{
+                    let alertController = UIAlertController(title: "임시 비밀번호가 발급되었습니다.", message: "이메일을 통해 확인후 로그인해주세요.", preferredStyle: UIAlertControllerStyle.alert)
+                    let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }else{
+                    
+                    let alertController = UIAlertController(title: "비밀번호찾기 실패", message: "학번과 이름이 안맞아요.", preferredStyle: UIAlertControllerStyle.alert)
+                    let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                        self.idTextField.text = ""
+                        self.nameTextFiled.text = ""
+                    }
+                    alertController.addAction(okAction)
+                    self.present(alertController, animated: true, completion: nil)
+                }
+            }
+            
+        } else{
+            errorLabel.isHidden = false
+        }
     }
     
     
@@ -54,4 +94,27 @@ class ForgotPasswordViewController: UIViewController {
         self.navigationItem.titleView = imageview
         
     }
+}
+
+extension ForgotPasswordViewController: NetworkCallback {
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "newPasswordSuccess" {
+            
+            print(resultdata)
+            
+            if let item = resultdata as? NSDictionary {
+                let ans = item["ans"] as? Bool ?? false
+                let obj = SignResult.init(ans: ans)
+                self.forgotPasswordResult = obj
+            }
+        }
+    }
+    
+    func networkFail(code: String) {
+        if(code == "newPasswordSuccessError") {
+            print("실패하였습니다.")
+        }
+    }
+    
+    
 }

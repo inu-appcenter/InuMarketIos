@@ -20,7 +20,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tmL-Ri-gEr">
-                                <rect key="frame" x="46" y="140" width="287" height="46"/>
+                                <rect key="frame" x="46" y="140" width="233" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="내상품">
@@ -36,7 +36,7 @@
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jJS-6P-sSC">
-                                <rect key="frame" x="44" y="186" width="287" height="46"/>
+                                <rect key="frame" x="44" y="186" width="235" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="상품 등록하기">
@@ -52,7 +52,7 @@
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PvP-UC-3UK">
-                                <rect key="frame" x="45" y="232" width="287" height="46"/>
+                                <rect key="frame" x="45" y="232" width="234" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="쪽지함">
@@ -68,7 +68,7 @@
                                 <color key="backgroundColor" red="0.95294117649999999" green="0.95294117649999999" blue="0.96078431369999995" alpha="1" colorSpace="calibratedRGB"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xsj-wj-hbF">
-                                <rect key="frame" x="44" y="278" width="287" height="46"/>
+                                <rect key="frame" x="44" y="278" width="235" height="46"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                 <state key="normal" title="설정">
@@ -97,8 +97,23 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="mypageImg" translatesAutoresizingMaskIntoConstraints="NO" id="hQ9-vx-FKb">
+                                <rect key="frame" x="31" y="40" width="58" height="48"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PJi-kx-e5z">
+                                <rect key="frame" x="101" y="54" width="42" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="PJi-kx-e5z" firstAttribute="leading" secondItem="hQ9-vx-FKb" secondAttribute="trailing" constant="12" id="8In-Ds-xHu"/>
+                            <constraint firstItem="PJi-kx-e5z" firstAttribute="top" secondItem="ta6-VD-Zxd" secondAttribute="top" constant="54" id="cMB-yJ-P7m"/>
+                            <constraint firstItem="hQ9-vx-FKb" firstAttribute="top" secondItem="ta6-VD-Zxd" secondAttribute="top" constant="40" id="kPS-i9-ExC"/>
+                            <constraint firstItem="hQ9-vx-FKb" firstAttribute="leading" secondItem="vih-uS-w1I" secondAttribute="leading" constant="31" id="qFO-im-Qri"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="vih-uS-w1I"/>
                     </view>
                     <navigationItem key="navigationItem" id="30w-gb-DmH">
@@ -107,6 +122,7 @@
                     <connections>
                         <outlet property="letterCountLabel" destination="gH1-Ei-LG3" id="teQ-2z-wwg"/>
                         <outlet property="myProductCountLabel" destination="XMN-gu-eEs" id="zuM-27-84O"/>
+                        <outlet property="userNameLabel" destination="PJi-kx-e5z" id="Uhu-aq-hud"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cct-w1-nIq" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -133,7 +149,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMo-gA-mHg">
-                                                    <rect key="frame" x="72" y="15" width="45" height="21"/>
+                                                    <rect key="frame" x="72" y="15" width="237" height="21"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -247,4 +263,7 @@
             <point key="canvasLocation" x="2112.8000000000002" y="-129.08545727136433"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="mypageImg" width="58" height="48"/>
+    </resources>
 </document>
