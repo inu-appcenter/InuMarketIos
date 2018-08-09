@@ -11,7 +11,7 @@ import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
 
-// 회원가입, 비밀번호 찾기, 비밀번호 변경
+// 회원가입, 비밀번호 찾기, 비밀번호 변경 , 판매완료 변경
 class SignResult{
 
     var ans : Bool?
@@ -29,13 +29,17 @@ class UserInfo{
     var name: String?
     var tel: String?
     var message: String?
+    var letter: Int?
+    var product: Int?
     
-    init(token: String, id: String, name: String, tel: String, message: String) {
+    init(token: String, id: String, name: String, tel: String, message: String, letter: Int, product: Int) {
         self.token = token
         self.id = id
         self.name = name
         self.tel = tel
         self.message = message
+        self.letter = letter
+        self.product = product
     }
 }
 

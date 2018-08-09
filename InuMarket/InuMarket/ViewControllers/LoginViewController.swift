@@ -61,7 +61,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         let time = DispatchTime.now() + .seconds(2)
         DispatchQueue.main.asyncAfter(deadline: time) {
             //2초 지나고 나타날 행동
-            if self.appDelegate.userInfo?.message == "fail"{
+            if self.appDelegate.userInfo?.message == "false"{
                 self.view.makeToast("아이디와 비밀번호가 틀립니다.")
                 self.idTextField.text = ""
                 self.passTextField.text = ""
@@ -138,7 +138,9 @@ extension LoginViewController : NetworkCallback{
                 let name = item["name"] as? String ?? ""
                 let tel = item["tel"] as? String ?? ""
                 let message = item["message"] as? String ?? ""
-                let obj = UserInfo.init(token: token, id: id, name: name, tel: tel, message: message)
+                let letter = item["letter"] as? Int ?? 0
+                let product = item["product"] as? Int ?? 0
+                let obj = UserInfo.init(token: token, id: id, name: name, tel: tel, message: message, letter: letter, product: product)
                 temp.append(obj)
                 
                 self.appDelegate.userInfo = obj

@@ -112,7 +112,24 @@ class NetworkModel{
             }
         }
     }
-    
+//    물건 판매 완료 처리
+    func changeProduct(productId:String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["productId": productId]
+        Alamofire.request("\(serverURL)stateChange/product", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "changeProductSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "changeProductError")
+                break
+            }
+        }
+    }
+//    비밀번호경변경
     func changePasswd(id: String, pastPasswd: String, newPasswd: String){
         let header = ["Content-Type" : "application/x-www-form-urlencoded",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
@@ -132,5 +149,7 @@ class NetworkModel{
             }
         }
     }
+    
+    
 }
 

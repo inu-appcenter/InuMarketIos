@@ -17,6 +17,7 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var model : NetworkModel?
+    var changePasswordResult : SignResult?
     
     var selledItem:[MyProductselled] = [] {
         didSet {
@@ -84,11 +85,11 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentControl.index {
         case 0:
-              return selledItem.count
-        case 1:
               return nonSelledItem.count
-        default:
+        case 1:
               return selledItem.count
+        default:
+              return nonSelledItem.count
         }
         
         
@@ -107,14 +108,14 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         if segmentControl.index == 0{
             cell.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
             cell.successLabel.isHidden = true
-            cell.productNameLabel.text = selledItem[indexPath.row].productName
+            cell.productNameLabel.text = nonSelledItem[indexPath.row].productName
             
             
         }else{  // segmentControl  index == 1  "판매 완료"
             cell.backgroundColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.5)
             cell.successLabel.isHidden = false
             cell.successLabel.textColor = UIColor.white
-            cell.productNameLabel.text = nonSelledItem[indexPath.row].productName
+            cell.productNameLabel.text = selledItem[indexPath.row].productName
         }
         
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -150,10 +151,9 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
             let alertController = UIAlertController(title: "판매완료 하시겠습니까?", message: "상품이 판매 완료 되면 고객이 상세정보를 열람할 수 없게 됩니다.", preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "판매완료", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
                 print("확인 누를때 수행될 내용")
+                self.model?.changeProduct(productId: "\(self.nonSelledItem[indexPath.row].productId!)")
                 
-                self.myProductTable.reloadSections(IndexSet(0...0), with: .automatic)
-                self.myProductTable.reloadData()
-                
+
             }
             let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
             
@@ -207,6 +207,16 @@ extension MyProductTableViewController:NetworkCallback{
             }
             //            self.appDelegate.labCal = temp
             nonSelledItem = temp
+        }else if code == "changeProductSuccess"{
+            print(resultdata)
+            if let item = resultdata as? NSDictionary {
+                let ans = item["ans"] as? Bool ?? false
+                let obj = SignResult.init(ans: ans)
+                self.changePasswordResult = obj
+                
+                model?.myProductSelled(sellerId: (self.appDelegate.userInfo?.id)!)
+                model?.myProductNonSell(sellerId: (self.appDelegate.userInfo?.id)!)
+            }
         }
     }
     

@@ -120,8 +120,8 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="gTv-p7-49u"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="letterCountLabel" destination="gH1-Ei-LG3" id="teQ-2z-wwg"/>
-                        <outlet property="myProductCountLabel" destination="XMN-gu-eEs" id="zuM-27-84O"/>
+                        <outlet property="letterCountLabel" destination="gH1-Ei-LG3" id="F1J-lN-ECF"/>
+                        <outlet property="productCountLabel" destination="XMN-gu-eEs" id="VaY-wB-fP2"/>
                         <outlet property="userNameLabel" destination="PJi-kx-e5z" id="Uhu-aq-hud"/>
                     </connections>
                 </viewController>

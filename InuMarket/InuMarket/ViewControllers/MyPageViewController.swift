@@ -12,10 +12,15 @@ import UIKit
 class MyPageViewController: UIViewController {
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var profileInfo:UserInfo?
+    var letter2Int : Int?
+    var product2Int : Int?
     
-    @IBOutlet weak var userNameLabel: UILabel!
-    @IBOutlet weak var myProductCountLabel: UILabel!
+    @IBOutlet weak var productCountLabel: UILabel!
+    
     @IBOutlet weak var letterCountLabel: UILabel!
+    @IBOutlet weak var userNameLabel: UILabel!
+    
     
     @IBAction func myProductButtonClicked(_ sender: Any) {
         
@@ -50,7 +55,14 @@ class MyPageViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        profileInfo = self.appDelegate.userInfo
+
+        letter2Int = profileInfo?.letter
+        product2Int = profileInfo?.product
+        
         userNameLabel.text = self.appDelegate.userInfo?.name
+        productCountLabel.text = "\(product2Int!)"
+        letterCountLabel.text = "\(letter2Int!)"
         
         // Do any additional setup after loading the view.
     }
