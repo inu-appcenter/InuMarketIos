@@ -50,6 +50,7 @@
 		CB302E2C211C8CCC00C95E0D /* DetailHeaderCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E2B211C8CCC00C95E0D /* DetailHeaderCollectionViewCell.swift */; };
 		CB302E2E211C8CDD00C95E0D /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E2D211C8CDD00C95E0D /* DetailCollectionViewCell.swift */; };
 		CB302E30211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E2F211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift */; };
+		CB302E33211C99DA00C95E0D /* SendLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E32211C99DA00C95E0D /* SendLetterViewController.swift */; };
 		CBA00417211AA91400B62390 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */; };
 		CBA00419211AA91D00B62390 /* LetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */; };
 		CBA0041E211AC6AA00B62390 /* LetterBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */; };
@@ -103,6 +104,7 @@
 		CB302E2B211C8CCC00C95E0D /* DetailHeaderCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailHeaderCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB302E2D211C8CDD00C95E0D /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB302E2F211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFooterCollectionViewCell.swift; sourceTree = "<group>"; };
+		CB302E32211C99DA00C95E0D /* SendLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLetterViewController.swift; sourceTree = "<group>"; };
 		CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterBoxViewController.swift; sourceTree = "<group>"; };
@@ -258,6 +260,7 @@
 			children = (
 				CB302E31211C8CF300C95E0D /* collectionCell */,
 				CBA0041F211AC6B800B62390 /* DetailViewController.swift */,
+				CB302E32211C99DA00C95E0D /* SendLetterViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -452,6 +455,7 @@
 				C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */,
 				C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */,
 				C8725F2321189468004FD049 /* ChangePasswordViewController.swift in Sources */,
+				CB302E33211C99DA00C95E0D /* SendLetterViewController.swift in Sources */,
 				C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */,
 				CBA00422211B22C200B62390 /* VKExpenableButton.swift in Sources */,
 				CBA00419211AA91D00B62390 /* LetterCollectionViewCell.swift in Sources */,
@@ -617,7 +621,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2F465AG84W;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InuMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -636,7 +640,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 2F465AG84W;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InuMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

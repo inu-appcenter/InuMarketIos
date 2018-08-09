@@ -11,6 +11,15 @@ import ImageSlideshow
 
 class DetailViewController: UIViewController {
 
+    //MARK: properties
+    let headerIdentifier: String = "DetailHeaderCollectionViewCell"
+    let cellIdentifier: String = "DetailCollectionViewCell"
+    let footerIdentifier: String = "DetailFooterCollectionViewCell"
+    
+    let screenWidth = UIScreen.main.bounds.width
+    
+    var gesture: UITapGestureRecognizer = UITapGestureRecognizer()
+    
     //MARK: IBOutlet
     @IBOutlet weak var productImgView: ImageSlideshow!
     @IBOutlet weak var detailCollectionView: UICollectionView!
@@ -21,6 +30,15 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
+        sendLetterView.addGestureRecognizer(gesture)
+    }
+    
+    //MARK: Methods
+    @objc private func viewTapped(_ sender: UITapGestureRecognizer) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+        guard let sendLetterVC = storyboard.instantiateViewController(withIdentifier: "sendLetter") as? SendLetterViewController else { return }
+        self.present(sendLetterVC, animated: true, completion: nil)
     }
 
 }
@@ -28,31 +46,55 @@ class DetailViewController: UIViewController {
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 0
+        return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-        return UICollectionReusableView()
+        
+        switch kind {
+        case UICollectionElementKindSectionHeader:
+            guard let cell: DetailHeaderCollectionViewCell = detailCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as? DetailHeaderCollectionViewCell else { return UICollectionReusableView() }
+            cell.nameLabel.text = "전동자전거"
+            cell.priceLabel.text = "250,000원"
+            cell.inquiryLabel.text = "현재 12명의 학생들이 문의중입니다!"
+            cell.declareButton.setImage(UIImage(named: "declare"), for: .normal)
+            return cell
+            
+        case UICollectionElementKindSectionFooter:
+            guard let cell: DetailFooterCollectionViewCell = detailCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerIdentifier, for: indexPath) as? DetailFooterCollectionViewCell else { return UICollectionReusableView() }
+            cell.showProductButton.setImage(UIImage(named: "showOtherProduct"), for: .normal)
+            return cell
+        default: return UICollectionReusableView()
+        }
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: 0)
+        return CGSize(width: screenWidth, height: 121)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: 0, height: 0)
+        return CGSize(width: screenWidth, height: 166)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: 0, height: 0)
+        return CGSize(width: screenWidth, height: 52)
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        return UICollectionViewCell()
+        guard let cell: DetailCollectionViewCell = detailCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? DetailCollectionViewCell else { return UICollectionViewCell() }
+        cell.explainTextView.text = """
+        여러가지 설명
+        설명
+        """
+        cell.stateLabel.text = "- 상품 상태 : 중고 4개월 탐"
+        cell.transMethodLabel.text = "- 거래 방식 : 직거래"
+        cell.transPlaceLabel.text = "- 거래 장소 : 16호관"
+        cell.categoryLabel.text = "- 카테고리 : 가전 / 가구 - 기타"
+        return cell
     }
     
 }

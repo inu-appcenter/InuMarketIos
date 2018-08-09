@@ -172,39 +172,28 @@
                                     <rect key="frame" x="0.0" y="284" width="375" height="52"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zdp-w6-lOe">
+                                        <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WO1-mD-Fe7">
                                             <rect key="frame" x="152" y="0.0" width="223" height="52"/>
-                                            <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="판매자의 다른 상품 보기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QGO-zO-0Xz">
-                                                    <rect key="frame" x="39" y="17.5" width="132" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
-                                                    <nil key="textColor"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightside" translatesAutoresizingMaskIntoConstraints="NO" id="jZc-cL-muC">
-                                                    <rect key="frame" x="171" y="0.0" width="52" height="52"/>
-                                                </imageView>
-                                            </subviews>
-                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="jZc-cL-muC" secondAttribute="trailing" id="B3k-ro-nI9"/>
-                                                <constraint firstAttribute="height" constant="52" id="FdI-PT-5wf"/>
-                                                <constraint firstAttribute="bottom" secondItem="jZc-cL-muC" secondAttribute="bottom" id="JKY-T1-TYl"/>
-                                                <constraint firstAttribute="width" constant="223" id="VFD-mm-1vm"/>
-                                                <constraint firstItem="jZc-cL-muC" firstAttribute="leading" secondItem="QGO-zO-0Xz" secondAttribute="trailing" id="ZIh-vP-Vq4"/>
-                                                <constraint firstItem="QGO-zO-0Xz" firstAttribute="centerY" secondItem="zdp-w6-lOe" secondAttribute="centerY" id="ch2-lx-aqE"/>
-                                                <constraint firstItem="jZc-cL-muC" firstAttribute="top" secondItem="zdp-w6-lOe" secondAttribute="top" id="faj-6P-e5a"/>
+                                                <constraint firstAttribute="height" constant="52" id="MQo-FA-F5D"/>
+                                                <constraint firstAttribute="width" constant="223" id="uKc-qc-koe"/>
                                             </constraints>
-                                        </view>
+                                            <state key="normal" image="showOtherProduct"/>
+                                        </button>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstAttribute="trailing" secondItem="zdp-w6-lOe" secondAttribute="trailing" id="Pai-7T-Fch"/>
-                                        <constraint firstItem="zdp-w6-lOe" firstAttribute="centerY" secondItem="L3I-Hg-Sn1" secondAttribute="centerY" id="euV-z6-zZX"/>
+                                        <constraint firstItem="WO1-mD-Fe7" firstAttribute="top" secondItem="L3I-Hg-Sn1" secondAttribute="top" id="4o1-kA-jXk"/>
+                                        <constraint firstAttribute="trailing" secondItem="WO1-mD-Fe7" secondAttribute="trailing" id="8Nh-lu-ePE"/>
+                                        <constraint firstAttribute="bottom" secondItem="WO1-mD-Fe7" secondAttribute="bottom" id="BdK-Vh-Qxv"/>
                                     </constraints>
                                     <connections>
-                                        <outlet property="showProductButton" destination="zdp-w6-lOe" id="SrR-DF-soX"/>
+                                        <outlet property="showProductButton" destination="WO1-mD-Fe7" id="SW1-Qg-DKL"/>
                                     </connections>
                                 </collectionReusableView>
+                                <connections>
+                                    <outlet property="dataSource" destination="rcc-Sy-1fD" id="dwG-fs-qbE"/>
+                                    <outlet property="delegate" destination="rcc-Sy-1fD" id="DDJ-zm-75A"/>
+                                </connections>
                             </collectionView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ALK-YX-hQx">
                                 <rect key="frame" x="0.0" y="611" width="375" height="56"/>
@@ -258,10 +247,25 @@
             </objects>
             <point key="canvasLocation" x="157.59999999999999" y="72.413793103448285"/>
         </scene>
+        <!--Send Letter View Controller-->
+        <scene sceneID="jKg-JH-TsK">
+            <objects>
+                <viewController storyboardIdentifier="sendLetter" id="g2d-sX-sBD" customClass="SendLetterViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="qgE-Eq-jgu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="dYs-Aw-tzb"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zn1-KL-UyQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1004" y="78"/>
+        </scene>
     </scenes>
     <resources>
         <image name="declare" width="92" height="48"/>
-        <image name="rightside" width="52" height="52"/>
+        <image name="showOtherProduct" width="169" height="15"/>
         <namedColor name="blushPink">
             <color red="1" green="0.48600000143051147" blue="0.54900002479553223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>

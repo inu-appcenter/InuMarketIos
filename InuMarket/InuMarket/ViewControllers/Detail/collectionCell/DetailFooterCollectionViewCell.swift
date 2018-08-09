@@ -10,7 +10,7 @@ import UIKit
 
 class DetailFooterCollectionViewCell: UICollectionViewCell {
     
-    @IBOutlet var showProductButton: UIView!
+    @IBOutlet var showProductButton: UIButton!
     
     
 }
