@@ -22,11 +22,11 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-l6-qlv">
                                 <rect key="frame" x="12" y="75" width="351" height="48"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="찾고있는 상품을 입력하세요" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="u55-hw-rqr">
-                                <rect key="frame" x="54" y="90" width="297" height="20"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="찾고있는 상품을 입력하세요" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u55-hw-rqr">
+                                <rect key="frame" x="54" y="90" width="256" height="19"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xVu-o4-eAJ">
                                 <rect key="frame" x="0.0" y="131" width="375" height="536"/>
@@ -160,7 +160,7 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrP-Ay-3lI">
-                                            <rect key="frame" x="36" y="13" width="48" height="24"/>
+                                            <rect key="frame" x="36" y="13" width="231" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
@@ -174,6 +174,7 @@
                                         </view>
                                     </subviews>
                                     <constraints>
+                                        <constraint firstAttribute="trailingMargin" secondItem="nrP-Ay-3lI" secondAttribute="trailing" constant="100" id="2kL-fA-DG5"/>
                                         <constraint firstItem="nrP-Ay-3lI" firstAttribute="centerY" secondItem="cQS-ik-RbR" secondAttribute="centerY" id="6DT-Hk-y2O"/>
                                         <constraint firstAttribute="trailing" secondItem="4Jf-aD-IjT" secondAttribute="trailing" id="HMb-kQ-Pqx"/>
                                         <constraint firstItem="nrP-Ay-3lI" firstAttribute="leading" secondItem="cQS-ik-RbR" secondAttribute="leadingMargin" constant="28" id="R9I-0x-2tf"/>
@@ -196,7 +197,7 @@
                             <constraint firstItem="u55-hw-rqr" firstAttribute="leading" secondItem="wPs-E0-d1B" secondAttribute="leading" constant="54" id="6Sn-EN-YGE"/>
                             <constraint firstItem="xVu-o4-eAJ" firstAttribute="leading" secondItem="wPs-E0-d1B" secondAttribute="leading" id="9G0-ur-1Vv"/>
                             <constraint firstItem="PWw-l6-qlv" firstAttribute="top" secondItem="wPs-E0-d1B" secondAttribute="top" constant="11" id="BEH-uY-iye"/>
-                            <constraint firstItem="wPs-E0-d1B" firstAttribute="trailing" secondItem="u55-hw-rqr" secondAttribute="trailing" constant="24" id="ESD-Bz-Wsf"/>
+                            <constraint firstItem="wPs-E0-d1B" firstAttribute="trailing" secondItem="u55-hw-rqr" secondAttribute="trailing" constant="65" id="M0S-Wy-zUh"/>
                             <constraint firstItem="xVu-o4-eAJ" firstAttribute="top" secondItem="PWw-l6-qlv" secondAttribute="bottom" constant="8" id="NUA-we-u4h"/>
                             <constraint firstItem="PWw-l6-qlv" firstAttribute="leading" secondItem="wPs-E0-d1B" secondAttribute="leading" constant="12" id="SY8-Ei-slY"/>
                             <constraint firstItem="u55-hw-rqr" firstAttribute="top" secondItem="wPs-E0-d1B" secondAttribute="top" constant="26" id="awO-Vj-Okv"/>
@@ -224,9 +225,17 @@
                     </navigationItem>
                     <connections>
                         <outlet property="productCollectionView" destination="xVu-o4-eAJ" id="iDZ-7m-2oM"/>
+                        <outlet property="searchImg" destination="PWw-l6-qlv" id="AQp-gP-sbG"/>
+                        <outlet property="searchTextField" destination="u55-hw-rqr" id="HdO-T2-mDF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4mk-xS-rCl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="kdc-KY-1cO">
+                    <connections>
+                        <action selector="viewDidTapped:" destination="Ma8-Tp-ERg" id="CSK-jF-29y"/>
+                        <outlet property="delegate" destination="IXM-hC-HV8" id="UOv-zf-0WL"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1336.8" y="1356.0719640179911"/>
         </scene>
