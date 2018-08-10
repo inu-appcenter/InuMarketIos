@@ -180,6 +180,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             showDetailVC()
         } else {
             switch indexPath.section {
+            case 0:
+                guard let cell: BannerCollectionViewCell = productCollectionView.dequeueReusableCell(withReuseIdentifier: bannerCellIdentifier, for: indexPath) as? BannerCollectionViewCell else { return }
+                let fullScreenController = cell.bannerView.presentFullScreenController(from: self)
+                fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+                
             case 1:
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let letterBoxVC = storyboard.instantiateViewController(withIdentifier: "letterBox") as? LetterBoxViewController else { return }
@@ -230,6 +235,10 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 guard let cell: BannerCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: bannerCellIdentifier, for: indexPath) as? BannerCollectionViewCell else {
                     return UICollectionViewCell()
                 }
+                let pageIndicator = UIPageControl()
+                pageIndicator.currentPageIndicatorTintColor = UIColor.white
+                pageIndicator.pageIndicatorTintColor = #colorLiteral(red: 0.4779999852, green: 0.4779999852, blue: 0.4779999852, alpha: 1)
+                cell.bannerView.pageIndicator = pageIndicator
                 cell.bannerView.setImageInputs([ImageSource(image: UIImage(named: "promotionsAppcenter")!),
                                                 ImageSource(image: UIImage(named: "promotionsAppcenter")!)])
                 return cell

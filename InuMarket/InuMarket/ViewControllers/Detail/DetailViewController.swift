@@ -32,12 +32,31 @@ class DetailViewController: UIViewController {
         // Do any additional setup after loading the view.
         gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         sendLetterView.addGestureRecognizer(gesture)
+        
+        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(productImgTapped))
+        productImgView.addGestureRecognizer(gestureRecognizer)
+        
+        let pageIndicator = UIPageControl()
+        pageIndicator.currentPageIndicatorTintColor = UIColor.white
+        pageIndicator.pageIndicatorTintColor = #colorLiteral(red: 0.4779999852, green: 0.4779999852, blue: 0.4779999852, alpha: 1)
+        productImgView.pageIndicator = pageIndicator
+        productImgView.setImageInputs([ImageSource(image: UIImage(named: "rectangle4Copy")!),
+                                       ImageSource(image: UIImage(named: "rectangle4Copy")!),
+                                       ImageSource(image: UIImage(named: "rectangle4Copy")!),
+                                       ImageSource(image: UIImage(named: "rectangle4Copy")!)])
     }
     
     //MARK: Methods
+    @objc func productImgTapped() {
+        let fullScreenController = productImgView.presentFullScreenController(from: self)
+        // set the activity indicator for full screen controller (skipping the line will show no activity indicator)
+        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+    }
+    
     @objc private func viewTapped(_ sender: UITapGestureRecognizer) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
         guard let sendLetterVC = storyboard.instantiateViewController(withIdentifier: "sendLetter") as? SendLetterViewController else { return }
+//        sendLetterVC.modalPresentationStyle = .overCurrentContext
         self.present(sendLetterVC, animated: true, completion: nil)
     }
 
