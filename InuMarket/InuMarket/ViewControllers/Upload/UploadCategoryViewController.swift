@@ -12,7 +12,8 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
     
     @IBOutlet weak var UploadCategoryTable: UITableView!
     
-    let category = ["책","의류","가전 / 가구", "생활 / 사무", "잡화","원룸","식권"]
+    let category = ["책","의류","가전 / 가구", "잡화","원룸","식권"]
+    let imageCategory = [#imageLiteral(resourceName: "book"),#imageLiteral(resourceName: "cloth"),#imageLiteral(resourceName: "electirc"),#imageLiteral(resourceName: "etc"),#imageLiteral(resourceName: "room"),#imageLiteral(resourceName: "ticket")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +33,7 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
     }
     //섹션별 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 7
+        return category.count
     }
     // 섹션 개수
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -44,6 +45,7 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
         let cell = tableView.dequeueReusableCell(withIdentifier: "UploadCategoryTableViewCell") as! UploadCategoryTableViewCell
         
         cell.categoryLabel.text = category[indexPath.row]
+        cell.categoryImage.image = imageCategory[indexPath.row]
         
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         
@@ -59,7 +61,8 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
         
         cell?.isSelected = true
         
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadInfo") as? UploadInfoViewController{
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadSubCategory") as? UploadSubCategoryViewController{
+            vc.mainCategory = category[indexPath.row]
             self.navigationController?.show(vc, sender: nil)
         }
         

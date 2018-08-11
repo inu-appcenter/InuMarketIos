@@ -11,6 +11,8 @@ import UIKit
 class UploadCategoryTableViewCell: UITableViewCell {
 
     @IBOutlet weak var categoryLabel: UILabel!
+    
+    @IBOutlet weak var categoryImage: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

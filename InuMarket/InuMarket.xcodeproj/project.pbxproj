@@ -15,6 +15,8 @@
 		C8200E3C20F3412C0094E917 /* UploadInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */; };
 		C8200E3E20F348D90094E917 /* Upload.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8200E3D20F348D90094E917 /* Upload.storyboard */; };
 		C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3F20F393840094E917 /* UploadExplainViewController.swift */; };
+		C8235A80211EA87A0047AA70 /* UploadSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8235A7F211EA87A0047AA70 /* UploadSubCategoryViewController.swift */; };
+		C8235A82211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8235A81211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift */; };
 		C82D5B22210F728100F1ED42 /* SetPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D5B21210F728100F1ED42 /* SetPhoneViewController.swift */; };
 		C82D5B24210F72A300F1ED42 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D5B23210F72A300F1ED42 /* ReviewViewController.swift */; };
 		C82D5B272112E85D00F1ED42 /* UploadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D5B262112E85D00F1ED42 /* UploadPhotoViewController.swift */; };
@@ -68,6 +70,8 @@
 		C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UploadInfoViewController.swift; path = InuMarket/ViewControllers/Upload/UploadInfoViewController.swift; sourceTree = SOURCE_ROOT; };
 		C8200E3D20F348D90094E917 /* Upload.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Upload.storyboard; sourceTree = "<group>"; };
 		C8200E3F20F393840094E917 /* UploadExplainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadExplainViewController.swift; sourceTree = "<group>"; };
+		C8235A7F211EA87A0047AA70 /* UploadSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSubCategoryViewController.swift; sourceTree = "<group>"; };
+		C8235A81211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		C82D5B21210F728100F1ED42 /* SetPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPhoneViewController.swift; sourceTree = "<group>"; };
 		C82D5B23210F72A300F1ED42 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		C82D5B262112E85D00F1ED42 /* UploadPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoViewController.swift; sourceTree = "<group>"; };
@@ -186,6 +190,7 @@
 				C850EEF720F652CC002068F1 /* NetworkModel.swift */,
 				C850EEF920F65357002068F1 /* NetworkCallback.swift */,
 				C855122B21172F20001779AD /* DBManager.swift */,
+				C8235A81211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -197,6 +202,7 @@
 				C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */,
 				C8200E3F20F393840094E917 /* UploadExplainViewController.swift */,
 				C82D5B262112E85D00F1ED42 /* UploadPhotoViewController.swift */,
+				C8235A7F211EA87A0047AA70 /* UploadSubCategoryViewController.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -443,6 +449,7 @@
 				C850EEF820F652CC002068F1 /* NetworkModel.swift in Sources */,
 				C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */,
 				C82D5B24210F72A300F1ED42 /* ReviewViewController.swift in Sources */,
+				C8235A80211EA87A0047AA70 /* UploadSubCategoryViewController.swift in Sources */,
 				C8725F2121189468004FD049 /* SettingViewController.swift in Sources */,
 				CB302E2E211C8CDD00C95E0D /* DetailCollectionViewCell.swift in Sources */,
 				CBA0041E211AC6AA00B62390 /* LetterBoxViewController.swift in Sources */,
@@ -461,6 +468,7 @@
 				C8725F2321189468004FD049 /* ChangePasswordViewController.swift in Sources */,
 				CB302E33211C99DA00C95E0D /* SendLetterViewController.swift in Sources */,
 				C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */,
+				C8235A82211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift in Sources */,
 				CBA00422211B22C200B62390 /* VKExpenableButton.swift in Sources */,
 				CBA00419211AA91D00B62390 /* LetterCollectionViewCell.swift in Sources */,
 				C88AEA742108B50F00182BD9 /* ForgotPasswordViewController.swift in Sources */,
