@@ -18,7 +18,7 @@ class ForgotPasswordViewController: UIViewController {
     @IBOutlet weak var emailButton: UIButton!
     
     var model : NetworkModel?
-    var forgotPasswordResult : SignResult?
+    var forgotPasswordResult : AnsResult?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -104,7 +104,7 @@ extension ForgotPasswordViewController: NetworkCallback {
             
             if let item = resultdata as? NSDictionary {
                 let ans = item["ans"] as? Bool ?? false
-                let obj = SignResult.init(ans: ans)
+                let obj = AnsResult.init(ans: ans)
                 self.forgotPasswordResult = obj
             }
         }

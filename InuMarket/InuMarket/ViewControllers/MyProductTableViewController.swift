@@ -17,7 +17,7 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var model : NetworkModel?
-    var changePasswordResult : SignResult?
+    var changePasswordResult : AnsResult?
     
     var selledItem:[MyProductselled] = [] {
         didSet {
@@ -211,7 +211,7 @@ extension MyProductTableViewController:NetworkCallback{
             print(resultdata)
             if let item = resultdata as? NSDictionary {
                 let ans = item["ans"] as? Bool ?? false
-                let obj = SignResult.init(ans: ans)
+                let obj = AnsResult.init(ans: ans)
                 self.changePasswordResult = obj
                 
                 model?.myProductSelled(sellerId: (self.appDelegate.userInfo?.id)!)

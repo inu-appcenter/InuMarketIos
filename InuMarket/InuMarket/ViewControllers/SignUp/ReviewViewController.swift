@@ -17,7 +17,7 @@ class ReviewViewController: UIViewController {
     var tel : String = ""
     
     var model : NetworkModel?
-    var signUpResult : SignResult?
+    var signUpResult : AnsResult?
     
     
     
@@ -82,7 +82,7 @@ extension ReviewViewController: NetworkCallback{
             
             if let item = resultdata as? NSDictionary {
                 let ans = item["ans"] as? Bool ?? false
-                let obj = SignResult.init(ans: ans)
+                let obj = AnsResult.init(ans: ans)
                 self.signUpResult = obj
             }
         }

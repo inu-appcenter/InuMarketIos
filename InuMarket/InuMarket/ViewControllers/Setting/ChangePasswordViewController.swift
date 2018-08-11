@@ -20,7 +20,7 @@ class ChangePasswordViewController: UIViewController {
     @IBOutlet weak var newPasswordCheckTextField: UITextField!
     
     var model : NetworkModel?
-    var changePasswdResult : SignResult?
+    var changePasswdResult : AnsResult?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
     
@@ -47,17 +47,17 @@ class ChangePasswordViewController: UIViewController {
             if self.changePasswdResult?.ans == true{
                 let alertController = UIAlertController(title: "비밀번호 변경 완료.", message: "다시 로그인 해주세요.", preferredStyle: UIAlertControllerStyle.alert)
                 let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                    self.navigationController?.popToRootViewController(animated: true)
+                    self.dismiss(animated: true, completion: nil)
                 }
                 alertController.addAction(okAction)
                 self.present(alertController, animated: true, completion: nil)
             }else{
                 
                 let alertController = UIAlertController(title: "변경 실패", message: "비밀번호를 다시 확인해 주세요.", preferredStyle: UIAlertControllerStyle.alert)
-                
                 let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
                 alertController.addAction(cancelButton)
                 self.present(alertController, animated: true, completion: nil)
+                
             }
             }
         
@@ -84,7 +84,7 @@ extension ChangePasswordViewController:NetworkCallback{
             
             if let item = resultdata as? NSDictionary {
                 let ans = item["ans"] as? Bool ?? false
-                let obj = SignResult.init(ans: ans)
+                let obj = AnsResult.init(ans: ans)
                 self.changePasswdResult = obj
             }
         }

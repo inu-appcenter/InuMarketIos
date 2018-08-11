@@ -149,7 +149,25 @@ class NetworkModel{
             }
         }
     }
-    
+    // 회원탈퇴
+    func deleteUser(id: String, passwd: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["id" : id,
+                      "passwd": passwd
+        ]
+        Alamofire.request("\(serverURL)account/delete", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "deleteUserSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "deleteUserError")
+                break
+            }
+        }
+    }
     
 }
 
