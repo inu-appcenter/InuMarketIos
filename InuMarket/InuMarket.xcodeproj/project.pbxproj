@@ -17,6 +17,10 @@
 		C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E3F20F393840094E917 /* UploadExplainViewController.swift */; };
 		C8235A80211EA87A0047AA70 /* UploadSubCategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8235A7F211EA87A0047AA70 /* UploadSubCategoryViewController.swift */; };
 		C8235A82211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8235A81211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift */; };
+		C8235A8C211F3F470047AA70 /* PreImageViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8235A8B211F3F470047AA70 /* PreImageViewTableViewCell.swift */; };
+		C8235A8E211F3F4E0047AA70 /* PreInfoViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8235A8D211F3F4E0047AA70 /* PreInfoViewTableViewCell.swift */; };
+		C8235A90211F3F5A0047AA70 /* PreExplainViewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8235A8F211F3F5A0047AA70 /* PreExplainViewTableViewCell.swift */; };
+		C8235A92211F3F710047AA70 /* UploadPreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8235A91211F3F710047AA70 /* UploadPreViewController.swift */; };
 		C82D5B22210F728100F1ED42 /* SetPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D5B21210F728100F1ED42 /* SetPhoneViewController.swift */; };
 		C82D5B24210F72A300F1ED42 /* ReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D5B23210F72A300F1ED42 /* ReviewViewController.swift */; };
 		C82D5B272112E85D00F1ED42 /* UploadPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C82D5B262112E85D00F1ED42 /* UploadPhotoViewController.swift */; };
@@ -72,6 +76,10 @@
 		C8200E3F20F393840094E917 /* UploadExplainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadExplainViewController.swift; sourceTree = "<group>"; };
 		C8235A7F211EA87A0047AA70 /* UploadSubCategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSubCategoryViewController.swift; sourceTree = "<group>"; };
 		C8235A81211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadSubCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		C8235A8B211F3F470047AA70 /* PreImageViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreImageViewTableViewCell.swift; sourceTree = "<group>"; };
+		C8235A8D211F3F4E0047AA70 /* PreInfoViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreInfoViewTableViewCell.swift; sourceTree = "<group>"; };
+		C8235A8F211F3F5A0047AA70 /* PreExplainViewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreExplainViewTableViewCell.swift; sourceTree = "<group>"; };
+		C8235A91211F3F710047AA70 /* UploadPreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPreViewController.swift; sourceTree = "<group>"; };
 		C82D5B21210F728100F1ED42 /* SetPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPhoneViewController.swift; sourceTree = "<group>"; };
 		C82D5B23210F72A300F1ED42 /* ReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReviewViewController.swift; sourceTree = "<group>"; };
 		C82D5B262112E85D00F1ED42 /* UploadPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoViewController.swift; sourceTree = "<group>"; };
@@ -195,14 +203,26 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		C8235A8A211F3F2F0047AA70 /* TableCell */ = {
+			isa = PBXGroup;
+			children = (
+				C8235A8B211F3F470047AA70 /* PreImageViewTableViewCell.swift */,
+				C8235A8D211F3F4E0047AA70 /* PreInfoViewTableViewCell.swift */,
+				C8235A8F211F3F5A0047AA70 /* PreExplainViewTableViewCell.swift */,
+			);
+			path = TableCell;
+			sourceTree = "<group>";
+		};
 		C82D5B252112E82E00F1ED42 /* Upload */ = {
 			isa = PBXGroup;
 			children = (
+				C8235A8A211F3F2F0047AA70 /* TableCell */,
 				C8200E3720F338FC0094E917 /* UploadCategoryViewController.swift */,
 				C8200E3B20F3412C0094E917 /* UploadInfoViewController.swift */,
 				C8200E3F20F393840094E917 /* UploadExplainViewController.swift */,
 				C82D5B262112E85D00F1ED42 /* UploadPhotoViewController.swift */,
 				C8235A7F211EA87A0047AA70 /* UploadSubCategoryViewController.swift */,
+				C8235A91211F3F710047AA70 /* UploadPreViewController.swift */,
 			);
 			path = Upload;
 			sourceTree = "<group>";
@@ -408,31 +428,35 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/AlamofireObjectMapper/AlamofireObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/NohanaImagePicker/NohanaImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
+				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AlamofireObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSGridCollectionViewLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/NohanaImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -460,10 +484,12 @@
 				C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */,
 				C8725F2521189468004FD049 /* WithdrawalViewController.swift in Sources */,
 				C855123021174701001779AD /* SettingTableViewCell.swift in Sources */,
+				C8235A8E211F3F4E0047AA70 /* PreInfoViewTableViewCell.swift in Sources */,
 				C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */,
 				C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */,
 				C82D5B22210F728100F1ED42 /* SetPhoneViewController.swift in Sources */,
 				C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */,
+				C8235A92211F3F710047AA70 /* UploadPreViewController.swift in Sources */,
 				C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */,
 				C8725F2321189468004FD049 /* ChangePasswordViewController.swift in Sources */,
 				CB302E33211C99DA00C95E0D /* SendLetterViewController.swift in Sources */,
@@ -476,12 +502,14 @@
 				CBA00417211AA91400B62390 /* BannerCollectionViewCell.swift in Sources */,
 				C8821B6A20E8AE2A009D8CD0 /* AppDelegate.swift in Sources */,
 				CB2EA2102118834C00BFC9B3 /* MainHeaderCollectionViewCell.swift in Sources */,
+				C8235A8C211F3F470047AA70 /* PreImageViewTableViewCell.swift in Sources */,
 				C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */,
 				C84EE2212112F45200941485 /* UploadPhotoCollectionViewCell.swift in Sources */,
 				CB302E30211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift in Sources */,
 				C8725F2421189468004FD049 /* QustViewController.swift in Sources */,
 				CBA00420211AC6B800B62390 /* DetailViewController.swift in Sources */,
 				C86EB096210B62C7005AE454 /* StudentInfoViewController.swift in Sources */,
+				C8235A90211F3F5A0047AA70 /* PreExplainViewTableViewCell.swift in Sources */,
 				C86EB094210B61DD005AE454 /* AgreementViewController.swift in Sources */,
 				C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */,
 				CB2EA20E2118833300BFC9B3 /* MainCollectionViewCell.swift in Sources */,

@@ -12,6 +12,8 @@ import Toast_Swift
 
 class LoginViewController: UIViewController, UITextFieldDelegate {
     
+    
+    
     @IBOutlet weak var idTextField: UITextField!
     @IBOutlet weak var passTextField: UITextField!
     @IBOutlet weak var errorLabel: UILabel!
@@ -121,6 +123,8 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
     }
     
+    
+   
 }
 
 extension LoginViewController : NetworkCallback{

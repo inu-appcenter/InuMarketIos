@@ -16,10 +16,11 @@ pod 'SwiftLint'
 pod 'Toast-Swift', '~> 3.0.1'
 pod 'SideMenu'
 pod 'BetterSegmentedControl', '~> 0.9'
-pod 'NohanaImagePicker'
 pod 'ObjectMapper', '~> 3.1'
 pod 'AlamofireObjectMapper', '~> 5.0'
 pod 'DropDown'
+pod "BSImagePicker"
+
 
 end
 post_install do |installer|

@@ -7,53 +7,53 @@
 //
 
 import UIKit
-import NohanaImagePicker
 import Photos
+import BSImagePicker
 
-class UploadPhotoViewController: UIViewController , UICollectionViewDataSource,UICollectionViewDelegate {
 
+class UploadPhotoViewController: UIViewController {
     
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var albumAndCancel: UIButton!
-    
     @IBOutlet weak var toPhotoAndDelete: UIButton!
-    let picker = NohanaImagePickerController()
-
-    var imageArray = [#imageLiteral(resourceName: "logo"),#imageLiteral(resourceName: "logo"),#imageLiteral(resourceName: "mainLogo")]
+    @IBOutlet weak var photoCollection: UICollectionView!
+    
+    var imageArray = [#imageLiteral(resourceName: "photo"),#imageLiteral(resourceName: "logo")]
+    var SelectedAssets = [PHAsset]()
+    var buttonCount = [0,1,2,3,4,5,6,7]
+    var selectRow: Int?
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializing()
         
+        
         // Do any additional setup after loading the view.
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-    
     @IBAction func nextButtonClicked(_ sender: Any) {
+        if imageArray.count == 1{
+        errorLabel.isHidden = false
+        } else{
+        if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadPreView") as? UploadPreViewController{
+            self.navigationController?.show(vc, sender: nil)
+        }
+        }
     }
-    
     @IBAction func toPhotoAndDeleteButtonClicked(_ sender: Any) {
-        
-        picker.delegate = self
-        
-        // 접근이 허용되었는지 체크
-        checkIfAuthorizedToAccessPhotos { isAuthorized in
-            DispatchQueue.main.async(execute: {
-                if isAuthorized {
-                    self.present(self.picker, animated: true, completion: nil)
-                } else {
-                    let alert = UIAlertController(title: "에러!", message: "앨범 접근을 허용해 주세요!", preferredStyle: .alert)
-                    alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
-                    self.present(alert, animated: true, completion: nil)
-                }
-            })
+        if toPhotoAndDelete.currentTitle == "삭제"{
+            imageArray.remove(at: selectRow!)
+            self.photoCollection.reloadData()
+            endEventButton()
+        }else{
+            //            카메라키기
+            endEventButton()
         }
         
-        
     }
+    
     
     // 접근이 허용되었는지 파악하는 함수
     func checkIfAuthorizedToAccessPhotos(_ handler: @escaping (_ isAuthorized: Bool) -> Void) {
@@ -79,34 +79,66 @@ class UploadPhotoViewController: UIViewController , UICollectionViewDataSource,U
     }
     
     @IBAction func albumAndCancelButtonClicked(_ sender: Any) {
+        if albumAndCancel.currentTitle == "취소" {
+            endEventButton()
+        }else{
+            // 접근이 허용되었는지 체크
+            checkIfAuthorizedToAccessPhotos { isAuthorized in
+                DispatchQueue.main.async(execute: {
+                    if isAuthorized {
+                        //접근허용일때
+                        let imagePicker = BSImagePickerViewController()
+                        imagePicker.maxNumberOfSelections = 7
+                        self.bs_presentImagePickerController(imagePicker, animated: true,
+                                                             select:
+                            { (asset: PHAsset) -> Void in
+                                print("Selected: \(asset)")
+                        }, deselect: { (asset: PHAsset) -> Void in
+                            print("Deselected: \(asset)")
+                        }, cancel: { (assets: [PHAsset]) -> Void in
+                            print("Cancel: \(assets)")
+                        }, finish: { (assets: [PHAsset]) -> Void in
+                            print("Finish: \(assets)")
+                            for i in 0..<assets.count
+                            {
+                                self.SelectedAssets.append(assets[i])
+                                print(self.SelectedAssets)
+                            }
+                            self.getAllImages()
+                            self.SelectedAssets.removeAll()
+                        }, completion: nil)
+                    } else {
+                        let alert = UIAlertController(title: "에러!", message: "앨범 접근을 허용해 주세요!", preferredStyle: .alert)
+                        alert.addAction(UIAlertAction(title: "취소", style: .cancel, handler: nil))
+                        self.present(alert, animated: true, completion: nil)
+                    }
+                })
+            }
+        }
+        endEventButton()
     }
     
-    
-    @IBOutlet weak var photoCollection: UICollectionView!
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-//        return 8
-        return imageArray.count + 1
+    func getAllImages() -> Void {
+        
+        print("get all images method called here")
+        if SelectedAssets.count != 0{
+            
+            for i in 0..<SelectedAssets.count{
+                let manager = PHImageManager.default()
+                let option = PHImageRequestOptions()
+                var thumbnail = UIImage()
+                option.isSynchronous = true
+                manager.requestImage(for: SelectedAssets[i], targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: option, resultHandler: {(result, info)->Void in
+                    thumbnail = result!
+                })
+                self.imageArray.append(thumbnail)
+            }
+            OperationQueue.main.addOperation {
+                self.photoCollection.reloadData()
+            }
+        }
     }
     
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UploadPhotoCollectionViewCell", for: indexPath) as! UploadPhotoCollectionViewCell
-        
-        
-//        cell.photoImage.image = imageArray[indexPath.row]
-        
-        cell.layer.borderWidth = 1.0
-        cell.layer.cornerRadius = 5.0
-        
-        
-        
-        return cell
-        
-    }
-    
-//    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-//
-//    }
     
     
     func initializing() {
@@ -132,44 +164,85 @@ class UploadPhotoViewController: UIViewController , UICollectionViewDataSource,U
         toPhotoAndDelete.layer.shadowRadius = 2.5
         toPhotoAndDelete.layer.shadowOpacity = 0.8
         toPhotoAndDelete.layer.masksToBounds = false
-    // 다음 버튼에 빨간줄 추가
-    let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
-    customSubview.backgroundColor = .red
-    customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
-    //        segmentControl.addSubviewToIndicator(customSubview)
-    nextButton.addSubview(customSubview)
+        // 다음 버튼에 빨간줄 추가
+        let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
+        customSubview.backgroundColor = .red
+        customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+        //        segmentControl.addSubviewToIndicator(customSubview)
+        nextButton.addSubview(customSubview)
     }
-    
+    func endEventButton(){
+        albumAndCancel.isEnabled = false
+        albumAndCancel.isHidden = true
+        toPhotoAndDelete.isHidden = true
+        toPhotoAndDelete.isEnabled = false
+        
+    }
 }
 
-extension UploadPhotoViewController: NohanaImagePickerControllerDelegate{
-    
-    
-    
-    func nohanaImagePickerDidCancel(_ picker: NohanaImagePickerController) {
-        print("🐷Canceled🙅")
-        picker.dismiss(animated: true, completion: nil)
+
+
+extension UploadPhotoViewController:UICollectionViewDataSource,UICollectionViewDelegate {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        
+        return imageArray.count
     }
     
-    func nohanaImagePicker(_ picker: NohanaImagePickerController, didFinishPickingPhotoKitAssets pickedAssts: [PHAsset]) {
-        print("🐷Completed🙆\n\tpickedAssets = \(pickedAssts)")
-        picker.dismiss(animated: true, completion: nil)
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "UploadPhotoCollectionViewCell", for: indexPath) as! UploadPhotoCollectionViewCell
+        
+        cell.photoImage.image = imageArray[indexPath.row]
+        
+        //            cell.photoImage.image = self.assets![indexPath.row]
+        cell.layer.borderWidth = 1.0
+        cell.layer.cornerRadius = 5.0
+        
+        return cell
+        
     }
-//    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
-//        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-//            selectedImage = originalImage
-//            if imageView1.image == nil{
-//                imageView1.image = originalImage
-//            }
-//            if imageView2.image == nil{
-//                imageView2.image = originalImage
-//            }
-//            if imageView3.image == nil{
-//                imageView3.image = originalImage
-//            }
-//            if imageView4.image == nil{
-//                imageView4.image = originalImage
-//            }
-//        }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let cell = collectionView.cellForItem(at: indexPath)
+        cell?.isSelected = true
+        selectRow = buttonCount[indexPath.row]
+        print(imageArray[indexPath.row])
+        if imageArray[indexPath.row] == #imageLiteral(resourceName: "photo"){
+            emptyImage()
+        }
+        else{
+            nonEmptyImage()
+        }
+    }
+    func nonEmptyImage(){
+        albumAndCancel.isHidden = false
+        albumAndCancel.isEnabled = true
+        toPhotoAndDelete.isEnabled = true
+        toPhotoAndDelete.isHidden = false
+        
+        toPhotoAndDelete.backgroundColor = UIColor(red: 255/255, green: 110/255, blue: 102/255, alpha: 1.0)
+        toPhotoAndDelete.setTitleColor(.white, for: .normal)
+        toPhotoAndDelete.setTitle("삭제", for: .normal)
+        
+        
+        albumAndCancel.setTitle("취소", for: .normal)
+        albumAndCancel.setTitleColor(.black, for: .normal)
+        
+    }
+    func emptyImage(){
+        
+        albumAndCancel.isHidden = false
+        albumAndCancel.isEnabled = true
+        toPhotoAndDelete.isEnabled = true
+        toPhotoAndDelete.isHidden = false
+        
+        albumAndCancel.backgroundColor = UIColor.white
+        albumAndCancel.setTitle("앨범(여러장)", for: .normal)
+        albumAndCancel.setTitleColor(.black, for: .normal)
+        
+        toPhotoAndDelete.backgroundColor = UIColor.white
+        toPhotoAndDelete.setTitle("촬영하기", for: .normal)
+        toPhotoAndDelete.setTitleColor(.black, for: .normal)
+        
+    }
     
 }
