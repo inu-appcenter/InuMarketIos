@@ -20,7 +20,7 @@ class NetworkModel{
         self.view = view
     }
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
-
+    
     
     //로그인
     func login(id: String, passwd: String) {
@@ -112,7 +112,7 @@ class NetworkModel{
             }
         }
     }
-//    물건 판매 완료 처리
+    //    물건 판매 완료 처리
     func changeProduct(productId:String){
         let header = ["Content-Type" : "application/x-www-form-urlencoded",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
@@ -129,7 +129,7 @@ class NetworkModel{
             }
         }
     }
-//    비밀번호경변경
+    //    비밀번호경변경
     func changePasswd(id: String, pastPasswd: String, newPasswd: String){
         let header = ["Content-Type" : "application/x-www-form-urlencoded",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
@@ -168,6 +168,64 @@ class NetworkModel{
             }
         }
     }
+//    제품 업로드
+    
+    func uploadProduct(userfile: [UIImage] ,category: String, productName: String, productState:String, productPrice:String, productInfo:String, method:String, place: String, id: String){
+//        let header = ["Content-Type" : "multipart/form-data",
+//                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params: Parameters = [
+            "category" : category,
+            "productName" : productName,
+            "productState" : productState,
+            "productPrice" : productPrice,
+            "productInfo" : productInfo,
+            "method" : method,
+            "place" : place,
+            "id": id
+        ]
+        Alamofire.upload(multipartFormData: { multipartFormData in
+            for (key,value) in params {
+                if let value = value as? String {
+                    multipartFormData.append(value.data(using: String.Encoding.utf8)!, withName: key)
+                }
+            }
+            for index in 0..<userfile.count {
+                var data = UIImagePNGRepresentation(userfile[index])
+                if data != nil {
+                    // PNG
+                    multipartFormData.append(data!, withName: "userfile",fileName: "userfile", mimeType: "image/png")
+                } else {
+                    // jpg
+                    data = UIImageJPEGRepresentation(userfile[index], 0.7)
+                    multipartFormData.append((data?.base64EncodedData())!, withName: "userfile",fileName: "userfile", mimeType: "image/jpeg")
+                }
+            }
+        },
+            to: "\(serverURL)Pupload",
+            headers: ["Content-Type" : "multipart/form-data",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"],
+            encodingCompletion: { encodingResult in
+                switch encodingResult {
+                case .success(let upload, _, _):
+                    upload.responseJSON{ res in
+//                    upload.responseString{ res in
+                        switch res.result{
+                        case .success(let item):
+                            self.view.networkSuc(resultdata: item, code: "uploadProductSuccess")
+                            break
+                        case .failure(let error):
+                            print(error)
+                            self.view.networkFail(code: "uploadProductError")
+                            break
+                        }
+                    }
+                case .failure(let encodingError):
+                    print(encodingError)
+                }
+        }
+        )
+    }
+    
     
 }
 

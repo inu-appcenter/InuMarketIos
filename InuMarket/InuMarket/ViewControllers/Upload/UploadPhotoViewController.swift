@@ -20,9 +20,19 @@ class UploadPhotoViewController: UIViewController {
     @IBOutlet weak var photoCollection: UICollectionView!
     
     var imageArray = [#imageLiteral(resourceName: "photo"),#imageLiteral(resourceName: "logo")]
+    
     var SelectedAssets = [PHAsset]()
     var buttonCount = [0,1,2,3,4,5,6,7]
     var selectRow: Int?
+    
+    
+    var category: String?
+    var productName: String?
+    var productState: String?
+    var productPrice: String?
+    var productInfo: String?
+    var method: String?
+    var place: String?
     
     
     
@@ -38,6 +48,18 @@ class UploadPhotoViewController: UIViewController {
         errorLabel.isHidden = false
         } else{
         if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadPreView") as? UploadPreViewController{
+            var postImageArray : [UIImage] = []
+            for i in 1..<imageArray.count{
+                postImageArray.append(imageArray[i])
+            }
+            vc.userfile = postImageArray
+            vc.category = category
+            vc.productName = productName
+            vc.productState = productState
+            vc.productPrice = productPrice
+            vc.productInfo = productInfo
+            vc.method = method
+            vc.place = place
             self.navigationController?.show(vc, sender: nil)
         }
         }

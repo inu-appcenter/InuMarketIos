@@ -20,6 +20,11 @@ class UploadExplainViewController: UIViewController , UITextFieldDelegate {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var segmentControll: BetterSegmentedControl!
+    
+    var category: String?
+    var productName: String?
+    var productState: String?
+    var productPrice: String?
     var DeliveryCheck : Int? = 0
     
     override func viewDidLoad() {
@@ -43,7 +48,7 @@ class UploadExplainViewController: UIViewController , UITextFieldDelegate {
     
     
     func segmentCon() {
-        segmentControll.titles = ["판매중", "판매 완료"]
+        segmentControll.titles = ["직거래", "택배"]
         segmentControll.layer.borderWidth = 1.0
         segmentControll.layer.borderColor = UIColor(red: 238/255, green: 84/255, blue: 44/255, alpha: 1.0).cgColor
         
@@ -82,6 +87,20 @@ class UploadExplainViewController: UIViewController , UITextFieldDelegate {
             {
                 print("넘어간당")
                 if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadPhoto") as? UploadPhotoViewController{
+//                    var category: String?
+//                    var productName: String?
+//                    var productState: String?
+//                    var productPrice: String?
+//                    var productInfo: String?
+//                    var method: String?
+//                    var place: String?
+                    vc.category = category
+                    vc.productName = productName
+                    vc.productState = productState
+                    vc.productPrice = productPrice
+                    vc.productInfo = explainTextView.text!
+                    vc.method = "직거래"
+                    vc.place = directDealLocationLabel.text!
                     self.navigationController?.show(vc, sender: nil)
                 }
             }else{
@@ -93,6 +112,13 @@ class UploadExplainViewController: UIViewController , UITextFieldDelegate {
             if explainTextView.text != "" {
                 print("통과")
                 if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadPhoto") as? UploadPhotoViewController{
+                    vc.category = category
+                    vc.productName = productName
+                    vc.productState = productState
+                    vc.productPrice = productPrice
+                    vc.productInfo = explainTextView.text!
+                    vc.method = "택배"
+                    vc.place = "postbox"
                     self.navigationController?.show(vc, sender: nil)
                 }
             }else{

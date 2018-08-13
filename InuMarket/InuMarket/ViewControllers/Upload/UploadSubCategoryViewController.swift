@@ -22,6 +22,9 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
     let roomCateogry = ["원룸", "투룸","복층","기타"]
     let foodCategory = ["1번 배식구","2번 배식구","3번 배식구","4번 배식구","5번 배식구","기타"]
     
+    let postElectricCategory = ["컴퓨터", "스마트폰","태블릿","TV모니터","책상","의자","매트리스","기타"]
+    let postEtcCategory  = ["생활사무","기타"]
+    
     
     
     //    UploadSubCategoryCell
@@ -82,22 +85,22 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
         cell?.isSelected = true
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadInfo")as? UploadInfoViewController{
-//            switch mainCategory {
-//            case "책":
-//
-//            case "의류":
-//                return clothCategory.count
-//            case "가전 / 가구":
-//                return electircCategory.count
-//            case "잡화":
-//                return etcCategory.count
-//            case "원룸":
-//                return roomCateogry.count
-//            case "식권":
-//                return foodCategory.count
-//            default:
-//                return 0
-//            }
+            switch mainCategory {
+            case "책":
+                vc.category = "\(mainCategory!)\(bookCategory[indexPath.row])"
+            case "의류":
+                vc.category = "\(mainCategory!)\(clothCategory[indexPath.row])"
+            case "가전 / 가구":
+                vc.category = "\(mainCategory!)\(postElectricCategory[indexPath.row])"
+            case "잡화":
+                vc.category = "\(mainCategory!)\(postEtcCategory[indexPath.row])"
+            case "원룸":
+                vc.category = "\(mainCategory!)\(roomCateogry[indexPath.row])"
+            case "식권":
+                vc.category = "\(mainCategory!)\(foodCategory[indexPath.row])"
+            default:
+                vc.category = mainCategory
+            }
             self.navigationController?.show(vc, sender: nil)
         }
 

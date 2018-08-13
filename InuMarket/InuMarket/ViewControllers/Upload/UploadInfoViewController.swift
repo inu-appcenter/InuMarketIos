@@ -18,9 +18,12 @@ class UploadInfoViewController: UIViewController {
     
     @IBOutlet weak var nextButton: UIButton!
     
+    var category: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializing()
+        print(category)
         self.navigationItem.title = "상품 등록하기"
         self.navigationItem.leftBarButtonItem?.title = " "
         // Do any additional setup after loading the view.
@@ -35,6 +38,11 @@ class UploadInfoViewController: UIViewController {
     @IBAction func nextButtonClicked(_ sender: Any) {
         if itemNameTextLabel.text != "" && itemProductTextLabel.text != "" && itemPriceTextLabel.text != "" {
             if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadExplain") as? UploadExplainViewController{
+                
+                vc.category = category
+                vc.productName = itemNameTextLabel.text!
+                vc.productState = itemProductTextLabel.text!
+                vc.productPrice = itemPriceTextLabel.text!
                 self.navigationController?.show(vc, sender: nil)
             }
             
@@ -50,7 +58,6 @@ class UploadInfoViewController: UIViewController {
         let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
         customSubview.backgroundColor = .red
         customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
-        //        segmentControl.addSubviewToIndicator(customSubview)
         nextButton.addSubview(customSubview)
     }
 }

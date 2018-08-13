@@ -11,7 +11,7 @@ import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
 
-// 회원가입, 비밀번호 찾기, 비밀번호 변경 , 판매완료 변경, 회원탈퇴
+// 회원가입, 비밀번호 찾기, 비밀번호 변경 , 판매완료 변경, 회원탈퇴 , 제품 업로드
 class AnsResult{
 
     var ans : Bool?
