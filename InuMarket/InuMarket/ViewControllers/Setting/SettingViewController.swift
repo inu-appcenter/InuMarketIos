@@ -72,7 +72,8 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
         case 4:  // 로그아웃
             let alertController = UIAlertController(title: "로그아웃!", message: "확인을 누르면 로그아웃 됩니다.", preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                
+                UserDefaults.standard.removeObject(forKey: "id")
+                UserDefaults.standard.removeObject(forKey: "pass")
                 self.dismiss(animated: true, completion: nil)
             }
             

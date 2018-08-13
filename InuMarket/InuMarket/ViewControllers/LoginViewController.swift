@@ -19,6 +19,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     
+    @IBOutlet weak var autoLoginButton: UIButton!
     
     
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -34,8 +35,13 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         idTextField.delegate = self
         passTextField.delegate = self
         
+        if UserDefaults.standard.string(forKey: "id") != nil{
+        self.idTextField.text = UserDefaults.standard.string(forKey: "id")
+        self.passTextField.text = UserDefaults.standard.string(forKey: "pass")
+            autoLoginButton.isSelected = true
+            loginButtonClicked((Any).self)
+        }
         
-        // Do any additional setup after loading the view, typically from a nib.
     }
     
     // 배경 탭하면 키보드 사라지기
@@ -52,6 +58,14 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    @IBAction func autoLoginButtonClicked(_ sender: Any) {
+        if autoLoginButton.isSelected == true{
+            autoLoginButton.isSelected = false
+            
+        }else{
+            autoLoginButton.isSelected = true
+        }
+    }
     
     @IBAction func loginButtonClicked(_ sender: Any) {
         
@@ -71,6 +85,11 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
                 self.view.makeToast("이메일 인증을 해야 사용가능합니다.")
                 
             }else if self.appDelegate.userInfo?.message == "logged in success"{
+                if self.autoLoginButton.isSelected{
+                UserDefaults.standard.set(self.idTextField.text, forKey: "id")
+                UserDefaults.standard.set(self.passTextField.text, forKey:"pass")
+                UserDefaults.standard.synchronize()
+                }
                 let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 if let vc = storyBoard.instantiateViewController(withIdentifier: "MainNavi") as? UINavigationController {
                     self.present(vc, animated: true, completion: nil)
@@ -108,8 +127,12 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         loginButton.layer.shadowOpacity = 0.8
         loginButton.layer.masksToBounds = false
         
+        
         idTextField.text = nil
         passTextField.text = nil
+        
+        autoLoginButton.setImage(#imageLiteral(resourceName: "check"), for: .selected)
+        autoLoginButton.setImage(#imageLiteral(resourceName: "uncheck"), for: .normal)
         
         // navigation initializing
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
