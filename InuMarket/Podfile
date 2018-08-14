@@ -20,6 +20,8 @@ pod 'ObjectMapper', '~> 3.1'
 pod 'AlamofireObjectMapper', '~> 5.0'
 pod 'DropDown'
 pod "BSImagePicker"
+pod "ImageSlideshow/Kingfisher"
+
 
 
 end

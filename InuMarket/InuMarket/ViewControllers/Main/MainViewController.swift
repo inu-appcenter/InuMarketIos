@@ -326,11 +326,13 @@ extension MainViewController: NetworkCallback{
                     let productImg = item["productImg"] as? [String] ?? [""]
                     let obj = AllProduct.init(productImg: productImg, productId: productId, productName: productName, productPrice: productPrice, productSelled: productSelled, category: category, updateDate: updateDate)
                     temp.append(obj)
-                    
-                    
+
                 }
             }
             productList = temp
+            // 판매 안된 순서로 나열
+            productList.sort { !$0.productSelled! && $1.productSelled! }
+
         }
     }
     

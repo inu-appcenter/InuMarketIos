@@ -8,6 +8,7 @@
 
 import UIKit
 import ImageSlideshow
+import Kingfisher
 
 class DetailViewController: UIViewController {
 
@@ -22,21 +23,19 @@ class DetailViewController: UIViewController {
     
     var productId: String?
     var model : NetworkModel?
+    var cou: Int?
+
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var detailList: detailProduct?{
         didSet {
             if self.detailCollectionView != nil {
+                imageDownload()
                 self.detailCollectionView.reloadData()
             }
         }
     }
     
-    var price2Int: Int?
-    var star2Int: Int?
-    var state2String: String?
-    var method2String: String?
-    var place2String: String?
-    var category2String: String?
-
+    var productImg: [KingfisherSource] = []
     
     //MARK: IBOutlet
     @IBOutlet weak var productImgView: ImageSlideshow!
@@ -68,6 +67,14 @@ class DetailViewController: UIViewController {
                                        ImageSource(image: UIImage(named: "rectangle4Copy")!),
                                        ImageSource(image: UIImage(named: "rectangle4Copy")!),
                                        ImageSource(image: UIImage(named: "rectangle4Copy")!)])
+
+
+    }
+    func imageDownload(){
+        for i in 0..<cou!{
+            self.productImg.append(KingfisherSource(url:URL(string:"\(self.appDelegate.serverURL)imgload/\(detailList!.productImg![i])")!))
+        }
+        productImgView.setImageInputs(self.productImg)
     }
     
   
@@ -164,6 +171,7 @@ extension DetailViewController: NetworkCallback{
                 let sellerId = items["sellerId"] as? String ?? ""
                 let obj = detailProduct.init(productImg: productImg, productId: productId, productName: productName, productState: productState, productStar: productStar, productPrice: productPrice, productSelled: productSelled, category: category, productInfo: productInfo, method: method, place: place, sellerId: sellerId, updateDate: updateDate)
                 temp.append(obj)
+                cou = obj.productImg?.count
                 detailList = obj
             }
         }

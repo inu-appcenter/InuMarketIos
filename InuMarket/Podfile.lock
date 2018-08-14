@@ -12,6 +12,9 @@ PODS:
   - ImageSlideshow (1.6.1):
     - ImageSlideshow/Core (= 1.6.1)
   - ImageSlideshow/Core (1.6.1)
+  - ImageSlideshow/Kingfisher (1.6.1):
+    - ImageSlideshow/Core
+    - Kingfisher (> 3.0)
   - IQKeyboardManagerSwift (6.0.4)
   - Kingfisher (4.8.0)
   - ObjectMapper (3.3.0)
@@ -28,6 +31,7 @@ DEPENDENCIES:
   - BSImagePicker
   - DropDown
   - ImageSlideshow (~> 1.6)
+  - ImageSlideshow/Kingfisher
   - IQKeyboardManagerSwift
   - Kingfisher
   - ObjectMapper (~> 3.1)
@@ -71,6 +75,6 @@ SPEC CHECKSUMS:
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
   UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
-PODFILE CHECKSUM: fa5587d31cfb4c553645f503e9c2c30cb03a8dd2
+PODFILE CHECKSUM: 9cf0713c9f2996bbb9240ded524d3c1e5738fb34
 
 COCOAPODS: 1.5.2
