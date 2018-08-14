@@ -13,7 +13,7 @@ import Alamofire
 import UIKit
 
 class NetworkModel{
-    private let serverURL = "http://117.16.231.66:7000/"
+//    private let serverURL = "http://117.16.231.66:7000/"
     var view : NetworkCallback
     
     init(_ view: NetworkCallback) {
@@ -27,7 +27,7 @@ class NetworkModel{
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "id" : id,
                        "passwd" : passwd]
-        Alamofire.request("\(serverURL)login?", method: .post, parameters: params, headers: header).responseJSON { res in
+        Alamofire.request("\(self.appDelegate.serverURL)login?", method: .post, parameters: params, headers: header).responseJSON { res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "loginSuccess")
@@ -46,7 +46,7 @@ class NetworkModel{
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "id" : id,
                        "name" : name]
-        Alamofire.request("\(serverURL)stateChange/newPassword", method: .post, parameters: params, headers: header).responseJSON { res in
+        Alamofire.request("\(self.appDelegate.serverURL)stateChange/newPassword", method: .post, parameters: params, headers: header).responseJSON { res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "newPasswordSuccess")
@@ -66,7 +66,7 @@ class NetworkModel{
                        "passwd" : passwd,
                        "name" : name,
                        "tel" : tel]
-        Alamofire.request("\(serverURL)account", method: .post, parameters: params, headers: header).responseJSON { res in
+        Alamofire.request("\(self.appDelegate.serverURL)account", method: .post, parameters: params, headers: header).responseJSON { res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "signSuccess")
@@ -78,12 +78,30 @@ class NetworkModel{
             }
         }
     }
+    
+    // 모든 제품 보기
+    func allProduct(){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        Alamofire.request("\(self.appDelegate.serverURL)PSelect/main", method: .post, parameters: nil, headers: header).responseJSON{res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "allProductSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "allProductError")
+                break
+            }
+        }
+
+    }
     // 판매된 물건 리스트
     func myProductSelled(sellerId:String) {
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "sellerId": sellerId ]
         
-        Alamofire.request("\(serverURL)PSelect/selled", method: .post, parameters: params, headers: header).responseJSON{ res in
+        Alamofire.request("\(self.appDelegate.serverURL)PSelect/selled", method: .post, parameters: params, headers: header).responseJSON{ res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "myProductSell")
@@ -100,7 +118,7 @@ class NetworkModel{
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "sellerId": sellerId ]
         
-        Alamofire.request("\(serverURL)PSelect/nonsell", method: .post, parameters: params, headers: header).responseJSON{ res in
+        Alamofire.request("\(self.appDelegate.serverURL)PSelect/nonsell", method: .post, parameters: params, headers: header).responseJSON{ res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "myProductNonSell")
@@ -117,7 +135,7 @@ class NetworkModel{
         let header = ["Content-Type" : "application/x-www-form-urlencoded",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
         let params = ["productId": productId]
-        Alamofire.request("\(serverURL)stateChange/product", method: .post, parameters: params, headers: header).responseJSON{ res in
+        Alamofire.request("\(self.appDelegate.serverURL)stateChange/product", method: .post, parameters: params, headers: header).responseJSON{ res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "changeProductSuccess")
@@ -137,7 +155,7 @@ class NetworkModel{
                       "pastPasswd" : pastPasswd,
                       "newPasswd": newPasswd
         ]
-        Alamofire.request("\(serverURL)stateChange/changePasswd", method: .post, parameters: params, headers: header).responseJSON{ res in
+        Alamofire.request("\(self.appDelegate.serverURL)stateChange/changePasswd", method: .post, parameters: params, headers: header).responseJSON{ res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "changePasswdSuccess")
@@ -156,7 +174,7 @@ class NetworkModel{
         let params = ["id" : id,
                       "passwd": passwd
         ]
-        Alamofire.request("\(serverURL)account/delete", method: .post, parameters: params, headers: header).responseJSON{ res in
+        Alamofire.request("\(self.appDelegate.serverURL)account/delete", method: .post, parameters: params, headers: header).responseJSON{ res in
             switch res.result{
             case .success(let item):
                 self.view.networkSuc(resultdata: item, code: "deleteUserSuccess")
@@ -171,8 +189,6 @@ class NetworkModel{
 //    제품 업로드
     
     func uploadProduct(userfile: [UIImage] ,category: String, productName: String, productState:String, productPrice:String, productInfo:String, method:String, place: String, id: String){
-//        let header = ["Content-Type" : "multipart/form-data",
-//                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
         let params: Parameters = [
             "category" : category,
             "productName" : productName,
@@ -201,14 +217,13 @@ class NetworkModel{
                 }
             }
         },
-            to: "\(serverURL)Pupload",
+            to: "\(self.appDelegate.serverURL)Pupload",
             headers: ["Content-Type" : "multipart/form-data",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"],
             encodingCompletion: { encodingResult in
                 switch encodingResult {
                 case .success(let upload, _, _):
                     upload.responseJSON{ res in
-//                    upload.responseString{ res in
                         switch res.result{
                         case .success(let item):
                             self.view.networkSuc(resultdata: item, code: "uploadProductSuccess")
@@ -226,6 +241,25 @@ class NetworkModel{
         )
     }
     
+//    제품 상세 정보
+    func detailProduct(productId: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["productId":productId]
+        
+        Alamofire.request("\(self.appDelegate.serverURL)PSelect/oneItem", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "detailSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "detailError")
+                break
+            }
+        }
+    
+    }
     
 }
 

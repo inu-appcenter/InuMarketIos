@@ -85,4 +85,61 @@ class MyProductNonsell{
     }
 }
 
+// 전체 물건 리스트
+
+class AllProduct{
+    var productImg: [String]?
+    var productId: String?
+    var productName: String?
+    var productPrice: Int?
+    var category: String?
+    var productSelled: Bool?
+    var updateDate: String?
+    
+    
+    init(productImg: [String] ,productId: String, productName: String, productPrice: Int, productSelled: Bool, category: String, updateDate: String){
+        self.productImg = productImg
+        self.productId = productId
+        self.productName = productName
+        self.productPrice = productPrice
+        self.productSelled = productSelled
+        self.category = category
+        self.updateDate = updateDate
+    }
+}
+
+// 물건 상세 정보
+class detailProduct{
+    var productImg: [String]?
+    var productId: String?
+    var productName: String?
+    var productState: String?
+    var productStar: Int?
+    var productPrice: Int?
+    var productSelled: Bool?
+    var category: String?
+    var productInfo: String?
+    var method: String?
+    var place: String?
+    var sellerId: String?
+    var updateDate: String?
+    
+    init(productImg: [String], productId:String,productName:String, productState:String?, productStar:Int, productPrice:Int, productSelled:Bool, category:String, productInfo:String, method:String, place:String, sellerId:String, updateDate:String ){
+        self.productImg = productImg
+        self.productId = productId
+        self.productName = productName
+        self.productState = productState
+        self.productStar = productStar
+        self.productPrice = productPrice
+        self.productSelled = productSelled
+        self.category = category
+        self.productInfo = productInfo
+        self.method = method
+        self.place = place
+        self.sellerId = sellerId
+        self.updateDate = updateDate
+    }
+    
+}
+
 

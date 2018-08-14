@@ -20,12 +20,34 @@ class DetailViewController: UIViewController {
     
     var gesture: UITapGestureRecognizer = UITapGestureRecognizer()
     
+    var productId: String?
+    var model : NetworkModel?
+    var detailList: detailProduct?{
+        didSet {
+            if self.detailCollectionView != nil {
+                self.detailCollectionView.reloadData()
+            }
+        }
+    }
+    
+    var price2Int: Int?
+    var star2Int: Int?
+    var state2String: String?
+    var method2String: String?
+    var place2String: String?
+    var category2String: String?
+
+    
     //MARK: IBOutlet
     @IBOutlet weak var productImgView: ImageSlideshow!
     @IBOutlet weak var detailCollectionView: UICollectionView!
     @IBOutlet weak var sendLetterView: UIView!
     
     //MARK: life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        model = NetworkModel(self)
+        model?.detailProduct(productId: productId!)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +57,9 @@ class DetailViewController: UIViewController {
         
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(productImgTapped))
         productImgView.addGestureRecognizer(gestureRecognizer)
-        
+        productImgView.slideshowInterval = 2.0
+
+
         let pageIndicator = UIPageControl()
         pageIndicator.currentPageIndicatorTintColor = UIColor.white
         pageIndicator.pageIndicatorTintColor = #colorLiteral(red: 0.4779999852, green: 0.4779999852, blue: 0.4779999852, alpha: 1)
@@ -46,6 +70,7 @@ class DetailViewController: UIViewController {
                                        ImageSource(image: UIImage(named: "rectangle4Copy")!)])
     }
     
+  
     //MARK: Methods
     @objc func productImgTapped() {
         let fullScreenController = productImgView.presentFullScreenController(from: self)
@@ -77,9 +102,9 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         switch kind {
         case UICollectionElementKindSectionHeader:
             guard let cell: DetailHeaderCollectionViewCell = detailCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as? DetailHeaderCollectionViewCell else { return UICollectionReusableView() }
-            cell.nameLabel.text = "전동자전거"
-            cell.priceLabel.text = "250,000원"
-            cell.inquiryLabel.text = "현재 12명의 학생들이 문의중입니다!"
+            cell.nameLabel.text = self.detailList?.productName
+            cell.priceLabel.text = "\(detailList?.productPrice)"
+            cell.inquiryLabel.text = "현재 \(detailList?.productStar)명의 학생들이 문의중입니다!"
             cell.declareButton.setImage(UIImage(named: "declare"), for: .normal)
             return cell
             
@@ -105,15 +130,47 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: DetailCollectionViewCell = detailCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? DetailCollectionViewCell else { return UICollectionViewCell() }
-        cell.explainTextView.text = """
-        여러가지 설명
-        설명
-        """
-        cell.stateLabel.text = "- 상품 상태 : 중고 4개월 탐"
-        cell.transMethodLabel.text = "- 거래 방식 : 직거래"
-        cell.transPlaceLabel.text = "- 거래 장소 : 16호관"
-        cell.categoryLabel.text = "- 카테고리 : 가전 / 가구 - 기타"
+        cell.explainTextView.text = self.detailList?.productInfo
+        cell.stateLabel.text = "- 상품 상태 : \(detailList?.productState)"
+        cell.transMethodLabel.text = "- 거래 방식 : \(detailList?.method)"
+        cell.transPlaceLabel.text = "- 거래 장소 : \(detailList?.place)"
+        cell.categoryLabel.text = "- 카테고리 : \(detailList?.category)"
+        if detailList?.method == "택배"{
+            cell.transPlaceLabel.text = "- 거래 장소 : 택배"
+        }
         return cell
     }
     
+}
+
+extension DetailViewController: NetworkCallback{
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "detailSuccess"{
+            print(resultdata)
+            var temp: [detailProduct] = []
+            if let items = resultdata as? NSDictionary {
+                let productId = items["productId"] as? String ?? ""
+                let productName = items["productName"] as? String ?? ""
+                let category = items["category"] as? String ?? ""
+                let updateDate = items["updateDate"] as? String ?? ""
+                let productPrice = items["productPrice"] as? Int ?? 0
+                let productSelled = items["productSelled"] as? Bool ?? false
+                let productImg = items["productImg"] as? [String] ?? [""]
+                let productState = items["productState"] as? String ?? ""
+                let productStar = items["productStar"] as? Int ?? 0
+                let productInfo = items["productInfo"] as? String ?? ""
+                let method = items["method"] as? String ?? ""
+                let place = items["place"] as? String ?? ""
+                let sellerId = items["sellerId"] as? String ?? ""
+                let obj = detailProduct.init(productImg: productImg, productId: productId, productName: productName, productState: productState, productStar: productStar, productPrice: productPrice, productSelled: productSelled, category: category, productInfo: productInfo, method: method, place: place, sellerId: sellerId, updateDate: updateDate)
+                temp.append(obj)
+                detailList = obj
+            }
+        }
+    }
+    func networkFail(code: String) {
+        if code == "detailError"{
+        print("error")
+    }
+    }
 }

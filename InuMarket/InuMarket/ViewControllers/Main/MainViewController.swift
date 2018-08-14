@@ -9,6 +9,7 @@
 import UIKit
 import ImageSlideshow
 import SnapKit
+import Kingfisher
 
 class MainViewController: UIViewController {
     
@@ -24,18 +25,30 @@ class MainViewController: UIViewController {
     
     var textFieldActive: Bool = false
     
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var model : NetworkModel?
+    var productList: [AllProduct] = []{
+        didSet {
+            if self.productCollectionView != nil {
+                self.productCollectionView.reloadData()
+            }
+        }
+    }
+    var detailProductList: [detailProduct] = []
+    
+    
     private var cancelButton: UIButton = {
         let button: UIButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 70, y: 75, width: 61, height: 48))
         button.setTitle("취소", for: .normal)
         button.setTitleColor(UIColor(red: 71/255, green: 80/255, blue: 88/255, alpha: 1), for: .normal)
         button.addTarget(self, action: #selector(cancelButtonTapped), for: .touchUpInside)
-       
+        
         return button
     }()
-
+    
     //MARK: IBOutlet
     @IBOutlet weak var productCollectionView: UICollectionView!
-
+    
     @IBOutlet weak var searchImg: UIImageView!
     @IBOutlet weak var searchTextField: UITextField!
     
@@ -45,7 +58,7 @@ class MainViewController: UIViewController {
     }
     
     @IBAction func rightButtonDidPressed(_ sender: Any) {
-
+        
     }
     
     @IBAction func viewDidTapped(_ sender: Any) {
@@ -55,12 +68,18 @@ class MainViewController: UIViewController {
     //MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        model = NetworkModel(self)
+        model?.allProduct()
         
         initializing()
         
+        let time = DispatchTime.now() + .seconds(2)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            self.productCollectionView.reloadData()
+        }
         // Do any additional setup after loading the view.
         searchTextField.addTarget(self, action: #selector(textFieldDidChange),
-                            for: UIControlEvents.editingChanged)
+                                  for: UIControlEvents.editingChanged)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -123,7 +142,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         searchTextField.resignFirstResponder()
         return true
     }
-
+    
     
     //MARK: UICollectionView Methods
     func numberOfSections(in collectionView: UICollectionView) -> Int {
@@ -141,7 +160,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             switch section {
             case 0: return 1
             case 1: return 1
-            case 2: return 20
+            case 2: return productList.count
             default: return 0
             }
         }
@@ -189,7 +208,23 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let letterBoxVC = storyboard.instantiateViewController(withIdentifier: "letterBox") as? LetterBoxViewController else { return }
                 self.navigationController?.show(letterBoxVC, sender: nil)
-            case 2: showDetailVC()
+            case 2:
+//                showDetailVC()
+                let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+                guard let detailVC = storyboard.instantiateViewController(withIdentifier: detailIdentifier) as? DetailViewController else { return }
+                detailVC.productId = productList[indexPath.row].productId
+                model?.detailProduct(productId: detailVC.productId!)
+//                detailVC.detailList = self.detailProductList
+                
+                let time = DispatchTime.now() + .seconds(1)
+                DispatchQueue.main.asyncAfter(deadline: time) {
+//                    detailVC.detailList = self.detailProductList
+                    self.navigationController?.show(detailVC, sender: nil)
+
+                }
+//                self.navigationController?.show(detailVC, sender: nil)
+                
+                
             default: return
             }
         }
@@ -224,9 +259,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell: MainCollectionViewCell = productCollectionView.dequeueReusableCell(withReuseIdentifier: mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            cell.productImg.image = UIImage(named: "rectangle4Copy")
-            cell.productName.text = "상품 이름"
-            cell.productPrice.text = "250,000원"
+            let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
+            let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
+            cell.productImg.kf.setImage(with: resource)
+            cell.productName.text = productList[indexPath.row].productName
+            cell.productPrice.text = String(productList[indexPath.row].productPrice!)
             return cell
             
         } else {
@@ -255,17 +292,54 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 guard let cell: MainCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: self.mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                cell.productImg.image = UIImage(named: "rectangle4Copy")
-                cell.productName.text = "상품 이름"
-                cell.productPrice.text = "250,000원"
+                let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
+                let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
+                cell.productImg.kf.setImage(with: resource)
+                cell.productName.text = productList[indexPath.row].productName
+                cell.productPrice.text = String(productList[indexPath.row].productPrice!)
+                
                 return cell
+                
                 
             default: return UICollectionViewCell()
                 
             }
         }
     }
-
+    
 }
 
-
+extension MainViewController: NetworkCallback{
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "allProductSuccess" {
+            print(resultdata)
+            
+            var temp: [AllProduct] = []
+            if let items = resultdata as? [NSDictionary] {
+                for item in items {
+                    let productId = item["productId"] as? String ?? ""
+                    let productName = item["productName"] as? String ?? ""
+                    let category = item["category"] as? String ?? ""
+                    let updateDate = item["updateDate"] as? String ?? ""
+                    let productPrice = item["productPrice"] as? Int ?? 0
+                    let productSelled = item["productSelled"] as? Bool ?? false
+                    let productImg = item["productImg"] as? [String] ?? [""]
+                    let obj = AllProduct.init(productImg: productImg, productId: productId, productName: productName, productPrice: productPrice, productSelled: productSelled, category: category, updateDate: updateDate)
+                    temp.append(obj)
+                    
+                    
+                }
+            }
+            productList = temp
+        }
+    }
+    
+    
+    func networkFail(code: String) {
+        if(code == "allProductError") {
+            print("실패하였습니다.")
+        }
+    }
+    
+    
+}
