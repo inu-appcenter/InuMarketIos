@@ -11,7 +11,7 @@ import ImageSlideshow
 import Kingfisher
 
 class DetailViewController: UIViewController {
-
+    
     //MARK: properties
     let headerIdentifier: String = "DetailHeaderCollectionViewCell"
     let cellIdentifier: String = "DetailCollectionViewCell"
@@ -23,8 +23,7 @@ class DetailViewController: UIViewController {
     
     var productId: String?
     var model : NetworkModel?
-    var cou: Int?
-
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var detailList: detailProduct?{
         didSet {
@@ -34,6 +33,14 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    var imageCount: Int?
+    var priceProduct : Int = 0
+    var starProduct : Int = 0
+    var stateProduct : String = ""
+    var methodProduct : String = ""
+    var placeProduct: String = ""
+    var categoryProduct: String = ""
+    
     
     var productImg: [KingfisherSource] = []
     
@@ -49,7 +56,7 @@ class DetailViewController: UIViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
         gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         sendLetterView.addGestureRecognizer(gesture)
@@ -57,8 +64,8 @@ class DetailViewController: UIViewController {
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(productImgTapped))
         productImgView.addGestureRecognizer(gestureRecognizer)
         productImgView.slideshowInterval = 2.0
-
-
+        
+        
         let pageIndicator = UIPageControl()
         pageIndicator.currentPageIndicatorTintColor = UIColor.white
         pageIndicator.pageIndicatorTintColor = #colorLiteral(red: 0.4779999852, green: 0.4779999852, blue: 0.4779999852, alpha: 1)
@@ -67,17 +74,17 @@ class DetailViewController: UIViewController {
                                        ImageSource(image: UIImage(named: "rectangle4Copy")!),
                                        ImageSource(image: UIImage(named: "rectangle4Copy")!),
                                        ImageSource(image: UIImage(named: "rectangle4Copy")!)])
-
-
+        
+        
     }
     func imageDownload(){
-        for i in 0..<cou!{
+        for i in 0..<imageCount!{
             self.productImg.append(KingfisherSource(url:URL(string:"\(self.appDelegate.serverURL)imgload/\(detailList!.productImg![i])")!))
         }
         productImgView.setImageInputs(self.productImg)
     }
     
-  
+    
     //MARK: Methods
     @objc func productImgTapped() {
         let fullScreenController = productImgView.presentFullScreenController(from: self)
@@ -88,12 +95,12 @@ class DetailViewController: UIViewController {
     @objc private func viewTapped(_ sender: UITapGestureRecognizer) {
         let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
         guard let sendLetterVC = storyboard.instantiateViewController(withIdentifier: "sendLetter") as? SendLetterViewController else { return }
-//        sendLetterVC.modalPresentationStyle = .overCurrentContext
+        //        sendLetterVC.modalPresentationStyle = .overCurrentContext
         sendLetterVC.productImageSlide = productImg
         sendLetterVC.productName = (self.detailList?.productName)!
         self.present(sendLetterVC, animated: true, completion: nil)
     }
-
+    
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -112,8 +119,8 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case UICollectionElementKindSectionHeader:
             guard let cell: DetailHeaderCollectionViewCell = detailCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as? DetailHeaderCollectionViewCell else { return UICollectionReusableView() }
             cell.nameLabel.text = self.detailList?.productName
-            cell.priceLabel.text = "\(self.detailList?.productPrice)"
-            cell.inquiryLabel.text = "현재 \(detailList?.productStar)명의 학생들이 문의중입니다!"
+            cell.priceLabel.text = "\(priceProduct)"
+            cell.inquiryLabel.text = "현재 \(starProduct)명의 학생들이 문의중입니다!"
             cell.declareButton.setImage(UIImage(named: "declare"), for: .normal)
             return cell
             
@@ -140,10 +147,10 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: DetailCollectionViewCell = detailCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? DetailCollectionViewCell else { return UICollectionViewCell() }
         cell.explainTextView.text = self.detailList?.productInfo
-        cell.stateLabel.text = "- 상품 상태 : \(detailList?.productState)"
-        cell.transMethodLabel.text = "- 거래 방식 : \(detailList?.method)"
-        cell.transPlaceLabel.text = "- 거래 장소 : \(detailList?.place)"
-        cell.categoryLabel.text = "- 카테고리 : \(detailList?.category)"
+        cell.stateLabel.text = "- 상품 상태 : \(stateProduct)"
+        cell.transMethodLabel.text = "- 거래 방식 : \(methodProduct)"
+        cell.transPlaceLabel.text = "- 거래 장소 : \(placeProduct)"
+        cell.categoryLabel.text = "- 카테고리 : \(categoryProduct)"
         if detailList?.method == "택배"{
             cell.transPlaceLabel.text = "- 거래 장소 : 택배"
         }
@@ -173,14 +180,22 @@ extension DetailViewController: NetworkCallback{
                 let sellerId = items["sellerId"] as? String ?? ""
                 let obj = detailProduct.init(productImg: productImg, productId: productId, productName: productName, productState: productState, productStar: productStar, productPrice: productPrice, productSelled: productSelled, category: category, productInfo: productInfo, method: method, place: place, sellerId: sellerId, updateDate: updateDate)
                 temp.append(obj)
-                cou = obj.productImg?.count
+                imageCount = obj.productImg?.count
+                priceProduct = obj.productPrice!
+                starProduct = obj.productStar!
+                methodProduct = obj.method!
+                placeProduct = obj.place!
+                categoryProduct = obj.category!
+                stateProduct = obj.productState!
                 detailList = obj
+                
             }
         }
     }
     func networkFail(code: String) {
         if code == "detailError"{
-        print("error")
-    }
+            print("error")
+        }
     }
 }
+ 

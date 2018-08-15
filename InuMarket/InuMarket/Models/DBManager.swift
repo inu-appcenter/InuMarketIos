@@ -124,7 +124,7 @@ class detailProduct{
     var sellerId: String?
     var updateDate: String?
     
-    init(productImg: [String], productId:String,productName:String, productState:String?, productStar:Int, productPrice:Int, productSelled:Bool, category:String, productInfo:String, method:String, place:String, sellerId:String, updateDate:String ){
+    init(productImg: [String], productId:String,productName:String, productState:String, productStar:Int, productPrice:Int, productSelled:Bool, category:String, productInfo:String, method:String, place:String, sellerId:String, updateDate:String ){
         self.productImg = productImg
         self.productId = productId
         self.productName = productName
