@@ -13,10 +13,15 @@ import Kingfisher
 class SendLetterViewController: UIViewController {
     
     //MARK: properties
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var productImageSlide : [KingfisherSource] = []
+    var productName: String = ""
+    var name: String = ""
+    var phone : String = ""
     
     //MARK: IBOutlet
     @IBOutlet weak var letterView: UIView!
-    @IBOutlet weak var productImg: UIImageView!
+    @IBOutlet weak var productImg: ImageSlideshow!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var myNameLabel: UILabel!
     @IBOutlet weak var myPhoneNumLabel: UILabel!
@@ -24,13 +29,24 @@ class SendLetterViewController: UIViewController {
     @IBOutlet weak var cancelButtonView: UIView!
     @IBOutlet weak var sendButtonView: UIView!
     
+    
     //MARK: life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        phone = (self.appDelegate.userInfo?.tel)!
+        name = (self.appDelegate.userInfo?.name)!
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         letterView.layer.cornerRadius = 8
         productImg.layer.cornerRadius = 8
-        productImg.image = UIImage(named: "rectangle4Copy")
+        productImg.setImageInputs(self.productImageSlide)
+        productImg.slideshowInterval = 2.0
+        productNameLabel.text = productName
+        myPhoneNumLabel.text = "전화번호 :  \(phone)"
+        myNameLabel.text = "내 이름:  \(name)"
+
         let cancelGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(cancelTapped(_:)))
         let sendGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(sendTapped(_:)))
         cancelButtonView.addGestureRecognizer(cancelGesture)

@@ -96,6 +96,23 @@ class NetworkModel{
         }
 
     }
+    
+    func categoryProduct(category: String) {
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = [ "category": category ]
+        Alamofire.request("\(self.appDelegate.serverURL)PSelect/category", method: .post, parameters: params, headers: header).responseJSON{res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "categoryProductSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "categoryProductError")
+                break
+            }
+        }
+    }
     // 판매된 물건 리스트
     func myProductSelled(sellerId:String) {
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]

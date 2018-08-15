@@ -264,6 +264,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             cell.productImg.kf.setImage(with: resource)
             cell.productName.text = productList[indexPath.row].productName
             cell.productPrice.text = String(productList[indexPath.row].productPrice!)
+            
             return cell
             
         } else {

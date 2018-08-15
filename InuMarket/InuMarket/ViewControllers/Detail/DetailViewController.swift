@@ -89,6 +89,8 @@ class DetailViewController: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
         guard let sendLetterVC = storyboard.instantiateViewController(withIdentifier: "sendLetter") as? SendLetterViewController else { return }
 //        sendLetterVC.modalPresentationStyle = .overCurrentContext
+        sendLetterVC.productImageSlide = productImg
+        sendLetterVC.productName = (self.detailList?.productName)!
         self.present(sendLetterVC, animated: true, completion: nil)
     }
 
@@ -110,7 +112,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case UICollectionElementKindSectionHeader:
             guard let cell: DetailHeaderCollectionViewCell = detailCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as? DetailHeaderCollectionViewCell else { return UICollectionReusableView() }
             cell.nameLabel.text = self.detailList?.productName
-            cell.priceLabel.text = "\(detailList?.productPrice)"
+            cell.priceLabel.text = "\(self.detailList?.productPrice)"
             cell.inquiryLabel.text = "현재 \(detailList?.productStar)명의 학생들이 문의중입니다!"
             cell.declareButton.setImage(UIImage(named: "declare"), for: .normal)
             return cell

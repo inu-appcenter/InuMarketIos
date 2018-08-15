@@ -85,7 +85,7 @@ class MyProductNonsell{
     }
 }
 
-// 전체 물건 리스트
+// 전체 물건 리스트 , 카테고리 검색 물건 리스트
 
 class AllProduct{
     var productImg: [String]?

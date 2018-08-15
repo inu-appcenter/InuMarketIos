@@ -266,53 +266,53 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QqA-cL-vql">
                                 <rect key="frame" x="20" y="97.5" width="335" height="354.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="2sH-VJ-gXP">
-                                        <rect key="frame" x="0.0" y="0.0" width="335" height="200"/>
-                                        <color key="backgroundColor" name="paleSalmon"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="2sH-VJ-gXP" secondAttribute="height" multiplier="67:40" id="dym-RV-IiU"/>
-                                        </constraints>
-                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="sXg-ao-gaX">
-                                        <rect key="frame" x="26" y="216" width="283" height="122.5"/>
+                                        <rect key="frame" x="26" y="208" width="283" height="130.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품명 : 전동 자전거" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="G9C-RG-cJ2">
-                                                <rect key="frame" x="0.0" y="0.0" width="283" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="283" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="gunmetal"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mgJ-Sa-8ab">
-                                                <rect key="frame" x="0.0" y="30.5" width="283" height="31"/>
+                                                <rect key="frame" x="0.0" y="32.5" width="283" height="33"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="내 이름 : 정준기" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="g6T-ZL-kwC">
-                                                <rect key="frame" x="0.0" y="61.5" width="283" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="65.5" width="283" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="gunmetal"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호 : 010-0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="m8j-DF-qbI">
-                                                <rect key="frame" x="0.0" y="92" width="283" height="30.5"/>
+                                                <rect key="frame" x="0.0" y="98" width="283" height="32.5"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="18"/>
                                                 <color key="textColor" name="gunmetal"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                         </subviews>
                                     </stackView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vWY-kH-oWi" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="200"/>
+                                        <color key="backgroundColor" name="paleSalmon"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="vWY-kH-oWi" secondAttribute="height" multiplier="67:40" id="syS-bj-rit"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="2sH-VJ-gXP" secondAttribute="trailing" id="0NS-gg-FLT"/>
-                                    <constraint firstItem="sXg-ao-gaX" firstAttribute="top" secondItem="2sH-VJ-gXP" secondAttribute="bottom" constant="16" id="3jJ-Ig-L6C"/>
-                                    <constraint firstItem="2sH-VJ-gXP" firstAttribute="leading" secondItem="QqA-cL-vql" secondAttribute="leading" id="75e-QN-LVc"/>
                                     <constraint firstItem="sXg-ao-gaX" firstAttribute="leading" secondItem="QqA-cL-vql" secondAttribute="leading" constant="26" id="COw-eQ-ARo"/>
-                                    <constraint firstItem="2sH-VJ-gXP" firstAttribute="top" secondItem="QqA-cL-vql" secondAttribute="top" id="Jbr-Rb-0no"/>
+                                    <constraint firstItem="vWY-kH-oWi" firstAttribute="leading" secondItem="QqA-cL-vql" secondAttribute="leading" id="Jql-Kf-kBa"/>
+                                    <constraint firstItem="vWY-kH-oWi" firstAttribute="top" secondItem="QqA-cL-vql" secondAttribute="top" id="aVh-5E-jRh"/>
                                     <constraint firstAttribute="bottom" secondItem="sXg-ao-gaX" secondAttribute="bottom" constant="16" id="hhI-WO-XL5"/>
+                                    <constraint firstAttribute="trailing" secondItem="vWY-kH-oWi" secondAttribute="trailing" id="iFA-AT-kD8"/>
                                     <constraint firstAttribute="width" secondItem="QqA-cL-vql" secondAttribute="height" multiplier="335:354" id="kSb-a8-9jz"/>
                                     <constraint firstAttribute="trailing" secondItem="sXg-ao-gaX" secondAttribute="trailing" constant="26" id="lW9-AH-uBn"/>
+                                    <constraint firstItem="sXg-ao-gaX" firstAttribute="top" secondItem="vWY-kH-oWi" secondAttribute="bottom" constant="8" id="ueF-D2-GVe"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="판매자에게 위 정보를 전달하면 판매자의 정보를 받습니다." textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ODr-fa-Ia4">
@@ -410,7 +410,7 @@
                         <outlet property="letterView" destination="QqA-cL-vql" id="6rq-an-FCY"/>
                         <outlet property="myNameLabel" destination="g6T-ZL-kwC" id="IjA-5Q-3YZ"/>
                         <outlet property="myPhoneNumLabel" destination="m8j-DF-qbI" id="uET-TW-X3b"/>
-                        <outlet property="productImg" destination="2sH-VJ-gXP" id="DhB-vP-YVV"/>
+                        <outlet property="productImg" destination="vWY-kH-oWi" id="CpW-dz-hr5"/>
                         <outlet property="productNameLabel" destination="G9C-RG-cJ2" id="6NL-l3-bNW"/>
                         <outlet property="sendButtonView" destination="tTi-KB-hIB" id="LSg-qq-ruG"/>
                     </connections>
@@ -588,6 +588,9 @@
         </namedColor>
         <namedColor name="paleGreyTwo">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="paleSalmon">
+            <color red="1" green="0.72200000286102295" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="paleSalmon">
             <color red="1" green="0.72200000286102295" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
