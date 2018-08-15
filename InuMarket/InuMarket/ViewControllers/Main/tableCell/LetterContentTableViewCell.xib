@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="Named colors" minToolsVersion="9.0"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LetterContentTableViewCell" rowHeight="152" id="KGk-i7-Jjw" customClass="LetterContentTableViewCell" customModule="InuMarket" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="152"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="375" height="151.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="7Ld-9x-fHa">
+                        <rect key="frame" x="20" y="31" width="335" height="44"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매자 이름 : 김대섭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XS1-ur-ReH">
+                                <rect key="frame" x="0.0" y="0.0" width="128" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호 : 010-0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EKW-yD-W2q">
+                                <rect key="frame" x="0.0" y="24.5" width="187.5" height="19.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                    </stackView>
+                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F1S-mX-qKa">
+                        <rect key="frame" x="0.0" y="95.5" width="375" height="56"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-hc-8mg">
+                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="56"/>
+                                <state key="normal" title="연락하기">
+                                    <color key="titleColor" name="gunmetal"/>
+                                </state>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z53-ka-qPK">
+                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="56"/>
+                                <state key="normal" title="접기">
+                                    <color key="titleColor" name="gunmetal"/>
+                                </state>
+                            </button>
+                        </subviews>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="56" id="r1w-q2-x9A"/>
+                        </constraints>
+                    </stackView>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="7Ld-9x-fHa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7:1" id="GoM-UU-ByX"/>
+                    <constraint firstAttribute="trailing" secondItem="7Ld-9x-fHa" secondAttribute="trailing" constant="20" id="YJM-Mb-ENu"/>
+                    <constraint firstItem="F1S-mX-qKa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jfS-dB-OxG"/>
+                    <constraint firstItem="7Ld-9x-fHa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="mVo-f1-0jV"/>
+                    <constraint firstAttribute="trailing" secondItem="F1S-mX-qKa" secondAttribute="trailing" id="nMx-gS-cLq"/>
+                    <constraint firstItem="F1S-mX-qKa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="rcR-7G-AXf"/>
+                    <constraint firstAttribute="bottom" secondItem="F1S-mX-qKa" secondAttribute="bottom" id="ybj-Fd-foZ"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="buttonStackView" destination="F1S-mX-qKa" id="RIU-lc-de8"/>
+                <outlet property="cancelButton" destination="z53-ka-qPK" id="ZIp-6u-AB9"/>
+                <outlet property="contactButton" destination="gOV-hc-8mg" id="Nne-JN-f6b"/>
+                <outlet property="nameLabel" destination="XS1-ur-ReH" id="FBr-47-fDj"/>
+                <outlet property="phoneNumLabel" destination="EKW-yD-W2q" id="WfP-4U-PNg"/>
+            </connections>
+            <point key="canvasLocation" x="6.5" y="115"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <namedColor name="gunmetal">
+            <color red="0.27799999710000001" green="0.31400001049999998" blue="0.34499999879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="gunmetal">
+            <color red="0.27799999710000001" green="0.31400001049999998" blue="0.34499999879999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+    </resources>
+</document>

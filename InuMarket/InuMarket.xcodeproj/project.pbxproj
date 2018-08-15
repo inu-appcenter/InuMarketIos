@@ -64,6 +64,10 @@
 		CBA0041E211AC6AA00B62390 /* LetterBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */; };
 		CBA00420211AC6B800B62390 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0041F211AC6B800B62390 /* DetailViewController.swift */; };
 		CBA00422211B22C200B62390 /* VKExpenableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00421211B22C200B62390 /* VKExpenableButton.swift */; };
+		CBF90DCD2124A348007D0937 /* LetterListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF90DCB2124A348007D0937 /* LetterListTableViewCell.swift */; };
+		CBF90DCE2124A348007D0937 /* LetterListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF90DCC2124A348007D0937 /* LetterListTableViewCell.xib */; };
+		CBF90DD12124A381007D0937 /* LetterContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF90DCF2124A381007D0937 /* LetterContentTableViewCell.swift */; };
+		CBF90DD22124A381007D0937 /* LetterContentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF90DD02124A381007D0937 /* LetterContentTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -126,6 +130,10 @@
 		CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterBoxViewController.swift; sourceTree = "<group>"; };
 		CBA0041F211AC6B800B62390 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CBA00421211B22C200B62390 /* VKExpenableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKExpenableButton.swift; sourceTree = "<group>"; };
+		CBF90DCB2124A348007D0937 /* LetterListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterListTableViewCell.swift; sourceTree = "<group>"; };
+		CBF90DCC2124A348007D0937 /* LetterListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetterListTableViewCell.xib; sourceTree = "<group>"; };
+		CBF90DCF2124A381007D0937 /* LetterContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterContentTableViewCell.swift; sourceTree = "<group>"; };
+		CBF90DD02124A381007D0937 /* LetterContentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetterContentTableViewCell.xib; sourceTree = "<group>"; };
 		E8A3193499A2714AB79C2E25 /* Pods-InuMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.release.xcconfig"; sourceTree = "<group>"; };
 		FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InuMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -311,6 +319,7 @@
 				CBA00421211B22C200B62390 /* VKExpenableButton.swift */,
 				CBA0041A211AC66400B62390 /* collectionCell */,
 				C85A36B620F1ED4F008D4362 /* MainViewController.swift */,
+				CBF90DCA21249F6B007D0937 /* tableCell */,
 				CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */,
 			);
 			path = Main;
@@ -335,6 +344,17 @@
 				CB2EA20D2118833300BFC9B3 /* MainCollectionViewCell.swift */,
 			);
 			path = collectionCell;
+			sourceTree = "<group>";
+		};
+		CBF90DCA21249F6B007D0937 /* tableCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBF90DCB2124A348007D0937 /* LetterListTableViewCell.swift */,
+				CBF90DCC2124A348007D0937 /* LetterListTableViewCell.xib */,
+				CBF90DCF2124A381007D0937 /* LetterContentTableViewCell.swift */,
+				CBF90DD02124A381007D0937 /* LetterContentTableViewCell.xib */,
+			);
+			path = tableCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -397,11 +417,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CBF90DD22124A381007D0937 /* LetterContentTableViewCell.xib in Resources */,
 				C899F8EC20F1002400C61BC2 /* Category.storyboard in Resources */,
 				C899F8EE20F1006300C61BC2 /* MyPage.storyboard in Resources */,
 				CB1D7A73211C41D2007A4E9F /* Detail.storyboard in Resources */,
 				C8821B7420E8AE2A009D8CD0 /* LaunchScreen.storyboard in Resources */,
 				C8821B7120E8AE2A009D8CD0 /* Assets.xcassets in Resources */,
+				CBF90DCE2124A348007D0937 /* LetterListTableViewCell.xib in Resources */,
 				C8200E3E20F348D90094E917 /* Upload.storyboard in Resources */,
 				C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */,
 				C899F8EA20F1000200C61BC2 /* Main.storyboard in Resources */,
@@ -443,6 +465,7 @@
 				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
 				"${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/ExpandableCell/ExpandableCell.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
@@ -460,6 +483,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandableCell.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
@@ -487,6 +511,7 @@
 				C8235A80211EA87A0047AA70 /* UploadSubCategoryViewController.swift in Sources */,
 				C8725F2121189468004FD049 /* SettingViewController.swift in Sources */,
 				CB302E2E211C8CDD00C95E0D /* DetailCollectionViewCell.swift in Sources */,
+				CBF90DCD2124A348007D0937 /* LetterListTableViewCell.swift in Sources */,
 				CBA0041E211AC6AA00B62390 /* LetterBoxViewController.swift in Sources */,
 				C86EB098210B66C6005AE454 /* SetPasswdViewController.swift in Sources */,
 				CB7A08AF211DDB4D00573BB5 /* CheckLetterViewController.swift in Sources */,
@@ -501,6 +526,7 @@
 				C82D5B22210F728100F1ED42 /* SetPhoneViewController.swift in Sources */,
 				C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */,
 				C8235A92211F3F710047AA70 /* UploadPreViewController.swift in Sources */,
+				CBF90DD12124A381007D0937 /* LetterContentTableViewCell.swift in Sources */,
 				C8AC9CB221246C60007F7FA1 /* CategoryProductViewController.swift in Sources */,
 				C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */,
 				C8725F2321189468004FD049 /* ChangePasswordViewController.swift in Sources */,
@@ -673,7 +699,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HK46LBTAW6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InuMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -692,7 +718,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HK46LBTAW6;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = InuMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
