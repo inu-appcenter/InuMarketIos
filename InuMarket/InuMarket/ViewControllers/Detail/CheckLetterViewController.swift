@@ -7,14 +7,20 @@
 //
 
 import UIKit
+import ImageSlideshow
+import Kingfisher
 
 class CheckLetterViewController: UIViewController {
     
     //MARK: properties
-    
+    var productImageSlide : [KingfisherSource] = []
+    var productName: String = ""
+    var sellerName: String = ""
+    var sellerPhone: String = ""
     //MARK: IBOutlet
     @IBOutlet weak var letterView: UIView!
-    @IBOutlet weak var productImg: UIImageView!
+    
+    @IBOutlet weak var productImg: ImageSlideshow!
     @IBOutlet weak var productNameLabel: UILabel!
     @IBOutlet weak var sellerNameLabel: UILabel!
     @IBOutlet weak var sellerPhoneNumLabel: UILabel!
@@ -29,8 +35,12 @@ class CheckLetterViewController: UIViewController {
         letterView.layer.cornerRadius = 8
         productImg.layer.cornerRadius = 8
         theCheatButton.layer.cornerRadius = 8
-        productImg.image = UIImage(named: "ractangle4Copy")
-        
+        productImg.setImageInputs(self.productImageSlide)
+        productImg.slideshowInterval = 2.0
+
+        sellerNameLabel.text = "판매자 이름 : "
+        sellerPhoneNumLabel.text = "전화번호 : "
+        productNameLabel.text = "상품명: "
         let doneGesture: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(doneTapped(_:)))
         doneButtonView.addGestureRecognizer(doneGesture)
     }

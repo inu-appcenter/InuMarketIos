@@ -436,13 +436,6 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZiE-8K-ish">
                                 <rect key="frame" x="20" y="98" width="335" height="374.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="8Of-Pw-OQL">
-                                        <rect key="frame" x="0.0" y="0.5" width="335" height="199.5"/>
-                                        <color key="backgroundColor" name="paleSalmon"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" secondItem="8Of-Pw-OQL" secondAttribute="height" multiplier="67:40" id="N9i-Rd-m6F"/>
-                                        </constraints>
-                                    </imageView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" translatesAutoresizingMaskIntoConstraints="NO" id="bxh-ww-txE">
                                         <rect key="frame" x="26" y="208" width="283" height="123"/>
                                         <subviews>
@@ -483,20 +476,27 @@
                                             <color key="titleColor" name="gunmetal"/>
                                         </state>
                                     </button>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3OW-Bh-nhs" customClass="ImageSlideshow" customModule="ImageSlideshow">
+                                        <rect key="frame" x="0.0" y="0.0" width="335" height="200"/>
+                                        <color key="backgroundColor" name="paleSalmon"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="3OW-Bh-nhs" secondAttribute="height" multiplier="67:40" id="Jrm-ge-pIp"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstAttribute="bottom" secondItem="7OL-qv-cuU" secondAttribute="bottom" id="2HV-eT-hgM"/>
                                     <constraint firstItem="7OL-qv-cuU" firstAttribute="leading" secondItem="ZiE-8K-ish" secondAttribute="leading" id="7DI-Qn-rVM"/>
                                     <constraint firstAttribute="width" secondItem="ZiE-8K-ish" secondAttribute="height" multiplier="335:375" id="7aN-mJ-jiU"/>
-                                    <constraint firstItem="8Of-Pw-OQL" firstAttribute="top" secondItem="ZiE-8K-ish" secondAttribute="top" id="Fgb-Op-hdI"/>
-                                    <constraint firstItem="bxh-ww-txE" firstAttribute="top" secondItem="8Of-Pw-OQL" secondAttribute="bottom" constant="8" id="Kh4-Fs-ZEp"/>
-                                    <constraint firstItem="8Of-Pw-OQL" firstAttribute="leading" secondItem="ZiE-8K-ish" secondAttribute="leading" id="Un6-pc-kZZ"/>
+                                    <constraint firstItem="3OW-Bh-nhs" firstAttribute="leading" secondItem="ZiE-8K-ish" secondAttribute="leading" id="KfW-9T-fUq"/>
                                     <constraint firstAttribute="trailing" secondItem="bxh-ww-txE" secondAttribute="trailing" constant="26" id="emv-fC-rey"/>
+                                    <constraint firstItem="3OW-Bh-nhs" firstAttribute="top" secondItem="ZiE-8K-ish" secondAttribute="top" id="m8o-Q2-KlF"/>
                                     <constraint firstItem="bxh-ww-txE" firstAttribute="leading" secondItem="ZiE-8K-ish" secondAttribute="leading" constant="26" id="n7s-Ka-K4O"/>
                                     <constraint firstAttribute="trailing" secondItem="7OL-qv-cuU" secondAttribute="trailing" id="p33-Uu-LfQ"/>
+                                    <constraint firstItem="bxh-ww-txE" firstAttribute="top" secondItem="3OW-Bh-nhs" secondAttribute="bottom" constant="8" id="p4X-R9-lrq"/>
                                     <constraint firstItem="7OL-qv-cuU" firstAttribute="top" secondItem="bxh-ww-txE" secondAttribute="bottom" constant="8" id="sEF-ET-1pI"/>
-                                    <constraint firstAttribute="trailing" secondItem="8Of-Pw-OQL" secondAttribute="trailing" id="w66-DY-vWO"/>
+                                    <constraint firstAttribute="trailing" secondItem="3OW-Bh-nhs" secondAttribute="trailing" id="zIy-gZ-NJR"/>
                                 </constraints>
                             </view>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="70X-cM-s8m">
@@ -559,7 +559,7 @@
                     <connections>
                         <outlet property="doneButtonView" destination="TBg-Ff-9lB" id="adJ-ea-gCw"/>
                         <outlet property="letterView" destination="ZiE-8K-ish" id="tDS-ab-nY6"/>
-                        <outlet property="productImg" destination="8Of-Pw-OQL" id="PmI-oe-jVt"/>
+                        <outlet property="productImg" destination="3OW-Bh-nhs" id="llO-qy-yVp"/>
                         <outlet property="productNameLabel" destination="vFE-ie-luZ" id="NVj-oA-bK5"/>
                         <outlet property="sellerNameLabel" destination="mxQ-rG-nGJ" id="8mk-t4-en4"/>
                         <outlet property="sellerPhoneNumLabel" destination="sWT-DN-NZ2" id="MnK-SX-KBy"/>

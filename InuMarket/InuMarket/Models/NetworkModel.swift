@@ -96,7 +96,25 @@ class NetworkModel{
         }
 
     }
-    
+//    제품 명 검색
+    func searchProduct(productName: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["productName": productName ]
+        Alamofire.request("\(self.appDelegate.serverURL)PSelect/search", method: .post, parameters: params, headers: header).responseJSON{res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "searchProductSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "searchProductError")
+                break
+            }
+        }
+        
+    }
+    // 카테고리 검색
     func categoryProduct(category: String) {
         let header = ["Content-Type" : "application/x-www-form-urlencoded",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
@@ -277,6 +295,27 @@ class NetworkModel{
         }
     
     }
+    func letterSend(productId: String, custId: String, sellerId: String, productName: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["productId":productId,
+                      "custId":custId,
+                      "sellerId":sellerId,
+                      "productName":productName]
+        Alamofire.request("\(self.appDelegate.serverURL)letter/send", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "letterSendSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "letterSendError")
+                break
+            }
+        }
+        
+    }
     
 }
+
 

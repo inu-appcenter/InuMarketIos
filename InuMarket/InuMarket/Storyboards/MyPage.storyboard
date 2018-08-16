@@ -11,7 +11,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--My Page View Controller-->
+        <!--Title-->
         <scene sceneID="fKC-jX-fzV">
             <objects>
                 <viewController id="mxX-mo-Zd0" customClass="MyPageViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -116,9 +116,7 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="vih-uS-w1I"/>
                     </view>
-                    <navigationItem key="navigationItem" id="30w-gb-DmH">
-                        <barButtonItem key="backBarButtonItem" title=" " id="gTv-p7-49u"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Title" id="9TM-2b-8e2"/>
                     <connections>
                         <outlet property="letterCountLabel" destination="gH1-Ei-LG3" id="F1J-lN-ECF"/>
                         <outlet property="productCountLabel" destination="XMN-gu-eEs" id="VaY-wB-fP2"/>

@@ -548,7 +548,9 @@
                             <constraint firstItem="FIx-6V-jDW" firstAttribute="trailing" secondItem="TKd-Ej-TJn" secondAttribute="trailing" id="Jka-gt-GJX"/>
                             <constraint firstItem="FIx-6V-jDW" firstAttribute="top" secondItem="Eqf-Z2-PnD" secondAttribute="bottom" constant="23" id="Mby-bn-9Du"/>
                             <constraint firstItem="FIx-6V-jDW" firstAttribute="bottom" secondItem="TKd-Ej-TJn" secondAttribute="bottom" id="V5b-h6-7k4"/>
+                            <constraint firstItem="TKd-Ej-TJn" firstAttribute="trailing" secondItem="dUi-3t-z94" secondAttribute="trailing" constant="20" id="bh7-9c-iAQ"/>
                             <constraint firstItem="bOY-fJ-nDT" firstAttribute="leading" secondItem="TKd-Ej-TJn" secondAttribute="leading" constant="28" id="gux-1g-tAF"/>
+                            <constraint firstItem="dUi-3t-z94" firstAttribute="leading" secondItem="TKd-Ej-TJn" secondAttribute="leading" constant="20" id="lQ9-sU-Myv"/>
                             <constraint firstItem="dUi-3t-z94" firstAttribute="top" secondItem="bOY-fJ-nDT" secondAttribute="bottom" constant="7" id="vWc-4V-Y6h"/>
                             <constraint firstItem="dUi-3t-z94" firstAttribute="centerX" secondItem="RQ4-SJ-OTh" secondAttribute="centerX" id="vXu-UQ-cyH"/>
                             <constraint firstItem="FIx-6V-jDW" firstAttribute="leading" secondItem="TKd-Ej-TJn" secondAttribute="leading" id="yti-eE-HSr"/>

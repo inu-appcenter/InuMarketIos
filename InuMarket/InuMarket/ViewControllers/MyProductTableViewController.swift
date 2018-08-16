@@ -64,6 +64,11 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         customSubview.backgroundColor = .red
         customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         segmentControl.addSubviewToIndicator(customSubview)
+        
+        segmentControl.layer.shadowColor = UIColor.black.cgColor
+        segmentControl.layer.shadowOpacity = 0.25
+        segmentControl.layer.masksToBounds = false
+        segmentControl.layer.shadowOffset = CGSize(width: 0, height: 1)
     }
     
 //    세그먼트 값 변경시
@@ -188,6 +193,7 @@ extension MyProductTableViewController:NetworkCallback{
             }
 //            self.appDelegate.labCal = temp
             selledItem = temp
+//            selledItem.contains(where: <#T##(MyProductselled) throws -> Bool#>)
         }else if code == "myProductNonSell"{
             print(resultdata)
             

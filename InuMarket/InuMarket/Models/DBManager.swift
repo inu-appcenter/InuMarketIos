@@ -11,7 +11,7 @@ import ObjectMapper
 import Alamofire
 import AlamofireObjectMapper
 
-// 회원가입, 비밀번호 찾기, 비밀번호 변경 , 판매완료 변경, 회원탈퇴 , 제품 업로드
+// 회원가입, 비밀번호 찾기, 비밀번호 변경 , 판매완료 변경, 회원탈퇴 , 제품 업로드 , 쪽지 전송
 class AnsResult{
 
     var ans : Bool?
@@ -123,8 +123,10 @@ class detailProduct{
     var place: String?
     var sellerId: String?
     var updateDate: String?
+    var sellerName: String?
+    var sellerPhone: String?
     
-    init(productImg: [String], productId:String,productName:String, productState:String, productStar:Int, productPrice:Int, productSelled:Bool, category:String, productInfo:String, method:String, place:String, sellerId:String, updateDate:String ){
+    init(productImg: [String], productId:String,productName:String, productState:String, productStar:Int, productPrice:Int, productSelled:Bool, category:String, productInfo:String, method:String, place:String, sellerId:String, updateDate:String ,sellerName: String, sellerPhone: String){
         self.productImg = productImg
         self.productId = productId
         self.productName = productName
@@ -138,6 +140,8 @@ class detailProduct{
         self.place = place
         self.sellerId = sellerId
         self.updateDate = updateDate
+        self.sellerName = sellerName
+        self.sellerPhone = sellerPhone
     }
     
 }

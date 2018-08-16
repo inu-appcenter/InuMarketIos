@@ -34,6 +34,13 @@ class MainViewController: UIViewController {
             }
         }
     }
+    var searchList: [AllProduct] = [] {
+        didSet {
+            if self.productCollectionView != nil {
+                self.productCollectionView.reloadData()
+            }
+        }
+    }
     var detailProductList: [detailProduct] = []
     
     
@@ -73,10 +80,9 @@ class MainViewController: UIViewController {
         
         initializing()
         
-        let time = DispatchTime.now() + .seconds(2)
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            self.productCollectionView.reloadData()
-        }
+        
+//        self.productCollectionView.reloadData()
+        
         // Do any additional setup after loading the view.
         searchTextField.addTarget(self, action: #selector(textFieldDidChange),
                                   for: UIControlEvents.editingChanged)
@@ -100,10 +106,10 @@ class MainViewController: UIViewController {
     @objc func textFieldDidChange(_ textField: UITextField) {
         if searchTextField.hasText {
             productCollectionView.isHidden = false
-            productCollectionView.reloadData()
+//            productCollectionView.reloadData()
         } else {
             productCollectionView.isHidden = true
-            productCollectionView.reloadData()
+//            productCollectionView.reloadData()
         }
         
     }
@@ -140,6 +146,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         searchTextField.resignFirstResponder()
+        model?.searchProduct(productName: searchTextField.text!)
+        let time = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            self.productCollectionView.reloadData()
+        }
+        
         return true
     }
     
@@ -155,7 +167,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if textFieldActive {
-            return 20
+//            return 20
+            return searchList.count
         } else {
             switch section {
             case 0: return 1
@@ -196,7 +209,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if textFieldActive {
-            showDetailVC()
+//            showDetailVC()
+            let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+            guard let detailVC = storyboard.instantiateViewController(withIdentifier: detailIdentifier) as? DetailViewController else { return }
+            detailVC.productId = searchList[indexPath.row].productId
+            model?.detailProduct(productId: detailVC.productId!)
+            //                detailVC.detailList = self.detailProductList
+            
+            let time = DispatchTime.now() + .seconds(1)
+            DispatchQueue.main.asyncAfter(deadline: time) {
+                //                    detailVC.detailList = self.detailProductList
+                self.navigationController?.show(detailVC, sender: nil)
+                
+            }
         } else {
             switch indexPath.section {
             case 0:
@@ -222,7 +247,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                     self.navigationController?.show(detailVC, sender: nil)
 
                 }
-//                self.navigationController?.show(detailVC, sender: nil)
+
                 
                 
             default: return
@@ -259,11 +284,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             guard let cell: MainCollectionViewCell = productCollectionView.dequeueReusableCell(withReuseIdentifier: mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
+            let logo = "\(self.appDelegate.serverURL)imgload/\(searchList[indexPath.row].productImg![0])"
             let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
             cell.productImg.kf.setImage(with: resource)
-            cell.productName.text = productList[indexPath.row].productName
-            cell.productPrice.text = String(productList[indexPath.row].productPrice!)
+            cell.productName.text = searchList[indexPath.row].productName
+            cell.productPrice.text = String(searchList[indexPath.row].productPrice!)
             
             return cell
             
@@ -284,9 +309,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 guard let cell: LetterCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: letterCellIdentifier, for: indexPath) as? LetterCollectionViewCell else {
                     return UICollectionViewCell()
                 }
+                var letter2Int : Int = 0
+                letter2Int = (self.appDelegate.userInfo?.letter)!
                 cell.letterImg.image = UIImage(named: "letterRead")
                 cell.letterBoxLabel.text = "나의 쪽지함"
-                cell.letterNum.text = "0"
+                cell.letterNum.text = "\(letter2Int)"
                 cell.rightImg.image = UIImage(named: "rightside")
                 return cell
             case 2:
@@ -333,7 +360,32 @@ extension MainViewController: NetworkCallback{
             productList = temp
             // 판매 안된 순서로 나열
             productList.sort { !$0.productSelled! && $1.productSelled! }
-
+//            // 낮은 가격순
+//            productList.sort { $0.productPrice! < $1.productPrice!}
+//            // 높은 가격순
+//            productList.sort { $1.productPrice! < $0.productPrice!}
+        }else if code == "searchProductSuccess"{
+            print(resultdata)
+            
+            var temp: [AllProduct] = []
+            if let items = resultdata as? [NSDictionary] {
+                for item in items {
+                    let productId = item["productId"] as? String ?? ""
+                    let productName = item["productName"] as? String ?? ""
+                    let category = item["category"] as? String ?? ""
+                    let updateDate = item["updateDate"] as? String ?? ""
+                    let productPrice = item["productPrice"] as? Int ?? 0
+                    let productSelled = item["productSelled"] as? Bool ?? false
+                    let productImg = item["productImg"] as? [String] ?? [""]
+                    let obj = AllProduct.init(productImg: productImg, productId: productId, productName: productName, productPrice: productPrice, productSelled: productSelled, category: category, updateDate: updateDate)
+                    temp.append(obj)
+                    
+                }
+            }
+            searchList.removeAll()
+            searchList = temp
+            // 판매 안된 순서로 나열
+            searchList.sort { !$0.productSelled! && $1.productSelled! }
         }
     }
     

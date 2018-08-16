@@ -98,6 +98,8 @@ class DetailViewController: UIViewController {
         //        sendLetterVC.modalPresentationStyle = .overCurrentContext
         sendLetterVC.productImageSlide = productImg
         sendLetterVC.productName = (self.detailList?.productName)!
+        sendLetterVC.sellerId = (self.detailList?.sellerId)!
+        sendLetterVC.productId = (self.detailList?.productId)!
         self.present(sendLetterVC, animated: true, completion: nil)
     }
     
@@ -178,7 +180,9 @@ extension DetailViewController: NetworkCallback{
                 let method = items["method"] as? String ?? ""
                 let place = items["place"] as? String ?? ""
                 let sellerId = items["sellerId"] as? String ?? ""
-                let obj = detailProduct.init(productImg: productImg, productId: productId, productName: productName, productState: productState, productStar: productStar, productPrice: productPrice, productSelled: productSelled, category: category, productInfo: productInfo, method: method, place: place, sellerId: sellerId, updateDate: updateDate)
+                let sellerName = items["sellerName"] as? String ?? ""
+                let sellerPhone = items["sellerPhone"] as? String ?? ""
+                let obj = detailProduct.init(productImg: productImg, productId: productId, productName: productName, productState: productState, productStar: productStar, productPrice: productPrice, productSelled: productSelled, category: category, productInfo: productInfo, method: method, place: place, sellerId: sellerId, updateDate: updateDate, sellerName: sellerName, sellerPhone: sellerPhone)
                 temp.append(obj)
                 imageCount = obj.productImg?.count
                 priceProduct = obj.productPrice!
