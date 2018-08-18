@@ -9,11 +9,13 @@
 import UIKit
 import BetterSegmentedControl
 import ExpandableCell
+import MessageUI
 
-class LetterBoxViewController: UIViewController {
+class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerDelegate {
     
     //MARK: properties
     var index: IndexPath = []
+    let number: String = "01000000000"
     
     //MARK: IBOutlet
     @IBOutlet weak var letterSegmentedControl: BetterSegmentedControl!
@@ -59,14 +61,24 @@ class LetterBoxViewController: UIViewController {
         let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
         let call = UIAlertAction(title: "전화걸기", style: .default) {
             (_) in
+            guard let number = URL(string: "tel://" + self.number) else { return }
+            UIApplication.shared.open(number)
             return
         }
         let message = UIAlertAction(title: "메세지 보내기", style: .default) {
             (_) in
+            if MFMessageComposeViewController.canSendText() {
+                let recipients: [String] = [self.number]
+                let messageController = MFMessageComposeViewController()
+                messageController.messageComposeDelegate = self
+                messageController.recipients = recipients
+                self.present(messageController, animated: true, completion: nil)
+            }
             return
         }
         let copy = UIAlertAction(title: "번호 복사", style: .default) {
             (_) in
+            UIPasteboard.general.string = self.number
             return
         }
         let cancel = UIAlertAction(title: "취소", style: .cancel) {
@@ -83,6 +95,10 @@ class LetterBoxViewController: UIViewController {
     
     @objc private func cancelTapped() {
         letterTableView.close(at: index)
+    }
+    
+    func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
+        self.dismiss(animated: true, completion: nil)
     }
 
 }

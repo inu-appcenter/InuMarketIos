@@ -9,29 +9,55 @@
 import UIKit
 
 class CategoryProductViewController: UIViewController {
-
+    
+    //MARK: properties
+    let cellIdentifier: String = "MainCollectionViewCell"
+    let headerIndentifier: String = "MainHeaderCollectionViewCell"
+    
+    //MARK: IBOutlet
+    @IBOutlet weak var productCollectionView: UICollectionView!
+    
+    //MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        productCollectionView.delegate = self
+        productCollectionView.dataSource = self
+        
+        navigationItem.title = "카테고리 상품"
     }
+}
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+extension CategoryProductViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return 20
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return CGSize(width: UIScreen.main.bounds.width, height: 68)
     }
-    */
-
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: 100, height: 140)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        guard let cell: MainHeaderCollectionViewCell = productCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIndentifier, for: indexPath) as? MainHeaderCollectionViewCell else { return UICollectionViewCell() }
+        cell.headerTitle.isHidden = true
+        cell.createCategorySortButton()
+        productCollectionView.addSubview(cell.sortButton)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell: MainCollectionViewCell = productCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        cell.productImg.image = UIImage(named: "rectangle4Copy")
+        cell.productName.text = "상품 이름"
+        cell.productPrice.text = "250,000원"
+        return cell
+    }
+    
+    
 }
 
 extension CategoryProductViewController: NetworkCallback{
