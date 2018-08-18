@@ -249,6 +249,117 @@
             </objects>
             <point key="canvasLocation" x="157.59999999999999" y="72.413793103448285"/>
         </scene>
+        <!--Other Product View Controller-->
+        <scene sceneID="END-G0-QWt">
+            <objects>
+                <viewController storyboardIdentifier="otherProduct" id="1oi-ae-J9F" customClass="OtherProductViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="l3h-cK-gez">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ss2-tr-bQn" customClass="BetterSegmentedControl" customModule="BetterSegmentedControl">
+                                <rect key="frame" x="0.0" y="20" width="375" height="52"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="52" id="z8b-IO-bxj"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="titleNumberOfLines">
+                                        <integer key="value" value="2"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="bouncesOnChange" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="alwaysAnnouncesValue" value="YES"/>
+                                    <userDefinedRuntimeAttribute type="boolean" keyPath="announcesValueImmediately" value="NO"/>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="titleColor">
+                                        <color key="value" name="cloudyBlue"/>
+                                    </userDefinedRuntimeAttribute>
+                                    <userDefinedRuntimeAttribute type="color" keyPath="selectedTitleColor">
+                                        <color key="value" name="fadedOrange"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="changedSegControl:" destination="1oi-ae-J9F" eventType="valueChanged" id="RAI-vn-Gg8"/>
+                                </connections>
+                            </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="HcK-rZ-Mek">
+                                <rect key="frame" x="0.0" y="80" width="375" height="587"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="0.0" id="vjF-u6-oT9">
+                                    <size key="itemSize" width="100" height="140"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionViewCell" id="LwE-df-sYJ" customClass="MainCollectionViewCell" customModule="InuMarket" customModuleProvider="target">
+                                        <rect key="frame" x="10" y="0.0" width="100" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fXR-GN-tQc">
+                                                    <rect key="frame" x="-0.5" y="0.0" width="100" height="100"/>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yrL-jQ-xF8">
+                                                    <rect key="frame" x="0.0" y="125" width="100" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="uHC-Yi-Oj8">
+                                                    <rect key="frame" x="0.0" y="105" width="100" height="15"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="uHC-Yi-Oj8" secondAttribute="trailing" id="3AG-66-PpP"/>
+                                            <constraint firstAttribute="trailing" secondItem="fXR-GN-tQc" secondAttribute="trailing" id="8Aa-wW-JeW"/>
+                                            <constraint firstItem="uHC-Yi-Oj8" firstAttribute="top" secondItem="fXR-GN-tQc" secondAttribute="bottom" constant="5" id="Amu-KQ-9uz"/>
+                                            <constraint firstAttribute="bottom" secondItem="yrL-jQ-xF8" secondAttribute="bottom" id="BZK-s9-yO2"/>
+                                            <constraint firstItem="fXR-GN-tQc" firstAttribute="top" secondItem="LwE-df-sYJ" secondAttribute="top" id="Eff-Ol-wqt"/>
+                                            <constraint firstItem="yrL-jQ-xF8" firstAttribute="leading" secondItem="LwE-df-sYJ" secondAttribute="leading" id="GVS-uK-wjj"/>
+                                            <constraint firstItem="fXR-GN-tQc" firstAttribute="leading" secondItem="LwE-df-sYJ" secondAttribute="leading" id="QuD-aj-wYM"/>
+                                            <constraint firstItem="uHC-Yi-Oj8" firstAttribute="leading" secondItem="LwE-df-sYJ" secondAttribute="leading" id="W7D-Tj-RES"/>
+                                            <constraint firstItem="yrL-jQ-xF8" firstAttribute="top" secondItem="uHC-Yi-Oj8" secondAttribute="bottom" constant="5" id="XM1-J6-F2E"/>
+                                            <constraint firstItem="yrL-jQ-xF8" firstAttribute="leading" secondItem="LwE-df-sYJ" secondAttribute="leading" id="jht-7C-L8Z"/>
+                                            <constraint firstAttribute="trailing" secondItem="yrL-jQ-xF8" secondAttribute="trailing" id="xXt-sU-Ooa"/>
+                                        </constraints>
+                                        <size key="customSize" width="100" height="140"/>
+                                        <connections>
+                                            <outlet property="productImg" destination="fXR-GN-tQc" id="40D-dS-cho"/>
+                                            <outlet property="productName" destination="uHC-Yi-Oj8" id="UR1-XL-Cvz"/>
+                                            <outlet property="productPrice" destination="yrL-jQ-xF8" id="Ces-B2-s9f"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="HcK-rZ-Mek" firstAttribute="top" secondItem="Ss2-tr-bQn" secondAttribute="bottom" constant="8" id="2Sc-rt-8Wh"/>
+                            <constraint firstItem="Ss2-tr-bQn" firstAttribute="leading" secondItem="VHz-n9-OSj" secondAttribute="leading" id="2pl-N1-3h7"/>
+                            <constraint firstItem="Ss2-tr-bQn" firstAttribute="top" secondItem="VHz-n9-OSj" secondAttribute="top" id="8jR-0T-QtU"/>
+                            <constraint firstItem="Ss2-tr-bQn" firstAttribute="width" secondItem="l3h-cK-gez" secondAttribute="width" id="B0C-1M-gsa"/>
+                            <constraint firstItem="HcK-rZ-Mek" firstAttribute="trailing" secondItem="VHz-n9-OSj" secondAttribute="trailing" id="GdY-Cu-8Mr"/>
+                            <constraint firstItem="HcK-rZ-Mek" firstAttribute="leading" secondItem="VHz-n9-OSj" secondAttribute="leading" id="J7f-84-y5G"/>
+                            <constraint firstItem="Ss2-tr-bQn" firstAttribute="trailing" secondItem="VHz-n9-OSj" secondAttribute="trailing" id="beb-46-VF3"/>
+                            <constraint firstItem="HcK-rZ-Mek" firstAttribute="bottom" secondItem="VHz-n9-OSj" secondAttribute="bottom" id="dsT-2F-4EG"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="VHz-n9-OSj"/>
+                    </view>
+                    <connections>
+                        <outlet property="otherProductCollectionView" destination="HcK-rZ-Mek" id="eSB-tc-2Tg"/>
+                        <outlet property="otherProductSegControl" destination="Ss2-tr-bQn" id="BKo-Dz-GVj"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="YQH-Ei-kYb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="157.59999999999999" y="774.96251874062978"/>
+        </scene>
         <!--Send Letter View Controller-->
         <scene sceneID="jKg-JH-TsK">
             <objects>
@@ -578,19 +689,16 @@
             <color red="1" green="0.48600000143051147" blue="0.54900002479553223" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="cloudyBlue">
-            <color red="0.792156862745098" green="0.82352941176470584" blue="0.88627450980392153" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.79215686269999996" green="0.82352941180000006" blue="0.8862745098" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="fadedOrange">
-            <color red="0.94509803921568625" green="0.42745098039215684" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94509803920000002" green="0.42745098040000001" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gunmetal">
             <color red="0.27799999713897705" green="0.31400001049041748" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="paleGreyTwo">
             <color red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </namedColor>
-        <namedColor name="paleSalmon">
-            <color red="1" green="0.72200000286102295" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="paleSalmon">
             <color red="1" green="0.72200000286102295" blue="0.72200000286102295" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -58,6 +58,7 @@
 		CB302E2E211C8CDD00C95E0D /* DetailCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E2D211C8CDD00C95E0D /* DetailCollectionViewCell.swift */; };
 		CB302E30211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E2F211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift */; };
 		CB302E33211C99DA00C95E0D /* SendLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E32211C99DA00C95E0D /* SendLetterViewController.swift */; };
+		CB3DCBF72127D8A4009EF084 /* OtherProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3DCBF62127D8A4009EF084 /* OtherProductViewController.swift */; };
 		CB7A08AF211DDB4D00573BB5 /* CheckLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7A08AE211DDB4D00573BB5 /* CheckLetterViewController.swift */; };
 		CBA00417211AA91400B62390 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */; };
 		CBA00419211AA91D00B62390 /* LetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */; };
@@ -124,6 +125,7 @@
 		CB302E2D211C8CDD00C95E0D /* DetailCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB302E2F211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFooterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB302E32211C99DA00C95E0D /* SendLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLetterViewController.swift; sourceTree = "<group>"; };
+		CB3DCBF62127D8A4009EF084 /* OtherProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProductViewController.swift; sourceTree = "<group>"; };
 		CB7A08AE211DDB4D00573BB5 /* CheckLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLetterViewController.swift; sourceTree = "<group>"; };
 		CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -309,6 +311,7 @@
 				CBA0041F211AC6B800B62390 /* DetailViewController.swift */,
 				CB302E32211C99DA00C95E0D /* SendLetterViewController.swift */,
 				CB7A08AE211DDB4D00573BB5 /* CheckLetterViewController.swift */,
+				CB3DCBF62127D8A4009EF084 /* OtherProductViewController.swift */,
 			);
 			path = Detail;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 			files = (
 				C850EEF820F652CC002068F1 /* NetworkModel.swift in Sources */,
 				C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */,
+				CB3DCBF72127D8A4009EF084 /* OtherProductViewController.swift in Sources */,
 				C82D5B24210F72A300F1ED42 /* ReviewViewController.swift in Sources */,
 				C8235A80211EA87A0047AA70 /* UploadSubCategoryViewController.swift in Sources */,
 				C8725F2121189468004FD049 /* SettingViewController.swift in Sources */,

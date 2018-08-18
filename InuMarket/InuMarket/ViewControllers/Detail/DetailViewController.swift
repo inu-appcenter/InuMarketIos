@@ -103,6 +103,63 @@ class DetailViewController: UIViewController {
         self.present(sendLetterVC, animated: true, completion: nil)
     }
     
+    @objc private func showOtherProduct(_ sender: UITapGestureRecognizer) {
+        print("showOtherProduct")
+        let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+        guard let otherProductVC = storyboard.instantiateViewController(withIdentifier: "otherProduct") as? OtherProductViewController else {return}
+        self.navigationController?.show(otherProductVC, sender: nil)
+    }
+    
+    @objc private func showDeclare(_ sender: UITapGestureRecognizer) {
+        let alert = UIAlertController(title: "신고하기", message: "신고 이유를 선택해주세요.", preferredStyle: .alert)
+        let 음란성 = UIAlertAction(title: "음란성", style: .default) {
+            (_) in
+            self.상품신고완료()
+            return
+        }
+        let 도배 = UIAlertAction(title: "도배", style: .default) {
+            (_) in
+            self.상품신고완료()
+            return
+        }
+        let 광고 = UIAlertAction(title: "광고", style: .default) {
+            (_) in
+            self.상품신고완료()
+            return
+        }
+        let 허위상품 = UIAlertAction(title: "허위 상품", style: .default) {
+            (_) in
+            self.상품신고완료()
+            return
+        }
+        let 취소 = UIAlertAction(title: "취소", style: .cancel) {
+            (_) in
+            return
+        }
+        
+        alert.addAction(음란성)
+        alert.addAction(도배)
+        alert.addAction(광고)
+        alert.addAction(허위상품)
+        alert.addAction(취소)
+        self.present(alert, animated: true)
+    }
+    
+    private func 상품신고완료() {
+        let alert2 = UIAlertController(title: "상품 신고가 완료되었습니다.", message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) {
+            (_) in
+            return
+        }
+        alert2.addAction(ok)
+        self.present(alert2, animated: true)
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        guard let nextVC: OtherProductViewController = segue.destination as? OtherProductViewController else { return }
+//        guard let cell: DetailHeaderCollectionViewCell = sender as? DetailHeaderCollectionViewCell else { return }
+//        nextVC.productName = cell.nameLabel?.text
+//    }
 }
 
 extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
@@ -123,12 +180,20 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
             cell.nameLabel.text = self.detailList?.productName
             cell.priceLabel.text = "\(priceProduct)"
             cell.inquiryLabel.text = "현재 \(starProduct)명의 학생들이 문의중입니다!"
+            
             cell.declareButton.setImage(UIImage(named: "declare"), for: .normal)
+            cell.declareButton.addTarget(self, action: #selector(showDeclare(_:)), for: .touchUpInside)
+            cell.declareButton.isUserInteractionEnabled = true
+            cell.bringSubview(toFront: cell.declareButton)
             return cell
             
         case UICollectionElementKindSectionFooter:
             guard let cell: DetailFooterCollectionViewCell = detailCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionFooter, withReuseIdentifier: footerIdentifier, for: indexPath) as? DetailFooterCollectionViewCell else { return UICollectionReusableView() }
+            
             cell.showProductButton.setImage(UIImage(named: "showOtherProduct"), for: .normal)
+            cell.showProductButton.addTarget(self, action: #selector(showOtherProduct(_:)), for: .touchUpInside)
+            cell.showProductButton.isUserInteractionEnabled = true
+            cell.bringSubview(toFront: cell.showProductButton)
             return cell
         default: return UICollectionReusableView()
         }
