@@ -295,6 +295,27 @@ class NetworkModel{
         }
     
     }
+//    판매자 물건 리스트 조회
+    func sellerIdSearchProduct(sellerId: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["sellerId":sellerId]
+        
+        Alamofire.request("\(self.appDelegate.serverURL)PSelect/searchId", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "sellerIdSearchSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "sellerIdSearchError")
+                break
+            }
+        }
+        
+    }
+    
+    // 쪽지 보내기
     func letterSend(productId: String, custId: String, sellerId: String, productName: String){
         let header = ["Content-Type" : "application/x-www-form-urlencoded",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]

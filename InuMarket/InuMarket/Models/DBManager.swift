@@ -85,7 +85,7 @@ class MyProductNonsell{
     }
 }
 
-// 전체 물건 리스트 , 카테고리 검색 물건 리스트
+// 전체 물건 리스트 , 카테고리 검색 물건 리스트 , 판매자 물건 리스트
 
 class AllProduct{
     var productImg: [String]?
@@ -95,7 +95,6 @@ class AllProduct{
     var category: String?
     var productSelled: Bool?
     var updateDate: String?
-    
     
     init(productImg: [String] ,productId: String, productName: String, productPrice: Int, productSelled: Bool, category: String, updateDate: String){
         self.productImg = productImg

@@ -8,13 +8,30 @@
 
 import UIKit
 import BetterSegmentedControl
+import Kingfisher
 
 class OtherProductViewController: UIViewController {
     
     //MARK: properties
     var productName: String?
     let cellIdentifier: String = "MainCollectionViewCell"
-    
+    var sellerId: String?
+    var model : NetworkModel?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+    var sellProductList: [AllProduct] = []{
+        didSet {
+            if self.otherProductCollectionView != nil {
+                self.otherProductCollectionView.reloadData()
+            }
+        }
+    }
+    var nonsellProductList: [AllProduct] = []{
+        didSet {
+            if self.otherProductCollectionView != nil {
+                self.otherProductCollectionView.reloadData()
+            }
+        }
+    }
     //MARK: IBOutlet
     @IBOutlet weak var otherProductSegControl: BetterSegmentedControl!
     @IBOutlet weak var otherProductCollectionView: UICollectionView!
@@ -28,8 +45,11 @@ class OtherProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        model = NetworkModel(self)
+        model?.sellerIdSearchProduct(sellerId: sellerId!)
+        
         navigationItem.title = "판매자의 다른 상품"
-
+        
         otherProductSegControl.titles = ["판매중", "판매 완료"]
         let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 4.0))
         customSubview.backgroundColor = .red
@@ -44,25 +64,74 @@ class OtherProductViewController: UIViewController {
         otherProductCollectionView.delegate = self
         otherProductCollectionView.dataSource = self
     }
-
+    
 }
 
 extension OtherProductViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         if otherProductSegControl.index == 0 {
-            return 20
+            return self.nonsellProductList.count
         } else if otherProductSegControl.index == 1 {
-            return 10
+            return self.sellProductList.count
         } else { return 0 }
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: MainCollectionViewCell = otherProductCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        cell.productImg.image = UIImage(named: "rectangle4Copy")
-        cell.productName.text = "상품 이름"
-        cell.productPrice.text = "250,000원"
+        if otherProductSegControl.index == 0 {
+            let logo = "\(self.appDelegate.serverURL)imgload/\(nonsellProductList[indexPath.row].productImg![0])"
+            let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
+            cell.productImg.kf.setImage(with: resource)
+            cell.productName.text = nonsellProductList[indexPath.row].productName
+            cell.productPrice.text = "\(nonsellProductList[indexPath.row].productPrice!)원"
+        }else {
+            let logo = "\(self.appDelegate.serverURL)imgload/\(sellProductList[indexPath.row].productImg![0])"
+            let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
+            cell.productImg.kf.setImage(with: resource)
+            cell.productName.text = sellProductList[indexPath.row].productName
+            cell.productPrice.text = "\(sellProductList[indexPath.row].productPrice!)원"
+        }
+        
         return cell
     }
     
+}
+
+extension OtherProductViewController: NetworkCallback{
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "sellerIdSearchSuccess" {
+            print(resultdata)
+            var temp: [AllProduct] = []
+            if let items = resultdata as? [NSDictionary] {
+                for item in items {
+                    let productId = item["productId"] as? String ?? ""
+                    let productName = item["productName"] as? String ?? ""
+                    let category = item["category"] as? String ?? ""
+                    let updateDate = item["updateDate"] as? String ?? ""
+                    let productPrice = item["productPrice"] as? Int ?? 0
+                    let productSelled = item["productSelled"] as? Bool ?? false
+                    let productImg = item["productImg"] as? [String] ?? [""]
+                    let obj = AllProduct.init(productImg: productImg, productId: productId, productName: productName, productPrice: productPrice, productSelled: productSelled, category: category, updateDate: updateDate)
+                    temp.append(obj)
+                    
+                }
+            }
+            for i in 0..<temp.count{
+                if temp[i].productSelled == true {
+                    sellProductList.append(temp[i])
+                }else {
+                    nonsellProductList.append(temp[i])
+                }
+                
+            }
+            
+        }
+    }
     
+    
+    func networkFail(code: String) {
+        if(code == "sellerIdSearchError") {
+            print("실패하였습니다.")
+        }
+    }
 }

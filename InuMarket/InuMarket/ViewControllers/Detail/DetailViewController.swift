@@ -107,6 +107,7 @@ class DetailViewController: UIViewController {
         print("showOtherProduct")
         let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
         guard let otherProductVC = storyboard.instantiateViewController(withIdentifier: "otherProduct") as? OtherProductViewController else {return}
+        otherProductVC.sellerId = detailList?.sellerId
         self.navigationController?.show(otherProductVC, sender: nil)
     }
     

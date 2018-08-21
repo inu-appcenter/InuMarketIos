@@ -42,6 +42,11 @@ class MyPageViewController: UIViewController {
     }
     
     @IBAction func letterButtonClicked(_ sender: Any) {
+        let uploadStoryBoard :UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        if let vc = uploadStoryBoard.instantiateViewController(withIdentifier: "letterBox") as? LetterBoxViewController{
+            self.navigationController?.show(vc, sender: nil)
+        }
     }
     
     @IBAction func settingButtonClicked(_ sender: Any) {
