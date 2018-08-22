@@ -32,6 +32,7 @@
 		C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36B620F1ED4F008D4362 /* MainViewController.swift */; };
 		C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */; };
 		C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */; };
+		C86BE4C3212D5355009C1A98 /* MyProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86BE4C2212D5355009C1A98 /* MyProductViewController.swift */; };
 		C86EB094210B61DD005AE454 /* AgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86EB093210B61DC005AE454 /* AgreementViewController.swift */; };
 		C86EB096210B62C7005AE454 /* StudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86EB095210B62C7005AE454 /* StudentInfoViewController.swift */; };
 		C86EB098210B66C6005AE454 /* SetPasswdViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C86EB097210B66C6005AE454 /* SetPasswdViewController.swift */; };
@@ -97,6 +98,7 @@
 		C85A36B620F1ED4F008D4362 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
+		C86BE4C2212D5355009C1A98 /* MyProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductViewController.swift; sourceTree = "<group>"; };
 		C86EB093210B61DC005AE454 /* AgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgreementViewController.swift; sourceTree = "<group>"; };
 		C86EB095210B62C7005AE454 /* StudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StudentInfoViewController.swift; sourceTree = "<group>"; };
 		C86EB097210B66C6005AE454 /* SetPasswdViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetPasswdViewController.swift; sourceTree = "<group>"; };
@@ -196,6 +198,7 @@
 				C88AEA732108B50F00182BD9 /* ForgotPasswordViewController.swift */,
 				C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */,
 				C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */,
+				C86BE4C2212D5355009C1A98 /* MyProductViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -536,6 +539,7 @@
 				C8725F2321189468004FD049 /* ChangePasswordViewController.swift in Sources */,
 				CB302E33211C99DA00C95E0D /* SendLetterViewController.swift in Sources */,
 				C8200E4020F393840094E917 /* UploadExplainViewController.swift in Sources */,
+				C86BE4C3212D5355009C1A98 /* MyProductViewController.swift in Sources */,
 				C8235A82211EA88A0047AA70 /* UploadSubCategoryCollectionViewCell.swift in Sources */,
 				CBA00422211B22C200B62390 /* VKExpenableButton.swift in Sources */,
 				CBA00419211AA91D00B62390 /* LetterCollectionViewCell.swift in Sources */,

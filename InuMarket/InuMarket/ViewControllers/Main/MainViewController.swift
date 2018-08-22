@@ -73,6 +73,9 @@ class MainViewController: UIViewController {
     }
     
     //MARK: life cycle
+    override func viewWillAppear(_ animated: Bool) {
+        model?.allProduct()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         model = NetworkModel(self)

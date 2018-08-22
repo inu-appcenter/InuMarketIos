@@ -145,6 +145,18 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         cell?.isSelected = false
         
         // 상세 페이지 이동 코딩
+        if segmentControl.index == 0 {
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "MyProductView") as? MyProductViewController{
+                vc.productId = nonSelledItem[indexPath.row].productId
+                self.navigationController?.show(vc, sender: nil)
+            }
+        }
+//        else{
+//            if let vc = storyboard?.instantiateViewController(withIdentifier: "MyProductView") as? MyProductViewController{
+//                vc.productId = selledItem[indexPath.row].productId
+//                self.navigationController?.show(vc, sender: nil)
+//            }
+//        }
         
         
     }

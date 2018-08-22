@@ -221,6 +221,25 @@ class NetworkModel{
             }
         }
     }
+    // 전화번호 변경
+    func changePhone(id: String, newTel: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["id" : id,
+                      "newTel": newTel
+        ]
+        Alamofire.request("\(self.appDelegate.serverURL)stateChange/changeTel", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "changePhoneSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "changePhoneError")
+                break
+            }
+        }
+    }
 //    제품 업로드
     
     func uploadProduct(userfile: [UIImage] ,category: String, productName: String, productState:String, productPrice:String, productInfo:String, method:String, place: String, id: String){
