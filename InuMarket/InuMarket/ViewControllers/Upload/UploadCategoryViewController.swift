@@ -13,6 +13,7 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
     @IBOutlet weak var UploadCategoryTable: UITableView!
     
     let category = ["책","의류","가전 / 가구", "잡화","원룸","식권"]
+    let postCategory = ["책","의류","가전가구", "잡화","원룸","식권"]
     let imageCategory = [#imageLiteral(resourceName: "book"),#imageLiteral(resourceName: "cloth"),#imageLiteral(resourceName: "electirc"),#imageLiteral(resourceName: "etc"),#imageLiteral(resourceName: "room"),#imageLiteral(resourceName: "ticket")]
     
     override func viewDidLoad() {
@@ -62,7 +63,7 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
         cell?.isSelected = true
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadSubCategory") as? UploadSubCategoryViewController{
-            vc.mainCategory = category[indexPath.row]
+            vc.mainCategory = postCategory[indexPath.row]
             self.navigationController?.show(vc, sender: nil)
         }
         

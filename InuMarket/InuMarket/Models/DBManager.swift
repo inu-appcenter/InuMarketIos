@@ -142,7 +142,31 @@ class detailProduct{
         self.sellerName = sellerName
         self.sellerPhone = sellerPhone
     }
+}
+
+// 쪽지함 리스트
+class LetterList{
+    var letterId : String?
+    var sendId: String?
+    var reciveId: String?
+    var sellBuy: Bool?
+    var letterRead : Bool?
+    var productId : String?
+    var productName: String?
+    var sendDate: String?
+    var senderPhone: String?
     
+    init(letterId: String, sendId: String, reciveId: String, sellBuy: Bool, letterRead: Bool, productId: String, productName: String, sendDate: String, senderPhone: String) {
+        self.letterId = letterId
+        self.sendId = sendId
+        self.reciveId = reciveId
+        self.sellBuy = sellBuy
+        self.letterRead = letterRead
+        self.productId = productId
+        self.productName = productName
+        self.sendDate = sendDate
+        self.senderPhone = senderPhone
+    }
 }
 
 

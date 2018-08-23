@@ -355,7 +355,24 @@ class NetworkModel{
         }
         
     }
-    
+    // 쪽지 리스트
+    func letterList(id: String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["id":id ]
+        Alamofire.request("\(self.appDelegate.serverURL)letter/list", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "letterListSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "letterListError")
+                break
+            }
+        }
+        
+    }
 }
 
 

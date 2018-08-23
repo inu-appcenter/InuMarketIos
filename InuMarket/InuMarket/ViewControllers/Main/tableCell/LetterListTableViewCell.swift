@@ -15,6 +15,7 @@ class LetterListTableViewCell: ExpandableCell {
     
     @IBOutlet var letterImg: UIImageView!
     @IBOutlet var letterTitle: UILabel!
+    @IBOutlet weak var endTitle: UILabel!
     
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)

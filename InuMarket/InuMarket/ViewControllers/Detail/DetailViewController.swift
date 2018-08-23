@@ -258,6 +258,7 @@ extension DetailViewController: NetworkCallback{
                 categoryProduct = obj.category!
                 stateProduct = obj.productState!
                 detailList = obj
+                self.appDelegate.detailList = obj
                 
             }
         }

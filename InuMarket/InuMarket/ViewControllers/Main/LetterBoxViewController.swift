@@ -17,13 +17,51 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     var index: IndexPath = []
     let number: String = "01000000000"
     
+    // 판매중 판매중 상품
+    var sellSellLetter:[LetterList] = []{
+        didSet {
+            if self.letterTableView != nil {
+                self.letterTableView.reloadData()
+            }
+        }
+    }
+    // 판매중 판매완료 상품
+    var sellEndLetter:[LetterList] = []{
+        didSet {
+            if self.letterTableView != nil {
+                self.letterTableView.reloadData()
+            }
+        }
+    }
+    // 구매중 판매중 상품
+    var buySellLetter:[LetterList] = []{
+        didSet {
+            if self.letterTableView != nil {
+                self.letterTableView.reloadData()
+            }
+        }
+    }
+    // 구매중 판매완료 상품
+    var buyEndLetter:[LetterList] = []{
+        didSet {
+            if self.letterTableView != nil {
+                self.letterTableView.reloadData()
+            }
+        }
+    }
+    
+    var model : NetworkModel?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+
+    
     //MARK: IBOutlet
     @IBOutlet weak var letterSegmentedControl: BetterSegmentedControl!
     @IBOutlet var letterTableView: ExpandableTableView!
     
     //MARK: IBAction
     @IBAction func changedSegmentedControl(_ sender: Any) {
-        letterTableView.reloadData {
+        letterTableView.reloadData{
+            
             self.letterTableView.closeAll()
         }
     }
@@ -32,6 +70,9 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        model = NetworkModel(self)
+        model?.letterList(id: (self.appDelegate.userInfo?.id)!)
+        
         // Do any additional setup after loading the view.
         navigationItem.title = "쪽지함"
         
@@ -109,10 +150,34 @@ extension LetterBoxViewController: ExpandableDelegate {
         return [152]
     }
     
+    func numberOfSections(in expandableTableView: ExpandableTableView) -> Int {
+        return 2
+    }
+    
     func expandableTableView(_ expandableTableView: ExpandableTableView, expandedCellsForRowAt indexPath: IndexPath) -> [UITableViewCell]? {
         let cell = letterTableView.dequeueReusableCell(withIdentifier: LetterContentTableViewCell.ID) as! LetterContentTableViewCell
-        cell.nameLabel.text = "구매자 이름 : 김대섭"
-        cell.phoneNumLabel.text = "전화번호 : 010-0000-0000"
+        switch indexPath.section {
+        case 0:
+            if letterSegmentedControl.index == 0{
+                cell.nameLabel.text = "구매자 이름 : 김대섭"
+                cell.phoneNumLabel.text = "전화번호 : 판매판매중"
+            }else {
+                cell.nameLabel.text = "판매자 이름 : 김대섭"
+                cell.phoneNumLabel.text = "전화번호 : 구매판매중"
+            }
+            break
+        case 1:
+            if letterSegmentedControl.index == 0{
+                cell.nameLabel.text = "구매자 이름 : 김대섭"
+                cell.phoneNumLabel.text = "전화번호 : 판매판매완료"
+            }else {
+                cell.nameLabel.text = "판매자 이름 : 김대섭"
+                cell.phoneNumLabel.text = "전화번호 : 구매판매완료"
+            }
+            break
+        default:
+            break
+        }
         index = indexPath
         cell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
         cell.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
@@ -125,23 +190,50 @@ extension LetterBoxViewController: ExpandableDelegate {
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfRowsInSection section: Int) -> Int {
+        
         if letterSegmentedControl.index == 0 {
-            return 10
+            if section == 0{
+                return sellSellLetter.count
+            }else if section == 1{
+                return sellEndLetter.count
+            }else{
+                return 0
+            }
         } else if letterSegmentedControl.index == 1 {
-            return 5
+            if section == 0{
+            return buySellLetter.count
+            }else if section == 1{
+                return buyEndLetter.count
+            }else{
+                return 0
+            }
         } else {
             return 0
         }
     }
-    
     func expandableTableView(_ expandableTableView: ExpandableTableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: LetterListTableViewCell = expandableTableView.dequeueReusableCell(withIdentifier: LetterListTableViewCell.ID) as? LetterListTableViewCell else { return UITableViewCell() }
         if letterSegmentedControl.index == 0 {
+            if indexPath.section == 0{
+                cell.letterImg.image = UIImage(named: "rectangle4Copy")
+                cell.letterTitle.text = sellSellLetter[indexPath.row].productName
+            }else {
+            cell.backgroundColor = UIColor.lightGray
+                cell.endTitle.isHidden = false
             cell.letterImg.image = UIImage(named: "rectangle4Copy")
-            cell.letterTitle.text = "디자인론 전공책"
+            cell.letterTitle.text = sellEndLetter[indexPath.row].productName
+
+            }
         } else {
+            if indexPath.section == 0{
             cell.letterImg.image = UIImage(named: "rectangle4Copy")
-            cell.letterTitle.text = "디자인론 전공책"
+            cell.letterTitle.text = buySellLetter[indexPath.row].productName
+            } else{
+                cell.backgroundColor = UIColor.lightGray
+                cell.endTitle.isHidden = false
+                cell.letterImg.image = UIImage(named: "rectangle4Copy")
+                cell.letterTitle.text = buyEndLetter[indexPath.row].productName
+            }
         }
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         return cell
@@ -172,4 +264,60 @@ extension UITableView {
         UIView.animate(withDuration: 0, animations: { self.reloadData() })
         { _ in completion() }
     }
+}
+
+extension LetterBoxViewController: NetworkCallback{
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "letterListSuccess" {
+            print(resultdata)
+            
+            var temp: [LetterList] = []
+            if let items = resultdata as? [NSDictionary] {
+                for item in items {
+                let letterId = item["letterId"] as? String ?? ""
+                let sendId = item["sendId"] as? String ?? ""
+                let reciveId = item["reciveId"] as? String ?? ""
+                let sellBuy = item["sellBuy"] as? Bool ?? false
+                let letterRead = item["letterRead"] as? Bool ?? false
+                let productId = item["productId"] as? String ?? ""
+                let productName = item["productName"] as? String ?? ""
+                let sendDate = item["sendDate"] as? String ?? ""
+                let senderPhone = item["senderPhone"] as? String ?? ""
+                let obj = LetterList.init(letterId: letterId, sendId: sendId, reciveId: reciveId, sellBuy: sellBuy, letterRead: letterRead, productId: productId, productName: productName, sendDate: sendDate, senderPhone: senderPhone)
+                temp.append(obj)
+                
+
+                }
+            }
+//            code
+            for i in 0..<temp.count{
+                if temp[i].sellBuy == true {
+                    if temp[i].letterRead == false{
+                        // 판매판매중
+                        sellSellLetter.append(temp[i])
+                    }else{
+                        // 판매판매완료
+                        sellEndLetter.append(temp[i])
+                    }
+                }else {
+                    if temp[i].letterRead == false{
+                        // 구매판매중
+                        buySellLetter.append(temp[i])
+                    }else{
+                        // 구매판매완료
+                        buyEndLetter.append(temp[i])
+                    }
+                }
+            }
+
+        }
+    }
+    
+    func networkFail(code: String) {
+        if code == "letterListError"{
+            print("error")
+        }
+    }
+    
+    
 }

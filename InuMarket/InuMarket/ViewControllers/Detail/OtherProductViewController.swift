@@ -122,7 +122,6 @@ extension OtherProductViewController: NetworkCallback{
                 }else {
                     nonsellProductList.append(temp[i])
                 }
-                
             }
             
         }

@@ -32,17 +32,26 @@
                             <constraint firstAttribute="height" constant="40" id="sQc-IY-2ww"/>
                         </constraints>
                     </imageView>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="판매 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDq-vQ-dhL">
+                        <rect key="frame" x="150" y="14" width="74" height="24"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="fQN-t6-Moi" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="6IW-Wm-EuF"/>
                     <constraint firstAttribute="trailing" secondItem="pha-Ds-pGB" secondAttribute="trailing" constant="50" id="KFL-uy-mmr"/>
                     <constraint firstItem="pha-Ds-pGB" firstAttribute="leading" secondItem="fQN-t6-Moi" secondAttribute="trailing" constant="16" id="Na3-MV-yIq"/>
                     <constraint firstItem="pha-Ds-pGB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="cPm-xC-aUm"/>
+                    <constraint firstItem="vDq-vQ-dhL" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="ggp-13-bWD"/>
+                    <constraint firstItem="vDq-vQ-dhL" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" id="kyD-hF-ab0"/>
                     <constraint firstItem="fQN-t6-Moi" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="16" id="tex-8R-iKU"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="endTitle" destination="vDq-vQ-dhL" id="7ae-Sy-Sqr"/>
                 <outlet property="letterImg" destination="fQN-t6-Moi" id="5zX-b9-gtg"/>
                 <outlet property="letterTitle" destination="pha-Ds-pGB" id="gEH-Td-2zO"/>
             </connections>

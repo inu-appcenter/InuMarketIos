@@ -24,7 +24,10 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
     
     let postElectricCategory = ["컴퓨터", "스마트폰","태블릿","TV모니터","책상","의자","매트리스","기타"]
     let postEtcCategory  = ["생활사무","기타"]
-    
+    let postFoodCategory = ["1번배식구","2번배식구","3번배식구","4번배식구","5번배식구","기타"]
+    let postClothCategory = ["여성의류", "남성의류", "가방류", "기타"]
+
+
     
     
     //    UploadSubCategoryCell
@@ -89,7 +92,7 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
             case "책":
                 vc.category = "\(mainCategory!)\(bookCategory[indexPath.row])"
             case "의류":
-                vc.category = "\(mainCategory!)\(clothCategory[indexPath.row])"
+                vc.category = "\(mainCategory!)\(postClothCategory[indexPath.row])"
             case "가전 / 가구":
                 vc.category = "\(mainCategory!)\(postElectricCategory[indexPath.row])"
             case "잡화":
@@ -97,7 +100,7 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
             case "원룸":
                 vc.category = "\(mainCategory!)\(roomCateogry[indexPath.row])"
             case "식권":
-                vc.category = "\(mainCategory!)\(foodCategory[indexPath.row])"
+                vc.category = "\(mainCategory!)\(postFoodCategory[indexPath.row])"
             default:
                 vc.category = mainCategory
             }

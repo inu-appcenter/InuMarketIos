@@ -34,6 +34,13 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
 
+    let bookCategory = ["책2호관","책3호관","책4호관","책5호관","책6호관","책7호관","책8호관","책9호관","책12호관","책15호관","책16호관","책19호관","책22호관","책27호관","책28호관","책29호관","책기타"]
+    let clothCategory = ["의류여성의류", "의류남성의류", "의류가방류", "의류기타"]
+    let electircCategory = ["가전가구컴퓨터", "가전가구스마트폰","가전가구태블릿","가전가구TV모니터","가전가구책상","가전가구의자","가전가구매트리스","가전가구기타"]
+    let etcCategory = ["잡화생활사무","잡화기타"]
+    let roomCateogry = ["원룸원룸", "원룸투룸","원룸복층","원룸기타"]
+    let foodCategory = ["식권1번배식구","식권2번배식구","식권3번배식구","식권4번배식구","식권5번배식구","식권기타"]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -107,14 +114,14 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     // 셀별 상세정보
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyProductTableViewCell") as! MyProductTableViewCell
-        
-//        cell.productNameLabel.text = "test"
-
         if segmentControl.index == 0{
             cell.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
             cell.successLabel.isHidden = true
             cell.productNameLabel.text = nonSelledItem[indexPath.row].productName
             
+//            switch nonSelledItem[indexPath.row].
+            
+            cell.productImageView.image = UIImage(named: "rectangle4Copy")
             
         }else{  // segmentControl  index == 1  "판매 완료"
             cell.backgroundColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.5)
