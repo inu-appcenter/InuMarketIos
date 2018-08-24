@@ -42,11 +42,13 @@ class OtherProductViewController: UIViewController {
     }
     
     //MARK: life cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         model = NetworkModel(self)
         model?.sellerIdSearchProduct(sellerId: sellerId!)
+
+        otherProductCollectionView.reloadData()
         
         navigationItem.title = "판매자의 다른 상품"
         
@@ -77,24 +79,46 @@ extension OtherProductViewController: UICollectionViewDelegate, UICollectionView
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell: MainCollectionViewCell = otherProductCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
+        
+        guard let cell: MainCollectionViewCell = self.otherProductCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         if otherProductSegControl.index == 0 {
             let logo = "\(self.appDelegate.serverURL)imgload/\(nonsellProductList[indexPath.row].productImg![0])"
             let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
             cell.productImg.kf.setImage(with: resource)
             cell.productName.text = nonsellProductList[indexPath.row].productName
             cell.productPrice.text = "\(nonsellProductList[indexPath.row].productPrice!)원"
+            
+            return cell
         }else {
             let logo = "\(self.appDelegate.serverURL)imgload/\(sellProductList[indexPath.row].productImg![0])"
             let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
             cell.productImg.kf.setImage(with: resource)
             cell.productName.text = sellProductList[indexPath.row].productName
             cell.productPrice.text = "\(sellProductList[indexPath.row].productPrice!)원"
+            
+            return cell
         }
         
-        return cell
+        
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: "detailView") as? DetailViewController else { return }
+
+        if otherProductSegControl.index == 0 {
+        detailVC.productId = nonsellProductList[indexPath.row].productId
+        } else{
+        detailVC.productId = sellProductList[indexPath.row].productId
+        }
+
+        let time = DispatchTime.now() + .seconds(1)
+        DispatchQueue.main.asyncAfter(deadline: time) {
+            //                    detailVC.detailList = self.detailProductList
+            self.navigationController?.show(detailVC, sender: nil)
+            
+        }
+    }
 }
 
 extension OtherProductViewController: NetworkCallback{

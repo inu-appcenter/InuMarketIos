@@ -10,11 +10,11 @@ import UIKit
 import BetterSegmentedControl
 
 class MyProductTableViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
-
+    
     
     @IBOutlet weak var myProductTable: UITableView!
     @IBOutlet weak var segmentControl: BetterSegmentedControl!
-
+    
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var model : NetworkModel?
     var changePasswordResult : AnsResult?
@@ -33,7 +33,7 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
             }
         }
     }
-
+    
     let bookCategory = ["책2호관","책3호관","책4호관","책5호관","책6호관","책7호관","책8호관","책9호관","책12호관","책15호관","책16호관","책19호관","책22호관","책27호관","책28호관","책29호관","책기타"]
     let clothCategory = ["의류여성의류", "의류남성의류", "의류가방류", "의류기타"]
     let electircCategory = ["가전가구컴퓨터", "가전가구스마트폰","가전가구태블릿","가전가구TV모니터","가전가구책상","가전가구의자","가전가구매트리스","가전가구기타"]
@@ -46,15 +46,13 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         
         self.myProductTable.delegate = self
         self.myProductTable.dataSource = self
-      
+        
         segmentCon()
         
         model = NetworkModel(self)
         print((self.appDelegate.userInfo?.id)!)
         model?.myProductSelled(sellerId: (self.appDelegate.userInfo?.id)!)
         model?.myProductNonSell(sellerId: (self.appDelegate.userInfo?.id)!)
-        
-        
         
         myProductTable.reloadData()
         
@@ -78,11 +76,11 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         segmentControl.layer.shadowOffset = CGSize(width: 0, height: 1)
     }
     
-//    세그먼트 값 변경시
+    //    세그먼트 값 변경시
     @IBAction func SegmentControlValueChanged(_ sender: BetterSegmentedControl) {
-//        index 는 0부터 시작
+        //        index 는 0부터 시작
         if sender.index == 0{
-
+            
             self.myProductTable.reloadData()
             
         }else {
@@ -92,16 +90,16 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     }
     
     
-   
+    
     //섹션별 셀 개수
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch segmentControl.index {
         case 0:
-              return nonSelledItem.count
+            return nonSelledItem.count
         case 1:
-              return selledItem.count
+            return selledItem.count
         default:
-              return nonSelledItem.count
+            return nonSelledItem.count
         }
         
         
@@ -119,19 +117,40 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
             cell.successLabel.isHidden = true
             cell.productNameLabel.text = nonSelledItem[indexPath.row].productName
             
-//            switch nonSelledItem[indexPath.row].
-            
-            cell.productImageView.image = UIImage(named: "rectangle4Copy")
-            
         }else{  // segmentControl  index == 1  "판매 완료"
             cell.backgroundColor = UIColor(red: 0/255.0, green: 0/255.0, blue: 0/255.0, alpha: 0.5)
             cell.successLabel.isHidden = false
             cell.successLabel.textColor = UIColor.white
             cell.productNameLabel.text = selledItem[indexPath.row].productName
+            
+            //            for i in 0..<selledItem.count {
+            //                for j in 0..<bookCategory.count{
+            //                    if (selledItem[i].category?.contains(bookCategory[j]))!{
+            //                        print("책")
+            //                        cell.productImageView.image = UIImage(named: "book")
+            //                    }else if (selledItem[i].category?.contains(clothCategory[j]))!{
+            //                        print("옷")
+            //                        cell.productImageView.image = UIImage(named: "cloth")
+            //                    }else if (selledItem[i].category?.contains(electircCategory[j]))!{
+            //                        print("가전")
+            //                        cell.productImageView.image = UIImage(named: "electirc")
+            //                    }else if (selledItem[i].category?.contains(etcCategory[j]))!{
+            //                        print("기타")
+            //                        cell.productImageView.image = UIImage(named: "etc")
+            //                    }else if (selledItem[i].category?.contains(roomCateogry[j]))!{
+            //                        print("원룸")
+            //                        cell.productImageView.image = UIImage(named: "room")
+            //                    }else if (selledItem[i].category?.contains(foodCategory[j]))!{
+            //                        print("음식")
+            //                        cell.productImageView.image = UIImage(named: "ticket")
+            //                    }
+            //                }
+            //            }
+            
         }
         
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
-
+        
         return cell
     }
     // 섹션별 셀 수정가능 여부
@@ -158,18 +177,18 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
                 self.navigationController?.show(vc, sender: nil)
             }
         }
-//        else{
-//            if let vc = storyboard?.instantiateViewController(withIdentifier: "MyProductView") as? MyProductViewController{
-//                vc.productId = selledItem[indexPath.row].productId
-//                self.navigationController?.show(vc, sender: nil)
-//            }
-//        }
+        //        else{
+        //            if let vc = storyboard?.instantiateViewController(withIdentifier: "MyProductView") as? MyProductViewController{
+        //                vc.productId = selledItem[indexPath.row].productId
+        //                self.navigationController?.show(vc, sender: nil)
+        //            }
+        //        }
         
         
     }
     // 수정할때 나올 문구 및 내용
     func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-       
+        
         let complete = UITableViewRowAction(style: .destructive, title: "판매완료") { action, index in
             
             let alertController = UIAlertController(title: "판매완료 하시겠습니까?", message: "상품이 판매 완료 되면 고객이 상세정보를 열람할 수 없게 됩니다.", preferredStyle: UIAlertControllerStyle.alert)
@@ -177,7 +196,7 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
                 print("확인 누를때 수행될 내용")
                 self.model?.changeProduct(productId: "\(self.nonSelledItem[indexPath.row].productId!)")
                 
-
+                
             }
             let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
             
@@ -206,13 +225,13 @@ extension MyProductTableViewController:NetworkCallback{
                     let productSelled = item["productSelled"] as? Bool ?? false
                     let sellerId = item["sellerId"] as? String ?? ""
                     let updateDate = item["updateDate"] as? String ?? ""
-                    let obj = MyProductselled.init(productImg: productImg, productId: productId, productName: productName, productPrise: productPrise, productSelled: productSelled, sellerId: sellerId, updateDate: updateDate)
+                    let category = item["category"] as? String ?? ""
+                    let obj = MyProductselled.init(productImg: productImg, productId: productId, productName: productName, productPrise: productPrise, productSelled: productSelled, sellerId: sellerId, updateDate: updateDate, category: category)
                     temp.append(obj)
                 }
             }
-//            self.appDelegate.labCal = temp
             selledItem = temp
-//            selledItem.contains(where: <#T##(MyProductselled) throws -> Bool#>)
+            
         }else if code == "myProductNonSell"{
             print(resultdata)
             
@@ -226,12 +245,14 @@ extension MyProductTableViewController:NetworkCallback{
                     let productSelled = item["productSelled"] as? Bool ?? false
                     let sellerId = item["sellerId"] as? String ?? ""
                     let updateDate = item["updateDate"] as? String ?? ""
-                    let obj = MyProductNonsell.init(productImg: productImg, productId: productId, productName: productName, productPrise: productPrise, productSelled: productSelled, sellerId: sellerId, updateDate: updateDate)
+                    let category = item["category"] as? String ?? ""
+                    let obj = MyProductNonsell.init(productImg: productImg, productId: productId, productName: productName, productPrise: productPrise, productSelled: productSelled, sellerId: sellerId, updateDate: updateDate, category: category)
                     temp.append(obj)
                 }
             }
-            //            self.appDelegate.labCal = temp
+            
             nonSelledItem = temp
+            
         }else if code == "changeProductSuccess"{
             print(resultdata)
             if let item = resultdata as? NSDictionary {
@@ -249,7 +270,7 @@ extension MyProductTableViewController:NetworkCallback{
         if(code == "cellError") {
             print("실패하였습니다.")
         }
-    
+        
     }
     
     

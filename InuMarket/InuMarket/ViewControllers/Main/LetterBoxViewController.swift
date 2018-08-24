@@ -15,8 +15,8 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     
     //MARK: properties
     var index: IndexPath = []
-    let number: String = "01000000000"
-    
+    var number: String = ""
+    var name: String = ""
     // 판매중 판매중 상품
     var sellSellLetter:[LetterList] = []{
         didSet {
@@ -156,23 +156,38 @@ extension LetterBoxViewController: ExpandableDelegate {
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, expandedCellsForRowAt indexPath: IndexPath) -> [UITableViewCell]? {
         let cell = letterTableView.dequeueReusableCell(withIdentifier: LetterContentTableViewCell.ID) as! LetterContentTableViewCell
+        
         switch indexPath.section {
         case 0:
             if letterSegmentedControl.index == 0{
-                cell.nameLabel.text = "구매자 이름 : 김대섭"
-                cell.phoneNumLabel.text = "전화번호 : 판매판매중"
+//                sellSellLetter
+                name = self.sellSellLetter[indexPath.row].senderName!
+                number = self.sellSellLetter[indexPath.row].senderPhone!
+                cell.nameLabel.text = "구매자 이름 : \(name)"
+                cell.phoneNumLabel.text = "전화번호 : \(number)"
             }else {
-                cell.nameLabel.text = "판매자 이름 : 김대섭"
-                cell.phoneNumLabel.text = "전화번호 : 구매판매중"
+//                buySellLetter
+                name = self.buySellLetter[indexPath.row].senderName!
+                number = self.buySellLetter[indexPath.row].senderPhone!
+                cell.nameLabel.text = "판매자 이름 : \(name)"
+                cell.phoneNumLabel.text = "전화번호 : \(number)"
             }
             break
         case 1:
             if letterSegmentedControl.index == 0{
-                cell.nameLabel.text = "구매자 이름 : 김대섭"
-                cell.phoneNumLabel.text = "전화번호 : 판매판매완료"
+//                sellEndLetter
+                name = self.sellEndLetter[indexPath.row].senderName!
+                number = self.sellEndLetter[indexPath.row].senderPhone!
+
+                cell.nameLabel.text = "구매자 이름 : \(name)"
+                cell.phoneNumLabel.text = "전화번호 : \(number)"
             }else {
-                cell.nameLabel.text = "판매자 이름 : 김대섭"
-                cell.phoneNumLabel.text = "전화번호 : 구매판매완료"
+//                buyEndLetter
+                name = self.buyEndLetter[indexPath.row].senderName!
+                number = self.buyEndLetter[indexPath.row].senderPhone!
+
+                cell.nameLabel.text = "판매자 이름 : \(name)"
+                cell.phoneNumLabel.text = "전화번호 : \(number)"
             }
             break
         default:
@@ -215,6 +230,8 @@ extension LetterBoxViewController: ExpandableDelegate {
         guard let cell: LetterListTableViewCell = expandableTableView.dequeueReusableCell(withIdentifier: LetterListTableViewCell.ID) as? LetterListTableViewCell else { return UITableViewCell() }
         if letterSegmentedControl.index == 0 {
             if indexPath.section == 0{
+                cell.backgroundColor = UIColor.white
+                cell.endTitle.isHidden = true
                 cell.letterImg.image = UIImage(named: "rectangle4Copy")
                 cell.letterTitle.text = sellSellLetter[indexPath.row].productName
             }else {
@@ -226,6 +243,8 @@ extension LetterBoxViewController: ExpandableDelegate {
             }
         } else {
             if indexPath.section == 0{
+                cell.backgroundColor = UIColor.white
+                cell.endTitle.isHidden = true
             cell.letterImg.image = UIImage(named: "rectangle4Copy")
             cell.letterTitle.text = buySellLetter[indexPath.row].productName
             } else{
@@ -283,7 +302,10 @@ extension LetterBoxViewController: NetworkCallback{
                 let productName = item["productName"] as? String ?? ""
                 let sendDate = item["sendDate"] as? String ?? ""
                 let senderPhone = item["senderPhone"] as? String ?? ""
-                let obj = LetterList.init(letterId: letterId, sendId: sendId, reciveId: reciveId, sellBuy: sellBuy, letterRead: letterRead, productId: productId, productName: productName, sendDate: sendDate, senderPhone: senderPhone)
+                let productSelled = item["productSelled"] as? Bool ?? false
+                let senderName = item["senderName"] as? String ?? ""
+
+                let obj = LetterList.init(letterId: letterId, sendId: sendId, reciveId: reciveId, sellBuy: sellBuy, letterRead: letterRead, productId: productId, productName: productName, sendDate: sendDate, senderPhone: senderPhone,productSelled: productSelled,senderName: senderName)
                 temp.append(obj)
                 
 
@@ -292,7 +314,7 @@ extension LetterBoxViewController: NetworkCallback{
 //            code
             for i in 0..<temp.count{
                 if temp[i].sellBuy == true {
-                    if temp[i].letterRead == false{
+                    if temp[i].productSelled == false{
                         // 판매판매중
                         sellSellLetter.append(temp[i])
                     }else{
@@ -300,7 +322,7 @@ extension LetterBoxViewController: NetworkCallback{
                         sellEndLetter.append(temp[i])
                     }
                 }else {
-                    if temp[i].letterRead == false{
+                    if temp[i].productSelled == false{
                         // 구매판매중
                         buySellLetter.append(temp[i])
                     }else{

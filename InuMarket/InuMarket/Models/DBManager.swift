@@ -52,8 +52,9 @@ class MyProductselled{
     var productSelled: Bool?
     var sellerId: String?
     var updateDate: String?
-    
-    init(productImg: String ,productId: String, productName: String, productPrise: String,productSelled: Bool, sellerId: String, updateDate: String){
+    var category: String?
+
+    init(productImg: String ,productId: String, productName: String, productPrise: String,productSelled: Bool, sellerId: String, updateDate: String, category: String){
         self.productImg = productImg
         self.productId = productId
         self.productName = productName
@@ -61,6 +62,7 @@ class MyProductselled{
         self.productSelled = productSelled
         self.sellerId = sellerId
         self.updateDate = updateDate
+        self.category = category
     }
 }
 
@@ -73,8 +75,9 @@ class MyProductNonsell{
     var productSelled: Bool?
     var sellerId: String?
     var updateDate: String?
-    
-    init(productImg: String ,productId: String, productName: String, productPrise: String,productSelled: Bool, sellerId: String, updateDate: String){
+    var category: String?
+
+    init(productImg: String ,productId: String, productName: String, productPrise: String,productSelled: Bool, sellerId: String, updateDate: String, category:String){
         self.productImg = productImg
         self.productId = productId
         self.productName = productName
@@ -82,6 +85,7 @@ class MyProductNonsell{
         self.productSelled = productSelled
         self.sellerId = sellerId
         self.updateDate = updateDate
+        self.category = category
     }
 }
 
@@ -155,8 +159,9 @@ class LetterList{
     var productName: String?
     var sendDate: String?
     var senderPhone: String?
-    
-    init(letterId: String, sendId: String, reciveId: String, sellBuy: Bool, letterRead: Bool, productId: String, productName: String, sendDate: String, senderPhone: String) {
+    var productSelled: Bool?
+    var senderName: String?
+    init(letterId: String, sendId: String, reciveId: String, sellBuy: Bool, letterRead: Bool, productId: String, productName: String, sendDate: String, senderPhone: String, productSelled: Bool, senderName: String) {
         self.letterId = letterId
         self.sendId = sendId
         self.reciveId = reciveId
@@ -166,6 +171,8 @@ class LetterList{
         self.productName = productName
         self.sendDate = sendDate
         self.senderPhone = senderPhone
+        self.productSelled = productSelled
+        self.senderName = senderName
     }
 }
 

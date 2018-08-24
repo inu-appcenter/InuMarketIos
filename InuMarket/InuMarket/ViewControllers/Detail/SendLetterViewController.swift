@@ -69,10 +69,14 @@ class SendLetterViewController: UIViewController {
         let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
         guard let checkLetterVC = storyboard.instantiateViewController(withIdentifier: "checkLetter") as? CheckLetterViewController else { return }
         self.model?.letterSend(productId: productId, custId: userId, sellerId: sellerId, productName: productName)
-        self.view.makeToast("에베베베")
+        self.view.makeToastActivity(.center)
+        
+        self.view.makeToast("전송중입니다.")
+        
         let time = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: time) {
             if self.sendResult?.ans == true{
+                 self.appDelegate.userInfo?.letter = (self.appDelegate.userInfo?.letter)! + 1
                 self.dismiss(animated: false, completion: {
                     checkLetterVC.productImageSlide = self.productImageSlide
                     pvc?.present(checkLetterVC, animated: true, completion: nil)
