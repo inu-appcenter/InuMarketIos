@@ -14,7 +14,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Detail View Controller-->
+        <!-- -->
         <scene sceneID="anZ-fp-ghl">
             <objects>
                 <viewController storyboardIdentifier="detailView" id="rcc-Sy-1fD" customClass="DetailViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -239,6 +239,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="mZf-H3-jYc"/>
                     </view>
+                    <navigationItem key="navigationItem" title=" " id="hTE-da-wxd">
+                        <barButtonItem key="backBarButtonItem" title=" " id="ZXb-4a-dJR"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="detailCollectionView" destination="ypa-Yt-dWX" id="Mzz-cF-8vw"/>
                         <outlet property="productImgView" destination="7SF-H7-2nV" id="nHs-TV-M7W"/>

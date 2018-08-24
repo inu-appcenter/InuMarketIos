@@ -18,6 +18,7 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var model : NetworkModel?
     var changePasswordResult : AnsResult?
+    var category: String = ""
     
     var selledItem:[MyProductselled] = [] {
         didSet {
@@ -34,12 +35,6 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
         }
     }
     
-    let bookCategory = ["책2호관","책3호관","책4호관","책5호관","책6호관","책7호관","책8호관","책9호관","책12호관","책15호관","책16호관","책19호관","책22호관","책27호관","책28호관","책29호관","책기타"]
-    let clothCategory = ["의류여성의류", "의류남성의류", "의류가방류", "의류기타"]
-    let electircCategory = ["가전가구컴퓨터", "가전가구스마트폰","가전가구태블릿","가전가구TV모니터","가전가구책상","가전가구의자","가전가구매트리스","가전가구기타"]
-    let etcCategory = ["잡화생활사무","잡화기타"]
-    let roomCateogry = ["원룸원룸", "원룸투룸","원룸복층","원룸기타"]
-    let foodCategory = ["식권1번배식구","식권2번배식구","식권3번배식구","식권4번배식구","식권5번배식구","식권기타"]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -113,6 +108,23 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "MyProductTableViewCell") as! MyProductTableViewCell
         if segmentControl.index == 0{
+            category = nonSelledItem[indexPath.row].category!
+            switch category.first{
+            case "책": cell.productImageView.image = UIImage(named: "book")
+                break
+            case "의": cell.productImageView.image = UIImage(named: "cloth")
+                break
+            case "가": cell.productImageView.image = UIImage(named: "electirc")
+                break
+            case "잡": cell.productImageView.image = UIImage(named: "etc")
+                break
+            case "원": cell.productImageView.image = UIImage(named: "room")
+                break
+            case "식": cell.productImageView.image = UIImage(named: "food")
+                break
+            default: cell.productImageView.image = UIImage(named: "X")
+                break
+            }
             cell.backgroundColor = UIColor(red: 255/255.0, green: 255/255.0, blue: 255/255.0, alpha: 1.0)
             cell.successLabel.isHidden = true
             cell.productNameLabel.text = nonSelledItem[indexPath.row].productName
@@ -122,30 +134,24 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
             cell.successLabel.isHidden = false
             cell.successLabel.textColor = UIColor.white
             cell.productNameLabel.text = selledItem[indexPath.row].productName
+            category = selledItem[indexPath.row].category!
+            switch category.first{
+            case "책": cell.productImageView.image = UIImage(named: "book")
+                break
+            case "의": cell.productImageView.image = UIImage(named: "cloth")
+                break
+            case "가": cell.productImageView.image = UIImage(named: "electirc")
+                break
+            case "잡": cell.productImageView.image = UIImage(named: "etc")
+                break
+            case "원": cell.productImageView.image = UIImage(named: "room")
+                break
+            case "식": cell.productImageView.image = UIImage(named: "food")
+                break
+            default: cell.productImageView.image = UIImage(named: "X")
+                break
+            }
             
-            //            for i in 0..<selledItem.count {
-            //                for j in 0..<bookCategory.count{
-            //                    if (selledItem[i].category?.contains(bookCategory[j]))!{
-            //                        print("책")
-            //                        cell.productImageView.image = UIImage(named: "book")
-            //                    }else if (selledItem[i].category?.contains(clothCategory[j]))!{
-            //                        print("옷")
-            //                        cell.productImageView.image = UIImage(named: "cloth")
-            //                    }else if (selledItem[i].category?.contains(electircCategory[j]))!{
-            //                        print("가전")
-            //                        cell.productImageView.image = UIImage(named: "electirc")
-            //                    }else if (selledItem[i].category?.contains(etcCategory[j]))!{
-            //                        print("기타")
-            //                        cell.productImageView.image = UIImage(named: "etc")
-            //                    }else if (selledItem[i].category?.contains(roomCateogry[j]))!{
-            //                        print("원룸")
-            //                        cell.productImageView.image = UIImage(named: "room")
-            //                    }else if (selledItem[i].category?.contains(foodCategory[j]))!{
-            //                        print("음식")
-            //                        cell.productImageView.image = UIImage(named: "ticket")
-            //                    }
-            //                }
-            //            }
             
         }
         

@@ -17,6 +17,7 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     var index: IndexPath = []
     var number: String = ""
     var name: String = ""
+    var category: String = ""
     // 판매중 판매중 상품
     var sellSellLetter:[LetterList] = []{
         didSet {
@@ -232,8 +233,26 @@ extension LetterBoxViewController: ExpandableDelegate {
             if indexPath.section == 0{
                 cell.backgroundColor = UIColor.white
                 cell.endTitle.isHidden = true
-                cell.letterImg.image = UIImage(named: "rectangle4Copy")
                 cell.letterTitle.text = sellSellLetter[indexPath.row].productName
+                cell.letterImg.image = UIImage(named: "rectangle4Copy")
+
+//                category = sellSellLetter[indexPath.row].category!
+//                switch category.first{
+//                case "책": cell.letterImg.image = UIImage(named: "book")
+//                    break
+//                case "의": cell.letterImg.image = UIImage(named: "cloth")
+//                    break
+//                case "가": cell.letterImg.image = UIImage(named: "electirc")
+//                    break
+//                case "잡": cell.letterImg.image = UIImage(named: "etc")
+//                    break
+//                case "원": cell.letterImg.image = UIImage(named: "room")
+//                    break
+//                case "식": cell.letterImg.image = UIImage(named: "food")
+//                    break
+//                default: cell.letterImg.image = UIImage(named: "X")
+//                    break
+//                }
             }else {
             cell.backgroundColor = UIColor.lightGray
                 cell.endTitle.isHidden = false

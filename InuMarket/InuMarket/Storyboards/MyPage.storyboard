@@ -180,19 +180,19 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="상품명" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eMo-gA-mHg">
-                                                    <rect key="frame" x="72" y="15" width="237" height="21"/>
+                                                    <rect key="frame" x="82" y="15" width="227" height="29"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="판매 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qcx-4e-Ih5">
-                                                    <rect key="frame" x="149" y="10" width="74" height="24"/>
+                                                    <rect key="frame" x="149" y="14" width="74" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5MU-om-v8f">
-                                                    <rect key="frame" x="7" y="2" width="40" height="40"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="5MU-om-v8f">
+                                                    <rect key="frame" x="16" y="5" width="40" height="40"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="40" id="QGP-iz-u5h"/>
                                                         <constraint firstAttribute="height" constant="40" id="oL3-Xk-JEy"/>
@@ -200,15 +200,15 @@
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="5MU-om-v8f" firstAttribute="top" secondItem="v5b-Jh-pK1" secondAttribute="top" constant="2" id="12g-vd-t0H"/>
-                                                <constraint firstItem="eMo-gA-mHg" firstAttribute="leading" secondItem="5MU-om-v8f" secondAttribute="trailing" constant="25" id="55A-eu-pcL"/>
+                                                <constraint firstItem="5MU-om-v8f" firstAttribute="leading" secondItem="v5b-Jh-pK1" secondAttribute="leading" constant="16" id="3nN-p8-Zc7"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="eMo-gA-mHg" secondAttribute="trailing" constant="25" id="5tf-k7-CPM"/>
                                                 <constraint firstAttribute="bottom" secondItem="eMo-gA-mHg" secondAttribute="bottom" constant="7.5" id="9Hq-2s-fm4"/>
+                                                <constraint firstItem="5MU-om-v8f" firstAttribute="top" secondItem="v5b-Jh-pK1" secondAttribute="top" constant="5" id="CR2-b0-KPi"/>
                                                 <constraint firstItem="Qcx-4e-Ih5" firstAttribute="centerX" secondItem="v5b-Jh-pK1" secondAttribute="centerX" constant="15" id="Dqr-4H-A9L"/>
-                                                <constraint firstAttribute="bottom" secondItem="5MU-om-v8f" secondAttribute="bottom" constant="1.5" id="JMQ-bd-D85"/>
                                                 <constraint firstItem="Qcx-4e-Ih5" firstAttribute="centerY" secondItem="v5b-Jh-pK1" secondAttribute="centerY" id="O6B-ja-9Tf"/>
+                                                <constraint firstAttribute="bottom" secondItem="5MU-om-v8f" secondAttribute="bottom" constant="6.5" id="UeT-aT-Nhu"/>
                                                 <constraint firstItem="eMo-gA-mHg" firstAttribute="top" secondItem="v5b-Jh-pK1" secondAttribute="top" constant="15" id="Uof-k4-CCm"/>
-                                                <constraint firstItem="5MU-om-v8f" firstAttribute="leading" secondItem="v5b-Jh-pK1" secondAttribute="leading" constant="7" id="WuE-FS-XwQ"/>
+                                                <constraint firstItem="eMo-gA-mHg" firstAttribute="leading" secondItem="5MU-om-v8f" secondAttribute="trailing" constant="26" id="z7U-30-Kew"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

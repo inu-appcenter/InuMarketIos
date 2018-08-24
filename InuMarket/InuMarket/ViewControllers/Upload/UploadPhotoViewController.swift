@@ -11,8 +11,10 @@ import Photos
 import BSImagePicker
 
 
-class UploadPhotoViewController: UIViewController {
+class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
+    
+    @IBOutlet weak var countPhotoLabel: UILabel!
     @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var nextButton: UIButton!
     @IBOutlet weak var albumAndCancel: UIButton!
@@ -24,7 +26,7 @@ class UploadPhotoViewController: UIViewController {
     var SelectedAssets = [PHAsset]()
     var buttonCount = [0,1,2,3,4,5,6,7]
     var selectRow: Int?
-    
+    var photoCount: Int = 0
     
     var category: String?
     var productName: String?
@@ -35,9 +37,15 @@ class UploadPhotoViewController: UIViewController {
     var place: String?
     
     
-    
+    override func viewWillAppear(_ animated: Bool) {
+        countPhotoLabel.text = "   \(photoCount)/7"
+
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        photoCount = imageArray.count - 1
+        countPhotoLabel.text = "   \(photoCount)/7"
         initializing()
         
         
@@ -68,16 +76,38 @@ class UploadPhotoViewController: UIViewController {
         if toPhotoAndDelete.currentTitle == "삭제"{
             imageArray.remove(at: selectRow!)
             self.photoCollection.reloadData()
+            photoCount = photoCount - 1
+            countPhotoLabel.text = "   \(photoCount)/7"
+
             endEventButton()
         }else{
             //            카메라키기
+            let picker = UIImagePickerController()
+            picker.delegate = self
+            picker.sourceType = .camera
+            
+            self.present(picker, animated: true, completion: nil)
             endEventButton()
         }
         
     }
     
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
+        if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
+            imageArray.append(originalImage)
+            OperationQueue.main.addOperation {
+                self.photoCollection.reloadData()
+            }
+        }
+        photoCount = photoCount + 1
+        countPhotoLabel.text = "   \(photoCount)/7"
+
+        dismiss(animated: true, completion: nil)
+
+    }
     
-    // 접근이 허용되었는지 파악하는 함수
+    
+    // 앨범 접근이 허용되었는지 파악하는 함수
     func checkIfAuthorizedToAccessPhotos(_ handler: @escaping (_ isAuthorized: Bool) -> Void) {
         switch PHPhotoLibrary.authorizationStatus() {
         case .notDetermined:
@@ -144,7 +174,9 @@ class UploadPhotoViewController: UIViewController {
         
         print("get all images method called here")
         if SelectedAssets.count != 0{
+            photoCount = photoCount + SelectedAssets.count
             
+
             for i in 0..<SelectedAssets.count{
                 let manager = PHImageManager.default()
                 let option = PHImageRequestOptions()

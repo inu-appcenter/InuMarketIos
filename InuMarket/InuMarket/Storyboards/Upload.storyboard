@@ -496,7 +496,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wLT-hW-O5p">
-                                <rect key="frame" x="20" y="85" width="103" height="20.5"/>
+                                <rect key="frame" x="20" y="85" width="102" height="20.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진 등록" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2G2-ei-sR2">
                                         <rect key="frame" x="0.0" y="0.0" width="63.5" height="20.5"/>
@@ -504,8 +504,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   0/8" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bff-mD-45L">
-                                        <rect key="frame" x="63.5" y="0.0" width="39.5" height="20.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="   0/7" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bff-mD-45L">
+                                        <rect key="frame" x="63.5" y="0.0" width="38.5" height="20.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.10196078431372549" green="0.75294117647058822" blue="0.47843137254901957" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
@@ -617,6 +617,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="albumAndCancel" destination="MOk-la-KKY" id="bMS-bs-0VQ"/>
+                        <outlet property="countPhotoLabel" destination="bff-mD-45L" id="xZ7-wM-mc0"/>
                         <outlet property="errorLabel" destination="1rA-sU-c03" id="OVd-68-clm"/>
                         <outlet property="nextButton" destination="pan-fo-8g2" id="YR3-73-4AB"/>
                         <outlet property="photoCollection" destination="5s2-hF-rV2" id="lWa-PW-177"/>
