@@ -23,6 +23,7 @@ class SendLetterViewController: UIViewController {
     var productName: String = ""
     var sellerId: String = ""
     var productId: String = ""
+    var category: String = ""
     // my info
     var userName: String = ""
     var userPhone : String = ""
@@ -68,8 +69,9 @@ class SendLetterViewController: UIViewController {
         weak var pvc = self.presentingViewController
         let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
         guard let checkLetterVC = storyboard.instantiateViewController(withIdentifier: "checkLetter") as? CheckLetterViewController else { return }
-        self.model?.letterSend(productId: productId, custId: userId, sellerId: sellerId, productName: productName)
+        self.model?.letterSend(productId: productId, custId: userId, sellerId: sellerId, productName: productName, category: category)
         self.view.makeToastActivity(.center)
+        
         
         self.view.makeToast("전송중입니다.")
         
@@ -81,6 +83,12 @@ class SendLetterViewController: UIViewController {
                     checkLetterVC.productImageSlide = self.productImageSlide
                     pvc?.present(checkLetterVC, animated: true, completion: nil)
                 })
+            } else {
+                self.view.hideToastActivity()
+                self.view.hideAllToasts()
+                self.view.makeToast("전송실패")
+                
+                
             }
         }
     }

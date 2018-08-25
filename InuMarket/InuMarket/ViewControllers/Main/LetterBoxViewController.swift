@@ -234,43 +234,91 @@ extension LetterBoxViewController: ExpandableDelegate {
                 cell.backgroundColor = UIColor.white
                 cell.endTitle.isHidden = true
                 cell.letterTitle.text = sellSellLetter[indexPath.row].productName
-                cell.letterImg.image = UIImage(named: "rectangle4Copy")
 
-//                category = sellSellLetter[indexPath.row].category!
-//                switch category.first{
-//                case "책": cell.letterImg.image = UIImage(named: "book")
-//                    break
-//                case "의": cell.letterImg.image = UIImage(named: "cloth")
-//                    break
-//                case "가": cell.letterImg.image = UIImage(named: "electirc")
-//                    break
-//                case "잡": cell.letterImg.image = UIImage(named: "etc")
-//                    break
-//                case "원": cell.letterImg.image = UIImage(named: "room")
-//                    break
-//                case "식": cell.letterImg.image = UIImage(named: "food")
-//                    break
-//                default: cell.letterImg.image = UIImage(named: "X")
-//                    break
-//                }
+                category = sellSellLetter[indexPath.row].productCategory!
+                switch category.first{
+                case "책": cell.letterImg.image = UIImage(named: "book")
+                    break
+                case "의": cell.letterImg.image = UIImage(named: "cloth")
+                    break
+                case "가": cell.letterImg.image = UIImage(named: "electirc")
+                    break
+                case "잡": cell.letterImg.image = UIImage(named: "etc")
+                    break
+                case "원": cell.letterImg.image = UIImage(named: "room")
+                    break
+                case "식": cell.letterImg.image = UIImage(named: "food")
+                    break
+                default: cell.letterImg.image = UIImage(named: "X")
+                    break
+                }
+                
             }else {
             cell.backgroundColor = UIColor.lightGray
                 cell.endTitle.isHidden = false
-            cell.letterImg.image = UIImage(named: "rectangle4Copy")
             cell.letterTitle.text = sellEndLetter[indexPath.row].productName
-
+                category = sellEndLetter[indexPath.row].productCategory!
+                switch category.first{
+                case "책": cell.letterImg.image = UIImage(named: "book")
+                    break
+                case "의": cell.letterImg.image = UIImage(named: "cloth")
+                    break
+                case "가": cell.letterImg.image = UIImage(named: "electirc")
+                    break
+                case "잡": cell.letterImg.image = UIImage(named: "etc")
+                    break
+                case "원": cell.letterImg.image = UIImage(named: "room")
+                    break
+                case "식": cell.letterImg.image = UIImage(named: "food")
+                    break
+                default: cell.letterImg.image = UIImage(named: "X")
+                    break
+                }
             }
         } else {
             if indexPath.section == 0{
                 cell.backgroundColor = UIColor.white
                 cell.endTitle.isHidden = true
-            cell.letterImg.image = UIImage(named: "rectangle4Copy")
+            
             cell.letterTitle.text = buySellLetter[indexPath.row].productName
+                category = buySellLetter[indexPath.row].productCategory!
+                switch category.first{
+                case "책": cell.letterImg.image = UIImage(named: "book")
+                    break
+                case "의": cell.letterImg.image = UIImage(named: "cloth")
+                    break
+                case "가": cell.letterImg.image = UIImage(named: "electirc")
+                    break
+                case "잡": cell.letterImg.image = UIImage(named: "etc")
+                    break
+                case "원": cell.letterImg.image = UIImage(named: "room")
+                    break
+                case "식": cell.letterImg.image = UIImage(named: "food")
+                    break
+                default: cell.letterImg.image = UIImage(named: "X")
+                    break
+                }
             } else{
                 cell.backgroundColor = UIColor.lightGray
                 cell.endTitle.isHidden = false
-                cell.letterImg.image = UIImage(named: "rectangle4Copy")
                 cell.letterTitle.text = buyEndLetter[indexPath.row].productName
+                category = buyEndLetter[indexPath.row].productCategory!
+                switch category.first{
+                case "책": cell.letterImg.image = UIImage(named: "book")
+                    break
+                case "의": cell.letterImg.image = UIImage(named: "cloth")
+                    break
+                case "가": cell.letterImg.image = UIImage(named: "electirc")
+                    break
+                case "잡": cell.letterImg.image = UIImage(named: "etc")
+                    break
+                case "원": cell.letterImg.image = UIImage(named: "room")
+                    break
+                case "식": cell.letterImg.image = UIImage(named: "food")
+                    break
+                default: cell.letterImg.image = UIImage(named: "X")
+                    break
+                }
             }
         }
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
@@ -323,8 +371,8 @@ extension LetterBoxViewController: NetworkCallback{
                 let senderPhone = item["senderPhone"] as? String ?? ""
                 let productSelled = item["productSelled"] as? Bool ?? false
                 let senderName = item["senderName"] as? String ?? ""
-
-                let obj = LetterList.init(letterId: letterId, sendId: sendId, reciveId: reciveId, sellBuy: sellBuy, letterRead: letterRead, productId: productId, productName: productName, sendDate: sendDate, senderPhone: senderPhone,productSelled: productSelled,senderName: senderName)
+                let productCategory = item["productCategory"] as? String ?? ""
+                    let obj = LetterList.init(letterId: letterId, sendId: sendId, reciveId: reciveId, sellBuy: sellBuy, letterRead: letterRead, productId: productId, productName: productName, sendDate: sendDate, senderPhone: senderPhone,productSelled: productSelled,senderName: senderName, productCategory: productCategory)
                 temp.append(obj)
                 
 

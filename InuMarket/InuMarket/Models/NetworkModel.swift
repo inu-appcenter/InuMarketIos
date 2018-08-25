@@ -335,13 +335,14 @@ class NetworkModel{
     }
     
     // 쪽지 보내기
-    func letterSend(productId: String, custId: String, sellerId: String, productName: String){
+    func letterSend(productId: String, custId: String, sellerId: String, productName: String, category: String){
         let header = ["Content-Type" : "application/x-www-form-urlencoded",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
         let params = ["productId":productId,
                       "custId":custId,
                       "sellerId":sellerId,
-                      "productName":productName]
+                      "productName":productName,
+                      "category":category]
         Alamofire.request("\(self.appDelegate.serverURL)letter/send", method: .post, parameters: params, headers: header).responseJSON{ res in
             switch res.result{
             case .success(let item):

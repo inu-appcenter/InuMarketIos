@@ -100,6 +100,7 @@ class DetailViewController: UIViewController {
         sendLetterVC.productName = (self.detailList?.productName)!
         sendLetterVC.sellerId = (self.detailList?.sellerId)!
         sendLetterVC.productId = (self.detailList?.productId)!
+        sendLetterVC.category = (self.detailList?.category)!
         self.present(sendLetterVC, animated: true, completion: nil)
     }
     

@@ -161,7 +161,9 @@ class LetterList{
     var senderPhone: String?
     var productSelled: Bool?
     var senderName: String?
-    init(letterId: String, sendId: String, reciveId: String, sellBuy: Bool, letterRead: Bool, productId: String, productName: String, sendDate: String, senderPhone: String, productSelled: Bool, senderName: String) {
+    var productCategory: String?
+    
+    init(letterId: String, sendId: String, reciveId: String, sellBuy: Bool, letterRead: Bool, productId: String, productName: String, sendDate: String, senderPhone: String, productSelled: Bool, senderName: String, productCategory: String) {
         self.letterId = letterId
         self.sendId = sendId
         self.reciveId = reciveId
@@ -173,6 +175,7 @@ class LetterList{
         self.senderPhone = senderPhone
         self.productSelled = productSelled
         self.senderName = senderName
+        self.productCategory = productCategory
     }
 }
 
