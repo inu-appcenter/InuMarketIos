@@ -66,6 +66,10 @@
 		CBA0041E211AC6AA00B62390 /* LetterBoxViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */; };
 		CBA00420211AC6B800B62390 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA0041F211AC6B800B62390 /* DetailViewController.swift */; };
 		CBA00422211B22C200B62390 /* VKExpenableButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00421211B22C200B62390 /* VKExpenableButton.swift */; };
+		CBDE37B12130021F00CA5407 /* CategoryTitleTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE37AF2130021F00CA5407 /* CategoryTitleTableViewCell.swift */; };
+		CBDE37B22130021F00CA5407 /* CategoryTitleTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBDE37B02130021F00CA5407 /* CategoryTitleTableViewCell.xib */; };
+		CBDE37B62130025400CA5407 /* CategoryDetailTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBDE37B42130025400CA5407 /* CategoryDetailTableViewCell.swift */; };
+		CBDE37B72130025400CA5407 /* CategoryDetailTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBDE37B52130025400CA5407 /* CategoryDetailTableViewCell.xib */; };
 		CBF90DCD2124A348007D0937 /* LetterListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF90DCB2124A348007D0937 /* LetterListTableViewCell.swift */; };
 		CBF90DCE2124A348007D0937 /* LetterListTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CBF90DCC2124A348007D0937 /* LetterListTableViewCell.xib */; };
 		CBF90DD12124A381007D0937 /* LetterContentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBF90DCF2124A381007D0937 /* LetterContentTableViewCell.swift */; };
@@ -134,6 +138,10 @@
 		CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterBoxViewController.swift; sourceTree = "<group>"; };
 		CBA0041F211AC6B800B62390 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		CBA00421211B22C200B62390 /* VKExpenableButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VKExpenableButton.swift; sourceTree = "<group>"; };
+		CBDE37AF2130021F00CA5407 /* CategoryTitleTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTitleTableViewCell.swift; sourceTree = "<group>"; };
+		CBDE37B02130021F00CA5407 /* CategoryTitleTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTitleTableViewCell.xib; sourceTree = "<group>"; };
+		CBDE37B42130025400CA5407 /* CategoryDetailTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDetailTableViewCell.swift; sourceTree = "<group>"; };
+		CBDE37B52130025400CA5407 /* CategoryDetailTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryDetailTableViewCell.xib; sourceTree = "<group>"; };
 		CBF90DCB2124A348007D0937 /* LetterListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterListTableViewCell.swift; sourceTree = "<group>"; };
 		CBF90DCC2124A348007D0937 /* LetterListTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LetterListTableViewCell.xib; sourceTree = "<group>"; };
 		CBF90DCF2124A381007D0937 /* LetterContentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterContentTableViewCell.swift; sourceTree = "<group>"; };
@@ -231,6 +239,7 @@
 		C8235A95211F4A350047AA70 /* Category */ = {
 			isa = PBXGroup;
 			children = (
+				CBDE37B32130022A00CA5407 /* tableCell */,
 				C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */,
 				C8AC9CB121246C60007F7FA1 /* CategoryProductViewController.swift */,
 			);
@@ -352,6 +361,18 @@
 			path = collectionCell;
 			sourceTree = "<group>";
 		};
+		CBDE37B32130022A00CA5407 /* tableCell */ = {
+			isa = PBXGroup;
+			children = (
+				CBDE37AF2130021F00CA5407 /* CategoryTitleTableViewCell.swift */,
+				CBDE37B02130021F00CA5407 /* CategoryTitleTableViewCell.xib */,
+				CBDE37B42130025400CA5407 /* CategoryDetailTableViewCell.swift */,
+				CBDE37B52130025400CA5407 /* CategoryDetailTableViewCell.xib */,
+			);
+			name = tableCell;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		CBF90DCA21249F6B007D0937 /* tableCell */ = {
 			isa = PBXGroup;
 			children = (
@@ -428,7 +449,9 @@
 				C899F8EE20F1006300C61BC2 /* MyPage.storyboard in Resources */,
 				CB1D7A73211C41D2007A4E9F /* Detail.storyboard in Resources */,
 				C8821B7420E8AE2A009D8CD0 /* LaunchScreen.storyboard in Resources */,
+				CBDE37B72130025400CA5407 /* CategoryDetailTableViewCell.xib in Resources */,
 				C8821B7120E8AE2A009D8CD0 /* Assets.xcassets in Resources */,
+				CBDE37B22130021F00CA5407 /* CategoryTitleTableViewCell.xib in Resources */,
 				CBF90DCE2124A348007D0937 /* LetterListTableViewCell.xib in Resources */,
 				C8200E3E20F348D90094E917 /* Upload.storyboard in Resources */,
 				C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */,
@@ -523,6 +546,7 @@
 				C86EB098210B66C6005AE454 /* SetPasswdViewController.swift in Sources */,
 				CB7A08AF211DDB4D00573BB5 /* CheckLetterViewController.swift in Sources */,
 				CB302E2C211C8CCC00C95E0D /* DetailHeaderCollectionViewCell.swift in Sources */,
+				CBDE37B62130025400CA5407 /* CategoryDetailTableViewCell.swift in Sources */,
 				C82D5B272112E85D00F1ED42 /* UploadPhotoViewController.swift in Sources */,
 				C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */,
 				C8725F2521189468004FD049 /* WithdrawalViewController.swift in Sources */,
@@ -555,6 +579,7 @@
 				C8725F2421189468004FD049 /* QustViewController.swift in Sources */,
 				CBA00420211AC6B800B62390 /* DetailViewController.swift in Sources */,
 				C86EB096210B62C7005AE454 /* StudentInfoViewController.swift in Sources */,
+				CBDE37B12130021F00CA5407 /* CategoryTitleTableViewCell.swift in Sources */,
 				C8235A90211F3F5A0047AA70 /* PreExplainViewTableViewCell.swift in Sources */,
 				C86EB094210B61DD005AE454 /* AgreementViewController.swift in Sources */,
 				C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */,

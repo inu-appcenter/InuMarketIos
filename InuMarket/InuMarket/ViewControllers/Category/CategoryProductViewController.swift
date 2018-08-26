@@ -14,6 +14,9 @@ class CategoryProductViewController: UIViewController {
     let cellIdentifier: String = "MainCollectionViewCell"
     let headerIndentifier: String = "MainHeaderCollectionViewCell"
     
+    var categoryTitle: String?
+    var categoryDetail: String?
+    
     //MARK: IBOutlet
     @IBOutlet weak var productCollectionView: UICollectionView!
     
@@ -24,7 +27,7 @@ class CategoryProductViewController: UIViewController {
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         
-        navigationItem.title = "카테고리 상품"
+        navigationItem.title = "\(categoryTitle ?? "") - \(categoryDetail ?? "")"
     }
 }
 
