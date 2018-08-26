@@ -47,7 +47,7 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
             return bookCategory.count
         case "의류":
             return clothCategory.count
-        case "가전 / 가구":
+        case "가전가구":
             return electircCategory.count
         case "잡화":
             return etcCategory.count
@@ -68,7 +68,7 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
             cell.subCategoryLabel.text = bookCategory[indexPath.row]
         case "의류":
             cell.subCategoryLabel.text = clothCategory[indexPath.row]
-        case "가전 / 가구":
+        case "가전가구":
             cell.subCategoryLabel.text = electircCategory[indexPath.row]
         case "잡화":
             cell.subCategoryLabel.text = etcCategory[indexPath.row]
@@ -93,7 +93,7 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
                 vc.category = "\(mainCategory!)\(bookCategory[indexPath.row])"
             case "의류":
                 vc.category = "\(mainCategory!)\(postClothCategory[indexPath.row])"
-            case "가전 / 가구":
+            case "가전가구":
                 vc.category = "\(mainCategory!)\(postElectricCategory[indexPath.row])"
             case "잡화":
                 vc.category = "\(mainCategory!)\(postEtcCategory[indexPath.row])"

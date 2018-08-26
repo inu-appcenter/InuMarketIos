@@ -72,32 +72,10 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         
         model?.login(id: "\(idTextField.text!)", passwd: "\(passTextField.text!)")
         
-        //2초 딜레이 설정
         self.view.makeToast("로그인중")
-        let time = DispatchTime.now() + .seconds(2)
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            //2초 지나고 나타날 행동
-            if self.appDelegate.userInfo?.message == "false"{
-                self.view.makeToast("아이디와 비밀번호가 틀립니다.")
-                self.idTextField.text = ""
-                self.passTextField.text = ""
-            }else if self.appDelegate.userInfo?.message == "certification"{
-                self.view.makeToast("이메일 인증을 해야 사용가능합니다.")
-                
-            }else if self.appDelegate.userInfo?.message == "logged in success"{
-                if self.autoLoginButton.isSelected{
-                UserDefaults.standard.set(self.idTextField.text, forKey: "id")
-                UserDefaults.standard.set(self.passTextField.text, forKey:"pass")
-                UserDefaults.standard.synchronize()
-                }
-                let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-                if let vc = storyBoard.instantiateViewController(withIdentifier: "MainNavi") as? UINavigationController {
-                    self.present(vc, animated: true, completion: nil)
-                }
-            }else{
-                self.view.makeToast("서버통신시간초과")
-            }
-        }
+        startLoading()
+        
+        
     }
     
     @IBAction func signupButtonClicked(_ sender: Any) {
@@ -171,8 +149,8 @@ extension LoginViewController : NetworkCallback{
                 temp.append(obj)
                 
                 self.appDelegate.userInfo = obj
-                
             }
+            endLoading()
         }
         
     }
@@ -181,6 +159,35 @@ extension LoginViewController : NetworkCallback{
             print("실패하였습니다.")
         }
     }
-    
+    func startLoading(){
+        self.view.makeToast("회원가입 처리중")
+        self.loginButton.isEnabled = false
+        self.view.makeToastActivity(.center)
+    }
+    func endLoading(){
+        self.loginButton.isEnabled = true
+        self.view.hideToastActivity()
+        //2초 지나고 나타날 행동
+        if self.appDelegate.userInfo?.message == "false"{
+            self.view.makeToast("아이디와 비밀번호가 틀립니다.")
+            self.idTextField.text = ""
+            self.passTextField.text = ""
+        }else if self.appDelegate.userInfo?.message == "certification"{
+            self.view.makeToast("이메일 인증을 해야 사용가능합니다.")
+            
+        }else if self.appDelegate.userInfo?.message == "logged in success"{
+            if self.autoLoginButton.isSelected{
+                UserDefaults.standard.set(self.idTextField.text, forKey: "id")
+                UserDefaults.standard.set(self.passTextField.text, forKey:"pass")
+                UserDefaults.standard.synchronize()
+            }
+            let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+            if let vc = storyBoard.instantiateViewController(withIdentifier: "MainNavi") as? UINavigationController {
+                self.present(vc, animated: true, completion: nil)
+            }
+        }else{
+            self.view.makeToast("서버통신시간초과")
+        }
+    }
     
 }

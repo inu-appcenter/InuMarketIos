@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class ReviewViewController: UIViewController {
     
@@ -30,28 +31,8 @@ class ReviewViewController: UIViewController {
         
         model?.signUp(id : id, passwd: passwd, name: name, tel: tel)
         
+        startLoading()
         
-        self.view.makeToast("회원가입 처리중")
-        let time = DispatchTime.now() + .seconds(2)
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            //2초 지나고 나타날 행동
-            if self.signUpResult?.ans == true{
-            let alertController = UIAlertController(title: "회원가입이 완료되었습니다.", message: "이메일 인증완료후 로그인해주세요.", preferredStyle: UIAlertControllerStyle.alert)
-            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                self.navigationController?.popToRootViewController(animated: true)
-            }
-            alertController.addAction(okAction)
-            self.present(alertController, animated: true, completion: nil)
-            }else{
-                
-                let alertController = UIAlertController(title: "회원가입 실패", message: "이미 가입한 학번입니다.", preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -85,6 +66,7 @@ extension ReviewViewController: NetworkCallback{
                 let obj = AnsResult.init(ans: ans)
                 self.signUpResult = obj
             }
+            endLoading()
         }
         
     }
@@ -96,4 +78,33 @@ extension ReviewViewController: NetworkCallback{
     }
     
     
+}
+
+extension ReviewViewController{
+    func startLoading(){
+        self.view.makeToast("회원가입 처리중")
+        self.nextbutton.isEnabled = false
+        self.view.makeToastActivity(.center)
+    }
+    func endLoading(){
+        self.nextbutton.isEnabled = true
+        self.view.hideToastActivity()
+            //2초 지나고 나타날 행동
+            if self.signUpResult?.ans == true{
+                let alertController = UIAlertController(title: "회원가입이 완료되었습니다.", message: "이메일 인증완료후 로그인해주세요.", preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }else{
+                
+                let alertController = UIAlertController(title: "회원가입 실패", message: "이미 가입한 학번입니다.", preferredStyle: UIAlertControllerStyle.alert)
+                let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                    self.navigationController?.popToRootViewController(animated: true)
+                }
+                alertController.addAction(okAction)
+                self.present(alertController, animated: true, completion: nil)
+            }
+        }
 }

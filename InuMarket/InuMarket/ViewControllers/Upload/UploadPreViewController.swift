@@ -8,6 +8,7 @@
 
 import UIKit
 import ImageSlideshow
+import Toast_Swift
 
 class UploadPreViewController: UIViewController {
 
@@ -23,6 +24,7 @@ class UploadPreViewController: UIViewController {
     var method: String?
     var place: String?
     var localSource: [ImageSource]? = []
+    var isSuccess: Bool = false
 
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
@@ -34,6 +36,7 @@ class UploadPreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializing()
+        
         model = NetworkModel(self)
 
     }
@@ -41,45 +44,13 @@ class UploadPreViewController: UIViewController {
     @IBAction func sendButtonClicked(_ sender: Any) {
         id2String = self.appDelegate.userInfo?.id!
         model?.uploadProduct(userfile: userfile!, category: category!, productName: productName!, productState: productState!, productPrice: productPrice!, productInfo: productInfo!, method: method!, place: place!, id: id2String!)
-        let time = DispatchTime.now() + .seconds(2)
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            //2초 지나고 나타날 행동
-            if self.uploadResult?.ans == true{
-                self.appDelegate.userInfo?.product = (self.appDelegate.userInfo?.product)! + 1
-                let alertController = UIAlertController(title: "등록이 완료되었습니다.", message: "내상품 확인해 주세요.", preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                    self.navigationController?.popToRootViewController(animated: true)
-                }
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
-            }else{
-                
-                let alertController = UIAlertController(title: "등록 실패", message: "실패라면 실패야", preferredStyle: UIAlertControllerStyle.alert)
-                let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                    self.navigationController?.popViewController(animated: true)
-//                    self.navigationController?.popToRootViewController(animated: true)
-                }
-                alertController.addAction(okAction)
-                self.present(alertController, animated: true, completion: nil)
-            }
-        }
-
+        
+        startLoading()
+        
     }
     
 
-    func initializing() {
-   
-        
-        for i in 0..<userfile!.count{
-            localSource?.append(ImageSource(image: userfile![i]))
-        }
-        // 다음 버튼에 빨간줄 추가
-        let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
-        customSubview.backgroundColor = .red
-        customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
-        //        segmentControl.addSubviewToIndicator(customSubview)
-        sendButton.addSubview(customSubview)
-    }
+    
     
 }
 extension UploadPreViewController: UITableViewDelegate, UITableViewDataSource{
@@ -131,7 +102,7 @@ extension UploadPreViewController: UITableViewDelegate, UITableViewDataSource{
             explainCell.methodLabel.text = "- 거래 방식 : \(method!)"
             explainCell.stateLabel.text = "- 상품 상태 : \(productState!)"
             explainCell.explainLabel.isEditable = false
-            if method == "postbox"{
+            if method == "택배"{
                 explainCell.placeLabel.text = "- 거래 장소 : 택배거래"
             }else{
                 explainCell.placeLabel.text = "- 거래 장소 : \(place!)"
@@ -159,6 +130,8 @@ extension UploadPreViewController: NetworkCallback{
                 let obj = AnsResult.init(ans: ans)
                 self.uploadResult = obj
         }
+            isSuccess = (self.uploadResult?.ans)!
+            endLoading()
     }
     }
 
@@ -169,4 +142,49 @@ extension UploadPreViewController: NetworkCallback{
     }
 
 
+}
+
+extension UploadPreViewController{
+    func initializing() {
+
+        isSuccess = false
+        
+        for i in 0..<userfile!.count{
+            localSource?.append(ImageSource(image: userfile![i]))
+        }
+        // 다음 버튼에 빨간줄 추가
+        let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))
+        customSubview.backgroundColor = .red
+        customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
+        //        segmentControl.addSubviewToIndicator(customSubview)
+        sendButton.addSubview(customSubview)
+    }
+    
+    func startLoading(){
+        sendButton.isEnabled = false
+        self.view.makeToastActivity(.center)
+    }
+    func endLoading(){
+        sendButton.isEnabled = true
+        self.view.hideToastActivity()
+        
+        if isSuccess == true{
+            self.appDelegate.userInfo?.product = (self.appDelegate.userInfo?.product)! + 1
+            let alertController = UIAlertController(title: "등록이 완료되었습니다.", message: "내상품 확인해 주세요.", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else{
+            
+            let alertController = UIAlertController(title: "등록 실패", message: "실패라면 실패야", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                self.navigationController?.popViewController(animated: true)
+                //                    self.navigationController?.popToRootViewController(animated: true)
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }
+    }
 }

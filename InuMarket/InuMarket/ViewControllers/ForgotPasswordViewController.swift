@@ -41,28 +41,9 @@ class ForgotPasswordViewController: UIViewController {
             errorLabel.isHidden = true
             model?.forgotPass(id: "\(idTextField.text!)", name: "\(nameTextFiled.text!)")
             
-            self.view.makeToast("비밀번호 처리중")
-            let time = DispatchTime.now() + .seconds(2)
-            DispatchQueue.main.asyncAfter(deadline: time) {
-                //2초 지나고 나타날 행동
-                if self.forgotPasswordResult?.ans == true{
-                    let alertController = UIAlertController(title: "임시 비밀번호가 발급되었습니다.", message: "이메일을 통해 확인후 로그인해주세요.", preferredStyle: UIAlertControllerStyle.alert)
-                    let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }else{
-                    
-                    let alertController = UIAlertController(title: "비밀번호찾기 실패", message: "학번과 이름이 안맞아요.", preferredStyle: UIAlertControllerStyle.alert)
-                    let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                        self.idTextField.text = ""
-                        self.nameTextFiled.text = ""
-                    }
-                    alertController.addAction(okAction)
-                    self.present(alertController, animated: true, completion: nil)
-                }
-            }
+            
+            
+            startLoading()
             
         } else{
             errorLabel.isHidden = false
@@ -70,8 +51,36 @@ class ForgotPasswordViewController: UIViewController {
     }
     
     
+    
+}
+
+extension ForgotPasswordViewController: NetworkCallback {
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "newPasswordSuccess" {
+            
+            print(resultdata)
+            
+            if let item = resultdata as? NSDictionary {
+                let ans = item["ans"] as? Bool ?? false
+                let obj = AnsResult.init(ans: ans)
+                self.forgotPasswordResult = obj
+            }
+            endLoading()
+        }
+    }
+    
+    func networkFail(code: String) {
+        if(code == "newPasswordSuccessError") {
+            print("실패하였습니다.")
+        }
+    }
+    
+    
+}
+
+extension ForgotPasswordViewController{
     func initializing() {
-//         button initializing
+        //         button initializing
         emailButton.layer.cornerRadius = 10.0
         emailButton.layer.borderWidth = 1.0
         emailButton.layer.borderColor = UIColor.white.cgColor
@@ -94,27 +103,32 @@ class ForgotPasswordViewController: UIViewController {
         self.navigationItem.titleView = imageview
         
     }
-}
-
-extension ForgotPasswordViewController: NetworkCallback {
-    func networkSuc(resultdata: Any, code: String) {
-        if code == "newPasswordSuccess" {
-            
-            print(resultdata)
-            
-            if let item = resultdata as? NSDictionary {
-                let ans = item["ans"] as? Bool ?? false
-                let obj = AnsResult.init(ans: ans)
-                self.forgotPasswordResult = obj
+    func startLoading(){
+        self.view.makeToast("비밀번호 처리중")
+        self.emailButton.isEnabled = false
+        self.view.makeToastActivity(.center)
+    }
+    func endLoading(){
+        self.emailButton.isEnabled = true
+        self.view.hideToastActivity()
+        //2초 지나고 나타날 행동
+        if self.forgotPasswordResult?.ans == true{
+            let alertController = UIAlertController(title: "임시 비밀번호가 발급되었습니다.", message: "이메일을 통해 확인후 로그인해주세요.", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                self.navigationController?.popToRootViewController(animated: true)
             }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
+        }else{
+            
+            let alertController = UIAlertController(title: "비밀번호찾기 실패", message: "학번과 이름이 안맞아요.", preferredStyle: UIAlertControllerStyle.alert)
+            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
+                self.idTextField.text = ""
+                self.nameTextFiled.text = ""
+            }
+            alertController.addAction(okAction)
+            self.present(alertController, animated: true, completion: nil)
         }
+        
     }
-    
-    func networkFail(code: String) {
-        if(code == "newPasswordSuccessError") {
-            print("실패하였습니다.")
-        }
-    }
-    
-    
 }

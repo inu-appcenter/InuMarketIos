@@ -95,7 +95,7 @@
             </objects>
             <point key="canvasLocation" x="2983.1999999999998" y="-408.84557721139436"/>
         </scene>
-        <!--Category Product View Controller-->
+        <!--Title-->
         <scene sceneID="7ze-sU-Y16">
             <objects>
                 <viewController storyboardIdentifier="CategoryProduct" id="vmz-zX-sCg" customClass="CategoryProductViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
@@ -199,7 +199,9 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="OkP-KM-T0a"/>
                     </view>
-                    <navigationItem key="navigationItem" id="KSx-kp-k5L"/>
+                    <navigationItem key="navigationItem" title="Title" id="Jf6-JN-PiO">
+                        <barButtonItem key="backBarButtonItem" title=" " id="bSq-ps-h2A"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="productCollectionView" destination="uio-eR-pUY" id="pIC-OB-BSr"/>
                     </connections>

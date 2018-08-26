@@ -53,14 +53,17 @@ class DetailViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         model = NetworkModel(self)
         model?.detailProduct(productId: productId!)
+        self.navigationController?.navigationBar.backItem?.title = ""
+
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
         // Do any additional setup after loading the view.
         gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         sendLetterView.addGestureRecognizer(gesture)
         
+
         let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(productImgTapped))
         productImgView.addGestureRecognizer(gestureRecognizer)
         productImgView.slideshowInterval = 2.0

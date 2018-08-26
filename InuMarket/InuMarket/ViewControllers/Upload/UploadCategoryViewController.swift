@@ -14,7 +14,7 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
     
     let category = ["책","의류","가전 / 가구", "잡화","원룸","식권"]
     let postCategory = ["책","의류","가전가구", "잡화","원룸","식권"]
-    let imageCategory = [#imageLiteral(resourceName: "book"),#imageLiteral(resourceName: "cloth"),#imageLiteral(resourceName: "electirc"),#imageLiteral(resourceName: "etc"),#imageLiteral(resourceName: "room"),#imageLiteral(resourceName: "ticket")]
+    let imageCategory = [#imageLiteral(resourceName: "book"),#imageLiteral(resourceName: "cloth"),#imageLiteral(resourceName: "electric"),#imageLiteral(resourceName: "etc"),#imageLiteral(resourceName: "room"),#imageLiteral(resourceName: "food")]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -60,7 +60,7 @@ class UploadCategoryViewController: UIViewController ,UITableViewDelegate, UITab
         
         cell?.selectedBackgroundView?.backgroundColor = UIColor(red: 69/255.0, green: 222/255.0, blue: 157/255.0, alpha: 1.0)
         
-        cell?.isSelected = true
+        cell?.isSelected = false
         
         if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadSubCategory") as? UploadSubCategoryViewController{
             vc.mainCategory = postCategory[indexPath.row]

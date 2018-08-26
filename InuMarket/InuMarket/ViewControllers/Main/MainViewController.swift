@@ -241,15 +241,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
                 guard let detailVC = storyboard.instantiateViewController(withIdentifier: detailIdentifier) as? DetailViewController else { return }
                 detailVC.productId = productList[indexPath.row].productId
-                model?.detailProduct(productId: detailVC.productId!)
-//                detailVC.detailList = self.detailProductList
                 
-                let time = DispatchTime.now() + .seconds(1)
-                DispatchQueue.main.asyncAfter(deadline: time) {
-//                    detailVC.detailList = self.detailProductList
                     self.navigationController?.show(detailVC, sender: nil)
-
-                }
 
                 
                 
@@ -327,7 +320,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
                 cell.productImg.kf.setImage(with: resource)
                 cell.productName.text = productList[indexPath.row].productName
-                cell.productPrice.text = String(productList[indexPath.row].productPrice!)
+                cell.productPrice.text = "\(String(productList[indexPath.row].productPrice!))원"
                 
                 return cell
                 

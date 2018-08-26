@@ -266,7 +266,7 @@ class NetworkModel{
                     multipartFormData.append(data!, withName: "userfile",fileName: "userfile", mimeType: "image/png")
                 } else {
                     // jpg
-                    data = UIImageJPEGRepresentation(userfile[index], 0.7)
+                    data = UIImageJPEGRepresentation(userfile[index], 0.5)
                     multipartFormData.append((data?.base64EncodedData())!, withName: "userfile",fileName: "userfile", mimeType: "image/jpeg")
                 }
             }

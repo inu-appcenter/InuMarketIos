@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class CategoryProductViewController: UIViewController {
     
@@ -14,9 +15,24 @@ class CategoryProductViewController: UIViewController {
     let cellIdentifier: String = "MainCollectionViewCell"
     let headerIndentifier: String = "MainHeaderCollectionViewCell"
     
-    var categoryTitle: String?
-    var categoryDetail: String?
+    var categoryTitle: String = ""
+    var categoryDetail: String = ""
+    var categorySub: String = ""
+    var postCategory: String = ""
+    let detailIdentifier: String = "detailView"
+
     
+    
+    var categoryProduct: [AllProduct] = []{
+        didSet {
+            if self.productCollectionView != nil {
+                self.productCollectionView.reloadData()
+            }
+        }
+    }
+    
+    var model : NetworkModel?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     //MARK: IBOutlet
     @IBOutlet weak var productCollectionView: UICollectionView!
     
@@ -24,16 +40,25 @@ class CategoryProductViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        if categorySub == "전체"{
+            postCategory = categoryTitle
+        }else{
+            postCategory = "\(categoryTitle)\(categorySub)"
+        }
+        model = NetworkModel(self)
+        model?.categoryProduct(category: postCategory)
+        
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         
         navigationItem.title = "\(categoryTitle ?? "") - \(categoryDetail ?? "")"
+        
     }
 }
-
+ 
 extension CategoryProductViewController: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 20
+        return categoryProduct.count
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
@@ -54,13 +79,21 @@ extension CategoryProductViewController: UICollectionViewDelegate, UICollectionV
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell: MainCollectionViewCell = productCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
-        cell.productImg.image = UIImage(named: "rectangle4Copy")
-        cell.productName.text = "상품 이름"
-        cell.productPrice.text = "250,000원"
+        let logo = "\(self.appDelegate.serverURL)imgload/\(categoryProduct[indexPath.row].productImg![0])"
+        let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
+        cell.productImg.kf.setImage(with: resource)
+        cell.productName.text = categoryProduct[indexPath.row].productName
+        cell.productPrice.text = "\(String(categoryProduct[indexPath.row].productPrice!))원"
         return cell
     }
     
-    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
+        guard let detailVC = storyboard.instantiateViewController(withIdentifier: detailIdentifier) as? DetailViewController else { return }
+        detailVC.productId = categoryProduct[indexPath.row].productId
+        
+        self.navigationController?.show(detailVC, sender: nil)
+    }
 }
 
 extension CategoryProductViewController: NetworkCallback{
@@ -80,13 +113,10 @@ extension CategoryProductViewController: NetworkCallback{
                     let productImg = item["productImg"] as? [String] ?? [""]
                     let obj = AllProduct.init(productImg: productImg, productId: productId, productName: productName, productPrice: productPrice, productSelled: productSelled, category: category, updateDate: updateDate)
                     temp.append(obj)
-                    
+//                    categoryProduct?.append(obj)
                 }
             }
-//            productList = temp
-//            // 판매 안된 순서로 나열
-//            productList.sort { !$0.productSelled! && $1.productSelled! }
-            
+            categoryProduct = temp
         }
     }
     

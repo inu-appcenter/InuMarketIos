@@ -140,7 +140,7 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
                 break
             case "의": cell.productImageView.image = UIImage(named: "cloth")
                 break
-            case "가": cell.productImageView.image = UIImage(named: "electirc")
+            case "가": cell.productImageView.image = UIImage(named: "electric")
                 break
             case "잡": cell.productImageView.image = UIImage(named: "etc")
                 break
@@ -183,13 +183,6 @@ class MyProductTableViewController: UIViewController, UITableViewDataSource, UIT
                 self.navigationController?.show(vc, sender: nil)
             }
         }
-        //        else{
-        //            if let vc = storyboard?.instantiateViewController(withIdentifier: "MyProductView") as? MyProductViewController{
-        //                vc.productId = selledItem[indexPath.row].productId
-        //                self.navigationController?.show(vc, sender: nil)
-        //            }
-        //        }
-        
         
     }
     // 수정할때 나올 문구 및 내용

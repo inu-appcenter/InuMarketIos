@@ -85,17 +85,27 @@ extension OtherProductViewController: UICollectionViewDelegate, UICollectionView
             
             let logo = "\(self.appDelegate.serverURL)imgload/\(nonsellProductList[indexPath.row].productImg![0])"
             let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
-            cell.productImg.kf.setImage(with: resource)
+            cell.productImg.kf.setImage(with: resource) { _, _, _, _ in
+                cell.layoutIfNeeded()
+                
+            }
             cell.productName.text = nonsellProductList[indexPath.row].productName
             cell.productPrice.text = "\(nonsellProductList[indexPath.row].productPrice!)원"
+        
+            cell.setNeedsLayout()
             
             return cell
         }else {
             let logo = "\(self.appDelegate.serverURL)imgload/\(sellProductList[indexPath.row].productImg![0])"
             let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
-            cell.productImg.kf.setImage(with: resource)
+            cell.productImg.kf.setImage(with: resource) { _, _, _, _ in
+                cell.layoutIfNeeded()
+                
+            }
             cell.productName.text = sellProductList[indexPath.row].productName
             cell.productPrice.text = "\(sellProductList[indexPath.row].productPrice!)원"
+            
+            cell.setNeedsLayout()
             return cell
         }
         
@@ -111,13 +121,7 @@ extension OtherProductViewController: UICollectionViewDelegate, UICollectionView
         } else{
         detailVC.productId = sellProductList[indexPath.row].productId
         }
-
-        let time = DispatchTime.now() + .seconds(1)
-        DispatchQueue.main.asyncAfter(deadline: time) {
-            //                    detailVC.detailList = self.detailProductList
-            self.navigationController?.show(detailVC, sender: nil)
-            
-        }
+        self.navigationController?.show(detailVC, sender: nil)
     }
 }
 
