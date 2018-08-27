@@ -18,7 +18,7 @@ class SendLetterViewController: UIViewController {
     var productImageSlide : [KingfisherSource] = []
     
     var model : NetworkModel?
-    var sendResult : AnsResult?
+    var sendResult : AnsResultString?
     // product info
     var productName: String = ""
     var sellerId: String = ""
@@ -77,18 +77,20 @@ class SendLetterViewController: UIViewController {
         
         let time = DispatchTime.now() + .seconds(1)
         DispatchQueue.main.asyncAfter(deadline: time) {
-            if self.sendResult?.ans == true{
+            if self.sendResult?.ans == "true"{
                  self.appDelegate.userInfo?.letter = (self.appDelegate.userInfo?.letter)! + 1
                 self.dismiss(animated: false, completion: {
                     checkLetterVC.productImageSlide = self.productImageSlide
                     pvc?.present(checkLetterVC, animated: true, completion: nil)
                 })
+            } else if self.sendResult?.ans == "duplicate"{
+                self.view.hideToastActivity()
+                self.view.hideAllToasts()
+                self.view.makeToast("쪽지 보낸적있어요")
             } else {
                 self.view.hideToastActivity()
                 self.view.hideAllToasts()
-                self.view.makeToast("전송실패")
-                
-                
+                self.view.makeToast("쪽지 전송 실패")
             }
         }
     }
@@ -106,8 +108,8 @@ extension SendLetterViewController: NetworkCallback{
             print(resultdata)
             
             if let item = resultdata as? NSDictionary {
-                let ans = item["ans"] as? Bool ?? false
-                let obj = AnsResult.init(ans: ans)
+                let ans = item["ans"] as? String ?? ""
+                let obj = AnsResultString.init(ans: ans)
                 self.sendResult = obj
             }
         }

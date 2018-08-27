@@ -86,6 +86,8 @@ extension MyProductViewController: UITableViewDataSource, UITableViewDelegate{
         switch indexPath.section {
         case 0:
             imageCell.slideshow.slideshowInterval = 3.0
+            
+            
             imageCell.slideshow.contentScaleMode = UIViewContentMode.scaleAspectFit
             imageCell.slideshow.setImageInputs(self.productImg)
             

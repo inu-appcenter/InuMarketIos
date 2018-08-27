@@ -21,6 +21,15 @@ class AnsResult{
     }
     
 }
+// 쪽지 전송
+class AnsResultString{
+    var ans : String?
+    
+    init(ans : String){
+        self.ans = ans
+    }
+    
+}
 
 // 로그인 사용자 정보
 class UserInfo{

@@ -168,6 +168,7 @@ extension UploadPreViewController{
         sendButton.isEnabled = true
         self.view.hideToastActivity()
         
+        
         if isSuccess == true{
             self.appDelegate.userInfo?.product = (self.appDelegate.userInfo?.product)! + 1
             let alertController = UIAlertController(title: "등록이 완료되었습니다.", message: "내상품 확인해 주세요.", preferredStyle: UIAlertControllerStyle.alert)

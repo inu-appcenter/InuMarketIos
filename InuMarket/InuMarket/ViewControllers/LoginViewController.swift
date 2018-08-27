@@ -160,7 +160,7 @@ extension LoginViewController : NetworkCallback{
         }
     }
     func startLoading(){
-        self.view.makeToast("회원가입 처리중")
+        self.view.makeToast("로그인중")
         self.loginButton.isEnabled = false
         self.view.makeToastActivity(.center)
     }

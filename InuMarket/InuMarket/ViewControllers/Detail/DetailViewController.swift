@@ -9,6 +9,7 @@
 import UIKit
 import ImageSlideshow
 import Kingfisher
+import Toast_Swift
 
 class DetailViewController: UIViewController {
     
@@ -51,14 +52,16 @@ class DetailViewController: UIViewController {
     
     //MARK: life cycle
     override func viewWillAppear(_ animated: Bool) {
-        model = NetworkModel(self)
-        model?.detailProduct(productId: productId!)
+//        model = NetworkModel(self)
+//        model?.detailProduct(productId: productId!)
         self.navigationController?.navigationBar.backItem?.title = ""
 
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.makeToastActivity(.center)
+        model = NetworkModel(self)
+        model?.detailProduct(productId: productId!)
         // Do any additional setup after loading the view.
         gesture = UITapGestureRecognizer(target: self, action: #selector(viewTapped(_:)))
         sendLetterView.addGestureRecognizer(gesture)
@@ -265,6 +268,7 @@ extension DetailViewController: NetworkCallback{
                 self.appDelegate.detailList = obj
                 
             }
+            self.view.hideToastActivity()
         }
     }
     func networkFail(code: String) {
