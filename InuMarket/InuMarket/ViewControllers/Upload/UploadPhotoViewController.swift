@@ -9,7 +9,7 @@
 import UIKit
 import Photos
 import BSImagePicker
-
+import Toast_Swift
 
 class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate{
     
@@ -21,7 +21,8 @@ class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelega
     @IBOutlet weak var toPhotoAndDelete: UIButton!
     @IBOutlet weak var photoCollection: UICollectionView!
     
-    var imageArray = [#imageLiteral(resourceName: "photo"),#imageLiteral(resourceName: "logo")]
+    var imageArray = [#imageLiteral(resourceName: "photo")]
+    var isfull : Bool = false
     
     var SelectedAssets = [PHAsset]()
     var buttonCount = [0,1,2,3,4,5,6,7]
@@ -39,7 +40,7 @@ class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelega
     
     override func viewWillAppear(_ animated: Bool) {
         countPhotoLabel.text = "   \(photoCount)/7"
-
+        
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,23 +54,23 @@ class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelega
     }
     @IBAction func nextButtonClicked(_ sender: Any) {
         if imageArray.count == 1{
-        errorLabel.isHidden = false
+            errorLabel.isHidden = false
         } else{
-        if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadPreView") as? UploadPreViewController{
-            var postImageArray : [UIImage] = []
-            for i in 1..<imageArray.count{
-                postImageArray.append(imageArray[i])
+            if let vc = storyboard?.instantiateViewController(withIdentifier: "UploadPreView") as? UploadPreViewController{
+                var postImageArray : [UIImage] = []
+                for i in 1..<imageArray.count{
+                    postImageArray.append(imageArray[i])
+                }
+                vc.userfile = postImageArray
+                vc.category = category
+                vc.productName = productName
+                vc.productState = productState
+                vc.productPrice = productPrice
+                vc.productInfo = productInfo
+                vc.method = method
+                vc.place = place
+                self.navigationController?.show(vc, sender: nil)
             }
-            vc.userfile = postImageArray
-            vc.category = category
-            vc.productName = productName
-            vc.productState = productState
-            vc.productPrice = productPrice
-            vc.productInfo = productInfo
-            vc.method = method
-            vc.place = place
-            self.navigationController?.show(vc, sender: nil)
-        }
         }
     }
     @IBAction func toPhotoAndDeleteButtonClicked(_ sender: Any) {
@@ -78,7 +79,7 @@ class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelega
             self.photoCollection.reloadData()
             photoCount = photoCount - 1
             countPhotoLabel.text = "   \(photoCount)/7"
-
+            
             endEventButton()
         }else{
             //            카메라키기
@@ -94,16 +95,22 @@ class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelega
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         if let originalImage = info[UIImagePickerControllerOriginalImage] as? UIImage {
-            imageArray.append(originalImage)
-            OperationQueue.main.addOperation {
-                self.photoCollection.reloadData()
+            if imageArray.count > 7{
+                dismiss(animated: true) {
+                    self.view.makeToast("7장이 최대입니다.")
+                }
+            }else{
+                imageArray.append(originalImage)
+                OperationQueue.main.addOperation {
+                    self.photoCollection.reloadData()
+                }
+                photoCount = photoCount + 1
+                countPhotoLabel.text = "   \(photoCount)/7"
+                
+                dismiss(animated: true, completion: nil)
             }
         }
-        photoCount = photoCount + 1
-        countPhotoLabel.text = "   \(photoCount)/7"
-
-        dismiss(animated: true, completion: nil)
-
+        
     }
     
     
@@ -176,7 +183,7 @@ class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelega
         if SelectedAssets.count != 0{
             photoCount = photoCount + SelectedAssets.count
             
-
+            
             for i in 0..<SelectedAssets.count{
                 let manager = PHImageManager.default()
                 let option = PHImageRequestOptions()
@@ -185,10 +192,21 @@ class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelega
                 manager.requestImage(for: SelectedAssets[i], targetSize: CGSize(width: 200, height: 200), contentMode: .aspectFill, options: option, resultHandler: {(result, info)->Void in
                     thumbnail = result!
                 })
+                if imageArray.count > 7{
+                    self.isfull = true
+                    photoCount = 7
+                    break
+                }
                 self.imageArray.append(thumbnail)
             }
             OperationQueue.main.addOperation {
-                self.photoCollection.reloadData()
+                if self.isfull == false{
+                    self.photoCollection.reloadData()
+                }else{
+                    self.view.makeToast("사진은 7개가 최대입니다.")
+                    self.countPhotoLabel.text = "   7/7"
+                    self.photoCollection.reloadData()
+                }
             }
         }
     }
