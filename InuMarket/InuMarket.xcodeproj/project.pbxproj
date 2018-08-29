@@ -29,6 +29,7 @@
 		C850EEFA20F65357002068F1 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = C850EEF920F65357002068F1 /* NetworkCallback.swift */; };
 		C855122C21172F20001779AD /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855122B21172F20001779AD /* DBManager.swift */; };
 		C855123021174701001779AD /* SettingTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C855122F21174701001779AD /* SettingTableViewCell.swift */; };
+		C855A50921368B28009E6047 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = C855A50821368B28009E6047 /* GoogleService-Info.plist */; };
 		C85A36B720F1ED4F008D4362 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36B620F1ED4F008D4362 /* MainViewController.swift */; };
 		C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */; };
 		C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */; };
@@ -99,6 +100,8 @@
 		C850EEF920F65357002068F1 /* NetworkCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		C855122B21172F20001779AD /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
 		C855122F21174701001779AD /* SettingTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingTableViewCell.swift; sourceTree = "<group>"; };
+		C855A50821368B28009E6047 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		C855A50A21368E2E009E6047 /* InuMarket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InuMarket.entitlements; sourceTree = "<group>"; };
 		C85A36B620F1ED4F008D4362 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		C85A36BA20F1F3B0008D4362 /* CategoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewController.swift; sourceTree = "<group>"; };
 		C85A36BC20F1F3B6008D4362 /* MyPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyPageViewController.swift; sourceTree = "<group>"; };
@@ -305,6 +308,7 @@
 		C8821B6820E8AE2A009D8CD0 /* InuMarket */ = {
 			isa = PBXGroup;
 			children = (
+				C855A50A21368E2E009E6047 /* InuMarket.entitlements */,
 				C8200E2620F253260094E917 /* Models */,
 				C8188C2420E9B744007AC640 /* ViewControllers */,
 				C8188C2320E9B71D007AC640 /* Storyboards */,
@@ -312,6 +316,7 @@
 				C8821B7020E8AE2A009D8CD0 /* Assets.xcassets */,
 				C8821B7220E8AE2A009D8CD0 /* LaunchScreen.storyboard */,
 				C8821B7520E8AE2A009D8CD0 /* Info.plist */,
+				C855A50821368B28009E6047 /* GoogleService-Info.plist */,
 			);
 			path = InuMarket;
 			sourceTree = "<group>";
@@ -418,6 +423,14 @@
 				TargetAttributes = {
 					C8821B6520E8AE2A009D8CD0 = {
 						CreatedOnToolsVersion = 9.4.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 				};
 			};
@@ -457,6 +470,7 @@
 				C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */,
 				C899F8EA20F1000200C61BC2 /* Main.storyboard in Resources */,
 				C8725F272118948A004FD049 /* Setting.storyboard in Resources */,
+				C855A50921368B28009E6047 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -495,14 +509,17 @@
 				"${BUILT_PRODUCTS_DIR}/BetterSegmentedControl/BetterSegmentedControl.framework",
 				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
 				"${BUILT_PRODUCTS_DIR}/ExpandableCell/ExpandableCell.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
 				"${BUILT_PRODUCTS_DIR}/ObjectMapper/ObjectMapper.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/Toast-Swift/Toast_Swift.framework",
 				"${BUILT_PRODUCTS_DIR}/UIImageViewModeScaleAspect/UIImageViewModeScaleAspect.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -513,14 +530,17 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BetterSegmentedControl.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ExpandableCell.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjectMapper.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Toast_Swift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/UIImageViewModeScaleAspect.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -731,17 +751,18 @@
 			baseConfigurationReference = 560A9615F731506ADBCABA52 /* Pods-InuMarket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InuMarket/InuMarket.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HK46LBTAW6;
+				DEVELOPMENT_TEAM = AANGG4Q668;
 				INFOPLIST_FILE = InuMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.incheon.InuMarket;
+				PRODUCT_BUNDLE_IDENTIFIER = inu.appcenter.INUMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -750,17 +771,18 @@
 			baseConfigurationReference = E8A3193499A2714AB79C2E25 /* Pods-InuMarket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = InuMarket/InuMarket.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = HK46LBTAW6;
+				DEVELOPMENT_TEAM = AANGG4Q668;
 				INFOPLIST_FILE = InuMarket/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.incheon.InuMarket;
+				PRODUCT_BUNDLE_IDENTIFIER = inu.appcenter.INUMarket;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

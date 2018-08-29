@@ -26,7 +26,6 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     var model : NetworkModel?
     
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         model = NetworkModel(self)
@@ -70,7 +69,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
     @IBAction func loginButtonClicked(_ sender: Any) {
         
         
-        model?.login(id: "\(idTextField.text!)", passwd: "\(passTextField.text!)")
+        model?.login(id: "\(idTextField.text!)", passwd: "\(passTextField.text!)", FCM: "\(self.appDelegate.deviceToken!)")
         
         self.view.makeToast("로그인중")
         startLoading()

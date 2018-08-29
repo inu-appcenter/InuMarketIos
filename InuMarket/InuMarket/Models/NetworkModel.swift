@@ -23,10 +23,11 @@ class NetworkModel{
     
     
     //로그인
-    func login(id: String, passwd: String) {
+    func login(id: String, passwd: String, FCM: String) {
         let header = ["Content-Type" : "application/x-www-form-urlencoded"]
         let params = [ "id" : id,
-                       "passwd" : passwd]
+                       "passwd" : passwd,
+                       "FCM" : FCM]
         Alamofire.request("\(self.appDelegate.serverURL)login?", method: .post, parameters: params, headers: header).responseJSON { res in
             switch res.result{
             case .success(let item):

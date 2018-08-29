@@ -25,10 +25,14 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSPhotoLibraryUsageDescription</key>
-	<string>앨범 접근에 승인하시겠습니까?</string>
 	<key>NSCameraUsageDescription</key>
 	<string>카메라 접근에 승인하시겠습니까?</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>앨범 접근에 승인하시겠습니까?</string>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>remote-notification</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

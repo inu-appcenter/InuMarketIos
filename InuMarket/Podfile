@@ -23,6 +23,9 @@ pod "BSImagePicker"
 pod "ImageSlideshow/Kingfisher"
 pod 'ExpandableCell'
 
+pod 'Firebase/Core'
+pod 'Firebase/Messaging'
+
 end
 post_install do |installer|
     installer.pods_project.build_configurations.each do |config|
