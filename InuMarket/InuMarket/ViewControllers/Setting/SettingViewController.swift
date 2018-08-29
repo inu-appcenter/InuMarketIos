@@ -74,6 +74,7 @@ extension SettingViewController: UITableViewDelegate, UITableViewDataSource{
             let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
                 UserDefaults.standard.removeObject(forKey: "id")
                 UserDefaults.standard.removeObject(forKey: "pass")
+                UserDefaults.standard.removeObject(forKey: "FCM")
                 self.dismiss(animated: true, completion: nil)
             }
             

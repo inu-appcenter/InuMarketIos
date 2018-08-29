@@ -38,6 +38,7 @@ class LoginViewController: UIViewController, UITextFieldDelegate {
         self.idTextField.text = UserDefaults.standard.string(forKey: "id")
         self.passTextField.text = UserDefaults.standard.string(forKey: "pass")
             autoLoginButton.isSelected = true
+        self.appDelegate.deviceToken = UserDefaults.standard.string(forKey: "FCM")
             loginButtonClicked((Any).self)
         }
         
@@ -178,6 +179,7 @@ extension LoginViewController : NetworkCallback{
             if self.autoLoginButton.isSelected{
                 UserDefaults.standard.set(self.idTextField.text, forKey: "id")
                 UserDefaults.standard.set(self.passTextField.text, forKey:"pass")
+                UserDefaults.standard.set(self.appDelegate.deviceToken, forKey: "FCM")
                 UserDefaults.standard.synchronize()
             }
             let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
