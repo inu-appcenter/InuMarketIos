@@ -60,11 +60,12 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     @IBOutlet var letterTableView: ExpandableTableView!
     
     //MARK: IBAction
-    @IBAction func changedSegmentedControl(_ sender: Any) {
+    @IBAction func changedSegmentedControl(_ sender: BetterSegmentedControl) {
         letterTableView.reloadData{
             
             self.letterTableView.closeAll()
         }
+
     }
     
     //MARK: life cycle

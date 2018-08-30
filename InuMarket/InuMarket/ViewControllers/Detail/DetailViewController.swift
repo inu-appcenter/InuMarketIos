@@ -186,7 +186,7 @@ extension DetailViewController: UICollectionViewDelegate, UICollectionViewDataSo
         case UICollectionElementKindSectionHeader:
             guard let cell: DetailHeaderCollectionViewCell = detailCollectionView.dequeueReusableSupplementaryView(ofKind: UICollectionElementKindSectionHeader, withReuseIdentifier: headerIdentifier, for: indexPath) as? DetailHeaderCollectionViewCell else { return UICollectionReusableView() }
             cell.nameLabel.text = self.detailList?.productName
-            cell.priceLabel.text = "\(priceProduct)"
+            cell.priceLabel.text = "\(priceProduct) 원"
             cell.inquiryLabel.text = "현재 \(starProduct)명의 학생들이 문의중입니다!"
             
             cell.declareButton.setImage(UIImage(named: "declare"), for: .normal)

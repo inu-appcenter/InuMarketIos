@@ -82,13 +82,13 @@ extension OtherProductViewController: UICollectionViewDelegate, UICollectionView
         
         guard let cell: MainCollectionViewCell = self.otherProductCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         if otherProductSegControl.index == 0 {
-            
             let logo = "\(self.appDelegate.serverURL)imgload/\(nonsellProductList[indexPath.row].productImg![0])"
             let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
             cell.productImg.kf.setImage(with: resource) { _, _, _, _ in
                 cell.layoutIfNeeded()
                 
             }
+            
             cell.productName.text = nonsellProductList[indexPath.row].productName
             cell.productPrice.text = "\(nonsellProductList[indexPath.row].productPrice!)원"
         
@@ -151,7 +151,7 @@ extension OtherProductViewController: NetworkCallback{
                     nonsellProductList.append(temp[i])
                 }
             }
-            
+            self.otherProductCollectionView.reloadData()
         }
     }
     
