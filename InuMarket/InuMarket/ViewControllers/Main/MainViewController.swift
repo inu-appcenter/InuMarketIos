@@ -43,7 +43,6 @@ class MainViewController: UIViewController {
     }
     var detailProductList: [detailProduct] = []
     
-    
     private var cancelButton: UIButton = {
         let button: UIButton = UIButton(frame: CGRect(x: UIScreen.main.bounds.width - 70, y: 75, width: 61, height: 48))
         button.setTitle("취소", for: .normal)
@@ -87,8 +86,8 @@ class MainViewController: UIViewController {
 //        self.productCollectionView.reloadData()
         
         // Do any additional setup after loading the view.
-        searchTextField.addTarget(self, action: #selector(textFieldDidChange),
-                                  for: UIControlEvents.editingChanged)
+//        searchTextField.addTarget(self, action: #selector(textFieldDidChange),
+//                                  for: UIControlEvents.editingChanged)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -106,16 +105,13 @@ class MainViewController: UIViewController {
         productCollectionView.reloadData()
     }
     
-    @objc func textFieldDidChange(_ textField: UITextField) {
-        if searchTextField.hasText {
-            productCollectionView.isHidden = false
-//            productCollectionView.reloadData()
-        } else {
-            productCollectionView.isHidden = true
-//            productCollectionView.reloadData()
-        }
-        
-    }
+//    @objc func textFieldDidChange(_ textField: UITextField) {
+//        if searchTextField.hasText {
+//            productCollectionView.isHidden = false
+//        } else {
+//            productCollectionView.isHidden = true
+//        }
+//    }
     
     func showDetailVC() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
@@ -145,9 +141,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         productCollectionView.isHidden = true
         
         self.view.addSubview(cancelButton)
+        let topBarHeight = UIApplication.shared.statusBarFrame.size.height +
+            (self.navigationController?.navigationBar.frame.height ?? 0.0)
+        
+        cancelButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint(item: cancelButton, attribute: NSLayoutAttribute.trailingMargin, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.trailingMargin, multiplier: 1, constant: -16).isActive = true
+        NSLayoutConstraint(item: cancelButton, attribute: NSLayoutAttribute.top, relatedBy: NSLayoutRelation.equal, toItem: view, attribute: NSLayoutAttribute.top, multiplier: 1, constant: topBarHeight + 20).isActive = true
+        
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        productCollectionView.isHidden = false
         searchTextField.resignFirstResponder()
         model?.searchProduct(productName: searchTextField.text!)
         let time = DispatchTime.now() + .seconds(1)
@@ -189,11 +193,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         //정렬 버튼 추가
         if textFieldActive {
+            cell.sortButton.hideOptions()
             cell.sortButton.removeFromSuperview()
             
             cell.createSearchSortButton()
             productCollectionView.addSubview(cell.sortButton)
         } else {
+            cell.sortButton.hideOptions()
             cell.sortButton.removeFromSuperview()
             
             cell.createSortButton()
