@@ -61,11 +61,9 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     
     //MARK: IBAction
     @IBAction func changedSegmentedControl(_ sender: BetterSegmentedControl) {
-        letterTableView.reloadData{
-            
+        letterTableView.reloadData {
             self.letterTableView.closeAll()
         }
-
     }
     
     //MARK: life cycle
@@ -88,7 +86,7 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
         letterSegmentedControl.layer.shadowOpacity = 0.25
         letterSegmentedControl.layer.masksToBounds = false
         letterSegmentedControl.layer.shadowOffset = CGSize(width: 0, height: 1)
-
+        
         letterTableView.expandableDelegate = self
         letterTableView.animation = .automatic
         letterTableView.register(UINib(nibName: LetterListTableViewCell.ID, bundle: nil), forCellReuseIdentifier: LetterListTableViewCell.ID)

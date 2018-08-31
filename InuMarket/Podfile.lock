@@ -1,13 +1,14 @@
 PODS:
-  - Alamofire (4.7.2)
+  - Alamofire (4.7.3)
   - AlamofireObjectMapper (5.1.0):
     - Alamofire (~> 4.1)
     - ObjectMapper (~> 3.3)
   - BetterSegmentedControl (0.9)
-  - BSGridCollectionViewLayout (1.2.0)
-  - BSImagePicker (2.7.1):
+  - BSGridCollectionViewLayout (1.2.1)
+  - BSImagePicker (2.8.0):
     - BSGridCollectionViewLayout (~> 1.2.0)
-    - UIImageViewModeScaleAspect (= 1.5)
+    - BSImageView (~> 1.0.0)
+  - BSImageView (1.0.0)
   - DropDown (2.3.2)
   - ExpandableCell (1.2.3)
   - Firebase/Core (5.7.0):
@@ -65,8 +66,8 @@ PODS:
   - ImageSlideshow/Kingfisher (1.6.1):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
-  - IQKeyboardManagerSwift (6.0.4)
-  - Kingfisher (4.8.0)
+  - IQKeyboardManagerSwift (6.1.1)
+  - Kingfisher (4.8.1)
   - nanopb (0.3.8):
     - nanopb/decode (= 0.3.8)
     - nanopb/encode (= 0.3.8)
@@ -76,9 +77,8 @@ PODS:
   - Protobuf (3.6.1)
   - SideMenu (4.0.0)
   - SnapKit (4.0.0)
-  - SwiftLint (0.26.0)
+  - SwiftLint (0.27.0)
   - Toast-Swift (3.0.1)
-  - UIImageViewModeScaleAspect (1.5)
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
@@ -106,6 +106,7 @@ SPEC REPOS:
     - BetterSegmentedControl
     - BSGridCollectionViewLayout
     - BSImagePicker
+    - BSImageView
     - DropDown
     - ExpandableCell
     - Firebase
@@ -125,14 +126,14 @@ SPEC REPOS:
     - SnapKit
     - SwiftLint
     - Toast-Swift
-    - UIImageViewModeScaleAspect
 
 SPEC CHECKSUMS:
-  Alamofire: e4fa87002c137ba2d8d634d2c51fabcda0d5c223
+  Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlamofireObjectMapper: 3395e698901d8b0e6f48b7d0c43bd47875325102
   BetterSegmentedControl: 40b2b6a08bbc59663149624d1b5235efa8d43a3c
-  BSGridCollectionViewLayout: 8f12c8e1e08c47057f5a39a6828f4395f043d78f
-  BSImagePicker: eb12948a6e71b9855c2c37723dfd989b9b4288bd
+  BSGridCollectionViewLayout: 1a7d6f30517d3c9d181774bc74be4dfcab7b8115
+  BSImagePicker: b06623bd22f1941bbb04168426b95d38017e3081
+  BSImageView: ed9c50d917111d8cac66c21c5a41c03f57908819
   DropDown: 7f87abecc28f9b4edad810fe1211c5c018c257e5
   ExpandableCell: 99a7993b6b61af6a9b5821f67a772d6402ffcda2
   Firebase: 734a4f92957aa6c40e7ae3fda3d9359e1890aa87
@@ -143,17 +144,16 @@ SPEC CHECKSUMS:
   GoogleAppMeasurement: f7507b39b70ad0bd80b3d81518b2f43868974307
   GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
   ImageSlideshow: f0f33e1a20668e83d77f5fb7729e4ae4437c0759
-  IQKeyboardManagerSwift: 36dbe324b4f9793f5f41ba5227f3e7c76dfefd50
-  Kingfisher: 976d828df2b24834c6a3f2fc4d82cdbd26552be1
+  IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
+  Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
   ObjectMapper: b612bf8c8e99c4dc0bb6013a51f7c27966ed5da9
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
   SideMenu: 70ee5657df63ec3382660ec4ef470bf1cf5db07d
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
-  SwiftLint: f6b83e8d95ee1e91e11932d843af4fdcbf3fc764
+  SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
-  UIImageViewModeScaleAspect: 11a790a0b9d248a13dc63e3a78991f1463b6d84e
 
 PODFILE CHECKSUM: 3fec3026c8d141aa8d89c171da82704641cd3920
 
-COCOAPODS: 1.5.2
+COCOAPODS: 1.5.3

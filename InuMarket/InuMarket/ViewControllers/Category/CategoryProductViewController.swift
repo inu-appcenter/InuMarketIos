@@ -51,7 +51,7 @@ class CategoryProductViewController: UIViewController {
         productCollectionView.delegate = self
         productCollectionView.dataSource = self
         
-        navigationItem.title = "\(categoryTitle ?? "") - \(categoryDetail ?? "")"
+        navigationItem.title = "\(categoryTitle) - \(categoryDetail)"
         
     }
 }
