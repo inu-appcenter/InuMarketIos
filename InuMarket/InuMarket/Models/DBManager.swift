@@ -189,3 +189,12 @@ class LetterList{
 }
 
 
+// 배너 리스트
+class Banner{
+    var fileName:[String]?
+    
+    init(fileName:[String]) {
+        self.fileName = fileName
+    }
+}
+

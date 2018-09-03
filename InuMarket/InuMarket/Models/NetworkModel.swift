@@ -375,6 +375,24 @@ class NetworkModel{
         }
         
     }
+    
+//    배너 리스트
+    func bannerList(){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        
+        Alamofire.request("\(self.appDelegate.serverURL)readBanner", method: .post, parameters: nil, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "bannerListSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "bannerListError")
+                break
+            }
+        }
+    }
 }
 
 

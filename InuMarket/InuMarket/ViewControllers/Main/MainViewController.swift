@@ -24,13 +24,14 @@ class MainViewController: UIViewController {
     let screenWidth = UIScreen.main.bounds.width
     
     var textFieldActive: Bool = false
-    
+    var bannerDownloadBool: Bool = false
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
     var model : NetworkModel?
     var productList: [AllProduct] = []{
         didSet {
             if self.productCollectionView != nil {
                 self.productCollectionView.reloadData()
+
             }
         }
     }
@@ -41,6 +42,10 @@ class MainViewController: UIViewController {
             }
         }
     }
+    
+    var bannerList: Banner?
+    var bannerImg: [KingfisherSource] = []
+
     var detailProductList: [detailProduct] = []
     
     private var cancelButton: UIButton = {
@@ -73,6 +78,8 @@ class MainViewController: UIViewController {
     
     //MARK: life cycle
     override func viewWillAppear(_ animated: Bool) {
+        model?.bannerList()
+
         model?.allProduct()
     }
     override func viewDidLoad() {
@@ -105,6 +112,7 @@ class MainViewController: UIViewController {
         productCollectionView.reloadData()
     }
     
+    
 //    @objc func textFieldDidChange(_ textField: UITextField) {
 //        if searchTextField.hasText {
 //            productCollectionView.isHidden = false
@@ -113,6 +121,13 @@ class MainViewController: UIViewController {
 //        }
 //    }
     
+    func bannerDownload(){
+        for i in 0..<bannerList!.fileName!.count{
+            print("\(self.appDelegate.serverURL)iosBanner/\(bannerList!.fileName![i])")
+            self.bannerImg.append(KingfisherSource(url: URL(string: "\(self.appDelegate.serverURL)iosBanner/\(bannerList!.fileName![i])")!))
+        }
+        
+    }
     func showDetailVC() {
         let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
         guard let detailVC = storyboard.instantiateViewController(withIdentifier: detailIdentifier) as? DetailViewController else { return }
@@ -306,9 +321,13 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 pageIndicator.currentPageIndicatorTintColor = UIColor.white
                 pageIndicator.pageIndicatorTintColor = #colorLiteral(red: 0.4779999852, green: 0.4779999852, blue: 0.4779999852, alpha: 1)
                 cell.bannerView.pageIndicator = pageIndicator
-                cell.bannerView.setImageInputs([ImageSource(image: UIImage(named: "promotionsAppcenter")!),
-                                                ImageSource(image: UIImage(named: "promotionsAppcenter")!)])
+//                imageCell.slideshow.setImageInputs(self.productImg)
+                cell.bannerView.setImageInputs(self.bannerImg)
+
+//                cell.bannerView.setImageInputs([ImageSource(image: UIImage(named: "promotionsAppcenter")!),
+//                                                ImageSource(image: UIImage(named: "promotionsAppcenter")!)])
                 cell.bannerView.slideshowInterval = 3.0
+                
 
                 return cell
             case 1:
@@ -363,9 +382,12 @@ extension MainViewController: NetworkCallback{
 
                 }
             }
+
             productList = temp
             // 판매 안된 순서로 나열
             productList.sort { !$0.productSelled! && $1.productSelled! }
+
+
 //            // 낮은 가격순
 //            productList.sort { $0.productPrice! < $1.productPrice!}
 //            // 높은 가격순
@@ -392,13 +414,29 @@ extension MainViewController: NetworkCallback{
             searchList = temp
             // 판매 안된 순서로 나열
             searchList.sort { !$0.productSelled! && $1.productSelled! }
+        }else if code == "bannerListSuccess"{
+            print(resultdata)
+            
+            if let items = resultdata as? NSDictionary {
+                let fileName = items["fileName"] as? [String] ?? [""]
+                let obj = Banner.init(fileName: fileName)
+                bannerList = obj
+                
+            }
+            if bannerDownloadBool == false{
+            bannerDownload()
+                bannerDownloadBool = true
+            }
+            
         }
     }
     
     
     func networkFail(code: String) {
-        if(code == "allProductError") {
+        if code == "allProductError" {
             print("실패하였습니다.")
+        }else if code == "bannerListError"{
+            print("배너 리스트 실패")
         }
     }
     
