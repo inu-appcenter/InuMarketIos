@@ -375,7 +375,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="217.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내영ㅇㅇㅇ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-lP-SEb">
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="내영ㅇㅇㅇ" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jgd-lP-SEb">
                                                     <rect key="frame" x="28" y="11" width="319" height="128"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>

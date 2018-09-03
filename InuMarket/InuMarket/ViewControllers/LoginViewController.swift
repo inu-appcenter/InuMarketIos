@@ -167,6 +167,7 @@ extension LoginViewController : NetworkCallback{
     func endLoading(){
         self.loginButton.isEnabled = true
         self.view.hideToastActivity()
+        self.view.hideAllToasts()
         //2초 지나고 나타날 행동
         if self.appDelegate.userInfo?.message == "false"{
             self.view.makeToast("아이디와 비밀번호가 틀립니다.")

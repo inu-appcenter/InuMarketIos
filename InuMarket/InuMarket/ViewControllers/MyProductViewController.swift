@@ -42,6 +42,8 @@ class MyProductViewController: UIViewController {
 
         model = NetworkModel(self)
         model?.detailProduct(productId: productId!)
+        myProductTable.tableFooterView = UIView()
+
         
     }
 
@@ -70,7 +72,7 @@ extension MyProductViewController: UITableViewDataSource, UITableViewDelegate{
         case 1:
             return 117
         case 2:
-            return 230
+            return UITableViewAutomaticDimension
         default:
             return 0
         }

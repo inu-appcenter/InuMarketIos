@@ -36,7 +36,8 @@ class UploadPreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializing()
-        
+        uploadTable.tableFooterView = UIView()
+
         model = NetworkModel(self)
 
     }
@@ -66,7 +67,7 @@ extension UploadPreViewController: UITableViewDelegate, UITableViewDataSource{
         case 1:
             return 117
         case 2:
-            return 230
+            return UITableViewAutomaticDimension
         default:
             return 0
         }

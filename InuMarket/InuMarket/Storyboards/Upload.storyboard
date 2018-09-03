@@ -722,8 +722,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="217.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="내영ㅇㅇㅇ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gZC-iM-dH9">
-                                                    <rect key="frame" x="28" y="11" width="319" height="128"/>
+                                                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="내영ㅇㅇㅇ" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="gZC-iM-dH9">
+                                                    <rect key="frame" x="28" y="11" width="319" height="126"/>
                                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -760,7 +760,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="kPv-2a-gh2" firstAttribute="leading" secondItem="NZw-93-3v7" secondAttribute="leading" constant="28" id="2Pv-Tj-FAe"/>
-                                                <constraint firstItem="kPv-2a-gh2" firstAttribute="top" secondItem="gZC-iM-dH9" secondAttribute="bottom" constant="8" id="FvG-q6-Kvf"/>
+                                                <constraint firstItem="kPv-2a-gh2" firstAttribute="top" secondItem="gZC-iM-dH9" secondAttribute="bottom" constant="10" id="FBH-QR-iKg"/>
                                                 <constraint firstItem="gZC-iM-dH9" firstAttribute="leading" secondItem="NZw-93-3v7" secondAttribute="leadingMargin" constant="13" id="WgS-kJ-B9D"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="gZC-iM-dH9" secondAttribute="trailing" constant="13" id="blu-nU-Siu"/>
                                                 <constraint firstAttribute="trailing" secondItem="kPv-2a-gh2" secondAttribute="trailing" constant="28" id="rEJ-aY-ixa"/>
@@ -805,7 +805,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="XGa-PI-mhU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5562" y="45"/>
+            <point key="canvasLocation" x="5560.8000000000002" y="44.527736131934034"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="eCD-9x-OfC">
