@@ -83,6 +83,12 @@ extension OtherProductViewController: UICollectionViewDelegate, UICollectionView
         guard let cell: MainCollectionViewCell = self.otherProductCollectionView.dequeueReusableCell(withReuseIdentifier: cellIdentifier, for: indexPath) as? MainCollectionViewCell else { return UICollectionViewCell() }
         if otherProductSegControl.index == 0 {
             let logo = "\(self.appDelegate.serverURL)imgload/\(nonsellProductList[indexPath.row].productImg![0])"
+//            KingfisherManager.shared.retrieveImage(with: url!, options: nil, progressBlock: nil, completionHandler: { image, error, cacheType, imageURL in
+//
+//                cell.imageView?.image = ImageUtils.resizeImage(image: image!, newWidth: 40.0)
+//
+//            })
+            
             let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
             cell.productImg.kf.setImage(with: resource) { _, _, _, _ in
                 cell.layoutIfNeeded()

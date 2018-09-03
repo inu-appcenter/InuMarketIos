@@ -13,18 +13,18 @@ class BannerCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet var bannerView: ImageSlideshow!
     
-    override func awakeFromNib() {
-        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BannerCollectionViewCell.didTap))
-        bannerView.addGestureRecognizer(gestureRecognizer)
-    }
-    
-    @objc func didTap() {
-        print("banner selected")
-        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
-        guard let vc = storyBoard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else {
-            return
-        }
-        let fullScreenController = bannerView.presentFullScreenController(from: vc)
-        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
-    }
+//    override func awakeFromNib() {
+//        let gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(BannerCollectionViewCell.didTap))
+//        bannerView.addGestureRecognizer(gestureRecognizer)
+//    }
+//    
+//    @objc func didTap() {
+//        print("banner selected")
+//        let storyBoard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
+//        guard let vc = storyBoard.instantiateViewController(withIdentifier: "MainView") as? MainViewController else {
+//            return
+//        }
+//        let fullScreenController = bannerView.presentFullScreenController(from: vc)
+//        fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+//    }
 }

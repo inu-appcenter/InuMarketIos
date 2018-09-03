@@ -237,6 +237,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 guard let cell: BannerCollectionViewCell = productCollectionView.dequeueReusableCell(withReuseIdentifier: bannerCellIdentifier, for: indexPath) as? BannerCollectionViewCell else { return }
                 let fullScreenController = cell.bannerView.presentFullScreenController(from: self)
                 fullScreenController.slideshow.activityIndicator = DefaultActivityIndicator(style: .white, color: nil)
+
+
                 
             case 1:
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
@@ -306,6 +308,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 cell.bannerView.pageIndicator = pageIndicator
                 cell.bannerView.setImageInputs([ImageSource(image: UIImage(named: "promotionsAppcenter")!),
                                                 ImageSource(image: UIImage(named: "promotionsAppcenter")!)])
+                cell.bannerView.slideshowInterval = 3.0
+
                 return cell
             case 1:
                 guard let cell: LetterCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: letterCellIdentifier, for: indexPath) as? LetterCollectionViewCell else {
