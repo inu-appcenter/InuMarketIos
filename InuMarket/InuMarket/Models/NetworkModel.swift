@@ -393,6 +393,49 @@ class NetworkModel{
             }
         }
     }
+    
+//     문의, 신고 하기
+    func report(kind:String, senderId:String, context:String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["kind":kind ,
+                      "senderId":senderId,
+                      "context":context
+        ]
+
+        Alamofire.request("\(self.appDelegate.serverURL)report", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "reportSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "reportError")
+                break
+            }
+        }
+    }
+//     신고
+    func banReport(kind:String, senderId:String, productId:String){
+        let header = ["Content-Type" : "application/x-www-form-urlencoded",
+                      "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
+        let params = ["kind":kind ,
+                      "senderId":senderId,
+                      "productId":productId
+        ]
+        
+        Alamofire.request("\(self.appDelegate.serverURL)report", method: .post, parameters: params, headers: header).responseJSON{ res in
+            switch res.result{
+            case .success(let item):
+                self.view.networkSuc(resultdata: item, code: "reportSuccess")
+                break
+            case .failure(let error):
+                print(error)
+                self.view.networkFail(code: "reportError")
+                break
+            }
+        }
+    }
 }
 
 

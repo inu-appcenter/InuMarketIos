@@ -9,6 +9,10 @@
 import UIKit
 
 class QustViewController: UIViewController {
+    var productId: String?
+    var model : NetworkModel?
+    var ansResult: AnsResult?
+    let appDelegate = UIApplication.shared.delegate as! AppDelegate
     
     @IBOutlet weak var qustTextView: UITextView!
     @IBOutlet weak var errorLabel: UILabel!
@@ -21,7 +25,9 @@ class QustViewController: UIViewController {
             
             let alertController = UIAlertController(title: "전송! 전전송송! 문희문희나문희.", message: "확인을 누르면 전송됩니다.", preferredStyle: UIAlertControllerStyle.alert)
             let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                self.navigationController?.popViewController(animated: true)
+                self.model?.report(kind: "moonHee", senderId: self.appDelegate.userInfo!.id!, context: self.qustTextView.text!)
+                
+                
             }
             
             let cancelButton = UIAlertAction(title: "취소", style: UIAlertActionStyle.cancel, handler: nil)
@@ -30,8 +36,21 @@ class QustViewController: UIViewController {
             alertController.addAction(okAction)
             self.present(alertController, animated: true, completion: nil)
         }
-        
+      
     }
+    
+    private func complete() {
+        
+        let alert2 = UIAlertController(title: "상품 신고가 완료되었습니다.", message: nil, preferredStyle: .alert)
+        let ok = UIAlertAction(title: "확인", style: .default) {
+            (_) in
+            self.navigationController?.popViewController(animated: true)
+            return
+        }
+        alert2.addAction(ok)
+        self.present(alert2, animated: true)
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         initializing()
@@ -55,4 +74,27 @@ class QustViewController: UIViewController {
         //        segmentControl.addSubviewToIndicator(customSubview)
         sendButton.addSubview(customSubview)
     }
+}
+
+extension QustViewController:NetworkCallback{
+    func networkSuc(resultdata: Any, code: String) {
+        if code == "reportSuccess" {
+        print(resultdata)
+        
+        if let item = resultdata as? NSDictionary {
+            let ans = item["ans"] as? Bool ?? false
+            let obj = AnsResult.init(ans: ans)
+            self.ansResult = obj
+        }
+        complete()
+    }
+    }
+    
+    func networkFail(code: String) {
+        if(code == "reportError") {
+            print("실패하였습니다.")
+        }
+    }
+    
+    
 }

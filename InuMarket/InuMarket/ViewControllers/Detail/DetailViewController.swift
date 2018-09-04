@@ -122,21 +122,25 @@ class DetailViewController: UIViewController {
         let alert = UIAlertController(title: "신고하기", message: "신고 이유를 선택해주세요.", preferredStyle: .alert)
         let 음란성 = UIAlertAction(title: "음란성", style: .default) {
             (_) in
+            self.model?.banReport(kind: "음란성", senderId: self.appDelegate.userInfo!.id!, productId: self.productId!)
             self.상품신고완료()
             return
         }
         let 도배 = UIAlertAction(title: "도배", style: .default) {
             (_) in
+            self.model?.banReport(kind: "도배", senderId: self.appDelegate.userInfo!.id!, productId: self.productId!)
             self.상품신고완료()
             return
         }
         let 광고 = UIAlertAction(title: "광고", style: .default) {
             (_) in
+            self.model?.banReport(kind: "광고", senderId: self.appDelegate.userInfo!.id!, productId: self.productId!)
             self.상품신고완료()
             return
         }
         let 허위상품 = UIAlertAction(title: "허위 상품", style: .default) {
             (_) in
+            self.model?.banReport(kind: "허위상품", senderId: self.appDelegate.userInfo!.id!, productId: self.productId!)
             self.상품신고완료()
             return
         }
@@ -154,6 +158,7 @@ class DetailViewController: UIViewController {
     }
     
     private func 상품신고완료() {
+        
         let alert2 = UIAlertController(title: "상품 신고가 완료되었습니다.", message: nil, preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default) {
             (_) in
@@ -270,10 +275,21 @@ extension DetailViewController: NetworkCallback{
                 
             }
             self.view.hideToastActivity()
+        }else if code == "reportSuccess" {
+            print(resultdata)
+            
+            if let item = resultdata as? NSDictionary {
+                let ans = item["ans"] as? Bool ?? false
+                let obj = AnsResult.init(ans: ans)
+//                self.ansResult = obj
+            }
+            상품신고완료()
         }
     }
     func networkFail(code: String) {
         if code == "detailError"{
+            print("error")
+        }else if code == "reportError"{
             print("error")
         }
     }
