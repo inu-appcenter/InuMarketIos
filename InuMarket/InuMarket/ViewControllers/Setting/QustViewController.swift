@@ -24,9 +24,12 @@ class QustViewController: UIViewController {
             errorLabel.isHidden = true
             
             let alertController = UIAlertController(title: "전송! 전전송송! 문희문희나문희.", message: "확인을 누르면 전송됩니다.", preferredStyle: UIAlertControllerStyle.alert)
-            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
-                self.model?.report(kind: "moonHee", senderId: self.appDelegate.userInfo!.id!, context: self.qustTextView.text!)
+            let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) {
+                (_) in
+                self.view.makeToastActivity(.center)
                 
+                self.model?.moonHee(kind: "moonHee", senderId: (self.appDelegate.userInfo!.id!), context: self.qustTextView.text!)
+//                self.complete()
                 
             }
             
@@ -41,7 +44,7 @@ class QustViewController: UIViewController {
     
     private func complete() {
         
-        let alert2 = UIAlertController(title: "상품 신고가 완료되었습니다.", message: nil, preferredStyle: .alert)
+        let alert2 = UIAlertController(title: "제품 문의가 완료되었습니다.", message: nil, preferredStyle: .alert)
         let ok = UIAlertAction(title: "확인", style: .default) {
             (_) in
             self.navigationController?.popViewController(animated: true)
@@ -54,6 +57,8 @@ class QustViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         initializing()
+        model = NetworkModel(self)
+
     }
 
     override func didReceiveMemoryWarning() {

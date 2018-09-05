@@ -395,7 +395,7 @@ class NetworkModel{
     }
     
 //     문의, 신고 하기
-    func report(kind:String, senderId:String, context:String){
+    func moonHee(kind:String, senderId:String, context:String){
         let header = ["Content-Type" : "application/x-www-form-urlencoded",
                       "x-access-token" : "\(self.appDelegate.userInfo?.token!)"]
         let params = ["kind":kind ,
