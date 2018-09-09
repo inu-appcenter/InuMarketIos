@@ -21,32 +21,32 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     // 판매중 판매중 상품
     var sellSellLetter:[LetterList] = []{
         didSet {
-            if self.letterTableView != nil {
-                self.letterTableView.reloadData()
+            if self.sellView != nil {
+                self.sellView.reloadData()
             }
         }
     }
     // 판매중 판매완료 상품
     var sellEndLetter:[LetterList] = []{
         didSet {
-            if self.letterTableView != nil {
-                self.letterTableView.reloadData()
+            if self.sellView != nil {
+                self.sellView.reloadData()
             }
         }
     }
     // 구매중 판매중 상품
     var buySellLetter:[LetterList] = []{
         didSet {
-            if self.letterTableView != nil {
-                self.letterTableView.reloadData()
+            if self.buyView != nil {
+                self.buyView.reloadData()
             }
         }
     }
     // 구매중 판매완료 상품
     var buyEndLetter:[LetterList] = []{
         didSet {
-            if self.letterTableView != nil {
-                self.letterTableView.reloadData()
+            if self.buyView != nil {
+                self.buyView.reloadData()
             }
         }
     }
@@ -54,21 +54,31 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     var model : NetworkModel?
     let appDelegate = UIApplication.shared.delegate as! AppDelegate
 
-    
     //MARK: IBOutlet
     @IBOutlet weak var letterSegmentedControl: BetterSegmentedControl!
-    @IBOutlet var letterTableView: ExpandableTableView!
+    @IBOutlet weak var sellView: ExpandableTableView!
+    @IBOutlet weak var buyView: ExpandableTableView!
+    
     
     //MARK: IBAction
     @IBAction func changedSegmentedControl(_ sender: BetterSegmentedControl) {
-        letterTableView.reloadData {
-            self.letterTableView.closeAll()
+        switch sender.index {
+        case 0:
+            sellView.isHidden = false
+            buyView.isHidden = true
+        case 1:
+            sellView.isHidden = true
+            buyView.isHidden = false
+        default: break
         }
     }
-    
+
     //MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        sellView.isHidden = false
+        buyView.isHidden = true
 
         model = NetworkModel(self)
         model?.letterList(id: (self.appDelegate.userInfo?.id)!)
@@ -87,14 +97,21 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
         letterSegmentedControl.layer.masksToBounds = false
         letterSegmentedControl.layer.shadowOffset = CGSize(width: 0, height: 1)
         
-        letterTableView.expandableDelegate = self
-        letterTableView.animation = .automatic
-        letterTableView.register(UINib(nibName: LetterListTableViewCell.ID, bundle: nil), forCellReuseIdentifier: LetterListTableViewCell.ID)
-        letterTableView.register(UINib(nibName: LetterContentTableViewCell.ID, bundle: nil), forCellReuseIdentifier: LetterContentTableViewCell.ID)
+        sellView.expandableDelegate = self
+        sellView.animation = .automatic
+        sellView.register(UINib(nibName: LetterListTableViewCell.ID, bundle: nil), forCellReuseIdentifier: LetterListTableViewCell.ID)
+        sellView.register(UINib(nibName: LetterContentTableViewCell.ID, bundle: nil), forCellReuseIdentifier: LetterContentTableViewCell.ID)
+        sellView.tableFooterView = UIView()
+        sellView.closeAll()
+        sellView.reloadData()
         
-        letterTableView.tableFooterView = UIView()
-        letterTableView.closeAll()
-        letterTableView.reloadData()
+        buyView.expandableDelegate = self
+        buyView.animation = .automatic
+        buyView.register(UINib(nibName: LetterListTableViewCell.ID, bundle: nil), forCellReuseIdentifier: LetterListTableViewCell.ID)
+        buyView.register(UINib(nibName: LetterContentTableViewCell.ID, bundle: nil), forCellReuseIdentifier: LetterContentTableViewCell.ID)
+        buyView.tableFooterView = UIView()
+        buyView.closeAll()
+        buyView.reloadData()
     }
     
     //MARK: Methods
@@ -135,13 +152,13 @@ class LetterBoxViewController: UIViewController, MFMessageComposeViewControllerD
     }
     
     @objc private func cancelTapped() {
-        letterTableView.close(at: index)
+        sellView.close(at: index)
+        buyView.close(at: index)
     }
     
     func messageComposeViewController(_ controller: MFMessageComposeViewController, didFinishWith result: MessageComposeResult) {
         self.dismiss(animated: true, completion: nil)
     }
-
 }
 
 extension LetterBoxViewController: ExpandableDelegate {
@@ -155,7 +172,8 @@ extension LetterBoxViewController: ExpandableDelegate {
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, expandedCellsForRowAt indexPath: IndexPath) -> [UITableViewCell]? {
-        let cell = letterTableView.dequeueReusableCell(withIdentifier: LetterContentTableViewCell.ID) as! LetterContentTableViewCell
+        let sellCell = sellView.dequeueReusableCell(withIdentifier: LetterContentTableViewCell.ID) as! LetterContentTableViewCell
+        let buyCell = buyView.dequeueReusableCell(withIdentifier: LetterContentTableViewCell.ID) as! LetterContentTableViewCell
         
         switch indexPath.section {
         case 0:
@@ -163,41 +181,52 @@ extension LetterBoxViewController: ExpandableDelegate {
 //                sellSellLetter
                 name = self.sellSellLetter[indexPath.row].senderName!
                 number = self.sellSellLetter[indexPath.row].senderPhone!
-                cell.nameLabel.text = "구매자 이름 : \(name)"
-                cell.phoneNumLabel.text = "전화번호 : \(number)"
+                sellCell.nameLabel.text = "구매자 이름 : \(name)"
+                sellCell.phoneNumLabel.text = "전화번호 : \(number)"
+                index = indexPath
+                sellCell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
+                sellCell.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+                sellCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                return [sellCell]
             }else {
 //                buySellLetter
                 name = self.buySellLetter[indexPath.row].senderName!
                 number = self.buySellLetter[indexPath.row].senderPhone!
-                cell.nameLabel.text = "판매자 이름 : \(name)"
-                cell.phoneNumLabel.text = "전화번호 : \(number)"
+                buyCell.nameLabel.text = "판매자 이름 : \(name)"
+                buyCell.phoneNumLabel.text = "전화번호 : \(number)"
+                index = indexPath
+                buyCell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
+                buyCell.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+                buyCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                return [buyCell]
             }
-            break
         case 1:
             if letterSegmentedControl.index == 0{
 //                sellEndLetter
                 name = self.sellEndLetter[indexPath.row].senderName!
                 number = self.sellEndLetter[indexPath.row].senderPhone!
-
-                cell.nameLabel.text = "구매자 이름 : \(name)"
-                cell.phoneNumLabel.text = "전화번호 : \(number)"
+                sellCell.nameLabel.text = "구매자 이름 : \(name)"
+                sellCell.phoneNumLabel.text = "전화번호 : \(number)"
+                index = indexPath
+                sellCell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
+                sellCell.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+                sellCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                return [sellCell]
             }else {
 //                buyEndLetter
                 name = self.buyEndLetter[indexPath.row].senderName!
                 number = self.buyEndLetter[indexPath.row].senderPhone!
-
-                cell.nameLabel.text = "판매자 이름 : \(name)"
-                cell.phoneNumLabel.text = "전화번호 : \(number)"
+                buyCell.nameLabel.text = "판매자 이름 : \(name)"
+                buyCell.phoneNumLabel.text = "전화번호 : \(number)"
+                index = indexPath
+                buyCell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
+                buyCell.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
+                buyCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                return [buyCell]
             }
-            break
         default:
-            break
+            return [buyCell]
         }
-        index = indexPath
-        cell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
-        cell.cancelButton.addTarget(self, action: #selector(cancelTapped), for: .touchUpInside)
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        return [cell]
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -227,101 +256,106 @@ extension LetterBoxViewController: ExpandableDelegate {
         }
     }
     func expandableTableView(_ expandableTableView: ExpandableTableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        guard let cell: LetterListTableViewCell = expandableTableView.dequeueReusableCell(withIdentifier: LetterListTableViewCell.ID) as? LetterListTableViewCell else { return UITableViewCell() }
+        guard let sellCell: LetterListTableViewCell = sellView.dequeueReusableCell(withIdentifier: LetterListTableViewCell.ID) as? LetterListTableViewCell else { return UITableViewCell() }
+        guard let buyCell: LetterListTableViewCell = buyView.dequeueReusableCell(withIdentifier: LetterListTableViewCell.ID) as? LetterListTableViewCell else { return UITableViewCell() }
+        
         if letterSegmentedControl.index == 0 {
             if indexPath.section == 0{
-                cell.backgroundColor = UIColor.white
-                cell.endTitle.isHidden = true
-                cell.letterTitle.text = sellSellLetter[indexPath.row].productName
-
+                sellCell.backgroundColor = UIColor.white
+                sellCell.endTitle.isHidden = true
+                sellCell.letterTitle.text = sellSellLetter[indexPath.row].productName
                 category = sellSellLetter[indexPath.row].productCategory!
                 switch category.first{
-                case "책": cell.letterImg.image = UIImage(named: "book")
+                case "책": sellCell.letterImg.image = UIImage(named: "book")
                     break
-                case "의": cell.letterImg.image = UIImage(named: "cloth")
+                case "의": sellCell.letterImg.image = UIImage(named: "cloth")
                     break
-                case "가": cell.letterImg.image = UIImage(named: "electirc")
+                case "가": sellCell.letterImg.image = UIImage(named: "electirc")
                     break
-                case "잡": cell.letterImg.image = UIImage(named: "etc")
+                case "잡": sellCell.letterImg.image = UIImage(named: "etc")
                     break
-                case "원": cell.letterImg.image = UIImage(named: "room")
+                case "원": sellCell.letterImg.image = UIImage(named: "room")
                     break
-                case "식": cell.letterImg.image = UIImage(named: "food")
+                case "식": sellCell.letterImg.image = UIImage(named: "food")
                     break
-                default: cell.letterImg.image = UIImage(named: "X")
+                default: sellCell.letterImg.image = UIImage(named: "X")
                     break
                 }
-                
+                sellCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                return sellCell
             }else {
-            cell.backgroundColor = UIColor.lightGray
-                cell.endTitle.isHidden = false
-            cell.letterTitle.text = sellEndLetter[indexPath.row].productName
+                sellCell.backgroundColor = UIColor.lightGray
+                sellCell.endTitle.isHidden = false
+                sellCell.letterTitle.text = sellEndLetter[indexPath.row].productName
                 category = sellEndLetter[indexPath.row].productCategory!
                 switch category.first{
-                case "책": cell.letterImg.image = UIImage(named: "book")
+                case "책": sellCell.letterImg.image = UIImage(named: "book")
                     break
-                case "의": cell.letterImg.image = UIImage(named: "cloth")
+                case "의": sellCell.letterImg.image = UIImage(named: "cloth")
                     break
-                case "가": cell.letterImg.image = UIImage(named: "electirc")
+                case "가": sellCell.letterImg.image = UIImage(named: "electirc")
                     break
-                case "잡": cell.letterImg.image = UIImage(named: "etc")
+                case "잡": sellCell.letterImg.image = UIImage(named: "etc")
                     break
-                case "원": cell.letterImg.image = UIImage(named: "room")
+                case "원": sellCell.letterImg.image = UIImage(named: "room")
                     break
-                case "식": cell.letterImg.image = UIImage(named: "food")
+                case "식": sellCell.letterImg.image = UIImage(named: "food")
                     break
-                default: cell.letterImg.image = UIImage(named: "X")
+                default: sellCell.letterImg.image = UIImage(named: "X")
                     break
                 }
+                sellCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                return sellCell
             }
         } else {
             if indexPath.section == 0{
-                cell.backgroundColor = UIColor.white
-                cell.endTitle.isHidden = true
-            
-            cell.letterTitle.text = buySellLetter[indexPath.row].productName
+                buyCell.backgroundColor = UIColor.white
+                buyCell.endTitle.isHidden = true
+                buyCell.letterTitle.text = buySellLetter[indexPath.row].productName
                 category = buySellLetter[indexPath.row].productCategory!
                 switch category.first{
-                case "책": cell.letterImg.image = UIImage(named: "book")
+                case "책": buyCell.letterImg.image = UIImage(named: "book")
                     break
-                case "의": cell.letterImg.image = UIImage(named: "cloth")
+                case "의": buyCell.letterImg.image = UIImage(named: "cloth")
                     break
-                case "가": cell.letterImg.image = UIImage(named: "electirc")
+                case "가": buyCell.letterImg.image = UIImage(named: "electirc")
                     break
-                case "잡": cell.letterImg.image = UIImage(named: "etc")
+                case "잡": buyCell.letterImg.image = UIImage(named: "etc")
                     break
-                case "원": cell.letterImg.image = UIImage(named: "room")
+                case "원": buyCell.letterImg.image = UIImage(named: "room")
                     break
-                case "식": cell.letterImg.image = UIImage(named: "food")
+                case "식": buyCell.letterImg.image = UIImage(named: "food")
                     break
-                default: cell.letterImg.image = UIImage(named: "X")
+                default: buyCell.letterImg.image = UIImage(named: "X")
                     break
                 }
+                buyCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                return buyCell
             } else{
-                cell.backgroundColor = UIColor.lightGray
-                cell.endTitle.isHidden = false
-                cell.letterTitle.text = buyEndLetter[indexPath.row].productName
+                buyCell.backgroundColor = UIColor.lightGray
+                buyCell.endTitle.isHidden = false
+                buyCell.letterTitle.text = buyEndLetter[indexPath.row].productName
                 category = buyEndLetter[indexPath.row].productCategory!
                 switch category.first{
-                case "책": cell.letterImg.image = UIImage(named: "book")
+                case "책": buyCell.letterImg.image = UIImage(named: "book")
                     break
-                case "의": cell.letterImg.image = UIImage(named: "cloth")
+                case "의": buyCell.letterImg.image = UIImage(named: "cloth")
                     break
-                case "가": cell.letterImg.image = UIImage(named: "electirc")
+                case "가": buyCell.letterImg.image = UIImage(named: "electirc")
                     break
-                case "잡": cell.letterImg.image = UIImage(named: "etc")
+                case "잡": buyCell.letterImg.image = UIImage(named: "etc")
                     break
-                case "원": cell.letterImg.image = UIImage(named: "room")
+                case "원": buyCell.letterImg.image = UIImage(named: "room")
                     break
-                case "식": cell.letterImg.image = UIImage(named: "food")
+                case "식": buyCell.letterImg.image = UIImage(named: "food")
                     break
-                default: cell.letterImg.image = UIImage(named: "X")
+                default: buyCell.letterImg.image = UIImage(named: "X")
                     break
                 }
+                buyCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
+                return buyCell
             }
         }
-        cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
-        return cell
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAt indexPath: IndexPath) {
