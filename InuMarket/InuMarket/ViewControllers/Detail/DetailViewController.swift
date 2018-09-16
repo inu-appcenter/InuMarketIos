@@ -107,6 +107,7 @@ class DetailViewController: UIViewController {
         sendLetterVC.sellerId = (self.detailList?.sellerId)!
         sendLetterVC.productId = (self.detailList?.productId)!
         sendLetterVC.category = (self.detailList?.category)!
+        sendLetterVC.modalPresentationStyle = .overCurrentContext
         self.present(sendLetterVC, animated: true, completion: nil)
     }
     

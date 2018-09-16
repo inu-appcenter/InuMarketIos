@@ -61,6 +61,8 @@
 		CB302E30211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E2F211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift */; };
 		CB302E33211C99DA00C95E0D /* SendLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB302E32211C99DA00C95E0D /* SendLetterViewController.swift */; };
 		CB3DCBF72127D8A4009EF084 /* OtherProductViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB3DCBF62127D8A4009EF084 /* OtherProductViewController.swift */; };
+		CB5A43A7214E3B1F002EACC6 /* sellLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5A43A6214E3B1F002EACC6 /* sellLetterViewController.swift */; };
+		CB5A43A9214E3B30002EACC6 /* buyLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5A43A8214E3B30002EACC6 /* buyLetterViewController.swift */; };
 		CB7A08AF211DDB4D00573BB5 /* CheckLetterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB7A08AE211DDB4D00573BB5 /* CheckLetterViewController.swift */; };
 		CBA00417211AA91400B62390 /* BannerCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */; };
 		CBA00419211AA91D00B62390 /* LetterCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */; };
@@ -135,6 +137,8 @@
 		CB302E2F211C8CEB00C95E0D /* DetailFooterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFooterCollectionViewCell.swift; sourceTree = "<group>"; };
 		CB302E32211C99DA00C95E0D /* SendLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendLetterViewController.swift; sourceTree = "<group>"; };
 		CB3DCBF62127D8A4009EF084 /* OtherProductViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OtherProductViewController.swift; sourceTree = "<group>"; };
+		CB5A43A6214E3B1F002EACC6 /* sellLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sellLetterViewController.swift; sourceTree = "<group>"; };
+		CB5A43A8214E3B30002EACC6 /* buyLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = buyLetterViewController.swift; sourceTree = "<group>"; };
 		CB7A08AE211DDB4D00573BB5 /* CheckLetterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckLetterViewController.swift; sourceTree = "<group>"; };
 		CBA00416211AA91400B62390 /* BannerCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BannerCollectionViewCell.swift; sourceTree = "<group>"; };
 		CBA00418211AA91D00B62390 /* LetterCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LetterCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -341,6 +345,8 @@
 				C85A36B620F1ED4F008D4362 /* MainViewController.swift */,
 				CBF90DCA21249F6B007D0937 /* tableCell */,
 				CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */,
+				CB5A43A8214E3B30002EACC6 /* buyLetterViewController.swift */,
+				CB5A43A6214E3B1F002EACC6 /* sellLetterViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -554,6 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CB5A43A7214E3B1F002EACC6 /* sellLetterViewController.swift in Sources */,
 				C850EEF820F652CC002068F1 /* NetworkModel.swift in Sources */,
 				C8200E3A20F3398C0094E917 /* UploadCategoryTableViewCell.swift in Sources */,
 				CB3DCBF72127D8A4009EF084 /* OtherProductViewController.swift in Sources */,
@@ -579,6 +586,7 @@
 				C8235A92211F3F710047AA70 /* UploadPreViewController.swift in Sources */,
 				CBF90DD12124A381007D0937 /* LetterContentTableViewCell.swift in Sources */,
 				C8AC9CB221246C60007F7FA1 /* CategoryProductViewController.swift in Sources */,
+				CB5A43A9214E3B30002EACC6 /* buyLetterViewController.swift in Sources */,
 				C8200E3820F338FC0094E917 /* UploadCategoryViewController.swift in Sources */,
 				C8725F2321189468004FD049 /* ChangePasswordViewController.swift in Sources */,
 				CB302E33211C99DA00C95E0D /* SendLetterViewController.swift in Sources */,

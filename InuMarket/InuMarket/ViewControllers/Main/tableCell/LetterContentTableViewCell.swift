@@ -15,9 +15,7 @@ class LetterContentTableViewCell: UITableViewCell {
 
     @IBOutlet var nameLabel: UILabel!
     @IBOutlet var phoneNumLabel: UILabel!
-    @IBOutlet var buttonStackView: UIStackView!
     @IBOutlet var contactButton: UIButton!
-    @IBOutlet var cancelButton: UIButton!
     
     public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -31,8 +29,7 @@ class LetterContentTableViewCell: UITableViewCell {
         super.awakeFromNib()
         self.selectionStyle = .none
         
-        buttonStackView.layer.addBorder([.top], color: #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9607843137, alpha: 1), width: 1)
-        cancelButton.layer.addBorder([.left], color: #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9607843137, alpha: 1), width: 1)
+        contactButton.layer.addBorder([.top], color: #colorLiteral(red: 0.9529411765, green: 0.9529411765, blue: 0.9607843137, alpha: 1), width: 1)
     }
 
 //    override func setSelected(_ selected: Bool, animated: Bool) {

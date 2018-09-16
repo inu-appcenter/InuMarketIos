@@ -38,41 +38,28 @@
                             </label>
                         </subviews>
                     </stackView>
-                    <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="F1S-mX-qKa">
-                        <rect key="frame" x="0.0" y="95.5" width="375" height="56"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-hc-8mg">
-                                <rect key="frame" x="0.0" y="0.0" width="187.5" height="56"/>
-                                <state key="normal" title="연락하기">
-                                    <color key="titleColor" name="gunmetal"/>
-                                </state>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z53-ka-qPK">
-                                <rect key="frame" x="187.5" y="0.0" width="187.5" height="56"/>
-                                <state key="normal" title="접기">
-                                    <color key="titleColor" name="gunmetal"/>
-                                </state>
-                            </button>
-                        </subviews>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gOV-hc-8mg">
+                        <rect key="frame" x="0.0" y="95" width="375" height="56"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="56" id="r1w-q2-x9A"/>
+                            <constraint firstAttribute="height" constant="56" id="3bt-pv-lO0"/>
                         </constraints>
-                    </stackView>
+                        <state key="normal" title="연락하기">
+                            <color key="titleColor" name="gunmetal"/>
+                        </state>
+                    </button>
                 </subviews>
                 <constraints>
                     <constraint firstItem="7Ld-9x-fHa" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.7:1" id="GoM-UU-ByX"/>
+                    <constraint firstItem="gOV-hc-8mg" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="LHd-j5-6ln"/>
+                    <constraint firstAttribute="bottom" secondItem="gOV-hc-8mg" secondAttribute="bottom" id="N3b-O3-bX4"/>
+                    <constraint firstAttribute="trailing" secondItem="gOV-hc-8mg" secondAttribute="trailing" id="X05-mr-dDd"/>
                     <constraint firstAttribute="trailing" secondItem="7Ld-9x-fHa" secondAttribute="trailing" constant="20" id="YJM-Mb-ENu"/>
-                    <constraint firstItem="F1S-mX-qKa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" id="jfS-dB-OxG"/>
                     <constraint firstItem="7Ld-9x-fHa" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="mVo-f1-0jV"/>
-                    <constraint firstAttribute="trailing" secondItem="F1S-mX-qKa" secondAttribute="trailing" id="nMx-gS-cLq"/>
-                    <constraint firstItem="F1S-mX-qKa" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="rcR-7G-AXf"/>
-                    <constraint firstAttribute="bottom" secondItem="F1S-mX-qKa" secondAttribute="bottom" id="ybj-Fd-foZ"/>
+                    <constraint firstItem="gOV-hc-8mg" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" id="wRJ-hW-zL6"/>
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
-                <outlet property="buttonStackView" destination="F1S-mX-qKa" id="RIU-lc-de8"/>
-                <outlet property="cancelButton" destination="z53-ka-qPK" id="ZIp-6u-AB9"/>
                 <outlet property="contactButton" destination="gOV-hc-8mg" id="Nne-JN-f6b"/>
                 <outlet property="nameLabel" destination="XS1-ur-ReH" id="FBr-47-fDj"/>
                 <outlet property="phoneNumLabel" destination="EKW-yD-W2q" id="WfP-4U-PNg"/>

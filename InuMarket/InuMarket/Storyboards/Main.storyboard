@@ -283,16 +283,16 @@
                                     <action selector="changedSegmentedControl:" destination="DAE-pm-Mig" eventType="valueChanged" id="r95-EL-fa8"/>
                                 </connections>
                             </view>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8W-Fd-18f" customClass="ExpandableTableView" customModule="ExpandableCell">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="c8W-Fd-18f">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <connections>
-                                    <segue destination="ym4-hw-bQK" kind="embed" id="58f-x5-kZZ"/>
+                                    <segue destination="ym4-hw-bQK" kind="embed" identifier="sellSeg" id="58f-x5-kZZ"/>
                                 </connections>
                             </containerView>
-                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQt-RR-OaO" customClass="ExpandableTableView" customModule="ExpandableCell">
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pQt-RR-OaO">
                                 <rect key="frame" x="0.0" y="80" width="375" height="587"/>
                                 <connections>
-                                    <segue destination="nFU-vl-AMH" kind="embed" id="pzt-gw-ilC"/>
+                                    <segue destination="nFU-vl-AMH" kind="embed" identifier="buySeg" id="pzt-gw-ilC"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -314,9 +314,9 @@
                         <viewLayoutGuide key="safeArea" id="bgT-HQ-QZO"/>
                     </view>
                     <connections>
-                        <outlet property="buyView" destination="pQt-RR-OaO" id="pc6-0N-SK5"/>
+                        <outlet property="buyView" destination="pQt-RR-OaO" id="aDD-UL-Fai"/>
                         <outlet property="letterSegmentedControl" destination="hCm-SQ-niU" id="HNg-U6-Lee"/>
-                        <outlet property="sellView" destination="c8W-Fd-18f" id="hRV-c8-0S1"/>
+                        <outlet property="sellView" destination="c8W-Fd-18f" id="6BU-cf-uoe"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sCc-D7-Aky" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -349,10 +349,10 @@
             </objects>
             <point key="canvasLocation" x="1338" y="535"/>
         </scene>
-        <!--View Controller-->
+        <!--Sell Letter View Controller-->
         <scene sceneID="B1f-rw-zVX">
             <objects>
-                <viewController id="ym4-hw-bQK" sceneMemberID="viewController">
+                <viewController id="ym4-hw-bQK" customClass="sellLetterViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="p15-59-1Jc">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -405,23 +405,23 @@
                                             <outlet property="letterTitle" destination="7jJ-Ld-6J2" id="ayc-tP-dX5"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LetterContentTableViewCell" rowHeight="152" id="nYE-er-w9f" customClass="LetterContentTableViewCell" customModule="InuMarket" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LetterContentTableViewCell" rowHeight="152" id="8tX-rT-xWY" customClass="LetterContentTableViewCell" customModule="InuMarket" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="375" height="152"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="nYE-er-w9f" id="2Tg-cP-BoO">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="8tX-rT-xWY" id="rmY-H2-VoL">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="151.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Wtu-LB-4ZO">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="utE-Au-W05">
                                                     <rect key="frame" x="20" y="31" width="335" height="44"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매자 이름 : 김대섭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="c7r-bq-oqK">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매자 이름 : 김대섭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0M-Qy-H6q">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호 : 010-0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oAv-AB-z25">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호 : 010-0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FNH-vf-Pmo">
                                                             <rect key="frame" x="0.0" y="24.5" width="187.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -429,44 +429,31 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="g3M-Lr-nYX">
-                                                    <rect key="frame" x="0.0" y="95.5" width="375" height="56"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EHS-3b-TIG">
-                                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="56"/>
-                                                            <state key="normal" title="연락하기">
-                                                                <color key="titleColor" name="gunmetal"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g2U-Xr-hSB">
-                                                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="56"/>
-                                                            <state key="normal" title="접기">
-                                                                <color key="titleColor" name="gunmetal"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7W-5w-T8n">
+                                                    <rect key="frame" x="0.0" y="95" width="375" height="56"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="56" id="hxf-lE-oKJ"/>
+                                                        <constraint firstAttribute="height" constant="56" id="rgw-H5-AYI"/>
                                                     </constraints>
-                                                </stackView>
+                                                    <state key="normal" title="연락하기">
+                                                        <color key="titleColor" name="gunmetal"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="Wtu-LB-4ZO" secondAttribute="trailing" constant="20" id="80t-6m-Trg"/>
-                                                <constraint firstItem="Wtu-LB-4ZO" firstAttribute="centerY" secondItem="2Tg-cP-BoO" secondAttribute="centerY" multiplier="0.7:1" id="DQI-i7-fKt"/>
-                                                <constraint firstItem="g3M-Lr-nYX" firstAttribute="leading" secondItem="2Tg-cP-BoO" secondAttribute="leading" id="MJQ-X0-Bdo"/>
-                                                <constraint firstItem="g3M-Lr-nYX" firstAttribute="width" secondItem="2Tg-cP-BoO" secondAttribute="width" id="Wx3-jg-KLs"/>
-                                                <constraint firstAttribute="trailing" secondItem="g3M-Lr-nYX" secondAttribute="trailing" id="gQ2-vS-a1t"/>
-                                                <constraint firstItem="Wtu-LB-4ZO" firstAttribute="leading" secondItem="2Tg-cP-BoO" secondAttribute="leading" constant="20" id="pey-71-Gbl"/>
-                                                <constraint firstAttribute="bottom" secondItem="g3M-Lr-nYX" secondAttribute="bottom" id="psx-kp-MAw"/>
+                                                <constraint firstAttribute="trailing" secondItem="G7W-5w-T8n" secondAttribute="trailing" id="2D4-Aw-dt7"/>
+                                                <constraint firstItem="utE-Au-W05" firstAttribute="leading" secondItem="rmY-H2-VoL" secondAttribute="leading" constant="20" id="3Rj-EA-RPO"/>
+                                                <constraint firstAttribute="trailing" secondItem="utE-Au-W05" secondAttribute="trailing" constant="20" id="9ry-Yf-2I2"/>
+                                                <constraint firstItem="G7W-5w-T8n" firstAttribute="width" secondItem="rmY-H2-VoL" secondAttribute="width" id="AiR-sg-bMs"/>
+                                                <constraint firstItem="utE-Au-W05" firstAttribute="centerY" secondItem="rmY-H2-VoL" secondAttribute="centerY" multiplier="0.7:1" id="Cht-oU-XER"/>
+                                                <constraint firstItem="G7W-5w-T8n" firstAttribute="leading" secondItem="rmY-H2-VoL" secondAttribute="leading" id="gUd-Eo-2pA"/>
+                                                <constraint firstAttribute="bottom" secondItem="G7W-5w-T8n" secondAttribute="bottom" id="mxj-4L-xvE"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <viewLayoutGuide key="safeArea" id="TCT-YY-SFW"/>
+                                        <viewLayoutGuide key="safeArea" id="rfx-gq-KLv"/>
                                         <connections>
-                                            <outlet property="buttonStackView" destination="g3M-Lr-nYX" id="DZb-Qr-aD0"/>
-                                            <outlet property="cancelButton" destination="g2U-Xr-hSB" id="YLg-7V-JMc"/>
-                                            <outlet property="contactButton" destination="EHS-3b-TIG" id="vXP-y2-glT"/>
-                                            <outlet property="nameLabel" destination="c7r-bq-oqK" id="qa4-bZ-MTd"/>
-                                            <outlet property="phoneNumLabel" destination="oAv-AB-z25" id="R2a-db-8Xg"/>
+                                            <outlet property="contactButton" destination="G7W-5w-T8n" id="HbV-Ff-Pb7"/>
+                                            <outlet property="nameLabel" destination="k0M-Qy-H6q" id="jLn-Ll-M3k"/>
+                                            <outlet property="phoneNumLabel" destination="FNH-vf-Pmo" id="ppn-on-qtS"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -481,15 +468,18 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="FTM-xK-G6J"/>
                     </view>
+                    <connections>
+                        <outlet property="sellView" destination="OOZ-lG-o9z" id="mYy-8f-pwc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GjC-Qu-caP" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876" y="732.68365817091455"/>
+            <point key="canvasLocation" x="2937" y="1273"/>
         </scene>
-        <!--View Controller-->
+        <!--Buy Letter View Controller-->
         <scene sceneID="xmp-Tn-kBs">
             <objects>
-                <viewController id="nFU-vl-AMH" sceneMemberID="viewController">
+                <viewController id="nFU-vl-AMH" customClass="buyLetterViewController" customModule="InuMarket" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="x7l-q0-Ecm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="587"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -542,23 +532,23 @@
                                             <outlet property="letterTitle" destination="F7f-2h-Mn3" id="pr1-Gp-pgC"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LetterContentTableViewCell" rowHeight="152" id="bab-9q-YeU" customClass="LetterContentTableViewCell" customModule="InuMarket" customModuleProvider="target">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="LetterContentTableViewCell" rowHeight="152" id="PV8-J6-HhU" customClass="LetterContentTableViewCell" customModule="InuMarket" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="80" width="375" height="152"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="bab-9q-YeU" id="oIF-Jz-hz5">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="PV8-J6-HhU" id="3db-Rp-ZVv">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="151.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="bRh-pY-S13">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5db-rZ-sE3">
                                                     <rect key="frame" x="20" y="31" width="335" height="44"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매자 이름 : 김대섭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VoF-hC-d98">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매자 이름 : 김대섭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMP-nO-zpN">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호 : 010-0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TwP-jK-mzJ">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="전화번호 : 010-0000-0000" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYD-L6-26D">
                                                             <rect key="frame" x="0.0" y="24.5" width="187.5" height="19.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                                             <nil key="textColor"/>
@@ -566,44 +556,31 @@
                                                         </label>
                                                     </subviews>
                                                 </stackView>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2ZF-ik-inf">
-                                                    <rect key="frame" x="0.0" y="95.5" width="375" height="56"/>
-                                                    <subviews>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W4H-MR-Yph">
-                                                            <rect key="frame" x="0.0" y="0.0" width="187.5" height="56"/>
-                                                            <state key="normal" title="연락하기">
-                                                                <color key="titleColor" name="gunmetal"/>
-                                                            </state>
-                                                        </button>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h7h-5U-M7n">
-                                                            <rect key="frame" x="187.5" y="0.0" width="187.5" height="56"/>
-                                                            <state key="normal" title="접기">
-                                                                <color key="titleColor" name="gunmetal"/>
-                                                            </state>
-                                                        </button>
-                                                    </subviews>
+                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgS-rA-Uco">
+                                                    <rect key="frame" x="0.0" y="95" width="375" height="56"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="56" id="5pN-iX-gl7"/>
+                                                        <constraint firstAttribute="height" constant="56" id="26A-t2-739"/>
                                                     </constraints>
-                                                </stackView>
+                                                    <state key="normal" title="연락하기">
+                                                        <color key="titleColor" name="gunmetal"/>
+                                                    </state>
+                                                </button>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="bRh-pY-S13" firstAttribute="leading" secondItem="oIF-Jz-hz5" secondAttribute="leading" constant="20" id="2VL-am-rmm"/>
-                                                <constraint firstAttribute="bottom" secondItem="2ZF-ik-inf" secondAttribute="bottom" id="GwI-o0-1dC"/>
-                                                <constraint firstItem="bRh-pY-S13" firstAttribute="centerY" secondItem="oIF-Jz-hz5" secondAttribute="centerY" multiplier="0.7:1" id="HNg-hl-ksV"/>
-                                                <constraint firstAttribute="trailing" secondItem="bRh-pY-S13" secondAttribute="trailing" constant="20" id="JtG-fI-2c7"/>
-                                                <constraint firstItem="2ZF-ik-inf" firstAttribute="width" secondItem="oIF-Jz-hz5" secondAttribute="width" id="LLM-HN-dLr"/>
-                                                <constraint firstAttribute="trailing" secondItem="2ZF-ik-inf" secondAttribute="trailing" id="Typ-Oq-o4K"/>
-                                                <constraint firstItem="2ZF-ik-inf" firstAttribute="leading" secondItem="oIF-Jz-hz5" secondAttribute="leading" id="ldN-qS-7eH"/>
+                                                <constraint firstItem="hgS-rA-Uco" firstAttribute="leading" secondItem="3db-Rp-ZVv" secondAttribute="leading" id="KRu-Qx-EQF"/>
+                                                <constraint firstAttribute="trailing" secondItem="5db-rZ-sE3" secondAttribute="trailing" constant="20" id="TZt-8x-ps6"/>
+                                                <constraint firstItem="5db-rZ-sE3" firstAttribute="leading" secondItem="3db-Rp-ZVv" secondAttribute="leading" constant="20" id="Z9g-oa-Nin"/>
+                                                <constraint firstAttribute="trailing" secondItem="hgS-rA-Uco" secondAttribute="trailing" id="ioI-Jo-HLx"/>
+                                                <constraint firstItem="5db-rZ-sE3" firstAttribute="centerY" secondItem="3db-Rp-ZVv" secondAttribute="centerY" multiplier="0.7:1" id="qrR-8p-kSv"/>
+                                                <constraint firstAttribute="bottom" secondItem="hgS-rA-Uco" secondAttribute="bottom" id="tzR-j9-ddO"/>
+                                                <constraint firstItem="hgS-rA-Uco" firstAttribute="width" secondItem="3db-Rp-ZVv" secondAttribute="width" id="uAM-yg-STX"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <viewLayoutGuide key="safeArea" id="hzt-7V-DJg"/>
+                                        <viewLayoutGuide key="safeArea" id="KFf-lb-ob3"/>
                                         <connections>
-                                            <outlet property="buttonStackView" destination="2ZF-ik-inf" id="faT-a3-kJe"/>
-                                            <outlet property="cancelButton" destination="h7h-5U-M7n" id="Jbr-Pm-rwv"/>
-                                            <outlet property="contactButton" destination="W4H-MR-Yph" id="8Sp-Jj-R3F"/>
-                                            <outlet property="nameLabel" destination="VoF-hC-d98" id="Tp8-iD-Kgs"/>
-                                            <outlet property="phoneNumLabel" destination="TwP-jK-mzJ" id="0mC-dv-yn2"/>
+                                            <outlet property="contactButton" destination="hgS-rA-Uco" id="mth-LT-BYK"/>
+                                            <outlet property="nameLabel" destination="tMP-nO-zpN" id="OqP-Oy-q42"/>
+                                            <outlet property="phoneNumLabel" destination="eYD-L6-26D" id="2Ny-O9-Gxs"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -618,10 +595,13 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="JXv-Of-6vF"/>
                     </view>
+                    <connections>
+                        <outlet property="buyView" destination="mlc-Ox-Rzf" id="oEJ-wJ-gNa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zXp-9U-R7i" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2876" y="1355.1724137931035"/>
+            <point key="canvasLocation" x="2938" y="623"/>
         </scene>
     </scenes>
     <resources>

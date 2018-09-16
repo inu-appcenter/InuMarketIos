@@ -28,6 +28,13 @@ class CheckLetterViewController: UIViewController {
     @IBOutlet weak var theCheatButton: UIButton!
     @IBOutlet weak var doneButtonView: UIView!
     
+    //MARK: IBAction
+    @IBAction func theCheatButtonTapped(_ sender: Any) {
+        if let url = URL(string: "http://www.thecheat.co.kr") {
+            UIApplication.shared.open(url, options: [:])
+        }
+    }
+    
     //MARK: life cycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,4 +60,5 @@ class CheckLetterViewController: UIViewController {
     @objc private func doneTapped(_ gesture: UITapGestureRecognizer) {
         dismiss(animated: true, completion: nil)
     }
+
 }

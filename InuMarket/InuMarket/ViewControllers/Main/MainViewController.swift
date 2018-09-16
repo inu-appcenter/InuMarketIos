@@ -208,17 +208,17 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         }
         //정렬 버튼 추가
         if textFieldActive {
-            cell.sortButton.hideOptions()
-            cell.sortButton.removeFromSuperview()
+//            cell.sortButton.hideOptions()
+//            cell.sortButton.removeFromSuperview()
             
-            cell.createSearchSortButton()
-            productCollectionView.addSubview(cell.sortButton)
+//            cell.createSearchSortButton()
+//            productCollectionView.addSubview(cell.sortButton)
         } else {
-            cell.sortButton.hideOptions()
-            cell.sortButton.removeFromSuperview()
+//            cell.sortButton.hideOptions()
+//            cell.sortButton.removeFromSuperview()
             
-            cell.createSortButton()
-            productCollectionView.addSubview(cell.sortButton)
+//            cell.createSortButton()
+//            productCollectionView.addSubview(cell.sortButton)
         }
         if textFieldActive {
             if searchTextField.hasText {

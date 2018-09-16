@@ -81,6 +81,9 @@ class SendLetterViewController: UIViewController {
                  self.appDelegate.userInfo?.letter = (self.appDelegate.userInfo?.letter)! + 1
                 self.dismiss(animated: false, completion: {
                     checkLetterVC.productImageSlide = self.productImageSlide
+//                    let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//                    appDelegate.window?.rootViewController!.present(checkLetterVC, animated: true, completion: nil)
+                    checkLetterVC.modalPresentationStyle = .overCurrentContext
                     pvc?.present(checkLetterVC, animated: true, completion: nil)
                 })
             } else if self.sendResult?.ans == "duplicate"{
