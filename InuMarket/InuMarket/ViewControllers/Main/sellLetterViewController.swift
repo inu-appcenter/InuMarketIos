@@ -131,7 +131,6 @@ extension sellLetterViewController: ExpandableDelegate {
             number = self.sellSellLetter[indexPath.row].senderPhone!
             sellCell.nameLabel.text = "구매자 이름 : \(name)"
             sellCell.phoneNumLabel.text = "전화번호 : \(number)"
-            index = indexPath
             sellCell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
             sellCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
             return [sellCell]
@@ -141,7 +140,6 @@ extension sellLetterViewController: ExpandableDelegate {
             number = self.sellEndLetter[indexPath.row].senderPhone!
             sellCell.nameLabel.text = "구매자 이름 : \(name)"
             sellCell.phoneNumLabel.text = "전화번호 : \(number)"
-            index = indexPath
             sellCell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
             sellCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
             return [sellCell]

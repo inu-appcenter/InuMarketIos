@@ -131,7 +131,6 @@ extension buyLetterViewController: ExpandableDelegate {
             number = self.buySellLetter[indexPath.row].senderPhone!
             buyCell.nameLabel.text = "구매자 이름 : \(name)"
             buyCell.phoneNumLabel.text = "전화번호 : \(number)"
-            index = indexPath
             buyCell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
             buyCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
             return [buyCell]
@@ -141,7 +140,6 @@ extension buyLetterViewController: ExpandableDelegate {
             number = self.buyEndLetter[indexPath.row].senderPhone!
             buyCell.nameLabel.text = "구매자 이름 : \(name)"
             buyCell.phoneNumLabel.text = "전화번호 : \(number)"
-            index = indexPath
             buyCell.contactButton.addTarget(self, action: #selector(contactTapped), for: .touchUpInside)
             buyCell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
             return [buyCell]
@@ -177,7 +175,7 @@ extension buyLetterViewController: ExpandableDelegate {
                 break
             case "의": buyCell.letterImg.image = UIImage(named: "cloth")
                 break
-            case "가": buyCell.letterImg.image = UIImage(named: "electirc")
+            case "가": buyCell.letterImg.image = UIImage(named: "electric")
                 break
             case "잡": buyCell.letterImg.image = UIImage(named: "etc")
                 break
@@ -200,7 +198,7 @@ extension buyLetterViewController: ExpandableDelegate {
                 break
             case "의": buyCell.letterImg.image = UIImage(named: "cloth")
                 break
-            case "가": buyCell.letterImg.image = UIImage(named: "electirc")
+            case "가": buyCell.letterImg.image = UIImage(named: "electric")
                 break
             case "잡": buyCell.letterImg.image = UIImage(named: "etc")
                 break

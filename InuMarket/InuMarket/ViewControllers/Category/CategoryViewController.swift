@@ -15,6 +15,7 @@ class CategoryViewController: UIViewController {
     let titleCellIdentifier: String = "CategoryTitleTableViewCell"
     let detailCellIdentifier: String = "CategoryDetailTableViewCell"
     
+    var index: IndexPath = []
     
     let titleImg = ["book", "cloth", "electric", "etc", "room", "food"]
     let titleName = ["책", "의류", "가전 / 가구", "잡화", "자취방", "식권"]
@@ -23,7 +24,7 @@ class CategoryViewController: UIViewController {
     let clothCategory = ["전체","여성 의류", "남성 의류", "가방류", "기타"]
     let electricCategory = ["전체","컴퓨터", "스마트폰","태블릿","TV/모니터","책상","의자","매트리스","기타"]
     let etcCategory = ["전체","생활/사무","기타"]
-    let roomCateogry = ["전체","원룸", "투룸","복층","기타"]
+    let roomCategory = ["전체","원룸", "투룸","복층","기타"]
     let foodCategory = ["전체","1번 배식구","2번 배식구","3번 배식구","4번 배식구","5번 배식구","기타"]
     
 
@@ -32,7 +33,6 @@ class CategoryViewController: UIViewController {
     
     //MARK: IBOutlet
     @IBOutlet weak var categoryTableView: ExpandableTableView!
-    
     
     //MARK: IBAction
     
@@ -53,24 +53,28 @@ class CategoryViewController: UIViewController {
 }
 
 extension CategoryViewController: ExpandableDelegate {
+    func numberOfSections(in expandableTableView: ExpandableTableView) -> Int {
+        return 6
+    }
+    
     func expandableTableView(_ expandableTableView: ExpandableTableView, heightsForExpandedRowAt indexPath: IndexPath) -> [CGFloat]? {
         var heightArray = [CGFloat]()
-        switch indexPath.row {
+        switch indexPath.section {
         case 0: for _ in self.bookCategory { heightArray.append(40) }
         case 1: for _ in self.clothCategory { heightArray.append(40) }
         case 2: for _ in self.electricCategory { heightArray.append(40) }
         case 3: for _ in self.etcCategory { heightArray.append(40) }
-        case 4: for _ in self.roomCateogry { heightArray.append(40) }
+        case 4: for _ in self.roomCategory { heightArray.append(40) }
         case 5: for _ in self.foodCategory { heightArray.append(40) }
         default: break
         }
-        print("\(heightArray.count)")
+        print("count : \(heightArray.count)")
         return heightArray
     }
 
     func expandableTableView(_ expandableTableView: ExpandableTableView, expandedCellsForRowAt indexPath: IndexPath) -> [UITableViewCell]? {
         var cellArray = [UITableViewCell]()
-        switch indexPath.row {
+        switch indexPath.section {
         case 0:
             for text in self.bookCategory {
                 let cell: CategoryDetailTableViewCell = categoryTableView.dequeueReusableCell(withIdentifier: detailCellIdentifier) as! CategoryDetailTableViewCell
@@ -108,7 +112,7 @@ extension CategoryViewController: ExpandableDelegate {
             }
             return cellArray
         case 4:
-            for text in self.roomCateogry {
+            for text in self.roomCategory {
                 let cell: CategoryDetailTableViewCell = categoryTableView.dequeueReusableCell(withIdentifier: detailCellIdentifier) as! CategoryDetailTableViewCell
                 cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
                 cell.detailLabel.text = text
@@ -134,29 +138,27 @@ extension CategoryViewController: ExpandableDelegate {
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, numberOfRowsInSection section: Int) -> Int {
-        return 6
+        return 1
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell: CategoryTitleTableViewCell = expandableTableView.dequeueReusableCell(withIdentifier: titleCellIdentifier) as? CategoryTitleTableViewCell else { return UITableViewCell() }
-        cell.categoryImg.image = UIImage(named: "\(titleImg[indexPath.row])")
-        cell.nameLabel.text = titleName[indexPath.row]
+        cell.categoryImg.image = UIImage(named: "\(titleImg[indexPath.section])")
+        cell.nameLabel.text = titleName[indexPath.section]
         cell.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0)
         return cell
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectRowAt indexPath: IndexPath) {
         print("didSelectRow:\(indexPath)")
-        titleCategoryIndex = titleName[indexPath[1]]
-        if titleName[indexPath[1]] == "가전 / 가구"{
+        titleCategoryIndex = titleName[indexPath.section]
+        if titleName[indexPath.section] == "가전 / 가구"{
             titleCategoryIndex = "가전가구"
         }
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, didSelectExpandedRowAt indexPath: IndexPath) {
         print("didSelectExpandedRowAt:\(indexPath)")
-        
-        
     }
     
     func expandableTableView(_ expandableTableView: ExpandableTableView, expandedCell: UITableViewCell, didSelectExpandedRowAt indexPath: IndexPath) {
@@ -177,7 +179,6 @@ extension CategoryViewController: ExpandableDelegate {
         return true
     }
 }
-
 
 extension CategoryViewController{
     func postCategory(changPostCategory:String){
