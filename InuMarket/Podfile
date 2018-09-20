@@ -22,7 +22,6 @@ pod 'DropDown'
 pod "BSImagePicker"
 pod "ImageSlideshow/Kingfisher"
 pod 'ExpandableCell'
-
 pod 'Firebase/Core'
 pod 'Firebase/Messaging'
 

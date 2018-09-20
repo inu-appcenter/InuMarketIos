@@ -91,7 +91,7 @@ extension ReviewViewController{
         self.view.hideToastActivity()
             //2초 지나고 나타날 행동
             if self.signUpResult?.ans == true{
-                let alertController = UIAlertController(title: "회원가입이 완료되었습니다.", message: "이메일 인증완료후 로그인해주세요.", preferredStyle: UIAlertControllerStyle.alert)
+                let alertController = UIAlertController(title: "회원가입이 완료되었습니다.", message: "포탈 이메일 인증완료후 로그인해주세요.", preferredStyle: UIAlertControllerStyle.alert)
                 let okAction = UIAlertAction(title: "확인", style: UIAlertActionStyle.destructive) { (action:UIAlertAction) in
                     self.navigationController?.popToRootViewController(animated: true)
                 }
