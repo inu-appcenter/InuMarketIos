@@ -7,11 +7,12 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class StudentInfoViewController: UIViewController {
 
     @IBOutlet weak var nameErrorLabel: UILabel!
-    @IBOutlet weak var infoErrorLabel: UILabel!
+    
     
     @IBOutlet weak var nameTextField: UITextField!
     
@@ -23,7 +24,7 @@ class StudentInfoViewController: UIViewController {
         
         if nameTextField.text != "" && (idTextField.text?.count)! >= 9 {
             nameErrorLabel.isHidden = true
-            infoErrorLabel.isHidden = true
+            
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetPasswd") as? SetPasswdViewController{
                 vc.id = idTextField.text!
                 vc.name = nameTextField.text!
@@ -31,7 +32,8 @@ class StudentInfoViewController: UIViewController {
             }
         }else{
             nameErrorLabel.isHidden = false
-            infoErrorLabel.isHidden = false
+            self.view.makeToast("* 학생 정보를 입력해야 합니다.")
+
         }
     }
     
@@ -45,7 +47,6 @@ class StudentInfoViewController: UIViewController {
     
     func initializing() {
         nameErrorLabel.isHidden = true
-        infoErrorLabel.isHidden = true
         
         // 다음 버튼에 빨간줄 추가
         let customSubview = UIView(frame: CGRect(x: 0, y: 0, width:  view.bounds.width, height: 2.0))

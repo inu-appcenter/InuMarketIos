@@ -8,11 +8,13 @@
 
 import UIKit
 
+
 class SetPasswdViewController: UIViewController {
 
     var name : String = ""
     var id : String = ""
     
+    @IBOutlet weak var errorLabel: UILabel!
     @IBOutlet weak var passwdTextField: UITextField!
     
     @IBOutlet weak var checkPasswdTextField: UITextField!
@@ -22,6 +24,7 @@ class SetPasswdViewController: UIViewController {
     @IBAction func nextButtonClicked(_ sender: Any) {
         
         if (passwdTextField.text?.count)! >= 8 && passwdTextField.text == checkPasswdTextField.text{
+            errorLabel.isHidden = true
             if let vc = self.storyboard?.instantiateViewController(withIdentifier: "SetPhone") as? SetPhoneViewController{
                 vc.passwd = passwdTextField.text!
                 vc.id = id
@@ -30,6 +33,9 @@ class SetPasswdViewController: UIViewController {
             }
         }else {
             print("ㅗ")
+            errorLabel.isHidden = false
+            passwdTextField.text = ""
+            checkPasswdTextField.text = ""
         }
     }
     
@@ -48,6 +54,7 @@ class SetPasswdViewController: UIViewController {
         customSubview.autoresizingMask = [.flexibleLeftMargin, .flexibleRightMargin]
         //        segmentControl.addSubviewToIndicator(customSubview)
         nextButton.addSubview(customSubview)
+        errorLabel.isHidden = true
     }
 
 }

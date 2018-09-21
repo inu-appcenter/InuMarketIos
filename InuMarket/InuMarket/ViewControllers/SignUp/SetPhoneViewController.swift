@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class SetPhoneViewController: UIViewController {
     
@@ -29,6 +30,7 @@ class SetPhoneViewController: UIViewController {
                 self.navigationController?.show(vc, sender: nil)
             }
         }else{
+            self.view.makeToast("* 휴대폰 번호를 입력 해야 합니다.")
             print("h")
         }
     }

@@ -20,11 +20,11 @@ class UploadSubCategoryViewController: UIViewController,UICollectionViewDelegate
     let electircCategory = ["컴퓨터", "스마트폰","태블릿","TV/모니터","책상","의자","매트리스","기타"]
     let etcCategory = ["생활/사무","기타"]
     let roomCateogry = ["원룸", "투룸","복층","기타"]
-    let foodCategory = ["1번 배식구","2번 배식구","3번 배식구","4번 배식구","5번 배식구","기타"]
+    let foodCategory = ["제 1 기숙사","제 1 기숙사","학생식당","기타"]
     
     let postElectricCategory = ["컴퓨터", "스마트폰","태블릿","TV모니터","책상","의자","매트리스","기타"]
     let postEtcCategory  = ["생활사무","기타"]
-    let postFoodCategory = ["1번배식구","2번배식구","3번배식구","4번배식구","5번배식구","기타"]
+    let postFoodCategory = ["제1기숙사","제2기숙사","학생식당","기타"]
     let postClothCategory = ["여성의류", "남성의류", "가방류", "기타"]
 
 

@@ -39,8 +39,10 @@ class ChangePasswordViewController: UIViewController {
     
     
     @IBAction func sendButtonClicked(_ sender: Any) {
-        
-        if oldPasswordTextField.text != "" && newPasswordTextField.text == newPasswordCheckTextField.text{
+        if (newPasswordTextField.text?.count)! < 8 {
+            errorLabel.isHidden = false
+        }
+        else if oldPasswordTextField.text != "" && newPasswordTextField.text == newPasswordCheckTextField.text{
             model?.changePasswd(id: (self.appDelegate.userInfo?.id)!, pastPasswd: oldPasswordTextField.text!, newPasswd: newPasswordTextField.text!)
             let time = DispatchTime.now() + .seconds(1)
             DispatchQueue.main.asyncAfter(deadline: time) {

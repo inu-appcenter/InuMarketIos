@@ -100,7 +100,7 @@ class UploadPhotoViewController: UIViewController, UIImagePickerControllerDelega
                     self.view.makeToast("7장이 최대입니다.")
                 }
             }else{
-                self.resizeImage(image: originalImage, targetSize: CGSize(width: 200.0, height: 200.0))
+                self.resizeImage(image: originalImage, targetSize: CGSize(width: 300.0, height: 300.0))
 //                imageArray.append(originalImage)
                 OperationQueue.main.addOperation {
                     self.photoCollection.reloadData()

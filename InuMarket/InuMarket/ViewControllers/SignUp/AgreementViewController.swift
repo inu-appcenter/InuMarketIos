@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Toast_Swift
 
 class AgreementViewController: UIViewController {
     
@@ -39,7 +40,8 @@ class AgreementViewController: UIViewController {
                 self.navigationController?.show(vc, sender: nil)
             }
         }else{
-            errorLabel.isHidden = false
+            
+            self.view.makeToast("* 개인정보 수집에 동의해야 합니다.")
         }
     }
     
