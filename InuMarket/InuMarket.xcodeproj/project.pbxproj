@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0C586C22119909008D418D /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E0C586922119907008D418D /* NotoSansCJKkr-Medium.otf */; };
+		0E0C586D22119909008D418D /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E0C586A22119908008D418D /* NotoSansCJKkr-Regular.otf */; };
+		0E0C586E22119909008D418D /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0E0C586B22119909008D418D /* NotoSansCJKkr-Bold.otf */; };
+		0E0C587022119C77008D418D /* ChattingListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C586F22119C77008D418D /* ChattingListViewController.swift */; };
+		0E0C587222119CBA008D418D /* ChattingListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0C587122119CBA008D418D /* ChattingListTableViewCell.swift */; };
 		3BC68D241A715E3DFC33B503 /* Pods_InuMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC2EBCC3E2265A5F70DA7235 /* Pods_InuMarket.framework */; };
 		C8200E2820F2539F0094E917 /* MyProductTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */; };
 		C8200E2E20F256B30094E917 /* MyProductTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */; };
@@ -80,6 +85,11 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0C586922119907008D418D /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		0E0C586A22119908008D418D /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		0E0C586B22119909008D418D /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		0E0C586F22119C77008D418D /* ChattingListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListViewController.swift; sourceTree = "<group>"; };
+		0E0C587122119CBA008D418D /* ChattingListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChattingListTableViewCell.swift; sourceTree = "<group>"; };
 		560A9615F731506ADBCABA52 /* Pods-InuMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.debug.xcconfig"; sourceTree = "<group>"; };
 		C8200E2720F2539F0094E917 /* MyProductTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductTableViewCell.swift; sourceTree = "<group>"; };
 		C8200E2D20F256B30094E917 /* MyProductTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyProductTableViewController.swift; sourceTree = "<group>"; };
@@ -169,6 +179,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E0C5868221198E8008D418D /* fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0E0C586B22119909008D418D /* NotoSansCJKkr-Bold.otf */,
+				0E0C586922119907008D418D /* NotoSansCJKkr-Medium.otf */,
+				0E0C586A22119908008D418D /* NotoSansCJKkr-Regular.otf */,
+			);
+			path = fonts;
+			sourceTree = "<group>";
+		};
 		5F4F8D996192BF7410A1F1ED /* Pods */ = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +341,7 @@
 				C8821B7220E8AE2A009D8CD0 /* LaunchScreen.storyboard */,
 				C8821B7520E8AE2A009D8CD0 /* Info.plist */,
 				C855A50821368B28009E6047 /* GoogleService-Info.plist */,
+				0E0C5868221198E8008D418D /* fonts */,
 			);
 			path = InuMarket;
 			sourceTree = "<group>";
@@ -347,6 +368,7 @@
 				CBA0041D211AC6AA00B62390 /* LetterBoxViewController.swift */,
 				CB5A43A8214E3B30002EACC6 /* buyLetterViewController.swift */,
 				CB5A43A6214E3B1F002EACC6 /* sellLetterViewController.swift */,
+				0E0C586F22119C77008D418D /* ChattingListViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -391,6 +413,7 @@
 				CBF90DCC2124A348007D0937 /* LetterListTableViewCell.xib */,
 				CBF90DCF2124A381007D0937 /* LetterContentTableViewCell.swift */,
 				CBF90DD02124A381007D0937 /* LetterContentTableViewCell.xib */,
+				0E0C587122119CBA008D418D /* ChattingListTableViewCell.swift */,
 			);
 			path = tableCell;
 			sourceTree = "<group>";
@@ -463,6 +486,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E0C586E22119909008D418D /* NotoSansCJKkr-Bold.otf in Resources */,
 				CBF90DD22124A381007D0937 /* LetterContentTableViewCell.xib in Resources */,
 				C899F8EC20F1002400C61BC2 /* Category.storyboard in Resources */,
 				C899F8EE20F1006300C61BC2 /* MyPage.storyboard in Resources */,
@@ -472,11 +496,13 @@
 				C8821B7120E8AE2A009D8CD0 /* Assets.xcassets in Resources */,
 				CBDE37B22130021F00CA5407 /* CategoryTitleTableViewCell.xib in Resources */,
 				CBF90DCE2124A348007D0937 /* LetterListTableViewCell.xib in Resources */,
+				0E0C586D22119909008D418D /* NotoSansCJKkr-Regular.otf in Resources */,
 				C8200E3E20F348D90094E917 /* Upload.storyboard in Resources */,
 				C8821B6F20E8AE2A009D8CD0 /* Login.storyboard in Resources */,
 				C899F8EA20F1000200C61BC2 /* Main.storyboard in Resources */,
 				C8725F272118948A004FD049 /* Setting.storyboard in Resources */,
 				C855A50921368B28009E6047 /* GoogleService-Info.plist in Resources */,
+				0E0C586C22119909008D418D /* NotoSansCJKkr-Medium.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -568,6 +594,7 @@
 				C8235A80211EA87A0047AA70 /* UploadSubCategoryViewController.swift in Sources */,
 				C8725F2121189468004FD049 /* SettingViewController.swift in Sources */,
 				CB302E2E211C8CDD00C95E0D /* DetailCollectionViewCell.swift in Sources */,
+				0E0C587022119C77008D418D /* ChattingListViewController.swift in Sources */,
 				CBF90DCD2124A348007D0937 /* LetterListTableViewCell.swift in Sources */,
 				CBA0041E211AC6AA00B62390 /* LetterBoxViewController.swift in Sources */,
 				C86EB098210B66C6005AE454 /* SetPasswdViewController.swift in Sources */,
@@ -579,6 +606,7 @@
 				C8725F2521189468004FD049 /* WithdrawalViewController.swift in Sources */,
 				C855123021174701001779AD /* SettingTableViewCell.swift in Sources */,
 				C8235A8E211F3F4E0047AA70 /* PreInfoViewTableViewCell.swift in Sources */,
+				0E0C587222119CBA008D418D /* ChattingListTableViewCell.swift in Sources */,
 				C85A36BD20F1F3B6008D4362 /* MyPageViewController.swift in Sources */,
 				C85A36BB20F1F3B0008D4362 /* CategoryViewController.swift in Sources */,
 				C82D5B22210F728100F1ED42 /* SetPhoneViewController.swift in Sources */,

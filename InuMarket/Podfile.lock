@@ -60,10 +60,10 @@ PODS:
   - "GoogleUtilities/NSData+zlib (5.2.2)"
   - GoogleUtilities/Reachability (5.2.2):
     - GoogleUtilities/Logger
-  - ImageSlideshow (1.6.1):
-    - ImageSlideshow/Core (= 1.6.1)
-  - ImageSlideshow/Core (1.6.1)
-  - ImageSlideshow/Kingfisher (1.6.1):
+  - ImageSlideshow (1.7.0):
+    - ImageSlideshow/Core (= 1.7.0)
+  - ImageSlideshow/Core (1.7.0)
+  - ImageSlideshow/Kingfisher (1.7.0):
     - ImageSlideshow/Core
     - Kingfisher (> 3.0)
   - IQKeyboardManagerSwift (6.1.1)
@@ -143,7 +143,7 @@ SPEC CHECKSUMS:
   FirebaseMessaging: 698c94dd1e3436346c29bb9c85dcdca4c4a0c30b
   GoogleAppMeasurement: f7507b39b70ad0bd80b3d81518b2f43868974307
   GoogleUtilities: 06b66f9567769a7958db20a92f0128b2843e49d5
-  ImageSlideshow: f0f33e1a20668e83d77f5fb7729e4ae4437c0759
+  ImageSlideshow: f8eec5e37a980f60923b585ff23b0e140fd24018
   IQKeyboardManagerSwift: 977affaeb4d6e971975c7790a6850f31d38f1207
   Kingfisher: 868c1149679a7ab6869be118faa9b5aed154aaf0
   nanopb: 5601e6bca2dbf1ed831b519092ec110f66982ca3
@@ -154,6 +154,6 @@ SPEC CHECKSUMS:
   SwiftLint: 3207c1faa2240bf8973b191820a116113cd11073
   Toast-Swift: ba0b01b095aada709d915f9beb1d38184a2721c3
 
-PODFILE CHECKSUM: 3fec3026c8d141aa8d89c171da82704641cd3920
+PODFILE CHECKSUM: c7240bb0af1d22fe537ff5c8e5594ac143e68bd3
 
 COCOAPODS: 1.5.3
