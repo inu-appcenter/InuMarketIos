@@ -11,6 +11,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
+        <array key="NotoSansCJKkr-Bold.otf">
+            <string>NotoSansCJKkr-Bold</string>
+        </array>
+        <array key="NotoSansCJKkr-DemiLight.otf">
+            <string>NotoSansCJKkr-DemiLight</string>
+        </array>
         <array key="NotoSansCJKkr-Medium.otf">
             <string>NotoSansCJKkr-Medium</string>
         </array>
@@ -30,10 +36,10 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="search" translatesAutoresizingMaskIntoConstraints="NO" id="PWw-l6-qlv">
                                 <rect key="frame" x="12" y="75" width="351" height="48"/>
                             </imageView>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="찾고있는 상품을 입력하세요" textAlignment="center" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u55-hw-rqr">
-                                <rect key="frame" x="54" y="90" width="256" height="19"/>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="찾고있는 상품을 입력하세요" clearsOnBeginEditing="YES" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="u55-hw-rqr">
+                                <rect key="frame" x="58" y="86" width="252" height="24"/>
                                 <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <fontDescription key="fontDescription" name="NotoSansCJKkr-DemiLight" family="Noto Sans CJK KR" pointSize="16"/>
                                 <textInputTraits key="textInputTraits" returnKeyType="search"/>
                             </textField>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="xVu-o4-eAJ">
@@ -81,15 +87,15 @@
                                                     <rect key="frame" x="20" y="17" width="24" height="18"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zbT-hR-pRc">
-                                                    <rect key="frame" x="58" y="17.5" width="36" height="17"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="58" y="15.5" width="36" height="21"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="14"/>
+                                                    <color key="textColor" name="greyishBrown"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3O-PM-NOW">
-                                                    <rect key="frame" x="263" y="16" width="40" height="20"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <nil key="textColor"/>
+                                                    <rect key="frame" x="261" y="14" width="42" height="24"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Medium" family="Noto Sans CJK KR" pointSize="16"/>
+                                                    <color key="textColor" name="gunmetal"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="rightside" translatesAutoresizingMaskIntoConstraints="NO" id="QGS-V8-cg2">
@@ -132,14 +138,14 @@
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gex-EQ-Ikv">
                                                     <rect key="frame" x="0.0" y="125" width="100" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="10.399999618530273"/>
+                                                    <color key="textColor" name="gunmetal"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdG-AD-cTT">
                                                     <rect key="frame" x="0.0" y="105" width="100" height="15"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10.399999618530273"/>
+                                                    <color key="textColor" name="gunmetal"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
@@ -170,13 +176,13 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrP-Ay-3lI">
-                                            <rect key="frame" x="36" y="13" width="270" height="24"/>
+                                            <rect key="frame" x="36" y="13" width="231" height="24"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Jf-aD-IjT">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="4"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="4"/>
                                             <color key="backgroundColor" red="0.96470588235294119" green="0.97254901960784312" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="4" id="150-1N-Ik6"/>
@@ -204,13 +210,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="xVu-o4-eAJ" firstAttribute="trailing" secondItem="wPs-E0-d1B" secondAttribute="trailing" id="1Zb-RY-o3U"/>
-                            <constraint firstItem="u55-hw-rqr" firstAttribute="leading" secondItem="wPs-E0-d1B" secondAttribute="leading" constant="54" id="6Sn-EN-YGE"/>
+                            <constraint firstItem="u55-hw-rqr" firstAttribute="leading" secondItem="wPs-E0-d1B" secondAttribute="leading" constant="58" id="6Sn-EN-YGE"/>
                             <constraint firstItem="xVu-o4-eAJ" firstAttribute="leading" secondItem="wPs-E0-d1B" secondAttribute="leading" id="9G0-ur-1Vv"/>
                             <constraint firstItem="PWw-l6-qlv" firstAttribute="top" secondItem="wPs-E0-d1B" secondAttribute="top" constant="11" id="BEH-uY-iye"/>
                             <constraint firstItem="wPs-E0-d1B" firstAttribute="trailing" secondItem="u55-hw-rqr" secondAttribute="trailing" constant="65" id="M0S-Wy-zUh"/>
                             <constraint firstItem="xVu-o4-eAJ" firstAttribute="top" secondItem="PWw-l6-qlv" secondAttribute="bottom" constant="8" id="NUA-we-u4h"/>
                             <constraint firstItem="PWw-l6-qlv" firstAttribute="leading" secondItem="wPs-E0-d1B" secondAttribute="leading" constant="12" id="SY8-Ei-slY"/>
-                            <constraint firstItem="u55-hw-rqr" firstAttribute="top" secondItem="wPs-E0-d1B" secondAttribute="top" constant="26" id="awO-Vj-Okv"/>
+                            <constraint firstItem="u55-hw-rqr" firstAttribute="top" secondItem="wPs-E0-d1B" secondAttribute="top" constant="22" id="awO-Vj-Okv"/>
                             <constraint firstItem="wPs-E0-d1B" firstAttribute="trailing" secondItem="PWw-l6-qlv" secondAttribute="trailing" constant="12" id="x2n-us-bnq"/>
                             <constraint firstItem="xVu-o4-eAJ" firstAttribute="bottom" secondItem="wPs-E0-d1B" secondAttribute="bottom" id="zsk-Rw-Ak6"/>
                         </constraints>
@@ -462,7 +468,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디자인론 전공책" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7jJ-Ld-6J2">
-                                                    <rect key="frame" x="72" y="17.5" width="292" height="17"/>
+                                                    <rect key="frame" x="72" y="17.5" width="253" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -475,7 +481,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="판매 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KhN-Bh-oUd">
-                                                    <rect key="frame" x="170" y="14" width="74" height="24"/>
+                                                    <rect key="frame" x="150.5" y="14" width="74" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -506,7 +512,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="utE-Au-W05">
-                                                    <rect key="frame" x="20" y="31" width="374" height="44"/>
+                                                    <rect key="frame" x="20" y="31" width="335" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매자 이름 : 김대섭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="k0M-Qy-H6q">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="19.5"/>
@@ -523,7 +529,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7W-5w-T8n">
-                                                    <rect key="frame" x="0.0" y="95.5" width="414" height="56"/>
+                                                    <rect key="frame" x="0.0" y="95.5" width="375" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="rgw-H5-AYI"/>
                                                     </constraints>
@@ -589,7 +595,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="디자인론 전공책" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F7f-2h-Mn3">
-                                                    <rect key="frame" x="72" y="17.5" width="292" height="17"/>
+                                                    <rect key="frame" x="72" y="17.5" width="253" height="17"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
@@ -602,7 +608,7 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="판매 완료" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1m-Lf-EID">
-                                                    <rect key="frame" x="170" y="14" width="74" height="24"/>
+                                                    <rect key="frame" x="150.5" y="14" width="74" height="24"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                                     <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
@@ -633,7 +639,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="top" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="5db-rZ-sE3">
-                                                    <rect key="frame" x="20" y="31" width="374" height="44"/>
+                                                    <rect key="frame" x="20" y="31" width="335" height="44"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="구매자 이름 : 김대섭" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tMP-nO-zpN">
                                                             <rect key="frame" x="0.0" y="0.0" width="128" height="19.5"/>
@@ -650,7 +656,7 @@
                                                     </subviews>
                                                 </stackView>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hgS-rA-Uco">
-                                                    <rect key="frame" x="0.0" y="95.5" width="414" height="56"/>
+                                                    <rect key="frame" x="0.0" y="95.5" width="375" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="26A-t2-739"/>
                                                     </constraints>
@@ -729,6 +735,9 @@
         </namedColor>
         <namedColor name="fadedOrange">
             <color red="0.94509803921568625" green="0.42745098039215684" blue="0.40392156862745099" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="greyishBrown">
+            <color red="0.29019607843137257" green="0.29019607843137257" blue="0.29019607843137257" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <namedColor name="gunmetal">
             <color red="0.27799999713897705" green="0.31400001049041748" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
