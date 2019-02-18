@@ -123,51 +123,105 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="MainCollectionViewCell" id="JmY-8D-HZc" customClass="MainCollectionViewCell" customModule="InuMarket" customModuleProvider="target">
-                                        <rect key="frame" x="137.5" y="202" width="100" height="140"/>
+                                        <rect key="frame" x="10" y="220.5" width="166" height="103"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="166" height="103"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hLy-Dw-vrE">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <rect key="frame" x="7" y="10" width="83" height="83"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" constant="100" id="Ewu-01-Wam"/>
-                                                        <constraint firstAttribute="height" constant="100" id="cjw-3h-xgp"/>
+                                                        <constraint firstAttribute="width" constant="83" id="hTt-JG-JM1"/>
+                                                        <constraint firstAttribute="height" constant="83" id="y7l-lu-A7h"/>
                                                     </constraints>
                                                 </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gex-EQ-Ikv">
-                                                    <rect key="frame" x="0.0" y="125" width="100" height="15"/>
-                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="10.399999618530273"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdG-AD-cTT">
+                                                    <rect key="frame" x="97" y="53" width="61.5" height="18"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="gunmetal"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdG-AD-cTT">
-                                                    <rect key="frame" x="0.0" y="105" width="100" height="15"/>
-                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="10.399999618530273"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oe6-jn-C1b">
+                                                    <rect key="frame" x="97" y="10" width="23" height="13"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="8.6000003814697266"/>
+                                                    <color key="textColor" name="lightSalmon"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gex-EQ-Ikv">
+                                                    <rect key="frame" x="97.5" y="71.5" width="61" height="18"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="12"/>
                                                     <color key="textColor" name="gunmetal"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                             </subviews>
                                         </view>
                                         <constraints>
-                                            <constraint firstAttribute="trailing" secondItem="jdG-AD-cTT" secondAttribute="trailing" id="M5E-y0-p9q"/>
-                                            <constraint firstAttribute="trailing" secondItem="Gex-EQ-Ikv" secondAttribute="trailing" id="Oqd-pm-FFt"/>
-                                            <constraint firstItem="hLy-Dw-vrE" firstAttribute="leading" secondItem="JmY-8D-HZc" secondAttribute="leading" id="Xvm-Oy-nmV"/>
-                                            <constraint firstItem="jdG-AD-cTT" firstAttribute="leading" secondItem="JmY-8D-HZc" secondAttribute="leading" id="Z98-88-9Nk"/>
-                                            <constraint firstItem="jdG-AD-cTT" firstAttribute="top" secondItem="hLy-Dw-vrE" secondAttribute="bottom" constant="5" id="d5r-9g-av5"/>
-                                            <constraint firstItem="Gex-EQ-Ikv" firstAttribute="leading" secondItem="JmY-8D-HZc" secondAttribute="leading" id="dHi-5f-LI4"/>
-                                            <constraint firstAttribute="bottom" secondItem="Gex-EQ-Ikv" secondAttribute="bottom" id="dTT-2V-ZK8"/>
-                                            <constraint firstAttribute="trailing" secondItem="hLy-Dw-vrE" secondAttribute="trailing" id="eVP-Pa-WoC"/>
-                                            <constraint firstItem="hLy-Dw-vrE" firstAttribute="top" secondItem="JmY-8D-HZc" secondAttribute="top" id="f6q-6F-gnG"/>
-                                            <constraint firstItem="Gex-EQ-Ikv" firstAttribute="top" secondItem="jdG-AD-cTT" secondAttribute="bottom" constant="5" id="n9X-cV-eg7"/>
-                                            <constraint firstItem="Gex-EQ-Ikv" firstAttribute="leading" secondItem="JmY-8D-HZc" secondAttribute="leading" id="so9-N2-9s5"/>
+                                            <constraint firstItem="oe6-jn-C1b" firstAttribute="leading" secondItem="hLy-Dw-vrE" secondAttribute="trailing" constant="6.9000000000000004" id="1ps-xk-NSM"/>
+                                            <constraint firstAttribute="bottom" secondItem="hLy-Dw-vrE" secondAttribute="bottom" constant="10" id="94o-gv-H4W"/>
+                                            <constraint firstItem="jdG-AD-cTT" firstAttribute="leading" secondItem="hLy-Dw-vrE" secondAttribute="trailing" constant="6.9000000000000004" id="CI2-Ki-9HK"/>
+                                            <constraint firstAttribute="bottom" secondItem="Gex-EQ-Ikv" secondAttribute="bottom" constant="13.300000000000001" id="DRb-Tf-OcQ"/>
+                                            <constraint firstAttribute="trailing" secondItem="Gex-EQ-Ikv" secondAttribute="trailing" constant="7.5999999999999996" id="G1R-ac-H4I"/>
+                                            <constraint firstItem="Gex-EQ-Ikv" firstAttribute="leading" secondItem="hLy-Dw-vrE" secondAttribute="trailing" constant="7.5" id="MfX-Jh-xmL"/>
+                                            <constraint firstItem="oe6-jn-C1b" firstAttribute="top" secondItem="JmY-8D-HZc" secondAttribute="top" constant="10" id="d30-Ye-fb7"/>
+                                            <constraint firstItem="Gex-EQ-Ikv" firstAttribute="top" secondItem="jdG-AD-cTT" secondAttribute="bottom" constant="0.59999999999999998" id="dIC-7K-DNG"/>
+                                            <constraint firstItem="hLy-Dw-vrE" firstAttribute="leading" secondItem="JmY-8D-HZc" secondAttribute="leading" constant="7" id="dMO-4t-7uT"/>
+                                            <constraint firstItem="hLy-Dw-vrE" firstAttribute="top" secondItem="JmY-8D-HZc" secondAttribute="top" constant="10" id="n9q-iJ-ke5"/>
+                                            <constraint firstAttribute="trailing" secondItem="jdG-AD-cTT" secondAttribute="trailing" constant="7.5999999999999996" id="w9F-ZK-Spr"/>
                                         </constraints>
-                                        <size key="customSize" width="100" height="140"/>
+                                        <size key="customSize" width="166" height="103"/>
                                         <connections>
                                             <outlet property="productImg" destination="hLy-Dw-vrE" id="t2X-60-99Z"/>
                                             <outlet property="productName" destination="jdG-AD-cTT" id="CU3-xK-4jf"/>
                                             <outlet property="productPrice" destination="Gex-EQ-Ikv" id="FXJ-aS-3sb"/>
+                                            <outlet property="productSubCategory" destination="oe6-jn-C1b" id="9A1-aU-y5x"/>
+                                        </connections>
+                                    </collectionViewCell>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SearchCollectionViewCell" id="0rq-Ir-G3p" customClass="SearchCollectionViewCell" customModule="InuMarket" customModuleProvider="target">
+                                        <rect key="frame" x="176" y="202" width="100" height="140"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="100" height="140"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sGf-1N-lQo">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="100" id="ObR-WK-QBa"/>
+                                                        <constraint firstAttribute="height" constant="100" id="YgY-Xi-EOg"/>
+                                                    </constraints>
+                                                </imageView>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jdy-Xe-kHH">
+                                                    <rect key="frame" x="6" y="104" width="94" height="18"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="12"/>
+                                                    <color key="textColor" name="gunmetal"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7rr-sW-Stv">
+                                                    <rect key="frame" x="6" y="122" width="94" height="18"/>
+                                                    <fontDescription key="fontDescription" name="NotoSansCJKkr-Bold" family="Noto Sans CJK KR" pointSize="12"/>
+                                                    <color key="textColor" name="gunmetal"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </view>
+                                        <constraints>
+                                            <constraint firstItem="sGf-1N-lQo" firstAttribute="leading" secondItem="0rq-Ir-G3p" secondAttribute="leading" id="AgY-qL-Y50"/>
+                                            <constraint firstAttribute="bottom" secondItem="7rr-sW-Stv" secondAttribute="bottom" id="BPE-2p-eEL"/>
+                                            <constraint firstAttribute="trailing" secondItem="jdy-Xe-kHH" secondAttribute="trailing" id="KDn-j5-kMF"/>
+                                            <constraint firstItem="jdy-Xe-kHH" firstAttribute="leading" secondItem="0rq-Ir-G3p" secondAttribute="leading" constant="6" id="PfM-vA-nsl"/>
+                                            <constraint firstAttribute="trailing" secondItem="sGf-1N-lQo" secondAttribute="trailing" id="c5O-er-RMm"/>
+                                            <constraint firstItem="jdy-Xe-kHH" firstAttribute="top" secondItem="sGf-1N-lQo" secondAttribute="bottom" constant="4" id="djQ-ry-aCp"/>
+                                            <constraint firstItem="7rr-sW-Stv" firstAttribute="top" secondItem="jdy-Xe-kHH" secondAttribute="bottom" id="nR0-qi-5fa"/>
+                                            <constraint firstItem="sGf-1N-lQo" firstAttribute="top" secondItem="0rq-Ir-G3p" secondAttribute="top" id="sY8-p0-mMz"/>
+                                            <constraint firstAttribute="trailing" secondItem="7rr-sW-Stv" secondAttribute="trailing" id="wrv-OA-7at"/>
+                                            <constraint firstItem="7rr-sW-Stv" firstAttribute="leading" secondItem="0rq-Ir-G3p" secondAttribute="leading" constant="6" id="zSr-yC-iFy"/>
+                                        </constraints>
+                                        <size key="customSize" width="100" height="140"/>
+                                        <connections>
+                                            <outlet property="searchProductImg" destination="sGf-1N-lQo" id="gZn-kH-yvC"/>
+                                            <outlet property="searchProductName" destination="jdy-Xe-kHH" id="GdE-Dq-2MN"/>
+                                            <outlet property="searchProductPrice" destination="7rr-sW-Stv" id="dor-nz-T7y"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -176,9 +230,8 @@
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nrP-Ay-3lI">
-                                            <rect key="frame" x="36" y="13" width="231" height="24"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="36" y="10" width="231" height="30"/>
+                                            <fontDescription key="fontDescription" name="NotoSansCJKkr-Regular" family="Noto Sans CJK KR" pointSize="20"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Jf-aD-IjT">
@@ -741,6 +794,9 @@
         </namedColor>
         <namedColor name="gunmetal">
             <color red="0.27799999713897705" green="0.31400001049041748" blue="0.3449999988079071" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </namedColor>
+        <namedColor name="lightSalmon">
+            <color red="0.94509803921568625" green="0.63529411764705879" blue="0.63529411764705879" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
     </resources>
 </document>

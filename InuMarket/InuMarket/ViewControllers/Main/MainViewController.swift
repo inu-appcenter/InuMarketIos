@@ -18,6 +18,7 @@ class MainViewController: UIViewController {
     let letterCellIdentifier: String = "LetterCollectionViewCell"
     let headerCellIdentifier: String = "MainHeaderCollectionViewCell"
     let mainCellIdentifier: String = "MainCollectionViewCell"
+    let searchCellIdentifier: String = "SearchCollectionViewCell"
     
     let detailIdentifier: String = "detailView"
     
@@ -42,6 +43,8 @@ class MainViewController: UIViewController {
             }
         }
     }
+    
+    var headerTitleList: [String] = ["책", "식권", "자취방"]
     
     var bannerList: Banner?
     var bannerImg: [KingfisherSource] = []
@@ -300,14 +303,14 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         if textFieldActive {
-            guard let cell: MainCollectionViewCell = productCollectionView.dequeueReusableCell(withReuseIdentifier: mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
+            guard let cell: SearchCollectionViewCell = productCollectionView.dequeueReusableCell(withReuseIdentifier: searchCellIdentifier, for: indexPath) as? SearchCollectionViewCell else {
                 return UICollectionViewCell()
             }
             let logo = "\(self.appDelegate.serverURL)imgload/\(searchList[indexPath.row].productImg![0])"
             let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
-            cell.productImg.kf.setImage(with: resource)
-            cell.productName.text = searchList[indexPath.row].productName
-            cell.productPrice.text = String(searchList[indexPath.row].productPrice!)
+            cell.searchProductImg.kf.setImage(with: resource)
+            cell.searchProductName.text = searchList[indexPath.row].productName
+            cell.searchProductPrice.text = String(searchList[indexPath.row].productPrice!)
             
             return cell
             
