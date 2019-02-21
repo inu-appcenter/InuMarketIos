@@ -44,8 +44,6 @@ class MainViewController: UIViewController {
         }
     }
     
-    var headerTitleList: [String] = ["책", "식권", "자취방"]
-    
     var bannerList: Banner?
     var bannerImg: [KingfisherSource] = []
 
@@ -186,7 +184,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         if textFieldActive {
             return 1
         } else {
-            return 3
+            return 5
         }
     }
     
@@ -223,12 +221,19 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 //            cell.createSortButton()
 //            productCollectionView.addSubview(cell.sortButton)
         }
+        
         if textFieldActive {
             if searchTextField.hasText {
                 cell.headerTitle?.text = "'\(searchTextField.text ?? "")'에 대한 검색 결과"
             }
         } else{
-            cell.headerTitle?.text = "실시간 상품"
+            
+            switch indexPath.section {
+            case 2: cell.headerTitle?.text = "책"
+            case 3: cell.headerTitle?.text = "식권"
+            case 4: cell.headerTitle?.text = "자취방"
+            default: return cell
+            }
         }
         return cell
         
@@ -262,7 +267,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 let storyboard: UIStoryboard = UIStoryboard(name: "Main", bundle: nil)
                 guard let letterBoxVC = storyboard.instantiateViewController(withIdentifier: "letterBox") as? LetterBoxViewController else { return }
                 self.navigationController?.show(letterBoxVC, sender: nil)
-            case 2:
+            case 2, 3, 4:
 //                showDetailVC()
                 let storyboard: UIStoryboard = UIStoryboard(name: "Detail", bundle: nil)
                 guard let detailVC = storyboard.instantiateViewController(withIdentifier: detailIdentifier) as? DetailViewController else { return }
@@ -283,6 +288,8 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
         } else {
             switch section {
             case 2: return CGSize(width: screenWidth, height: 80)
+            case 3: return CGSize(width: screenWidth, height: 80)
+            case 4: return CGSize(width: screenWidth, height: 80)
             default: return CGSize(width: 0, height: 0)
             }
         }
@@ -295,7 +302,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             switch indexPath.section {
             case 0: return CGSize(width: screenWidth, height: 80)
             case 1: return CGSize(width: screenWidth, height: 52)
-            case 2: return CGSize(width: 100, height: 140)
+            case 2: return CGSize(width: 166, height: 103)
+            case 3: return CGSize(width: 166, height: 103)
+            case 4: return CGSize(width: 166, height: 103)
             default: return CGSize(width: 0, height: 0)
             }
         }
@@ -333,6 +342,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 
 
                 return cell
+                
             case 1:
                 guard let cell: LetterCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: letterCellIdentifier, for: indexPath) as? LetterCollectionViewCell else {
                     return UICollectionViewCell()
@@ -340,10 +350,11 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 var letter2Int : Int = 0
                 letter2Int = (self.appDelegate.userInfo?.letter)!
                 cell.letterImg.image = UIImage(named: "letterRead")
-                cell.letterBoxLabel.text = "나의 쪽지함"
+                cell.letterBoxLabel.text = "메세지"
                 cell.letterNum.text = "\(letter2Int)"
                 cell.rightImg.image = UIImage(named: "rightside")
                 return cell
+                
             case 2:
                 guard let cell: MainCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: self.mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
                     return UICollectionViewCell()
@@ -356,6 +367,29 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 
                 return cell
                 
+            case 3:
+                guard let cell: MainCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: self.mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
+                let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
+                cell.productImg.kf.setImage(with: resource)
+                cell.productName.text = productList[indexPath.row].productName
+                cell.productPrice.text = "\(String(productList[indexPath.row].productPrice!))원"
+                
+                return cell
+                
+            case 4:
+                guard let cell: MainCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: self.mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
+                    return UICollectionViewCell()
+                }
+                let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
+                let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
+                cell.productImg.kf.setImage(with: resource)
+                cell.productName.text = productList[indexPath.row].productName
+                cell.productPrice.text = "\(String(productList[indexPath.row].productPrice!))원"
+                
+                return cell
                 
             default: return UICollectionViewCell()
                 
@@ -368,7 +402,7 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
 extension MainViewController: NetworkCallback{
     func networkSuc(resultdata: Any, code: String) {
         if code == "allProductSuccess" {
-            print(resultdata)
+            //print(resultdata)
             
             var temp: [AllProduct] = []
             if let items = resultdata as? [NSDictionary] {
@@ -396,18 +430,18 @@ extension MainViewController: NetworkCallback{
 //            // 높은 가격순
 //            productList.sort { $1.productPrice! < $0.productPrice!}
         }else if code == "searchProductSuccess"{
-            print(resultdata)
+            //print(resultdata)
             
             var temp: [AllProduct] = []
             if let items = resultdata as? [NSDictionary] {
                 for item in items {
+                    let productImg = item["productImg"] as? [String] ?? [""]
                     let productId = item["productId"] as? String ?? ""
                     let productName = item["productName"] as? String ?? ""
-                    let category = item["category"] as? String ?? ""
-                    let updateDate = item["updateDate"] as? String ?? ""
                     let productPrice = item["productPrice"] as? Int ?? 0
+                    let category = item["category"] as? String ?? ""
                     let productSelled = item["productSelled"] as? Bool ?? false
-                    let productImg = item["productImg"] as? [String] ?? [""]
+                    let updateDate = item["updateDate"] as? String ?? ""
                     let obj = AllProduct.init(productImg: productImg, productId: productId, productName: productName, productPrice: productPrice, productSelled: productSelled, category: category, updateDate: updateDate)
                     temp.append(obj)
                     
