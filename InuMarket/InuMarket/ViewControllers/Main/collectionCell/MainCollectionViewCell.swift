@@ -13,7 +13,6 @@ class MainCollectionViewCell: UICollectionViewCell {
     @IBOutlet var productImg: UIImageView!
     @IBOutlet var productName: UILabel!
     @IBOutlet var productPrice: UILabel!
-    @IBOutlet var productSubCategory
-    : UILabel!
+    @IBOutlet var productSubCategory: UILabel!
     
 }

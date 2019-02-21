@@ -36,6 +36,30 @@ class MainViewController: UIViewController {
             }
         }
     }
+    var bookProductList: [AllProduct] = []{
+        didSet {
+            if self.productCollectionView != nil {
+                self.productCollectionView.reloadData()
+                
+            }
+        }
+    }
+    var ticketProductList: [AllProduct] = []{
+        didSet {
+            if self.productCollectionView != nil {
+                self.productCollectionView.reloadData()
+                
+            }
+        }
+    }
+    var roomProductList: [AllProduct] = []{
+        didSet {
+            if self.productCollectionView != nil {
+                self.productCollectionView.reloadData()
+                
+            }
+        }
+    }
     var searchList: [AllProduct] = [] {
         didSet {
             if self.productCollectionView != nil {
@@ -196,7 +220,9 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
             switch section {
             case 0: return 1
             case 1: return 1
-            case 2: return productList.count
+            case 2: return bookProductList.count
+            case 3: return ticketProductList.count
+            case 4: return roomProductList.count
             default: return 0
             }
         }
@@ -359,11 +385,25 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 guard let cell: MainCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: self.mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
-                let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
-                cell.productImg.kf.setImage(with: resource)
-                cell.productName.text = productList[indexPath.row].productName
-                cell.productPrice.text = "\(String(productList[indexPath.row].productPrice!))원"
+                /*if (productList[indexPath.row].productImg![0] == "") {
+                    let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
+                    let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
+                    cell.productImg.kf.setImage(with: resource)
+                }*/
+                
+                cell.productName.text = bookProductList[indexPath.row].productName
+                cell.productPrice.text = "\(String(bookProductList[indexPath.row].productPrice!))원"
+
+                cell.productSubCategory.isHidden = false
+                if bookProductList[indexPath.row].category == "책전공" {
+                    cell.productSubCategory.text = "전공"
+                }
+                else if bookProductList[indexPath.row].category == "책교양" {
+                    cell.productSubCategory.text = "교양"
+                }
+                else {
+                    cell.productSubCategory.text = "기타"
+                }
                 
                 return cell
                 
@@ -371,11 +411,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 guard let cell: MainCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: self.mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
+                cell.productSubCategory.isHidden = true
+                /*let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
                 let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
-                cell.productImg.kf.setImage(with: resource)
-                cell.productName.text = productList[indexPath.row].productName
-                cell.productPrice.text = "\(String(productList[indexPath.row].productPrice!))원"
+                cell.productImg.kf.setImage(with: resource)*/
+                cell.productName.text = ticketProductList[indexPath.row].productName
+                cell.productPrice.text = "\(String(ticketProductList[indexPath.row].productPrice!))원"
                 
                 return cell
                 
@@ -383,11 +424,12 @@ extension MainViewController: UICollectionViewDelegate, UICollectionViewDataSour
                 guard let cell: MainCollectionViewCell = self.productCollectionView.dequeueReusableCell(withReuseIdentifier: self.mainCellIdentifier, for: indexPath) as? MainCollectionViewCell else {
                     return UICollectionViewCell()
                 }
-                let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
+                cell.productSubCategory.isHidden = true
+                /*let logo = "\(self.appDelegate.serverURL)imgload/\(productList[indexPath.row].productImg![0])"
                 let resource = ImageResource(downloadURL: URL(string: logo)!, cacheKey: logo)
-                cell.productImg.kf.setImage(with: resource)
-                cell.productName.text = productList[indexPath.row].productName
-                cell.productPrice.text = "\(String(productList[indexPath.row].productPrice!))원"
+                cell.productImg.kf.setImage(with: resource)*/
+                cell.productName.text = roomProductList[indexPath.row].productName
+                cell.productPrice.text = "\(String(roomProductList[indexPath.row].productPrice!))원"
                 
                 return cell
                 
@@ -404,10 +446,33 @@ extension MainViewController: NetworkCallback{
         if code == "allProductSuccess" {
             //print(resultdata)
             
-            var temp: [AllProduct] = []
-            if let items = resultdata as? [NSDictionary] {
+            //var temp: [AllProduct] = []
+            
+            var bookTemp: [AllProduct] = []
+            var ticketTemp: [AllProduct] = []
+            var roomTemp: [AllProduct] = []
+            var count: Int = 0
+            if let items = resultdata as? [[NSDictionary]] {
                 for item in items {
-                    let productId = item["productId"] as? String ?? ""
+                    if let item2 = item as? [NSDictionary] {
+                        for item2 in item {
+                            //print(item2)
+                            let productId = item2["productId"] as? String ?? ""
+                            let productName = item2["productName"] as? String ?? ""
+                            let category = item2["category"] as? String ?? ""
+                            let updateDate = item2["updateDate"] as? String ?? ""
+                            let productPrice = item2["productPrice"] as? Int ?? 0
+                            let productSelled = item2["productSelled"] as? Bool ?? false
+                            let productImg = item2["productImg"] as? [String] ?? [""]
+                            let obj = AllProduct.init(productImg: productImg, productId: productId, productName: productName, productPrice: productPrice, productSelled: productSelled, category: category, updateDate: updateDate)
+                            //temp.append(obj)
+                            if count == 0 { ticketTemp.append(obj) }
+                            else if count == 1 { bookTemp.append(obj) }
+                            else if count == 2 { roomTemp.append(obj) }
+                        }
+                    }
+                    count = count + 1
+                    /*let productId = item["productId"] as? String ?? ""
                     let productName = item["productName"] as? String ?? ""
                     let category = item["category"] as? String ?? ""
                     let updateDate = item["updateDate"] as? String ?? ""
@@ -415,14 +480,21 @@ extension MainViewController: NetworkCallback{
                     let productSelled = item["productSelled"] as? Bool ?? false
                     let productImg = item["productImg"] as? [String] ?? [""]
                     let obj = AllProduct.init(productImg: productImg, productId: productId, productName: productName, productPrice: productPrice, productSelled: productSelled, category: category, updateDate: updateDate)
-                    temp.append(obj)
+                    temp.append(obj)*/
 
                 }
             }
-
-            productList = temp
+            
+            bookProductList = bookTemp
+            bookProductList.sort { !$0.productSelled! && $1.productSelled! }
+            ticketProductList = ticketTemp
+            ticketProductList.sort { !$0.productSelled! && $1.productSelled! }
+            roomProductList = roomTemp
+            roomProductList.sort { !$0.productSelled! && $1.productSelled! }
+            
+            //productList = temp
             // 판매 안된 순서로 나열
-            productList.sort { !$0.productSelled! && $1.productSelled! }
+            //productList.sort { !$0.productSelled! && $1.productSelled! }
 
 
 //            // 낮은 가격순
