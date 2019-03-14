@@ -12,6 +12,13 @@
 		0EA632C9223A9B1F000FC7CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632C7223A9B1F000FC7CF /* Main.storyboard */; };
 		0EA632CB223A9B20000FC7CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632CA223A9B20000FC7CF /* Assets.xcassets */; };
 		0EA632CE223A9B20000FC7CF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632CC223A9B20000FC7CF /* LaunchScreen.storyboard */; };
+		0EA632D8223AA0C9000FC7CF /* UIColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA632D7223AA0C9000FC7CF /* UIColorExtension.swift */; };
+		0EA632DD223AA226000FC7CF /* NotoSansCJKkr-Regular.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632DA223AA224000FC7CF /* NotoSansCJKkr-Regular.otf */; };
+		0EA632DE223AA226000FC7CF /* NotoSansCJKkr-Medium.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632DB223AA225000FC7CF /* NotoSansCJKkr-Medium.otf */; };
+		0EA632DF223AA226000FC7CF /* NotoSansCJKkr-Bold.otf in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632DC223AA226000FC7CF /* NotoSansCJKkr-Bold.otf */; };
+		0EA632E1223AA366000FC7CF /* UIFontExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA632E0223AA366000FC7CF /* UIFontExtension.swift */; };
+		0EA632E3223AA584000FC7CF /* Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA632E2223AA584000FC7CF /* Alert.swift */; };
+		F43D7672620D662680CFDCC6 /* Pods_InuMarket.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6D6E228C74033D452890DC54 /* Pods_InuMarket.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,7 +29,16 @@
 		0EA632CA223A9B20000FC7CF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		0EA632CD223A9B20000FC7CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		0EA632CF223A9B20000FC7CF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0EA632D7223AA0C9000FC7CF /* UIColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtension.swift; sourceTree = "<group>"; };
+		0EA632DA223AA224000FC7CF /* NotoSansCJKkr-Regular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Regular.otf"; sourceTree = "<group>"; };
+		0EA632DB223AA225000FC7CF /* NotoSansCJKkr-Medium.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Medium.otf"; sourceTree = "<group>"; };
+		0EA632DC223AA226000FC7CF /* NotoSansCJKkr-Bold.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "NotoSansCJKkr-Bold.otf"; sourceTree = "<group>"; };
+		0EA632E0223AA366000FC7CF /* UIFontExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIFontExtension.swift; sourceTree = "<group>"; };
+		0EA632E2223AA584000FC7CF /* Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Alert.swift; sourceTree = "<group>"; };
+		5B1AB6A3F235E1AD4CB41FFA /* Pods-InuMarket.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.release.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.release.xcconfig"; sourceTree = "<group>"; };
+		6D6E228C74033D452890DC54 /* Pods_InuMarket.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_InuMarket.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DA40849B223A9C6700584155 /* InuMarket.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = InuMarket.entitlements; sourceTree = "<group>"; };
+		F9C1945DFB65B8FAF60C05DD /* Pods-InuMarket.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-InuMarket.debug.xcconfig"; path = "Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -30,6 +46,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F43D7672620D662680CFDCC6 /* Pods_InuMarket.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -41,6 +58,8 @@
 			children = (
 				0EA632C2223A9B1F000FC7CF /* InuMarket */,
 				0EA632C1223A9B1F000FC7CF /* Products */,
+				B1C41DF8410F2C58276279B0 /* Pods */,
+				35CB4B3D80C7D3A14DC00165 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -55,6 +74,7 @@
 		0EA632C2223A9B1F000FC7CF /* InuMarket */ = {
 			isa = PBXGroup;
 			children = (
+				0EA632D9223AA1ED000FC7CF /* Fonts */,
 				DA40849B223A9C6700584155 /* InuMarket.entitlements */,
 				0EA632C3223A9B1F000FC7CF /* AppDelegate.swift */,
 				0EA632C5223A9B1F000FC7CF /* ViewController.swift */,
@@ -62,8 +82,38 @@
 				0EA632CA223A9B20000FC7CF /* Assets.xcassets */,
 				0EA632CC223A9B20000FC7CF /* LaunchScreen.storyboard */,
 				0EA632CF223A9B20000FC7CF /* Info.plist */,
+				0EA632D7223AA0C9000FC7CF /* UIColorExtension.swift */,
+				0EA632E2223AA584000FC7CF /* Alert.swift */,
 			);
 			path = InuMarket;
+			sourceTree = "<group>";
+		};
+		0EA632D9223AA1ED000FC7CF /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				0EA632DC223AA226000FC7CF /* NotoSansCJKkr-Bold.otf */,
+				0EA632DB223AA225000FC7CF /* NotoSansCJKkr-Medium.otf */,
+				0EA632DA223AA224000FC7CF /* NotoSansCJKkr-Regular.otf */,
+				0EA632E0223AA366000FC7CF /* UIFontExtension.swift */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		35CB4B3D80C7D3A14DC00165 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6D6E228C74033D452890DC54 /* Pods_InuMarket.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		B1C41DF8410F2C58276279B0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				F9C1945DFB65B8FAF60C05DD /* Pods-InuMarket.debug.xcconfig */,
+				5B1AB6A3F235E1AD4CB41FFA /* Pods-InuMarket.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -73,9 +123,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0EA632D2223A9B20000FC7CF /* Build configuration list for PBXNativeTarget "InuMarket" */;
 			buildPhases = (
+				770B58AC6494CFC8C81D8553 /* [CP] Check Pods Manifest.lock */,
 				0EA632BC223A9B1F000FC7CF /* Sources */,
 				0EA632BD223A9B1F000FC7CF /* Frameworks */,
 				0EA632BE223A9B1F000FC7CF /* Resources */,
+				F5CDBB8FD25DD862D7C04DBD /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -133,12 +185,88 @@
 			buildActionMask = 2147483647;
 			files = (
 				0EA632CE223A9B20000FC7CF /* LaunchScreen.storyboard in Resources */,
+				0EA632DD223AA226000FC7CF /* NotoSansCJKkr-Regular.otf in Resources */,
 				0EA632CB223A9B20000FC7CF /* Assets.xcassets in Resources */,
 				0EA632C9223A9B1F000FC7CF /* Main.storyboard in Resources */,
+				0EA632DE223AA226000FC7CF /* NotoSansCJKkr-Medium.otf in Resources */,
+				0EA632DF223AA226000FC7CF /* NotoSansCJKkr-Bold.otf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		770B58AC6494CFC8C81D8553 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-InuMarket-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F5CDBB8FD25DD862D7C04DBD /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BSGridCollectionViewLayout/BSGridCollectionViewLayout.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImagePicker/BSImagePicker.framework",
+				"${BUILT_PRODUCTS_DIR}/BSImageView/BSImageView.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableAlamofire/CodableAlamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/Device/Device.framework",
+				"${BUILT_PRODUCTS_DIR}/DropDown/DropDown.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/SideMenu/SideMenu.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSGridCollectionViewLayout.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImagePicker.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/BSImageView.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableAlamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Device.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DropDown.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ImageSlideshow.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SideMenu.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-InuMarket/Pods-InuMarket-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		0EA632BC223A9B1F000FC7CF /* Sources */ = {
@@ -147,6 +275,9 @@
 			files = (
 				0EA632C6223A9B1F000FC7CF /* ViewController.swift in Sources */,
 				0EA632C4223A9B1F000FC7CF /* AppDelegate.swift in Sources */,
+				0EA632E1223AA366000FC7CF /* UIFontExtension.swift in Sources */,
+				0EA632E3223AA584000FC7CF /* Alert.swift in Sources */,
+				0EA632D8223AA0C9000FC7CF /* UIColorExtension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -290,6 +421,7 @@
 		};
 		0EA632D3223A9B20000FC7CF /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F9C1945DFB65B8FAF60C05DD /* Pods-InuMarket.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InuMarket/InuMarket.entitlements;
@@ -309,6 +441,7 @@
 		};
 		0EA632D4223A9B20000FC7CF /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5B1AB6A3F235E1AD4CB41FFA /* Pods-InuMarket.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = InuMarket/InuMarket.entitlements;
