@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E2C5C17223FE66E003AAF38 /* ServerURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C5C16223FE66E003AAF38 /* ServerURLs.swift */; };
+		0E2C5C19223FEA76003AAF38 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C5C18223FEA76003AAF38 /* NetworkCallback.swift */; };
 		0EA632C4223A9B1F000FC7CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA632C3223A9B1F000FC7CF /* AppDelegate.swift */; };
 		0EA632C9223A9B1F000FC7CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632C7223A9B1F000FC7CF /* Main.storyboard */; };
 		0EA632CB223A9B20000FC7CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632CA223A9B20000FC7CF /* Assets.xcassets */; };
@@ -25,6 +27,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E2C5C16223FE66E003AAF38 /* ServerURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerURLs.swift; sourceTree = "<group>"; };
+		0E2C5C18223FEA76003AAF38 /* NetworkCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
 		0EA632C0223A9B1F000FC7CF /* InuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA632C3223A9B1F000FC7CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA632C8223A9B1F000FC7CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -59,6 +63,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0E2C5C15223FE644003AAF38 /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0E2C5C16223FE66E003AAF38 /* ServerURLs.swift */,
+				0E2C5C18223FEA76003AAF38 /* NetworkCallback.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
 		0EA632B7223A9B1F000FC7CF = {
 			isa = PBXGroup;
 			children = (
@@ -80,6 +93,7 @@
 		0EA632C2223A9B1F000FC7CF /* InuMarket */ = {
 			isa = PBXGroup;
 			children = (
+				0E2C5C15223FE644003AAF38 /* Network */,
 				DA40849B223A9C6700584155 /* InuMarket.entitlements */,
 				0EA632C3223A9B1F000FC7CF /* AppDelegate.swift */,
 				0EA632D9223AA1ED000FC7CF /* Fonts */,
@@ -360,8 +374,10 @@
 			files = (
 				0EA632C4223A9B1F000FC7CF /* AppDelegate.swift in Sources */,
 				0EA632E1223AA366000FC7CF /* UIFontExtension.swift in Sources */,
+				0E2C5C17223FE66E003AAF38 /* ServerURLs.swift in Sources */,
 				0EA632E3223AA584000FC7CF /* Alert.swift in Sources */,
 				0EA632D8223AA0C9000FC7CF /* UIColorExtension.swift in Sources */,
+				0E2C5C19223FEA76003AAF38 /* NetworkCallback.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
