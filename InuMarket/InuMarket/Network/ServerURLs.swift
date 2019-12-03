@@ -9,7 +9,7 @@
 import Foundation
 
 enum ServerURLs: String {
-    case base = "http://117.16.231.66:7000/"
+    case base = "http://18.220.127.100:7000/"
     
     // 판매중->판매완료
     case product = "stateChange/product"

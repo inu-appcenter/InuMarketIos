@@ -7,8 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0E0EAA1D2396B5DA00F3452C /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E0EAA1C2396B5DA00F3452C /* MainViewController.swift */; };
+		0E1016E02364187E00C1CEA0 /* SignUpInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1016DF2364187E00C1CEA0 /* SignUpInfoViewController.swift */; };
+		0E1016E2236418AC00C1CEA0 /* SignUpSetPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1016E1236418AC00C1CEA0 /* SignUpSetPassViewController.swift */; };
+		0E1016E4236418E500C1CEA0 /* SignUpPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1016E3236418E500C1CEA0 /* SignUpPhoneViewController.swift */; };
+		0E1016E6236418FB00C1CEA0 /* SignUpReviewViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E1016E5236418FB00C1CEA0 /* SignUpReviewViewController.swift */; };
+		0E2115892330C3F100660F2A /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2115882330C3F100660F2A /* ForgotPasswordViewController.swift */; };
+		0E21158B235C90AF00660F2A /* SignUpAgreementViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E21158A235C90AF00660F2A /* SignUpAgreementViewController.swift */; };
 		0E2C5C17223FE66E003AAF38 /* ServerURLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C5C16223FE66E003AAF38 /* ServerURLs.swift */; };
 		0E2C5C19223FEA76003AAF38 /* NetworkCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E2C5C18223FEA76003AAF38 /* NetworkCallback.swift */; };
+		0E3309A42254B87500DD300C /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0E3309A32254B87500DD300C /* LoginViewController.swift */; };
 		0EA632C4223A9B1F000FC7CF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0EA632C3223A9B1F000FC7CF /* AppDelegate.swift */; };
 		0EA632C9223A9B1F000FC7CF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632C7223A9B1F000FC7CF /* Main.storyboard */; };
 		0EA632CB223A9B20000FC7CF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0EA632CA223A9B20000FC7CF /* Assets.xcassets */; };
@@ -27,8 +35,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0E0EAA1C2396B5DA00F3452C /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainViewController.swift; path = InuMarket/MainViewController.swift; sourceTree = SOURCE_ROOT; };
+		0E1016DF2364187E00C1CEA0 /* SignUpInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpInfoViewController.swift; path = InuMarket/SignUpInfoViewController.swift; sourceTree = SOURCE_ROOT; };
+		0E1016E1236418AC00C1CEA0 /* SignUpSetPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpSetPassViewController.swift; path = InuMarket/SignUpSetPassViewController.swift; sourceTree = SOURCE_ROOT; };
+		0E1016E3236418E500C1CEA0 /* SignUpPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpPhoneViewController.swift; path = InuMarket/SignUpPhoneViewController.swift; sourceTree = SOURCE_ROOT; };
+		0E1016E5236418FB00C1CEA0 /* SignUpReviewViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpReviewViewController.swift; path = InuMarket/SignUpReviewViewController.swift; sourceTree = SOURCE_ROOT; };
+		0E2115882330C3F100660F2A /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = ForgotPasswordViewController.swift; path = InuMarket/ForgotPasswordViewController.swift; sourceTree = SOURCE_ROOT; };
+		0E21158A235C90AF00660F2A /* SignUpAgreementViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = SignUpAgreementViewController.swift; path = InuMarket/SignUpAgreementViewController.swift; sourceTree = SOURCE_ROOT; };
 		0E2C5C16223FE66E003AAF38 /* ServerURLs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServerURLs.swift; sourceTree = "<group>"; };
 		0E2C5C18223FEA76003AAF38 /* NetworkCallback.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCallback.swift; sourceTree = "<group>"; };
+		0E3309A32254B87500DD300C /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LoginViewController.swift; path = InuMarket/Network/LoginViewController.swift; sourceTree = SOURCE_ROOT; };
 		0EA632C0223A9B1F000FC7CF /* InuMarket.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = InuMarket.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0EA632C3223A9B1F000FC7CF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0EA632C8223A9B1F000FC7CF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -179,6 +195,7 @@
 		DA92173F223FE47700DFE69E /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				0E0EAA1C2396B5DA00F3452C /* MainViewController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -186,6 +203,13 @@
 		DA921740223FE48100DFE69E /* LoginSignup */ = {
 			isa = PBXGroup;
 			children = (
+				0E3309A32254B87500DD300C /* LoginViewController.swift */,
+				0E2115882330C3F100660F2A /* ForgotPasswordViewController.swift */,
+				0E21158A235C90AF00660F2A /* SignUpAgreementViewController.swift */,
+				0E1016DF2364187E00C1CEA0 /* SignUpInfoViewController.swift */,
+				0E1016E1236418AC00C1CEA0 /* SignUpSetPassViewController.swift */,
+				0E1016E3236418E500C1CEA0 /* SignUpPhoneViewController.swift */,
+				0E1016E5236418FB00C1CEA0 /* SignUpReviewViewController.swift */,
 			);
 			path = LoginSignup;
 			sourceTree = "<group>";
@@ -372,10 +396,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0E2115892330C3F100660F2A /* ForgotPasswordViewController.swift in Sources */,
+				0E1016E4236418E500C1CEA0 /* SignUpPhoneViewController.swift in Sources */,
+				0E3309A42254B87500DD300C /* LoginViewController.swift in Sources */,
+				0E1016E02364187E00C1CEA0 /* SignUpInfoViewController.swift in Sources */,
+				0E1016E6236418FB00C1CEA0 /* SignUpReviewViewController.swift in Sources */,
 				0EA632C4223A9B1F000FC7CF /* AppDelegate.swift in Sources */,
 				0EA632E1223AA366000FC7CF /* UIFontExtension.swift in Sources */,
+				0E0EAA1D2396B5DA00F3452C /* MainViewController.swift in Sources */,
+				0E1016E2236418AC00C1CEA0 /* SignUpSetPassViewController.swift in Sources */,
 				0E2C5C17223FE66E003AAF38 /* ServerURLs.swift in Sources */,
 				0EA632E3223AA584000FC7CF /* Alert.swift in Sources */,
+				0E21158B235C90AF00660F2A /* SignUpAgreementViewController.swift in Sources */,
 				0EA632D8223AA0C9000FC7CF /* UIColorExtension.swift in Sources */,
 				0E2C5C19223FEA76003AAF38 /* NetworkCallback.swift in Sources */,
 			);
