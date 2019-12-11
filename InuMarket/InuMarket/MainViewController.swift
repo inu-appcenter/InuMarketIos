@@ -7,15 +7,25 @@
 //
 
 import UIKit
+import ImageSlideshow
 
 class MainViewController: UIViewController {
+    
+    var data: [[String]] = [["a","b"], ["1", "2", "3"], ["ㄱ", "ㄴ", "ㄷ", "ㄹ"]]
 
     @IBOutlet weak var searchTextField: UITextField!
+    @IBOutlet weak var productCollectionView: UICollectionView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 47, height: 44))
+        searchTextField.font = UIFont.NotoSansCJKKr(type: .regular, size: 16)
+        
+        productCollectionView.dataSource = self
+        productCollectionView.delegate = self
+        productCollectionView.register(ProductListCollectionViewCell.self, forCellWithReuseIdentifier: "ProductListCollectionViewCell")
+        
+        let paddingView: UIView = UIView(frame: CGRect(x: 0, y: 0, width: 48, height: 10))
         searchTextField.leftView = paddingView
         searchTextField.leftViewMode = .always
         // Do any additional setup after loading the view.
@@ -32,4 +42,26 @@ class MainViewController: UIViewController {
     }
     */
 
+}
+
+extension MainViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.frame.width, height: 136)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return 25
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return data.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "ProductListCollectionViewCell", for: indexPath) as! ProductListCollectionViewCell
+        
+        cell.setData(data: data[indexPath.row])
+        
+        return cell
+    }
 }
